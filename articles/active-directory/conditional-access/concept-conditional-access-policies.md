@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 03/17/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28d58c476a805b672a6ec8b4d8ec465eba17e559
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 35d2bf33b4a22c14abfb61a87a3697b05188ed31
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96169688"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579100"
 ---
 # <a name="building-a-conditional-access-policy"></a>Creación de una directiva de acceso condicional
 
@@ -106,6 +106,8 @@ Conceder acceso puede desencadenar la aplicación de uno o más controles.
 - Requerir un dispositivo unido a Azure AD híbrido
 - Requerir aplicación cliente aprobada
 - Requerir la directiva de protección de aplicaciones
+- Requerir cambio de contraseña
+- Requerir condiciones de uso
 
 Los administradores pueden elegir si requerir uno de los controles anteriores o todos los controles seleccionados mediante las opciones siguientes. El valor predeterminado para varios controles es requerirlos todos.
 

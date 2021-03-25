@@ -3,12 +3,12 @@ title: Conexión de ExpressRoute a la puerta de enlace de red virtual
 description: Pasos para conectar ExpressRoute a la puerta de enlace de red virtual.
 ms.topic: include
 ms.date: 12/08/2020
-ms.openlocfilehash: 5f9a565a7662041dbd85e61388129496fa376962
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 6e2e3748dbfd8d69b53dcc4c3a09809756ac48dc
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96861529"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494377"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-configure-networking.md -->
 
@@ -16,7 +16,7 @@ ms.locfileid: "96861529"
 
 1. Copie la clave de autorización. Si no hay ninguna clave de autorización, debe crearla; para ello, seleccione **+ Solicitar una clave de autorización**.
 
-   :::image type="content" source="../media/expressroute-global-reach/start-request-auth-key.png" alt-text="Copie la clave de autorización. Si no hay ninguna clave de autorización, debe crearla; para ello, seleccione + Solicitar una clave de autorización." border="true" lightbox="../media/expressroute-global-reach/start-request-auth-key.png":::
+   :::image type="content" source="../media/expressroute-global-reach/start-request-authorization-key.png" alt-text="Copie la clave de autorización. Si no hay ninguna clave de autorización, debe crearla; para ello, seleccione + Solicitar una clave de autorización." border="true" lightbox="../media/expressroute-global-reach/start-request-authorization-key.png":::
 
 1. Vaya a la puerta de enlace de red virtual que creó en el paso anterior y, en **Configuración**, seleccione **Conexiones**. En la página **Conexiones**, seleccione **+ Agregar**.
 
@@ -31,6 +31,8 @@ ms.locfileid: "96861529"
    | **Clave de autorización**  | Copie y pegue la clave de autorización de la pestaña de ExpressRoute para el grupo de recursos. |
    | **URI de circuito del mismo nivel**  | Copie y pegue el identificador de ExpressRoute de la pestaña de ExpressRoute para el grupo de recursos.  |
 
-   :::image type="content" source="../media/expressroute-global-reach/open-cloud-shell.png" alt-text="En la página Agregar conexión, proporcione valores para los campos y seleccione Aceptar." border="true" lightbox="../media/expressroute-global-reach/open-cloud-shell.png":::
+   :::image type="content" source="../media/expressroute-global-reach/expressroute-add-connection.png" alt-text="Captura de pantalla del panel Agregar conexión para conectar ExpressRoute a la puerta de enlace de red virtual.":::
 
 Se crea la conexión entre el circuito ExpressRoute y la red virtual.
+
+:::image type="content" source="../media/expressroute-global-reach/virtual-network-gateway-connections.png" alt-text="Captura de pantalla de las conexiones de puerta de enlace de red virtual.":::

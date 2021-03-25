@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: jeedes
-ms.openlocfilehash: 23c2b55fd56677a15f444e1b568517bdf1c32c99
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: ad6d5308638b112afe2b51c4e149f876651e429d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102200808"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592530"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Cisco Webex
 
@@ -38,7 +38,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Cisco Webex admite el inicio de sesión único iniciado por **SP**.
-* Cisco Webex admite el [**aprovisionamiento automatizado de usuarios**](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-webex-provisioning-tutorial).
+* Cisco Webex admite el [**aprovisionamiento automatizado de usuarios**](./cisco-webex-provisioning-tutorial.md).
 
 ## <a name="adding-cisco-webex-from-the-gallery"></a>Adición de Cisco Webex desde la galería
 
@@ -159,7 +159,7 @@ En esta sección, va a permitir que B. Simon acceda a Cisco Webex mediante el i
 
 ### <a name="create-cisco-webex-test-user"></a>Creación del usuario de prueba de Cisco Webex
 
-En esta sección, se crea un usuario llamado B. Simon en Cisco WebEx. Esta aplicación admite el aprovisionamiento automático de usuarios, que permite el aprovisionamiento y desaprovisionamiento automáticos en función de las reglas del negocio.  Microsoft recomienda usar el aprovisionamiento automático siempre que sea posible. Consulte cómo habilitar el aprovisionamiento automático para [Cisco WebEx](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-webex-provisioning-tutorial).
+En esta sección, se crea un usuario llamado B. Simon en Cisco WebEx. Esta aplicación admite el aprovisionamiento automático de usuarios, que permite el aprovisionamiento y desaprovisionamiento automáticos en función de las reglas del negocio.  Microsoft recomienda usar el aprovisionamiento automático siempre que sea posible. Consulte cómo habilitar el aprovisionamiento automático para [Cisco WebEx](./cisco-webex-provisioning-tutorial.md).
 
 Si tiene que crear manualmente un usuario, siga los pasos siguientes:
 
@@ -195,7 +195,7 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Acceda directamente a la dirección URL de inicio de sesión de Cisco Webex y ponga en marcha el flujo de inicio de sesión desde allí.
 
-* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Cisco Webex en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de la aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de Cisco Webex en Aplicaciones, se le redirigirá a la dirección URL de inicio de sesión de la aplicación. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

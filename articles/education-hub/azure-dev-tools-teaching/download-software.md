@@ -8,10 +8,10 @@ ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
 ms.openlocfilehash: d556956a4e123d65a5725b56db57b3ce6cbb7aaf
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92675338"
 ---
 # <a name="help-students-download-software-developer-tools-from-the-azure-education-hub"></a>Ayuda a alumnos para descargar herramientas de desarrollo de software desde el Centro de Education de Azure
@@ -26,7 +26,7 @@ Pida a los alumnos que sigan este procedimiento para descargar las herramientas 
 1. Inicie sesión con las credenciales de la suscripción de Azure for Students.
 1. Seleccione cualquiera de las herramientas de desarrollo de software en el Centro de Education para abrir el panel de descarga.
 1. Lea la información de software para asegurarse de que el software sea compatible con el sistema del equipo.
-1. Después de confirmar que el software es compatible con el sistema, seleccione **Descargar** .
+1. Después de confirmar que el software es compatible con el sistema, seleccione **Descargar**.
 1. Siga las instrucciones que aparecen en la pantalla para descargar e instalar el software.
 
    Azure for Students le ofrece un crédito de 100 USD durante 12 meses. Incluye el acceso a más de 25 servicios gratuitos de proceso, red, almacenamiento y bases de datos entre otros. Los cargos en los que se incurra durante este período se deducen del crédito. 

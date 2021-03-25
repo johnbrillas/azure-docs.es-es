@@ -9,12 +9,12 @@ ms.date: 03/01/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: c6d720c3feec29eb32b1cfa9c31ea45839c98ec7
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: e8ad6d072af6979eb8509068c1dcd239e7840950
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176423"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598021"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Administración de bibliotecas para Apache Spark en Azure Synapse Analytics
 Las bibliotecas proporcionan código reutilizable que se puede incluir en los programas o proyectos. 
@@ -60,10 +60,6 @@ Para obtener más información sobre estas funcionalidades, consulta la document
 A menudo, al realizar análisis de datos interactivos o aprendizaje automático, es posible que quiera probar paquetes más recientes o que necesite paquetes que ya no están disponibles en el grupo de Apache Spark. En lugar de actualizar la configuración del grupo, los usuarios ahora pueden usar paquetes de ámbito de sesión para agregar, administrar y actualizar dependencias de sesión.
 
 Los paquetes de ámbito de sesión permiten a los usuarios definir las dependencias de paquetes al inicio de la sesión. Cuando se instala un paquete de ámbito de sesión, solo la sesión actual tiene acceso a los paquetes especificados. Como resultado, estos paquetes de ámbito de sesión no afectarán a otras sesiones u otros trabajos que usen el mismo grupo de Apache Spark. Además, las bibliotecas se instalan sobre el entorno de ejecución base y los paquetes de nivel de grupo. 
-
-Estos paquetes se agregan automáticamente al entorno de Python. Los paquetes no deben mencionarse en el archivo *requirements.txt*.
-
-Tenga en cuenta que este método actualmente solo admite archivos `*.whl`. No agregue archivos `*.tar.gz` al contenedor.
 
 Para obtener más información sobre cómo administrar paquetes de ámbito de sesión, consulte las siguientes guías paso a paso:
 

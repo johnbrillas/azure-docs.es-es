@@ -1,24 +1,14 @@
 ---
 title: Preguntas más frecuentes sobre Defender para IoT
 description: Encuentre respuestas a las preguntas más frecuentes sobre las características y servicios de Azure Defender para IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: rkarlin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/07/2020
-ms.author: rkarlin
-ms.openlocfilehash: 678b50ffb2df2cd16312548109b93f6f1a7f08ff
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.date: 03/02/2021
+ms.openlocfilehash: 0ce8ded3eea344d72679e0f8b805f45b00279b58
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247472"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778600"
 ---
 # <a name="azure-defender-for-iot-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure Defender para IoT
 
@@ -57,23 +47,17 @@ Por ejemplo:
 
 ## <a name="how-does-defender-for-iot-compare-to-the-competition"></a>¿Cómo es Defender para IoT en relación con la competencia?
 
-Mientras que otras soluciones proporcionan un conjunto de funcionalidades que permiten a los clientes crear sus propias soluciones, Defender para IoT proporciona una solución exclusiva e integral de seguridad de IoT que ofrece una amplia visión de la seguridad de todos los recursos de Azure relacionados. Azure permite una implementación rápida y la integración completa en los módulos gemelos de IoT Hub para una fácil integración con las herramientas existentes de administración de dispositivos.
+Azure Defender para IoT ofrece seguridad completa en todos los dispositivos IoT/OT. Para las **organizaciones de usuarios finales**, Azure Defender para IoT ofrece una seguridad de capa de red sin agentes que se implementa rápidamente, funciona con diversos equipos de OT propietarios y sistemas Windows heredados, e interopera con Azure Sentinel y otras herramientas de SOC. Se puede implementar de forma local o en entornos conectados de Azure. En el caso de los **compiladores de dispositivos IoT**, Azure Defender para IoT ofrece agentes ligeros para insertar seguridad de nivel de dispositivo en nuevas iniciativas IoT/OT.
 
+## <a name="do-i-have-to-be-an-azure-customer"></a>¿Tengo que ser cliente de Azure?
 
-## <a name="do-i-have-to-be-an-azure-iot-customer"></a>¿Tengo que ser cliente de Azure IoT?
+No, para la versión sin agente de Azure Defender para IoT no es necesario ser cliente de Azure. Sin embargo, si desea enviar alertas a Azure Sentinel, aprovisionar sensores de red y supervisar su estado desde la nube y beneficiarse de las actualizaciones automáticas de software e inteligencia sobre amenazas, tendrá que conectar el sensor a Azure a través de Azure IoT Hub.
 
-Sí. Para las implementaciones conectadas a la nube, Azure Defender para IoT se basa en la infraestructura y la conectividad de Azure IoT.
+Para la versión basada en agente de Azure Defender para IoT, debe ser cliente de Azure.
+
 ## <a name="can-i-create-my-own-alerts"></a>¿Puedo crear mis propias alertas?
 
-Sí. Puede establecer una alerta personalizada ante un conjunto predeterminado de comportamientos, como direcciones IP y puertos abiertos. Consulte [Creación de alertas personalizadas](quickstart-create-custom-alerts.md) para más información sobre las alertas personalizadas y cómo crearlas.
-
-## <a name="where-can-i-see-logs-can-i-customize-logs"></a>¿Dónde se pueden ver los registros? ¿Se pueden personalizan los registros?
-
-- Consulte las alertas y recomendaciones desde el área de trabajo de Log Analytics conectada. Configure el tamaño y la duración de almacenamiento en el área de trabajo.
-
-- Los datos sin procesar del agente de seguridad también pueden almacenarse en su cuenta de Log Analytics. Tenga en cuenta el tamaño, la duración, los requisitos de almacenamiento y los costos asociados antes de cambiar la configuración de esta opción.
-
-
+Sí, puede crear alertas personalizadas basadas en varios parámetros, como la dirección IP/MAC, el tipo de protocolo, la clase, el servicio, la función, el comando, etc., así como los valores de las etiquetas personalizadas contenidas en las cargas.  Consulte [Creación de alertas personalizadas](quickstart-create-custom-alerts.md) para más información sobre las alertas personalizadas y cómo crearlas.
 
 ## <a name="what-happens-when-the-internet-connection-stops-working"></a>¿Qué ocurre cuando la conexión a Internet deja de funcionar?
 

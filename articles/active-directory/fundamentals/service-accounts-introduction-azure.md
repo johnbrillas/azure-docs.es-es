@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 049025a5d871f1dd26e5dab498756aa44d2ebfe2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 27353e6086085aadae622e007a38f97e15cbcb7f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692945"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587872"
 ---
 # <a name="introduction-to-securing-azure-service-accounts"></a>Introducción a la protección de cuentas de servicio de Azure
 
@@ -38,13 +38,13 @@ En el caso de los servicios hospedados en Azure, se recomienda usar una identida
 
 ## <a name="managed-identities"></a>Identidades administradas
 
-Las identidades administradas son identidades de Azure Active Directory (Azure AD) seguras creadas para proporcionar identidades para los recursos de Azure. Hay [dos tipos de identidades administradas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types): 
+Las identidades administradas son identidades de Azure Active Directory (Azure AD) seguras creadas para proporcionar identidades para los recursos de Azure. Hay [dos tipos de identidades administradas](../managed-identities-azure-resources/overview.md#managed-identity-types): 
  
 * Las identidades administradas asignadas por el sistema se pueden asignar directamente a una instancia de un servicio. 
 
 * Las identidades administradas asignadas por el usuario se pueden crear como un recurso independiente. 
 
-Para más información, consulte [Protección de identidades administradas](service-accounts-managed-identities.md). Para obtener más información sobre las identidades administradas, consulte [¿Qué son las identidades administradas para recursos de Azure?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+Para más información, consulte [Protección de identidades administradas](service-accounts-managed-identities.md). Para obtener más información sobre las identidades administradas, consulte [¿Qué son las identidades administradas para recursos de Azure?](../managed-identities-azure-resources/overview.md)
 
 ## <a name="service-principals"></a>Entidades de servicio
 
@@ -67,6 +67,3 @@ Para obtener más información sobre la protección de las cuentas de servicio d
 [Protección de entidades de servicio](service-accounts-principal.md)
 
 [Gobernanza de las cuentas de servicio de Azure](service-accounts-governing-azure.md)
-
-
-

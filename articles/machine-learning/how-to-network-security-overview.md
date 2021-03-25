@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: fcb678efe29178784c9233e79b307f705c40e3f7
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 1c3d9b286a8262efa126ba9c661c50dd88e78b64
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102518691"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103573479"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Información general sobre la privacidad y el aislamiento de la red virtual
 
@@ -36,7 +36,6 @@ En este artículo se da por hecho que está familiarizado con los siguientes tem
 + [Azure Private Link](how-to-configure-private-link.md)
 + [Grupos de seguridad de red (NSG)](../virtual-network/network-security-groups-overview.md)
 + [Firewalls de red](../firewall/overview.md)
-
 ## <a name="example-scenario"></a>Escenario de ejemplo
 
 En esta sección, aprenderá cómo se configura un escenario de red común para proteger la comunicación de Azure Machine Learning con las direcciones IP privadas.
@@ -62,8 +61,8 @@ En las cinco secciones siguientes se muestra cómo proteger el escenario de red 
 1. Proteger el [**entorno de entrenamiento**](#secure-the-training-environment).
 1. Proteger el [**entorno de inferencia**](#secure-the-inferencing-environment).
 1. Opcional: [**habilitar la funcionalidad de Studio**](#optional-enable-studio-functionality).
-1. [**Configurar el firewall**](#configure-firewall-settings).
-
+1. Configurar el [**firewall**](#configure-firewall-settings).
+1. Configurar la [resolución de nombres DNS](#custom-dns).
 ## <a name="secure-the-workspace-and-associated-resources"></a>Proteger el área de trabajo y los recursos asociados
 
 Realice los pasos siguientes para proteger el área de trabajo y los recursos asociados. Estos pasos permiten que los servicios se comuniquen en la red virtual.
@@ -186,3 +185,5 @@ Este artículo es la primera parte de una serie de cinco capítulos sobre redes 
 * [Parte 3: Protección del entorno de entrenamiento](how-to-secure-training-vnet.md)
 * [Parte 4: Protección del entorno de inferencia](how-to-secure-inferencing-vnet.md)
 * [Parte 5: Habilitación de la funcionalidad de Studio](how-to-enable-studio-virtual-network.md)
+
+Consulte también el artículo sobre el uso de [DNS personalizado](how-to-custom-dns.md) para la resolución de nombres.

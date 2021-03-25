@@ -11,12 +11,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 327673d0765fa807f782494562c995278be4782f
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 6a2c6495ca3685aec1bc132ec7f8a88809ad2d87
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955300"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598293"
 ---
 # <a name="live-streaming-scenario-based-migration-guidance"></a>Guía de migración basada en escenarios de streaming en vivo
 
@@ -42,7 +42,7 @@ Pruebe la nueva forma de entregar eventos en directo con Media Services antes de
 - Si necesita del inicio rápido de eventos en directo, explore las nuevas características de [modo de espera](live-events-outputs-concept.md#standby-mode).
 - Si quiere transcribir su evento en directo mientras sucede, explore la nueva característica [transcripción en directo](live-transcription.md).
 - Cree eventos en directo ininterrumpidos en v3 si necesita un streaming de mayor duración.
-- Use [Event Grid](monitor-events-portal-how-to.md) para supervisar los eventos en directo.
+- Use [Event Grid](monitoring/monitor-events-portal-how-to.md) para supervisar los eventos en directo.
 
 Consulte los conceptos, tutoriales y guías de procedimientos de eventos en directo a continuación para conocer los pasos específicos.
 

@@ -13,10 +13,10 @@ ms.date: 10/21/2020
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.openlocfilehash: 74321bc75fa760727e7896f47cdfc5b2929047e5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92366095"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Marco de consentimiento de Azure Active Directory
@@ -54,7 +54,7 @@ Los siguientes pasos muestran cómo funciona la experiencia de consentimiento pa
     **Para consentir los permisos delegados de una aplicación**
 
    1. Vaya a la página **Permisos de API** de la aplicación.
-   1. Haga clic en el botón **Conceder consentimiento de administrador** .
+   1. Haga clic en el botón **Conceder consentimiento de administrador**.
 
       ![Concesión de permisos para el consentimiento explícito del administrador](./media/consent-framework/grant-consent.png)
 

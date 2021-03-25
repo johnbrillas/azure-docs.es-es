@@ -11,10 +11,10 @@ services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.openlocfilehash: 92f5c900238fc5d40e22870e2f00f8adeb5d335f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102032201"
 ---
 # <a name="azure-arc-enabled-managed-instance-high-availability"></a>Alta disponibilidad de Instancia administrada habilitada para Azure Arc
@@ -29,7 +29,7 @@ Kubernetes proporciona una alta disponibilidad integrada cuando se configura el 
 
 En esta sección, comprobará la alta disponibilidad integrada que proporciona Kubernetes. Cuando siga los pasos para probar esta funcionalidad, elimine el pod de una instancia administrada existente y compruebe que Kubernetes se recupera de esta acción. 
 
-### <a name="prerequisites"></a>Prerrequisitos
+### <a name="prerequisites"></a>Requisitos previos
 
 - El clúster de Kubernetes debe tener [almacenamiento remoto compartido](storage-configuration.md#factors-to-consider-when-choosing-your-storage-configuration). 
 - Una Instancia administrada habilitada para Azure Arc implementada con una réplica (valor predeterminado)

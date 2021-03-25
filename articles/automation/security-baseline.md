@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 55440c3bec940e0cd5fd4c4d644801e7012b5e95
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6ab310681ae7b63cb4e9f4e07984983727ae5ff2
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101701490"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953925"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Base de referencia de seguridad de Azure para Automation
 
@@ -40,7 +40,7 @@ Para obtener más aislamiento para los runbooks, puede usar instancias de Hybrid
 
 - [Implementación y configuración de Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Entorno de ejecución de runbooks](https://docs.microsoft.com/azure/automation/automation-runbook-execution#runbook-execution-environment)
+- [Entorno de ejecución de runbooks](./automation-runbook-execution.md#runbook-execution-environment)
 
 **Responsabilidad**: Customer
 
@@ -132,7 +132,7 @@ También puede usar Azure Blueprints para simplificar las implementaciones de Az
 
 - [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Ejemplos de Azure Policy para redes](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network)
+- [Ejemplos de Azure Policy para redes](../governance/policy/samples/built-in-policies.md#network)
 
 - [Creación de un plano técnico de Azure](../governance/blueprints/create-blueprint-portal.md)
 
@@ -162,9 +162,9 @@ Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones en
 
 **Instrucciones**: Use el registro de actividad de Azure para supervisar las configuraciones de recursos y detectar cambios en los recursos de red. Cree alertas en Azure Monitor que se desencadenarán cuando se produzcan cambios en los recursos críticos.
 
-- [Visualización y recuperación de eventos del registro de actividad de Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Creación de alertas en Azure Monitor](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Creación de alertas en Azure Monitor](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Responsabilidad**: Customer
 
@@ -182,7 +182,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings)
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Introducción a Azure Monitor e integración con herramienta SIEM de terceros](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -202,9 +202,9 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 **Guía**: Habilite Azure Monitor para el acceso a los registros de auditoría y actividad que incluyen el origen del evento, la fecha, el usuario, la marca de tiempo, las direcciones de origen y de destino, y otros elementos útiles. 
 
-- [Recopilación de registros y métricas de plataforma con Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings) 
+- [Recopilación de registros y métricas de plataforma con Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Visualización y recuperación de eventos del registro de actividad de Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Responsabilidad**: Customer
 
@@ -214,9 +214,9 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 **Instrucciones**: En Azure Monitor, establezca el período de retención del área de trabajo de Log Analytics de acuerdo con la normativa de cumplimiento de su organización. Use cuentas de Azure Storage para el almacenamiento de archivos a largo plazo.
 
-- [Cambio del período de retención de datos en Log Analytics](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Cambio del período de retención de datos en Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Detalles de retención de datos para cuentas de Automation](https://docs.microsoft.com/azure/automation/automation-managing-data#data-retention)
+- [Detalles de retención de datos para cuentas de Automation](./automation-managing-data.md#data-retention)
 
 **Responsabilidad**: Customer
 
@@ -230,9 +230,9 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 - [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Descripción de las consultas de registro en Azure Monitor](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Descripción de las consultas de registro en Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Procedimiento para realizar consultas personalizadas en Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [Procedimiento para realizar consultas personalizadas en Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Responsabilidad**: Customer
 
@@ -248,7 +248,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel.
 
 - [Administración de alertas de seguridad en Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Alerta sobre datos de registro de Azure Monitor](/azure/azure-monitor/learn/tutorial-response)
+- [Alerta sobre datos de registro de Azure Monitor](../azure-monitor/alerts/tutorial-response.md)
 
 **Responsabilidad**: Customer
 
@@ -296,7 +296,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel.
 
 También puede habilitar el acceso Just-in-Time/Just-Enough usando roles con privilegios de Privileged Identity Management de Azure Active Directory (Azure AD) para los servicios de Microsoft y Azure Resource Manager.
 
-- [Más información acerca de Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
+- [Más información acerca de Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 - [Eliminación de una cuenta de ejecución o de ejecución clásica](delete-run-as-account.md)
 
@@ -352,7 +352,7 @@ También puede habilitar el acceso Just-in-Time/Just-Enough usando roles con pri
 
 - [Integración de los registros de actividad de Azure en Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Configuración de grupos de acciones para alertas y notificaciones personalizadas](/azure/azure-monitor/platform/action-groups)
+- [Configuración de grupos de acciones para alertas y notificaciones personalizadas](../azure-monitor/alerts/action-groups.md)
 
 **Responsabilidad**: Customer
 
@@ -374,7 +374,7 @@ También puede habilitar el acceso Just-in-Time/Just-Enough usando roles con pri
 
 - [Procedimiento para crear y configurar una instancia de Azure AD](../active-directory-domain-services/tutorial-create-instance.md)
 
-- [Uso de la autenticación de runbooks con identidades administradas](https://docs.microsoft.com/azure/automation/automation-hrw-run-runbooks#runbook-auth-managed-identities)
+- [Uso de la autenticación de runbooks con identidades administradas](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities)
 
 **Responsabilidad**: Customer
 
@@ -384,7 +384,7 @@ También puede habilitar el acceso Just-in-Time/Just-Enough usando roles con pri
 
 **Instrucciones**: Azure Active Directory (Azure AD) proporciona registros para ayudar a descubrir cuentas obsoletas. Además, use las revisiones de acceso de identidad de Azure para administrar de forma eficiente las pertenencias a grupos, el acceso a las aplicaciones empresariales y las asignaciones de roles. El acceso de los usuarios se puede revisar de forma periódica para asegurarse de que solo las personas adecuadas tengan acceso continuado. Siempre que use cuentas de ejecución de la cuenta de Automation para los runbooks, asegúrese de que estas entidades de servicio también se siguen en el inventario, ya que a menudo tienen permisos elevados. Elimine las cuentas de ejecución no utilizadas para minimizar la superficie expuesta a ataques.
 
-- [Descripción de los informes de Azure AD](/azure/active-directory/reports-monitoring/)
+- [Descripción de los informes de Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Procedimiento para usar las revisiones de acceso de identidad de Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -398,7 +398,7 @@ También puede habilitar el acceso Just-in-Time/Just-Enough usando roles con pri
 
 ### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3.11: Supervisión de los intentos de acceso a credenciales desactivadas
 
-**Guía**: Tiene acceso a los orígenes de registro de eventos de riesgo, auditoría y actividad de inicio de sesión de Azure Active Directory (Azure AD), que permiten la integración en cualquier herramienta SIEM o supervisión.
+**Guía**: Tiene acceso a los orígenes de registro de eventos de riesgo, auditoría y actividad de sesión de Azure Active Directory (Azure AD), que permiten la integración en cualquier herramienta SIEM o de supervisión.
 
 Para simplificar este proceso, cree una configuración de diagnóstico para las cuentas de usuario de Azure AD y envíe los registros de auditoría y de inicio de sesión a un área de trabajo de Log Analytics. Puede configurar las alertas deseadas en el área de trabajo de Log Analytics.
 
@@ -412,7 +412,7 @@ Para simplificar este proceso, cree una configuración de diagnóstico para las 
 
 **Guía**: Use las características de protección de riesgos e identidad de Azure Active Directory (Azure AD) para configurar las respuestas automatizadas a las acciones sospechosas detectadas relacionadas con las identidades de los usuarios para el recurso de red. También puede hacer que Azure Sentinel ingiera los datos para investigarlos más.
 
-- [Visualización de los inicios de sesión de riesgo de Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Visualización de los inicios de sesión de riesgo de Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Configuración y habilitación de las directivas de riesgo de protección de identidad](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -488,7 +488,7 @@ En el caso de la plataforma subyacente administrada por Microsoft, Microsoft tra
 
 Siga las recomendaciones de Azure Security Center para el cifrado en reposo y el cifrado en tránsito, si procede.
 
-- [Descripción del cifrado en tránsito con Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+- [Descripción del cifrado en tránsito con Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
 - [Aplicación de TLS 1.2 para Azure Automation](../active-directory/hybrid/reference-connect-tls-enforcement.md)
 
@@ -510,7 +510,7 @@ Siga las recomendaciones de Azure Security Center para el cifrado en reposo y el
 
 - [Configuración de Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
-- [Permisos del runbook para una instancia de Hybrid Runbook Worker](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker#runbook-permissions-for-a-hybrid-runbook-worker)
+- [Permisos del runbook para una instancia de Hybrid Runbook Worker](./automation-hybrid-runbook-worker.md#runbook-permissions-for-a-hybrid-runbook-worker)
 
 - [Administración de seguridad y permisos de roles](automation-role-based-access-control.md)
 
@@ -538,13 +538,13 @@ Al usar instancias de Hybrid Runbook Worker, los discos virtuales de las máquin
 
 - [Azure Disk Encryption para máquinas virtuales Windows](../virtual-machines/windows/disk-encryption-overview.md)
 
-- [Uso de las claves administradas por el cliente para una cuenta de Automation](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+- [Uso de las claves administradas por el cliente para una cuenta de Automation](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
 - [Variables administradas en Azure Automation](shared-resources/variables.md)
 
 **Responsabilidad**: Customer
 
-**Supervisión de Azure Security Center**: [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) es la iniciativa de directiva predeterminada de Security Center y es la base de [sus recomendaciones](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Security Center habilita automáticamente las definiciones de Azure Policy relacionadas con este control. Puede que las alertas relacionadas con este control requieran un plan de [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) para los servicios relacionados.
+**Supervisión de Azure Security Center**: [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) es la iniciativa de directiva predeterminada de Security Center y es la base de sus [recomendaciones](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). Security Center habilita automáticamente las definiciones de Azure Policy relacionadas con este control. Puede que las alertas relacionadas con este control requieran un plan de [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) para los servicios relacionados.
 
 **Definiciones integradas de Azure Policy: Microsoft.Automation**:
 
@@ -554,9 +554,9 @@ Al usar instancias de Hybrid Runbook Worker, los discos virtuales de las máquin
 
 **Guía**: Use Azure Monitor con el registro de actividad de Azure para crear alertas para cuando se produzcan cambios en los recursos críticos de Azure, como componentes de red, cuentas de Azure Automation y runbooks. 
 
-- [Registros de diagnóstico de un grupo de seguridad de red](https://docs.microsoft.com/azure/private-link/private-link-overview#logging-and-monitoring)
+- [Registros de diagnóstico de un grupo de seguridad de red](../private-link/private-link-overview.md#logging-and-monitoring)
 
-- [Creación de alertas para los eventos del registro de actividad de Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilidad**: Customer
 
@@ -689,7 +689,7 @@ Además, use Azure Resource Graph para consultar o detectar recursos dentro de l
 
 - [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Denegación de un tipo de recurso específico con Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Denegación de un tipo de recurso específico con Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsabilidad**: Customer
 
@@ -771,7 +771,7 @@ También puede usar las recomendaciones de Azure Security Center como línea de 
 
 - [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Uso de alias](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [Uso de alias](../governance/policy/concepts/definition-structure.md#aliases)
 
 - [Complementos de ejemplo de Azure Policy para Azure Automation](policy-reference.md)
 
@@ -831,7 +831,7 @@ Use la característica de integración del control de código fuente para manten
 
 - [Creación de una copia de seguridad de las claves del almacén de claves en Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey)
 
-- [Uso de las claves administradas por el cliente para una cuenta de Automation](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+- [Uso de las claves administradas por el cliente para una cuenta de Automation](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
 - [Uso de la integración del control de código fuente](source-control-integration.md)
 
@@ -857,9 +857,9 @@ Use la característica de integración del control de código fuente para manten
 
 - [Creación de una copia de seguridad de las claves del almacén de claves en Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey)
 
-- [Uso de las claves administradas por el cliente para una cuenta de Automation](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+- [Uso de las claves administradas por el cliente para una cuenta de Automation](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
-- [Copia de seguridad de datos de Azure para cuentas de Automation](https://docs.microsoft.com/azure/automation/automation-managing-data#data-backup)
+- [Copia de seguridad de datos de Azure para cuentas de Automation](./automation-managing-data.md#data-backup)
 
 **Responsabilidad**: Customer
 
@@ -873,7 +873,7 @@ Use la característica de integración del control de código fuente para manten
 
 - [Restauración de las claves del almacén de claves en Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey)
 
-- [Uso de las claves administradas por el cliente para una cuenta de Automation](https://docs.microsoft.com/azure/automation/automation-secure-asset-encryption#use-of-customer-managed-keys-for-an-automation-account)
+- [Uso de las claves administradas por el cliente para una cuenta de Automation](./automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account)
 
 **Responsabilidad**: Customer
 
@@ -987,5 +987,5 @@ Además, marque claramente las suscripciones (por ejemplo, producción, no produ
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte la [Información general sobre Azure Security Benchmark V2](/azure/security/benchmarks/overview).
-- Obtenga más información sobre las [líneas de base de seguridad de Azure](/azure/security/benchmarks/security-baselines-overview).
+- Consulte la [Información general sobre Azure Security Benchmark V2](../security/benchmarks/overview.md).
+- Obtenga más información sobre las [líneas de base de seguridad de Azure](../security/benchmarks/security-baselines-overview.md).

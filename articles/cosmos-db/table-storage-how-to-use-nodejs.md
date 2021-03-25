@@ -10,10 +10,10 @@ author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-js
 ms.openlocfilehash: 2d40b70d49b1934c9dd2d911369245b1b2e4f2ff
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93079716"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Uso de Azure Table Storage o Table API de Azure Cosmos DB desde Node.js
@@ -133,10 +133,10 @@ var tableSvc = azure.createTableService().withFilter(retryOperations);
 
 ## <a name="add-an-entity-to-a-table"></a>Adición de una entidad a una tabla
 
-Para agregar una entidad, primero cree un objeto que defina las propiedades de la entidad. Todas las entidades tienen que contener un valor para **PartitionKey** y **RowKey** , que son identificadores únicos de la entidad.
+Para agregar una entidad, primero cree un objeto que defina las propiedades de la entidad. Todas las entidades tienen que contener un valor para **PartitionKey** y **RowKey**, que son identificadores únicos de la entidad.
 
-* **PartitionKey** : determina la partición en la que se almacena la entidad.
-* **RowKey** : identifica de manera única la entidad dentro de la partición.
+* **PartitionKey**: determina la partición en la que se almacena la entidad.
+* **RowKey**: identifica de manera única la entidad dentro de la partición.
 
 Tanto **PartitionKey** como **RowKey** tiene que ser valores de cadena. Para obtener más información, consulte [Descripción del modelo de datos del servicio Tabla](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
@@ -261,15 +261,15 @@ En las operaciones por lotes realizadas correctamente, `result` contiene informa
 
 Puede inspeccionar las operaciones agregadas a un lote mediante la visualización de la propiedad `operations`. También se pueden usar los siguientes métodos para trabajar con operaciones.
 
-* **clear** : borra todas las operaciones de un lote.
-* **getOperations** : obtiene una operación del lote.
-* **hasOperations** : devuelve true si el lote contiene operaciones.
-* **removeOperations** : quita una operación.
-* **size** : devuelve el número de operaciones del lote.
+* **clear**: borra todas las operaciones de un lote.
+* **getOperations**: obtiene una operación del lote.
+* **hasOperations**: devuelve true si el lote contiene operaciones.
+* **removeOperations**: quita una operación.
+* **size**: devuelve el número de operaciones del lote.
 
 ## <a name="retrieve-an-entity-by-key"></a>Recuperación de una entidad por clave
 
-Para devolver una entidad específica basada en los valores de **PartitionKey** y **RowKey** , use el método **retrieveEntity**.
+Para devolver una entidad específica basada en los valores de **PartitionKey** y **RowKey**, use el método **retrieveEntity**.
 
 ```javascript
 tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
@@ -285,12 +285,12 @@ Después de completar esta operación, `result` contiene la entidad.
 
 Para consultar una tabla, use el objeto **TableQuery** para compilar una expresión de consulta mediante las siguientes cláusulas:
 
-* **select** : son los campos que va a devolver la consulta.
-* **where** : la cláusula where.
+* **select**: son los campos que va a devolver la consulta.
+* **where**: la cláusula where.
 
-  * **and** : es una condición where `and`.
-  * **or** : es una condición where `or`.
-* **top** : es el número de elementos que se obtendrán.
+  * **and**: es una condición where `and`.
+  * **or**: es una condición where `or`.
+* **top**: es el número de elementos que se obtendrán.
 
 En el siguiente ejemplo se crea una consulta que devuelve los cinco elementos principales con un valor de PartitionKey de "hometasks".
 

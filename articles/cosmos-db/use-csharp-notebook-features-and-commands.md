@@ -9,10 +9,10 @@ ms.date: 05/19/2020
 ms.author: dech
 ms.custom: devx-track-python, devx-track-csharp
 ms.openlocfilehash: 67fe71d8e2d6ab239989cb30e9bf5a1b4d731037
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93340488"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-c-notebooks-preview"></a>Uso de los comandos y las características de cuadernos integrados en cuadernos en C# de Azure Cosmos DB (versión preliminar)
@@ -115,7 +115,7 @@ for (int i = 0; i < 5; i++) {
 ## <a name="use-built-in-nteract-data-explorer"></a>Uso del explorador de datos nteract integrado
 Puede usar el [explorador de datos integrado nteract](https://blog.nteract.io/designing-the-nteract-data-explorer-f4476d53f897) para filtrar y visualizar una colección de elementos. En una celda, coloque la variable que quiera visualizar en la última línea, que se muestra automáticamente en nteract al ejecutar la celda.
 
-En el ejemplo *GetingStarted_Csharp.ipynb* , podemos imprimir la variable con nuestro resultado: ``telemetryEvents``. Puede consultar toda la muestra en el [cuaderno GettingStarted_Csharp.ipynb](https://github.com/Azure-Samples/cosmos-notebooks/blob/master/CSharp_quickstarts/GettingStarted_CSharp.ipynb). 
+En el ejemplo *GetingStarted_Csharp.ipynb*, podemos imprimir la variable con nuestro resultado: ``telemetryEvents``. Puede consultar toda la muestra en el [cuaderno GettingStarted_Csharp.ipynb](https://github.com/Azure-Samples/cosmos-notebooks/blob/master/CSharp_quickstarts/GettingStarted_CSharp.ipynb). 
 
 :::image type="content" source="media/use-notebook-features-and-commands/csharp-query-cell.png" alt-text="Celda de consulta de CSharp":::
 

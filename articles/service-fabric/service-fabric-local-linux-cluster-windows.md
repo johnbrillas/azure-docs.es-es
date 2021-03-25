@@ -4,10 +4,10 @@ description: En este artículo se explica cómo configurar los clústeres Linux 
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.openlocfilehash: 7b25a84e76773baea9f17430df1b7ba13aa661aa
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93087084"
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Configuración de un clúster Linux de Service Fabric en la máquina del desarrollador de Windows
@@ -51,7 +51,7 @@ Para configurar un contenedor de Docker local y hacer que un clúster de Service
     docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u18
     ```
 
-    <b>Ubuntu 16.04 LTS:</b>
+    <b>Ubuntu 16.04 LTS:</b>
     ```powershell
     docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u16
     ```
@@ -66,7 +66,7 @@ Para configurar un contenedor de Docker local y hacer que un clúster de Service
     En un directorio nuevo, cree un archivo denominado `Dockerfile` para crear la imagen personalizada:
 
     >[!NOTE]
-    >Dicha imagen se puede adaptar con un Dockerfile para agregar programas o dependencias al contenedor.
+    >Puede adaptar esa imagen con un Dockerfile para agregar programas o dependencias al contenedor.
     >Por ejemplo, si se agrega `RUN apt-get install nodejs -y`, será posible usar aplicaciones `nodejs` como ejecutables de invitado.
     ```Dockerfile
     FROM mcr.microsoft.com/service-fabric/onebox:u18
@@ -125,7 +125,7 @@ Para configurar un contenedor de Docker local y hacer que un clúster de Service
  A continuación se muestran limitaciones conocidas del clúster local que se ejecuta en un contenedor para dispositivos Mac: 
  
  * El servicio DNS no se ejecuta y actualmente no se admite dentro del contenedor. [Problema n.° 132](https://github.com/Microsoft/service-fabric/issues/132)
- * La ejecución de aplicaciones basadas en contenedores requiere que se ejecute SF en un host de Linux. Actualmente no se admiten aplicaciones de contenedor anidadas.
+ * La ejecución de aplicaciones basadas en contenedores requiere la ejecutar SF en un host de Linux. Actualmente no se admiten aplicaciones de contenedor anidadas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Creación e implementación de la primera aplicación de Java para Service Fabric en Linux con Yeoman](service-fabric-create-your-first-linux-application-with-java.md)

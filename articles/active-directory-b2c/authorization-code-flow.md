@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 10444974cf31b95fccd2d11aef20bfd57fab7939
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: a6a993fdf4fd266afb9459fedd13412d8796e0a5
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275288"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102611511"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Flujo de código de autorización de OAuth 2.0 en Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ Puede usar la concesión de un código de autorización de OAuth 2.0 en las apli
 
 El flujo de código de autorización de OAuth 2.0 se describe en la [sección 4.1 de la especificación de OAuth 2.0](https://tools.ietf.org/html/rfc6749). Puede usarlo para llevar a cabo la autenticación y la autorización en la mayoría de los [tipos de aplicación](application-types.md), incluidas las aplicaciones web, las aplicaciones de página única y las aplicaciones instaladas de forma nativa. Puede usar el flujo de código de autorización de OAuth 2.0 para adquirir de forma segura tokens de acceso y tokens de actualización para las aplicaciones, que se pueden usar para acceder a recursos protegidos por un [servidor de autorización](protocols-overview.md).  El token de actualización permite que el cliente adquiera nuevos tokens de acceso (y de actualización) cuando expira el token de acceso, normalmente al cabo de una hora.
 
-Este artículo se centra en el flujo de código de autorización de OAuth 2.0 de **clientes públicos** . Un cliente público es cualquier aplicación cliente que no es de confianza para mantener la integridad de una contraseña secreta de forma segura. Esto incluye las aplicaciones de página única, las aplicaciones móviles, las aplicaciones de escritorio y prácticamente cualquier aplicación que no se ejecute en un servidor.
+Este artículo se centra en el flujo de código de autorización de OAuth 2.0 de **clientes públicos**. Un cliente público es cualquier aplicación cliente que no es de confianza para mantener la integridad de una contraseña secreta de forma segura. Esto incluye las aplicaciones de página única, las aplicaciones móviles, las aplicaciones de escritorio y prácticamente cualquier aplicación que no se ejecute en un servidor.
 
 > [!NOTE]
 > Para agregar la administración de identidades a una aplicación web mediante Azure AD B2C, use [OpenID Connect](openid-connect.md) en lugar de OAuth 2.0.
@@ -39,7 +39,7 @@ Para probar las solicitudes HTTP en este artículo, haga lo siguiente:
 
 ## <a name="redirect-uri-setup-required-for-single-page-apps"></a>Configuración del URI de redireccionamiento requerida para aplicaciones de página única
 
-El flujo de código de autorización para aplicaciones de página única requiere configuración adicional.  Siga las instrucciones para [crear la aplicación de una sola página](tutorial-register-spa.md) para marcar correctamente el URI de redireccionamiento como habilitado para CORS. Para actualizar un URI de redirección existente para habilitar CORS, puede hacer clic en la solicitud de migración en la sección "Web" de la pestaña **Autenticación** del **Registro de aplicación** . Como alternativa, puede abrir el **editor de manifiestos de registros de aplicaciones** y establecer el campo `type` para el URI de redirección en `spa` en la sección `replyUrlsWithType`.
+El flujo de código de autorización para aplicaciones de página única requiere configuración adicional.  Siga las instrucciones para [crear la aplicación de una sola página](tutorial-register-spa.md) para marcar correctamente el URI de redireccionamiento como habilitado para CORS. Para actualizar un URI de redirección existente para habilitar CORS, puede hacer clic en la solicitud de migración en la sección "Web" de la pestaña **Autenticación** del **Registro de aplicación**. Como alternativa, puede abrir el **editor de manifiestos de registros de aplicaciones** y establecer el campo `type` para el URI de redirección en `spa` en la sección `replyUrlsWithType`.
 
 El tipo de redireccionamiento `spa` es compatible con las versiones anteriores del flujo implícito. Las aplicaciones que usan actualmente el flujo implícito para obtener tokens pueden moverse al tipo de URI de redireccionamiento `spa` sin problemas y seguir usando el flujo implícito.
 
@@ -72,6 +72,9 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | símbolo del sistema |Opcional |El tipo de interacción necesaria con el usuario. Actualmente, el único valor válido es `login`, que obliga al usuario a escribir sus credenciales en esa solicitud. El inicio de sesión único no surtirá efecto. |
 | code_challenge  | recomendado/requerido | Se usa para proteger concesiones de código de autorización a través de la clave de prueba para intercambio de códigos (PKCE). Se requiere si se incluye `code_challenge_method`. Para obtener más información, consulte [PKCE RFC](https://tools.ietf.org/html/rfc7636). Ahora se recomienda para todos los tipos de aplicación: aplicaciones nativas; aplicaciones de página única; y clientes confidenciales, como aplicaciones web. | 
 | `code_challenge_method` | recomendado/requerido | Método utilizado para codificar `code_verifier` para el parámetro `code_challenge`. Este *DEBERÍA* ser `S256`, pero la especificación permite utilizar `plain` si por alguna razón el cliente no admite SHA256. <br/><br/>Si se excluye, se supone que `code_challenge` es texto no cifrado si se incluye `code_challenge`. La Plataforma de identidad de Microsoft admite tanto `plain` como `S256`. Para obtener más información, consulte [PKCE RFC](https://tools.ietf.org/html/rfc7636). Esto es necesario para las [aplicaciones de página única que usan el flujo de código de autorización](tutorial-register-spa.md).|
+| login_hint | No| Se puede usar para rellenar previamente el campo de nombre de inicio de sesión de la página de inicio de sesión. Para más información, consulte [Rellenar previamente el nombre de inicio de sesión](direct-signin.md#prepopulate-the-sign-in-name).  |
+| domain_hint | No| Proporciona una sugerencia a Azure AD B2C acerca del proveedor de identidades sociales que debe usarse para iniciar sesión. Si se incluye un valor válido, el usuario va directamente a la página de inicio de sesión del proveedor de identidades.  Para más información, consulte [Redirección del inicio de sesión a un proveedor social](direct-signin.md#redirect-sign-in-to-a-social-provider). |
+| Parámetros personalizados | No| Parámetros personalizados que se pueden usar con [directivas personalizadas](custom-policy-overview.md). Por ejemplo, el [URI de contenido de página personalizada dinámica](customize-ui-with-html.md?pivots=b2c-custom-policy#configure-dynamic-custom-page-content-uri) o los [solucionadores de notificaciones de clave-valor](claim-resolver-overview.md#oauth2-key-value-parameters). |
 
 En este punto, se pedirá al usuario que complete el flujo de trabajo del flujo de usuario. Esto puede implicar que el usuario tenga que escribir su nombre de usuario y contraseña, iniciar sesión con una identidad social, registrarse en el directorio o realizar otros pasos. Las acciones del usuario dependerán de cómo se defina el flujo de usuario.
 

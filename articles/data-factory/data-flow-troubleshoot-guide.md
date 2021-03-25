@@ -6,13 +6,13 @@ author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/11/2020
-ms.openlocfilehash: f8a852a8c4197169061a9c7633f4f363ad057337
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.date: 03/18/2021
+ms.openlocfilehash: 8617c32eac86d8e47678c06e3b028a475b4a5efb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102505807"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593863"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Solución de problemas de los flujos de datos de asignación en Azure Data Factory
 
@@ -26,12 +26,6 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 - **Mensaje**: Data preview, debug, and pipeline data flow execution failed because container does not exist (Error en la ejecución del flujo de datos de la depuración, la canalización y la vista previa de datos porque el contenedor no existe)
 - **Causa**: Un conjunto de datos contiene un contenedor que no existe en el almacenamiento.
 - **Recomendación**: Asegúrese de que el contenedor al que se hace referencia en el conjunto de datos exista o se pueda acceder.
-
-### <a name="error-code-df-executor-systemimplicitcartesian"></a>Código de error: DF-Executor-SystemImplicitCartesian
-
-- **Mensaje**: Implicit cartesian product for INNER join is not supported, use CROSS JOIN instead. Columns used in join should create a unique key for rows. (No se admite el producto cartesiano implícito para la combinación interna; utilice la combinación cruzada en su lugar. Las columnas utilizadas en la combinación deben crear una clave única para las filas).
-- **Causa**: No se admiten los productos cartesianos implícitos para combinaciones internas entre planes lógicos. Si usa columnas de la combinación, cree una clave única con al menos una columna de ambos lados de la relación.
-- **Recomendación**: En el caso de las combinaciones que se basan en la no igualdad, use la combinación cruzada personalizada.
 
 ### <a name="error-code-df-executor-systeminvalidjson"></a>Código de error: DF-Executor-SystemInvalidJson
 
@@ -82,11 +76,6 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 - **Causa**: El tipo de datos para el tipo declarado no es compatible con el valor de parámetro real.
 - **Recomendación**: Compruebe que los valores de parámetro pasados al flujo de datos coinciden con el tipo declarado.
 
-### <a name="error-code-df-executor-columnunavailable"></a>Código de error: DF-Executor-ColumnUnavailable
-- **Mensaje**: el nombre de columna usado en la expresión no está disponible o no es válido
-- **Causa**: Nombre de columna no válido o no disponible usado en una expresión.
-- **Recomendación**: Compruebe los nombres de columna de las expresiones.
-
 ### <a name="error-code-df-executor-parseerror"></a>Código de error: DF-Executor-ParseError
 - **Mensaje**: no puede analizarse la expresión
 - **Causa**: Una expresión generó errores de análisis debido a un formato incorrecto.
@@ -96,29 +85,6 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 - **Mensaje**: Implicit cartesian product for INNER join is not supported, use CROSS JOIN instead. Columns used in join should create a unique key for rows. (No se admite el producto cartesiano implícito para la combinación interna; utilice la combinación cruzada en su lugar. Las columnas utilizadas en la combinación deben crear una clave única para las filas).
 - **Causa**: No se admiten los productos cartesianos implícitos para combinaciones internas entre planes lógicos. Si utiliza columnas en la combinación, cree una clave única.
 - **Recomendación**: En el caso de las combinaciones que se basan en la no igualdad, use la combinación cruzada.
-
-### <a name="error-code-df-executor-systeminvalidjson"></a>Código de error: DF-Executor-SystemInvalidJson
-- **Mensaje**: JSON parsing error, unsupported encoding or multiline (Error de análisis de JSON, codificación no compatible o multilínea)
-- **Causa**: Posibles problemas con el archivo JSON, como codificación no admitida, bytes dañados o uso del origen JSON como un único documento en muchas líneas anidadas.
-- **Recomendación**: Verifique que se admite la codificación del archivo JSON. En la transformación de origen que usa un conjunto de datos JSON, expanda **JSON Settings** (Configuración de JSON) y active **Documento único**.
-
-
-
-### <a name="error-code-df-executor-conversion"></a>Código de error: DF-Executor-Conversion
-- **Mensaje**: Converting to a date or time failed due to an invalid character (Error al realizar la conversión a una fecha o hora porque un carácter no es válido).
-- **Causa**: Los datos no tienen el formato esperado.
-- **Recomendación:** Use el tipo de datos correcto.
-
-
-### <a name="error-code-df-executor-blockcountexceedslimiterror"></a>Código de error: DF-Executor-BlockCountExceedsLimitError
-- **Mensaje**: el recuento de bloques sin confirmar no puede superar el límite máximo de 100 000 bloques. Compruebe la configuración de blobs.
-- **Causa**: El número máximo de bloques sin confirmar en un blob es de 100 000.
-- **Recomendación**: Póngase en contacto con el equipo del producto de Microsoft para obtener más detalles sobre este problema.
-
-### <a name="error-code-df-executor-partitiondirectoryerror"></a>Código de error: DF-Executor-PartitionDirectoryError
-- **Mensaje**: La ruta de origen especificada tiene varios directorios con particiones (por ejemplo, *<Source Path>/<Directorio raíz de la partición 1>/a=10/b=20, <Source Path>/<Directorio raíz de la partición 2>/c=10/d=30*) o un directorio con particiones con otro archivo o directorio sin particiones (por ejemplo, *<Source Path>/<Directorio raíz con particiones 1>/a=10/b=20, <Source Path>/Directorio 2/archivo1*). Quite el directorio raíz con particiones de la ruta de origen y léalo a través de una transformación de origen independiente.
-- **Causa**: La ruta de origen tiene varios directorios con particiones o un directorio con particiones que tiene otro archivo o directorio sin particiones. 
-- **Recomendación**: Quite el directorio raíz con particiones de la ruta de origen y léalo a través de una transformación de origen independiente.
 
 ### <a name="error-code-getcommand-outputasync-failed"></a>Código de error: Error de GetCommand OutputAsync
 - **Mensaje**: Durante la depuración de Data Flow y la vista previa de datos: Error de GetCommand OutputAsync con...
@@ -137,22 +103,10 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 - **Causa**: El nombre de cuenta o la clave de acceso son incorrectos.
 - **Recomendación:** asegúrese de que el nombre de cuenta o la clave de acceso especificados en el servicio vinculado son correctos. 
 
-### <a name="error-code-df-executor-invalidtype"></a>Código de error: DF-Executor-InvalidType
-- **Mensaje**: asegúrese de que el tipo de parámetro coincide con el tipo de valor pasado. Actualmente no se admite el paso de parámetros float desde canalizaciones.
-- **Causa**: El tipo de datos para el tipo declarado no es compatible con el valor de parámetro real. 
-- **Recomendación**: Proporcione los tipos de datos correctos.
-
 ### <a name="error-code-df-executor-columnunavailable"></a>Código de error: DF-Executor-ColumnUnavailable
 - **Mensaje**: El nombre de columna usado en la expresión no está disponible o no es válido.
 - **Causa**: Se usa un nombre de columna no válido o no disponible en una expresión.
 - **Recomendación**: Compruebe los nombres de columna usados en las expresiones.
-
-
-### <a name="error-code-df-executor-parseerror"></a>Código de error: DF-Executor-ParseError
-- **Mensaje**: No puede analizarse la expresión.
-- **Causa**: Una expresión generó errores de análisis debido a un formato incorrecto. 
-- **Recomendación**: Compruebe el formato de la expresión.
-
 
  ### <a name="error-code-df-executor-outofdiskspaceerror"></a>Código de error: DF-Executor-OutOfDiskSpaceError
 - **Mensaje**: Error interno del servidor
@@ -165,36 +119,6 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 - **Causa**: Sin determinar.
 - **Recomendación**: Compruebe la asignación de valores de parámetros en la canalización. Una expresión de parámetros puede contener caracteres no válidos.
 
-### <a name="error-code-df-excel-invalidconfiguration"></a>Código de error: DF-Excel-InvalidConfiguration
-- **Mensaje**: Excel sheet name or index is required (El nombre o el índice de la hoja de Excel es obligatorio).
-- **Causa**: Sin determinar.
-- **Recomendación**: Compruebe el valor del parámetro. Especifique el nombre o el índice de la hoja de cálculo para leer los datos de Excel.
-
-- **Mensaje**: Excel sheet name and index cannot exist at the same time (El nombre y el índice de la hoja de Excel no pueden existir al mismo tiempo).
-- **Causa**: Sin determinar.
-- **Recomendación**: Compruebe el valor del parámetro. Especifique el nombre o el índice de la hoja de cálculo para leer los datos de Excel.
-
-- **Mensaje**: Invalid range is provided (Se proporcionó un intervalo no válido).
-- **Causa**: Sin determinar.
-- **Recomendación**: Compruebe el valor del parámetro. Especifique un intervalo válido por referencia. Para más información, consulte [Propiedades de Excel](./format-excel.md#dataset-properties).
-
-- **Mensaje**: Invalid excel file is provided while only .xlsx and .xls are supported (Se proporcionó un archivo de Excel no válido mientras que solo se admiten .xlsx y .xls)
-- **Causa**: Sin determinar.
-- **Recomendación**: Asegúrese de que la extensión de archivo de Excel sea .xlsx o .xls.
-
-
- ### <a name="error-code-df-excel-invaliddata"></a>Código de error: DF-Excel-InvalidData
-- **Mensaje**: Excel worksheet does not exist (La hoja de cálculo de Excel no existe).
-- **Causa**: Sin determinar.
-- **Recomendación**: Compruebe el valor del parámetro. Especifique un nombre o índice válido de la hoja de cálculo para leer los datos de Excel.
-
-- **Mensaje**: Reading excel files with different schema is not supported now (En este momento no se admite la lectura de archivos de Excel con esquemas diferentes).
-- **Causa**: Sin determinar.
-- **Recomendación**: Use un archivo de Excel compatible.
-
-- **Mensaje**: Tipo de datos no admitido.
-- **Causa**: Sin determinar.
-- **Recomendación**: Use tipos de datos de archivo de Excel compatibles.
 
 ### <a name="error-code-4502"></a>Código de error: 4502
 - **Mensaje**: Hay importantes ejecuciones de MappingDataflow simultáneas que están causando errores debido a la limitación en el entorno de ejecución de integración.
@@ -211,6 +135,206 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 - **Mensaje**: la actividad se estaba ejecutando en Azure Integration Runtime y no pudo descifrar la credencial del almacén de datos o el proceso conectado a través de un entorno de ejecución de integración autohospedado. Compruebe la configuración de los servicios vinculados asociados con esta actividad y asegúrese de usar el tipo de entorno de ejecución de integración adecuado.
 - **Causa**: El flujo de datos no es compatible con los servicios vinculados en los entornos de ejecución de integración autohospedados.
 - **Recomendación**: Configure el flujo de datos para que se ejecute en el entorno de ejecución de integración de red virtual administrada.
+
+### <a name="error-code-df-xml-invalidvalidationmode"></a>Código de error: DF-Xml-InvalidValidationMode
+- **Mensaje**: Se proporciona un modo de validación XML no válido.
+- **Recomendación**: Compruebe el valor del parámetro y especifique el modo de validación adecuado.
+
+### <a name="error-code-df-xml-invaliddatafield"></a>Código de error: DF-Xml-InvalidDataField
+- **Mensaje**: El campo de los registros dañados debe ser de tipo cadena y admitir valores NULL.
+- **Recomendación**: Asegúrese de que la columna `\"_corrupt_record\"` del proyecto de origen tiene un tipo de datos de cadena.
+
+### <a name="error-code-df-xml-malformedfile"></a>Código de error: DF-Xml-MalformedFile
+- **Mensaje**: XML con formato incorrecto en "FailFastMode".
+- **Recomendación**: Actualice el contenido del archivo XML con el formato correcto.
+
+### <a name="error-code-df-xml-invaliddatatype"></a>Código de error: DF-Xml-InvalidDataType
+- **Message**: El elemento XML tiene elementos secundarios o atributos y no se puede convertir.
+
+### <a name="error-code-df-xml-invalidreferenceresource"></a>Código de error: DF-XML-InvalidReferenceResource
+- **Mensaje**: No se puede resolver el recurso de referencia en el archivo de datos XML.
+- **Recomendación**: Debe comprobar el recurso de referencia en el archivo de datos XML.
+
+### <a name="error-code-df-xml-invalidschema"></a>Código de error: DF-Xml-InvalidSchema
+- **Mensaje**: Error en la validación del esquema.
+
+### <a name="error-code-df-xml-unsupportedexternalreferenceresource"></a>Código de error: DF-XML-UnsupportedExternalReferenceResource
+- **Mensaje**: No se admite el recurso de referencia externa en el archivo de datos XML.
+- **Recomendación**: Actualice el contenido del archivo XML cuando el recurso de referencia externa no se admita ahora.
+
+### <a name="error-code-df-gen2-invalidaccountconfiguration"></a>Código de error: DF-GEN2-InvalidAccountConfiguration
+- **Message**: Se debe especificar la clave de cuenta o bien tenant/spnId/spnCredential/spnCredentialType o miServiceUri/miServiceToken.
+- **Recomendación**: Configure la cuenta correcta en el servicio vinculado GEN2.
+
+### <a name="error-code-df-gen2-invalidauthconfiguration"></a>Código de error: DF-GEN2-InvalidAuthConfiguration
+- **Mensaje**: Solo se puede especificar uno de los tres métodos de autenticación (Key, ServicePrincipal y MI). 
+- **Recomendación**: elija el tipo de autenticación adecuado en el servicio vinculado de GEN2.
+
+### <a name="error-code-df-gen2-invalidserviceprincipalcredentialtype"></a>Código de error: DF-GEN2-InvalidServicePrincipalCredentialType
+- **Mensaje**: ServicePrincipalCredentialType no es válido.
+
+### <a name="error-code-df-gen2-invaliddatatype"></a>Código de error: DF-GEN2-InvalidDataType
+- **Mensaje**: el tipo de nube no es válido.
+
+### <a name="error-code-df-blob-invalidaccountconfiguration"></a>Código de error: DF-Blob-InvalidAccountConfiguration
+- **Message**: Se debe especificar la clave de cuenta o sas_token.
+
+### <a name="error-code-df-blob-invalidauthconfiguration"></a>Código de error: DF-BLOB-InvalidAuthConfiguration
+- **Mensaje**: Solo se puede especificar uno de los dos métodos de autenticación (Key, SAS).
+
+### <a name="error-code-df-blob-invaliddatatype"></a>Código de error: DF-Blob-InvalidDataType
+- **Mensaje**: El tipo de nube no es válido.
+
+### <a name="error-code-df-cosmos-partitionkeymissed"></a>Código de error: DF-Cosmos-PartitionKeyMissed
+- **Mensaje**: Se debe especificar la ruta de acceso de la clave de partición para las operaciones de actualización y eliminación.
+- **Recomendación**: Use la clave de partición de que se proporciona en la configuración del receptor de Cosmos.
+
+### <a name="error-code-df-cosmos-invalidpartitionkey"></a>Código de error: DF-Cosmos-InvalidPartitionKey
+- **Mensaje**: La ruta de acceso de la clave de partición no puede estar vacía para las operaciones de actualización y eliminación.
+- **Recomendación**: Use la clave de partición de que se proporciona en la configuración del receptor de Cosmos.
+
+### <a name="error-code-df-cosmos-idpropertymissed"></a>Código de error: DF-Cosmos-IdPropertyMissed
+- **Mensaje**: la propiedad "id" debe estar asignada para operaciones de eliminación y actualización.
+- **Recomendación**: Asegúrese de que los datos de entrada tienen una columna `id` en la configuración del receptor de Cosmos. Si no es así, use **la transformación de selección o derivación** para generar esta columna antes del receptor.
+
+### <a name="error-code-df-cosmos-invalidpartitionkeycontent"></a>Código de error: DF-Cosmos-InvalidPartitionKeyContent
+- **Mensaje**: la clave de partición debe comenzar con /.
+- **Recomendación**: haga que la clave de partición empiece por `/` en la configuración del receptor de Cosmos, por ejemplo: `/movieId`.
+
+### <a name="error-code-df-cosmos-invalidpartitionkey"></a>Código de error: DF-Cosmos-InvalidPartitionKey
+- **Mensaje**: partitionKey no asignado en el receptor para las operaciones de eliminación y actualización.
+- **Recomendación**: en la configuración del receptor de Cosmos, use la clave de partición que es la misma que la clave de partición del contenedor.
+
+### <a name="error-code-df-cosmos-invalidconnectionmode"></a>Código de error: DF-Cosmos-InvalidConnectionMode
+- **Mensaje**: connectionMode no válido.
+- **Recomendación**: confirme que el modo compatible es **Gateway** y **DirectHttps** en configuración de Cosmos.
+
+### <a name="error-code-df-cosmos-invalidaccountconfiguration"></a>Código de error: DF-Cosmos-InvalidAccountConfiguration
+- **Mensaje**: Se debe especificar AccountName o accountEndpoint.
+
+### <a name="error-code-df-github-writenotsupported"></a>Código de error: DF-Github-WriteNotSupported
+- **Mensaje**: El almacén de Github no permite operaciones de escritura.
+
+### <a name="error-code-df-pgsql-invalidcredential"></a>Código de error: DF-PGSQL-InvalidCredential
+- **Mensaje**: Se debe especificar el usuario o la contraseña.
+- **Recomendación**: Asegúrese de que tiene la configuración de credenciales correcta en el servicio vinculado de postgresql relacionado.
+
+### <a name="error-code-df-snowflake-invalidstageconfiguration"></a>Código de error: DF-Snowflake-InvalidStageConfiguration
+- **Mensaje**: Solo se puede usar el tipo de almacenamiento de blobs como ubicación temporal en la operación de lectura y escritura de Snowflake.
+
+### <a name="error-code-df-snowflake-invalidstageconfiguration"></a>Código de error: DF-Snowflake-InvalidStageConfiguration
+- **Mensaje**: Las propiedades del almacenamiento temporal de Snowflake deben especificarse con la autenticación azure blob + sas.
+
+### <a name="error-code-df-snowflake-invaliddatatype"></a>Código de error: DF-copo de nieve-InvalidDataType
+- **Mensaje**: El tipo de Spark no se admite en Snowflake.
+- **Recomendación**: Use la **transformación de derivación** para cambiar la columna relacionada de datos de entrada en el tipo de cadena antes del receptor de Snowflake. 
+
+### <a name="error-code-df-hive-invalidblobstagingconfiguration"></a>Código de error: DF-Hive-InvalidBlobStagingConfiguration
+- **Mensaje**: Se deben especificar las propiedades de almacenamiento provisional de Blob Storage.
+
+### <a name="error-code-df-hive-invalidgen2stagingconfiguration"></a>Código de error: DF-Hive-InvalidGen2StagingConfiguration
+- **Mensaje**: El almacenamiento provisional del almacenamiento de ADLS Gen2 solo admite la credenciales de clave de la entidad de servicio.
+- **Recomendación**: Confirme que aplica la credencial de clave de entidad de servicio en el servicio vinculado ADLS Gen2 que se usa como almacenamiento provisional.
+
+### <a name="error-code-df-hive-invalidgen2stagingconfiguration"></a>Código de error: DF-Hive-InvalidGen2StagingConfiguration
+- **Mensaje**: Se deben especificar las propiedades de almacenamiento provisional de ADLS Gen2. Se requiere la clave o tenant/spnId/spnKey o miServiceUri/miServiceToken.
+- **Recomendación**: Aplique la credencial adecuada que se usa como almacenamiento provisional en el subárbol del servicio vinculado de ADLS Gen2 relacionado. 
+
+### <a name="error-code-df-hive-invaliddatatype"></a>Código de error: DF-Hive-InvalidDataType
+- **Mensaje**: Columnas no admitidas.
+- **Recomendación**: Actualice la columna de datos de entrada para que coincida con el tipo de datos admitido por el subárbol.
+
+### <a name="error-code-df-hive-invalidstoragetype"></a>Código de error: DF-Hive-InvalidStorageType
+- **Mensaje**: El tipo de almacenamiento puede ser blob o gen2.
+
+### <a name="error-code-df-delimited-invalidconfiguration"></a>Código de error: DF-Delimited-InvalidConfiguration
+- **Message**: Se debe especificar una de las líneas vacías o el encabezado personalizado.
+- **Recomendación**: Especifique líneas vacías o encabezados personalizados en la configuración de CSV.
+
+### <a name="error-code-df-delimited-columndelimitermissed"></a>Código de error: DF-Delimited-ColumnDelimiterMissed
+- **Mensaje**: Se requiere un delimitador de columna para el análisis.
+- **Recomendación**: Confirme que tiene el delimitador de columna en la configuración de CSV.
+
+### <a name="error-code-df-mssql-invalidcredential"></a>Código de error: DF-MSSQL-InvalidCredential
+- **Message**: se debe especificar user/pwd o bien tenant/spnId/spnKey o miServiceUri/miServiceToken.
+- **Recomendación**: Aplique las credenciales correctas en el servicio vinculado MSSQL relacionado.
+
+### <a name="error-code-df-mssql-invaliddatatype"></a>Código de error: DF-MSSQL-InvalidDataType
+- **Mensaje**: Campos no admitidos.
+- **Recomendación**: Modifique la columna de datos de entrada para que coincida con el tipo de datos admitido por MSSQL.
+
+### <a name="error-code-df-mssql-invalidauthconfiguration"></a>Código de error: DF-MSSQL-InvalidAuthConfiguration
+- **Mensaje**: Solo se puede especificar uno de los tres métodos de autenticación (Key, ServicePrincipal y MI).
+- **Recomendación**: Solo puede especificar uno de los tres métodos de autenticación (Key, ServicePrincipal and MI) en el servicio vinculado MSSQL relacionado.
+
+### <a name="error-code-df-mssql-invalidcloudtype"></a>Código de error: DF-MSSQL-InvalidCloudType
+- **Mensaje**: El tipo de nube no es válido.
+- **Recomendación**: Compruebe el tipo de nube en el servicio vinculado MSSQL relacionado.
+
+### <a name="error-code-df-sqldw-invalidblobstagingconfiguration"></a>Código de error: DF-SQLDW-InvalidBlobStagingConfiguration
+- **Mensaje**: Se deben especificar las propiedades de almacenamiento provisional de Blob Storage.
+
+### <a name="error-code-df-sqldw-invalidstoragetype"></a>Código de error: DF-SQLDW-InvalidStorageType
+- **Mensaje**: El tipo de almacenamiento puede ser blob o gen2.
+
+### <a name="error-code-df-sqldw-invalidgen2stagingconfiguration"></a>Código de error: DF-SQLDW-InvalidGen2StagingConfiguration
+- **Mensaje**: El almacenamiento provisional del almacenamiento de ADLS Gen2 solo admite la credenciales de clave de la entidad de servicio.
+
+### <a name="error-code-df-sqldw-invalidconfiguration"></a>Código de error: DF-SQLDW-InvalidConfiguration
+- **Mensaje**: Se deben especificar las propiedades de almacenamiento provisional de ADLS Gen2. Se requiere la clave o bien enant/spnId/spnCredential/spnCredentialType o miServiceUri/miServiceToken.
+
+### <a name="error-code-df-delta-invalidconfiguration"></a>Código de error: DF-DELTA-InvalidConfiguration
+- **Mensaje**: No se puede establecer la marca de tiempo y la versión al mismo tiempo.
+
+### <a name="error-code-df-delta-keycolumnmissed"></a>Código de error: DF-DELTA-KeyColumnMissed
+- **Mensaje**: Se deben especificar columnas de clave para las operaciones no insertables.
+
+### <a name="error-code-df-delta-invalidtableoperationsettings"></a>Código de error: DF-DELTA-InvalidTableOperationSettings
+- **Mensaje**: No se pueden especificar las opciones de volver a crear y truncar.
+
+### <a name="error-code-df-excel-worksheetconfigmissed"></a>Código de error: DF-Excel-WorksheetConfigMissed
+- **Mensaje**: Excel sheet name or index is required (El nombre o el índice de la hoja de Excel es obligatorio).
+- **Recomendación**: Compruebe el valor del parámetro y especifique el nombre de la hoja o el índice para leer los datos de Excel.
+
+### <a name="error-code-df-excel-invalidworksheetconfiguration"></a>Código de error: DF-Excel-InvalidWorksheetConfiguration
+- **Mensaje**: Excel sheet name and index cannot exist at the same time (El nombre y el índice de la hoja de Excel no pueden existir al mismo tiempo).
+- **Recomendación**: Compruebe el valor del parámetro y especifique el nombre de la hoja o el índice para leer los datos de Excel.
+
+### <a name="error-code-df-excel-invalidrange"></a>Código de error: DF-Excel-InvalidRange
+- **Mensaje**: Invalid range is provided (Se proporcionó un intervalo no válido).
+- **Recomendación**: Compruebe el valor del parámetro y especifique el intervalo válido mediante la siguiente referencia: [Formato de Excel en Azure Data Factory - Propiedades del conjunto de datos](https://docs.microsoft.com/azure/data-factory/format-excel#dataset-properties).
+
+### <a name="error-code-df-excel-worksheetnotexist"></a>Código de error: DF-Excel-WorksheetNotExist
+- **Mensaje**: Excel worksheet does not exist (La hoja de cálculo de Excel no existe).
+- **Recomendación**: Compruebe el valor del parámetro y especifique el nombre de la hoja válida o el índice para leer los datos de Excel.
+
+### <a name="error-code-df-excel-differentschemanotsupport"></a>Código de error: DF-Excel-DifferentSchemaNotSupport
+- **Mensaje**: En este momento no se admite la lectura de archivos de Excel con esquemas diferentes.
+
+### <a name="error-code-df-excel-invaliddatatype"></a>Código de error: DF-Excel-InvalidDataType
+- **Mensaje**: Tipo de datos no admitido.
+
+### <a name="error-code-df-excel-invalidfile"></a>Código de error: DF-Excel-InvalidFile
+- **Mensaje**: Se proporcionó un archivo de Excel no válido mientras que solo se admiten .xlsx y .xls.
+
+### <a name="error-code-df-adobeintegration-invalidmaptofilter"></a>Código de error: DF-AdobeIntegration-InvalidMapToFilter
+- **Mensaje**: El recurso personalizado solo puede tener un valor Key/Id asignado al filtro.
+
+### <a name="error-code-df-adobeintegration-invalidpartitionconfiguration"></a>Código de error: DF-AdobeIntegration-InvalidPartitionConfiguration
+- **Mensaje**: Únicamente se admite una única partición. El esquema de partición puede ser RoundRobin o Hash.
+- **Recomendación**: En la configuración de AdobeIntegration, confirme que solo tiene particiones únicas. El esquema de partición puede ser RoundRobin o Hash.
+
+### <a name="error-code-df-adobeintegration-keycolumnmissed"></a>Código de error: DF-AdobeIntegration-KeyColumnMissed
+- **Message**: Debe especificarse la clave para las operaciones que no se pueden insertar.
+- **Recomendación**: Especifique las columnas de clave en la configuración de AdobeIntegration para las operaciones que no se pueden insertar.
+
+### <a name="error-code-df-adobeintegration-invalidpartitiontype"></a>Código de error: DF-AdobeIntegration-InvalidPartitionType
+- **Mensaje**: El tipo de partición debe ser roundRobin.
+- **Recomendación**: Confirme que el tipo de partición es roundRobin en la configuración de AdobeIntegration.
+
+### <a name="error-code-df-adobeintegration-invalidprivacyregulation"></a>Código de error: DF-AdobeIntegration-InvalidPrivacyRegulation
+- **Mensaje**: Actualmente, el RGPD es la única norma de privacidad admitida.
+- **Recomendación**: Confirme que la regla de privacidad en la configuración de AdobeIntegration es **"RGPD"** .
 
 ## <a name="miscellaneous-troubleshooting-tips"></a>Consejos de solución de problemas varios
 - **Problema**: Se produjo una excepción inesperada y un error en la ejecución.

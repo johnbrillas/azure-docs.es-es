@@ -6,10 +6,10 @@ ms.date: 07/10/2019
 ms.author: atsenthi
 ms.custom: mvc
 ms.openlocfilehash: 934b679813323fe144f935811eb613ab68b561db
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87089624"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Inicio rápido: Implementación de contenedores de Windows en Service Fabric
@@ -30,7 +30,7 @@ En esta guía de inicio rápido, aprenderá a hacer lo siguiente:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción de Azure (puede crear una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
 * Un equipo de desarrollo en el que se ejecute:
@@ -152,7 +152,7 @@ Mientras el clúster está en ejecución, se siguen generando cargos. Considere 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a hacer lo siguiente:
+En este inicio rápido ha aprendido a:
 
 * Empaquetado de un contenedor de imagen de Docker
 * Configuración de la comunicación

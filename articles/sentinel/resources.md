@@ -13,81 +13,52 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/27/2021
+ms.date: 03/03/2021
 ms.author: yelevin
-ms.openlocfilehash: c404aa93669cd95dccb0ad185d71d2ec16256d0d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 30cd0181ff2c5fbb8918921be3515818128a98d0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100570433"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048240"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Recursos útiles al trabajar con Azure Sentinel
 
-
-
 En este artículo se enumeran los recursos que sirven para obtener más información sobre cómo trabajar con Azure Sentinel.
 
-- **Conectores de Azure Logic Apps**: <https://docs.microsoft.com/connectors/>
+## <a name="learn-more-about-creating-queries"></a>Más información sobre la creación de consultas
 
+Azure Sentinel usa el lenguaje de consulta Kusto (KQL) de Azure Monitor Log Analytics para generar consultas. Para más información, consulte:
 
-## <a name="auditing-and-reporting"></a>Informes y auditoría
-Los registros de auditoría de Azure Sentinel se mantienen en los [registros de actividades de Azure](../azure-monitor/essentials/platform-logs-overview.md).
+- [Conceptos de KQL](/azure/data-explorer/kusto/concepts/)
+- [Consultas de KQL](/azure/data-explorer/kusto/query/)
+- [Guía de referencia rápida de KQL](/azure/data-explorer/kql-quick-reference)
+- [Introducción a las consultas de KQL](../azure-monitor/logs/get-started-queries.md)
 
-Se pueden auditar las siguientes operaciones admitidas.
+## <a name="learn-more-about-creating-automation"></a>Más información sobre la creación de automatización
 
-|Nombre de la operación|    Tipo de recurso|
-|----|----|
-|Crear o actualizar libro  |Microsoft.Insights/workbooks|
-|Eliminar libro    |Microsoft.Insights/workbooks|
-|Establecer flujo de trabajo   |Microsoft.Logic/workflows|
-|Eliminar flujo de trabajo    |Microsoft.Logic/workflows|
-|Crear búsqueda guardada    |Microsoft.OperationalInsights/workspaces/savedSearches|
-|Eliminar búsqueda guardada    |Microsoft.OperationalInsights/workspaces/savedSearches|
-|Actualizar reglas de alerta |Microsoft.SecurityInsights/alertRules|
-|Eliminar reglas de alerta |Microsoft.SecurityInsights/alertRules|
-|Actualizar acciones de respuesta de la regla de alerta |Microsoft.SecurityInsights/alertRules/actions|
-|Eliminar acciones de respuesta de la regla de alerta |Microsoft.SecurityInsights/alertRules/actions|
-|Actualizar marcadores   |Microsoft.SecurityInsights/bookmarks|
-|Eliminar marcadores   |Microsoft.SecurityInsights/bookmarks|
-|Actualizar casos   |Microsoft.SecurityInsights/Cases|
-|Actualizar la investigación de casos  |Microsoft.SecurityInsights/Cases/investigations|
-|Crear comentarios de los casos   |Microsoft.SecurityInsights/Cases/comments|
-|Actualizar los conectores de datos |Microsoft.SecurityInsights/dataConnectors|
-|Eliminar los conectores de datos |Microsoft.SecurityInsights/dataConnectors|
-|Actualizar la configuración    |Microsoft.SecurityInsights/settings|
+Cree automatización en Azure Sentinel mediante Azure Logic Apps, con una galería en aumento de cuadernos de estrategias integradas. 
 
-### <a name="view-audit-and-reporting-data-in-azure-sentinel"></a>Ver los datos de auditoría e informes en Azure Sentinel
+Para más información, consulte [Conectores de Azure Logic Apps](https://docs.microsoft.com/connectors/).
 
-Puede ver estos datos transmitiéndolos desde el registro de actividades de Azure a Azure Sentinel, donde podrá realizar investigaciones con ellos y analizarlos.
+## <a name="comment-on-our-blogs-and-forums"></a>Realice comentarios en nuestros blogs y foros
 
-1. Conecte el origen de datos de las [actividades de Azure](connect-azure-activity.md). Después de hacerlo, los eventos de auditoría se transmiten a una nueva tabla en la pantalla de **registros** denominada AzureActivity.
+Nos encanta escuchar a nuestros usuarios.
 
-1. A continuación, consulte los datos mediante KQL, tal como lo haría con cualquier otra tabla.
+En el espacio de TechCommunity para Azure Sentinel:
 
-    Por ejemplo, para averiguar quién fue el último usuario en editar una regla de análisis determinada, use la consulta siguiente (reemplazando `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` por el identificador de la regla que desea comprobar):
+- [Consulte y realice comentarios en las entradas de blog recientes](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog)
+- [Publique sus propias preguntas sobre Azure Sentinel](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel)
 
-    ```kusto
-    AzureActivity
-    | where OperationNameValue startswith "MICROSOFT.SECURITYINSIGHTS/ALERTRULES/WRITE"
-    | where Properties contains "alertRules/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    | project Caller , TimeGenerated , Properties
-    ```
+También puede enviar sugerencias para obtener mejoras a través de nuestro programa [Voz del usuario](https://feedback.azure.com/forums/920458-azure-sentinel).
 
+## <a name="join-the-azure-sentinel-github-community"></a>Únase a la comunidad de GitHub de Azure Sentinel
 
-## <a name="blogs-and-forums"></a>Blogs y foros
+El [repositorio de GitHub de Azure Sentinel](https://github.com/Azure/Azure-Sentinel) es un recurso muy eficaz para la detección y la automatización de amenazas. 
 
-¡Nos encanta tener escuchar a nuestros usuarios!
+Nuestros analistas de seguridad de Microsoft crean y agregan constantemente nuevos libros, cuadernos de estrategias, consultas de búsqueda, etc. y los publican en la comunidad para que los pueda usar en su entorno. 
 
-- **Publique sus preguntas** en el [espacio de TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) para Azure Sentinel. 
-
-- **Envíe sugerencias para obtener mejoras** a través de nuestro programa [Voz del usuario](https://feedback.azure.com/forums/920458-azure-sentinel).
-
-- **Vea y comente** nuestras entradas de blog de Azure Sentinel:
-
-    - [TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) 
-    - [Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/)
-
+Descargue contenido de ejemplo del repositorio de GitHub privado de la comunidad para crear libros personalizados, consultas de búsqueda, cuadernos y cuadernos de estrategias de Azure Sentinel.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

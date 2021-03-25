@@ -7,10 +7,10 @@ ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 8f8086aced26fc46fb1430df074082e8c3365baa
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92746820"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Creación de un contenedor de perfiles con Azure Files y AD DS
@@ -35,14 +35,14 @@ Para configurar una cuenta de almacenamiento:
 
 3. Seleccione **+Agregar**.
 
-4. En la página **Crear cuenta de almacenamiento** , escriba la siguiente información:
+4. En la página **Crear cuenta de almacenamiento**, escriba la siguiente información:
 
     - Cree un nuevo grupo de recursos.
     - Escriba un nombre único para la cuenta de almacenamiento.
-    - En **Ubicación** , se recomienda elegir la misma ubicación que el grupo host de Windows Virtual Desktop.
-    - En **Rendimiento** , seleccione **Estándar**. (En función de los requisitos de IOPS. Para más información, consulte [Opciones de almacenamiento para los contenedores de perfiles de FSLogix de Windows Virtual Desktop](store-fslogix-profile.md)).
-    - En **Tipo de cuenta** , seleccione **StorageV2** o **FileStorage** (solo disponible si el nivel de rendimiento es Premium).
-    - En **Replicación** , seleccione **Almacenamiento con redundancia local (LRS)** .
+    - En **Ubicación**, se recomienda elegir la misma ubicación que el grupo host de Windows Virtual Desktop.
+    - En **Rendimiento**, seleccione **Estándar**. (En función de los requisitos de IOPS. Para más información, consulte [Opciones de almacenamiento para los contenedores de perfiles de FSLogix de Windows Virtual Desktop](store-fslogix-profile.md)).
+    - En **Tipo de cuenta**, seleccione **StorageV2** o **FileStorage** (solo disponible si el nivel de rendimiento es Premium).
+    - En **Replicación**, seleccione **Almacenamiento con redundancia local (LRS)** .
 
 5. Cuando haya terminado, seleccione **Revisar y crear** y, después, **Crear**.
 
@@ -58,7 +58,7 @@ Para crear un recurso compartido de archivos:
 
 2. En la página Información general, seleccione **Recursos compartidos de archivos**.
 
-3. Seleccione **+ Recursos compartidos de archivos** , cree un nuevo recurso compartido de archivos denominado **perfiles** , especifique una cuota adecuada o deje el campo en blanco para no incluir una cuota.
+3. Seleccione **+ Recursos compartidos de archivos**, cree un nuevo recurso compartido de archivos denominado **perfiles**, especifique una cuota adecuada o deje el campo en blanco para no incluir una cuota.
 
 4. Seleccione **Crear**.
 
@@ -98,7 +98,7 @@ Para asignar los permisos del control de acceso basado en roles de Azure (Azure 
 
 5. Seleccione **Agregar una asignación de roles**.
 
-6. En la pestaña **Agregar asignación de roles** , seleccione **Colaborador con privilegios elevados de recursos compartidos de SMB de datos de archivos de almacenamiento** para la cuenta de administrador.
+6. En la pestaña **Agregar asignación de roles**, seleccione **Colaborador con privilegios elevados de recursos compartidos de SMB de datos de archivos de almacenamiento** para la cuenta de administrador.
 
      Para asignar permisos de usuario para los perfiles de FSLogix, siga estas mismas instrucciones. Sin embargo, cuando llegue al paso 5, seleccione **Colaborador de recursos compartidos de SMB de datos de archivos de almacenamiento** en su lugar.
 
@@ -141,7 +141,7 @@ Para obtener la clave de la cuenta de almacenamiento:
 
 2. Abra la cuenta de almacenamiento que creó en [Configuración de una cuenta de almacenamiento](#set-up-a-storage-account).
 
-3. En la pestaña **Cuenta de almacenamiento** , seleccione **Claves de acceso**.
+3. En la pestaña **Cuenta de almacenamiento**, seleccione **Claves de acceso**.
 
 4. Copie **key1** o **key2** en un archivo del equipo local.
 

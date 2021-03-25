@@ -6,14 +6,16 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 6e636a039302d2ea61c7135bff1fceb4763f25df
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 008d0f106b07d61f0989a479457b12398000b5d9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151446"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104674585"
 ---
 # <a name="azure-data-catalog-terminology"></a>Terminología de Azure Data Catalog
+
+[!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 En este artículo se ofrece una introducción a los conceptos y términos usados en la documentación de Azure Data Catalog.
 
@@ -86,4 +88,4 @@ El registro es el acto de extraer metadatos de recursos de datos de un origen de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Inicio rápido: Creación de una instancia de Azure Data Catalog](data-catalog-get-started.md)
+[Inicio rápido: Creación de una instancia de Azure Data Catalog](data-catalog-get-started.md)

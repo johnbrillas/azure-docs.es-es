@@ -1,18 +1,14 @@
 ---
 title: Creación y administración de usuarios
 description: Cree y administre usuarios de los sensores y de la consola de administración local. A los usuarios se les puede asignar el rol Administrador, Analista de seguridad o Usuario de solo lectura.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
-ms.date: 1/3/2021
+ms.date: 03/03/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: fd0c7b74bea979737644824f93b4dce7a2364b99
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 2afc3cb2b9cfc0ac6b75c98198d9f0965b6dc04c
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522349"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779025"
 ---
 # <a name="about-defender-for-iot-console-users"></a>Acerca de los usuarios de la consola de Defender para IoT
 
@@ -162,7 +158,7 @@ Se admiten dos tipos de autenticación basada en LDAP:
 
 ### <a name="active-directory-and-defender-for-iot-permissions"></a>Permisos de Active Directory y Defender para IoT
 
-Puede asociar los grupos de Active Directory definidos aquí con niveles de permisos específicos. Por ejemplo, configure un grupo de Active Directory específico y asigne permisos de solo lectura a todos los usuarios del grupo. Consulte [Creación y administración de usuarios](how-to-create-and-manage-users.md) para más información.
+Puede asociar los grupos de Active Directory definidos aquí con niveles de permisos específicos. Por ejemplo, configure un grupo de Active Directory específico y asigne permisos de solo lectura a todos los usuarios del grupo.
 
 Para configurar Active Directory:
 
@@ -170,11 +166,11 @@ Para configurar Active Directory:
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-system-settings-v2.png" alt-text="Ver la configuración del sistema de Active Directory.":::
 
-1. En el panel **System Settings** (Configuración del sistema), seleccione **Active Directory**.
+2. En el panel **System Settings** (Configuración del sistema), seleccione **Active Directory**.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-configurations-v2.png" alt-text="Editar las configuraciones de Active Directory.":::
 
-1. En el cuadro de diálogo **Edit Active Directory Configuration** (Editar configuración de Active Directory), seleccione **Active Directory Integration Enabled** > **Save** (Integración de Active Directory habilitada > Guardar). El cuadro de diálogo **Edit Active Directory Configuration** (Editar configuración de Active Directory) se expande y ahora puede escribir los parámetros para configurar Active Directory.
+3. En el cuadro de diálogo **Edit Active Directory Configuration** (Editar configuración de Active Directory), seleccione **Active Directory Integration Enabled** > **Save** (Integración de Active Directory habilitada > Guardar). El cuadro de diálogo **Edit Active Directory Configuration** (Editar configuración de Active Directory) se expande y ahora puede escribir los parámetros para configurar Active Directory.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-integration-enabled-v2.png" alt-text="Escribir los parámetros para configurar Active Directory.":::
 
@@ -183,21 +179,25 @@ Para configurar Active Directory:
     > - Utilice únicamente minúsculas para todos los parámetros de Active Directory. Utilice minúsculas incluso cuando las configuraciones de Active Directory usen mayúsculas.
     > - No puede configurar LDAP y LDAPS para el mismo dominio. Sin embargo, puede usar ambos para dominios diferentes al mismo tiempo.
 
-1. Establezca los parámetros del servidor de Active Directory como se indica a continuación:
+4. Establezca los parámetros del servidor de Active Directory como se indica a continuación:
 
    | Parámetros de servidor | Descripción |
    |--|--|
-   | Nombre de dominio completo del controlador de dominio | Establezca el nombre de dominio completo (FQDN) exactamente como aparece en el servidor LDAP. Por ejemplo, escriba `host1.subdomain.domain.com`: |
+   | Nombre de dominio completo del controlador de dominio | Establezca el nombre de dominio completo (FQDN) exactamente como aparece en el servidor LDAP. Por ejemplo, escriba `host1.subdomain.domain.com`. |
    | Puerto del controlador de dominio | Defina el puerto en el que está configurado el servidor LDAP. |
    | Dominio principal | Establezca el nombre de dominio (por ejemplo, `subdomain.domain.com`) y el tipo de conexión según la configuración de LDAP. |
    | Grupos de Active Directory | Escriba los nombres de grupo que se han definido en la configuración de Active Directory en el servidor LDAP. |
    | Dominios de confianza | Para agregar un dominio de confianza, agregue el nombre de dominio y el tipo de conexión de un dominio de confianza. <br />Solo puede configurar dominios de confianza para los usuarios que se definieron en la sección de usuarios. |
 
+#### <a name="activedirectory-groups-for-the-on-premises-management-console"></a>Grupos de Active Directory para la consola de administración local
+
+Si va a crear grupos de Active Directory para los usuarios de la consola de administración local, debe crear una regla de grupo de acceso para cada grupo de Active Directory. Las credenciales de Active Directory de la consola de administración local no funcionarán si no existe una regla de grupo de acceso para el grupo de usuarios de Active Directory. Consulte [Definición del control de acceso global](how-to-define-global-user-access-control.md).
+
 1. Seleccione **Guardar**.
 
-1. Para agregar un servidor de confianza, seleccione **Add Server** (Agregar servidor) y configure otro servidor.
+2. Para agregar un servidor de confianza, seleccione **Add Server** (Agregar servidor) y configure otro servidor.
 
-## <a name="resetting-a-users-password-for-the-sensor-or-on-premises-management-console"></a>Restablecimiento de la contraseña de un usuario en el sensor o la consola de administración local
+## <a name="resetting-passwords"></a>Restablecimiento de contraseñas
 
 ### <a name="cyberx-or-support-user"></a>Usuario de CyberX o de soporte técnico
 
@@ -205,7 +205,7 @@ Solo el usuario de **CyberX** y de **soporte técnico** tiene acceso a la caract
 
 Para restablecer la contraseña de un usuario de CyberX o de soporte técnico:
 
-1. En la pantalla de inicio de sesión de Defender para IoT, seleccione la opción **Password recovery** (Recuperación de contraseña). Se abre la pantalla **Password recovery** (Recuperación de contraseña).
+1. En la pantalla de inicio de sesión de Defender para IoT, seleccione la opción **Password recovery** (Recuperación de contraseña). Se abre la pantalla **Recuperación de contraseña**.
 
 1. Seleccione **CyberX** o **Soporte técnico** y copie el identificador único.
 
@@ -217,12 +217,12 @@ Para restablecer la contraseña de un usuario de CyberX o de soporte técnico:
 
    :::image type="content" source="media/password-recovery-images/recover-button.png" alt-text="Selección del botón de recuperación de administración local para descargar el archivo de recuperación.":::
 
-1. Escriba el identificador único que recibió en la pantalla **Password recovery** (Recuperación de contraseña) y seleccione **Recuperar**. Se descarga el archivo `password_recovery.zip`.
+1. Escriba el identificador único que recibió en la pantalla **Recuperación de contraseña** y seleccione **Recuperar**. Se descarga el archivo `password_recovery.zip`.
 
     > [!NOTE]
     > No modifique el archivo de recuperación de contraseña. Es un archivo firmado y no funcionará si se altera.
 
-1. En la pantalla **Password recovery** (Recuperación de contraseña), seleccione **Cargar**. Se abrirá la ventana **Upload Password Recovery File** (Cargar archivo de recuperación de contraseña).
+1. En la pantalla **Recuperación de contraseña**, seleccione **Cargar**. Se abrirá la ventana **Cargar archivo de recuperación de contraseña**.
 
 1. Seleccione **Examinar** para buscar el archivo `password_recovery.zip`, o arrástrelo a la ventana.
 
@@ -265,7 +265,7 @@ Para restablecer la contraseña de un usuario en la consola de administración l
 
 1. Selecciona **Actualización**.
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="see-also"></a>Consulte también
 
 [Activación y configuración del sensor](how-to-activate-and-set-up-your-sensor.md)
 [Activación y configuración de la consola de administración local](how-to-activate-and-set-up-your-on-premises-management-console.md)

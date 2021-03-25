@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: a7aaed519f8f97a9be77a263568aeed5257c16d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "76710336"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>Fase de descripción de negocio del ciclo de vida del Proceso de ciencia de datos en equipo
@@ -60,11 +60,11 @@ En esta fase se abordan dos tareas principales:
 
 4. Defina las métricas del éxito. Por ejemplo, podría desear una predicción sobre la renovación de los clientes. Necesita una tasa de precisión de "x%" al final de este proyecto de tres meses. Con estos datos, puede ofrecer promociones al cliente para mejorar la fidelización. Las métricas deben cumplir los requisitos **SMART**: 
 
-   * **S**pecific (específicas) 
-   * **M**easurable (mensurables)
-   * **A**chievable (alcanzables) 
-   * **R**elevant (pertinentes) 
-   * **T**ime-bound (con un límite de tiempo) 
+   * **S** pecific (específicas) 
+   * **M** easurable (mensurables)
+   * **A** chievable (alcanzables) 
+   * **R** elevant (pertinentes) 
+   * **T** ime-bound (con un límite de tiempo) 
 
 ### <a name="identify-data-sources"></a>Identificación de los orígenes de datos
 Identifique los orígenes de datos que contienen ejemplos conocidos de respuestas a las preguntas certeras. Busque los siguientes datos:
@@ -74,7 +74,7 @@ Identifique los orígenes de datos que contienen ejemplos conocidos de respuesta
 
 Por ejemplo, puede descubrir que los sistemas existentes tienen que recopilar y registrar tipos de datos adicionales para solucionar el problema y alcanzar los objetivos del proyecto. En esta situación, puede ser conveniente buscar orígenes de datos externos o actualizar los sistemas para recopilar datos nuevos.
 
-## <a name="artifacts"></a>Artefactos
+## <a name="artifacts"></a>Artifacts
 Estos son los resultados de esta fase:
 
    * [Documento marco](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): se ofrece una plantilla estándar en la definición de estructura del proyecto de TDSP. El documento marco es un documento en cambio continuo. La plantilla se actualiza a lo largo del proyecto a medida que se descubren nuevos elementos y cambian las necesidades empresariales. La clave consiste en realizar iteraciones de este documento e incorporarle la información oportuna según se avance a lo largo del proceso de descubrimiento. Es importante que el cliente y las demás partes interesadas se impliquen en la realización de cambios y que se les informe claramente sobre las razones que los motivan.  
