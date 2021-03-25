@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: c81084c77b355a5d60c72564c58a98e08da14312
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946314"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Solución de problemas de Apache Storm mediante Azure HDInsight
@@ -171,7 +171,7 @@ Ejemplos: `/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
 
 Al enviar una topología, el usuario puede recibir un mensaje de error similar a: `Topology submission exception, cause not a leader, the current leader is NimbusInfo`.
 
-Para resolverlo, es posible que el usuario tenga que abrir una incidencia de soporte técnico para que los nodos se reinicien. Para más información, vea [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html).
+Para resolverlo, es posible que el usuario tenga que abrir una incidencia de soporte técnico para que los nodos se reinicien. Para más información, consulte [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html).
 
 ---
 

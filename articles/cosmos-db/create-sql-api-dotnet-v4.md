@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 224a1b67ff0282c216763229593fcfed81d7567b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93090110"
 ---
 # <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-to-manage-azure-cosmos-db-sql-api-account-resources"></a>Inicio rápido: Compilación de una aplicación de consola mediante el SDK de .NET V4 para administrar recursos de la cuenta de SQL API de Azure Cosmos DB.
@@ -56,7 +56,7 @@ Si tiene su propia suscripción de Azure o creó una suscripción gratuita, debe
 
 Puede usar Azure Cloud Shell para crear la cuenta de Azure Cosmos. Azure Cloud Shell es un shell interactivo, autenticado y al que se puede acceder desde un explorador para administrar recursos de Azure. Ofrece la flexibilidad de poder elegir la experiencia de shell que mejor se adapte a la forma de trabajar de cada uno, Bash o PowerShell. En esta guía de inicio rápido, elija el modo **Bash**. Azure Cloud Shell también requiere una cuenta de almacenamiento; puede crear una cuando se le solicite.
 
-Seleccione el botón **Pruébelo** junto al siguiente código, elija el modo **Bash** , seleccione **Crear una cuenta de almacenamiento** e inicie sesión en Cloud Shell. Después, copie y pegue el código siguiente en Azure Cloud Shell y ejecútelo. El nombre de la cuenta de Azure Cosmos debe ser único globalmente; asegúrese de actualizar el valor de `mysqlapicosmosdb` antes de ejecutar el comando.
+Seleccione el botón **Pruébelo** junto al siguiente código, elija el modo **Bash**, seleccione **Crear una cuenta de almacenamiento** e inicie sesión en Cloud Shell. Después, copie y pegue el código siguiente en Azure Cloud Shell y ejecútelo. El nombre de la cuenta de Azure Cosmos debe ser único globalmente; asegúrese de actualizar el valor de `mysqlapicosmosdb` antes de ejecutar el comando.
 
 ```azurecli-interactive
 

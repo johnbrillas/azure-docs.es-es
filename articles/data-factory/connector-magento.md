@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 534a7cd8c9a40a807d05ef40b084a7c73c0a7710
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100378475"
 ---
 # <a name="copy-data-from-magento-using-azure-data-factory-preview"></a>Copia de datos de Magento con Azure Data Factory (versión preliminar)
@@ -49,7 +49,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Magento:
 | accessToken | Token de acceso de Magento. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | No |
 | useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de TLS. El valor predeterminado es true.  | No |
-| usePeerVerification | Especifica si se debe comprobar la identidad del servidor al conectarse a través de TLS. El valor predeterminado es true.  | No |
+| usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de TLS. El valor predeterminado es true.  | No |
 
 **Ejemplo**:
 

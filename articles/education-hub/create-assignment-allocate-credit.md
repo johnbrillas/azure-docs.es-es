@@ -8,10 +8,10 @@ ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
 ms.openlocfilehash: 7904efb92aa8362605f1f68ee0b39f4241339031
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92332474"
 ---
 # <a name="create-an-assignment-and-allocate-credit"></a>Creación de una asignación y asignación de un crédito
@@ -26,7 +26,7 @@ Una vez que haya configurado y creado un curso en el Centro de Education de Micr
 
 ### <a name="accounts"></a>Cuentas
 
-El Centro de Education de Azure acepta cualquier dirección de correo electrónico en _____@ ___.___ expresa como formato HH:MM:SS… Actualmente *no* comprueba que haya una cuenta válida en su organización, ni si la cuenta de Microsoft es actual o válida. Compruebe cuidadosamente todas las direcciones de correo electrónico antes de continuar.
+El Centro de Education de Azure acepta cualquier dirección de correo electrónico en _____@___.___ expresa como formato HH:MM:SS… Actualmente *no* comprueba que haya una cuenta válida en su organización, ni si la cuenta de Microsoft es actual o válida. Compruebe cuidadosamente todas las direcciones de correo electrónico antes de continuar.
 
 > [!IMPORTANT]
 > Las cuentas profesionales y educativas están sujetas a sus propias directivas, incluido si se permite una dirección de correo electrónico de un dominio distinto de la organización (por ejemplo, agregar student2@outlook.com al dominio @school.edu). Asegúrese de comprobar estas directivas antes de agregar nuevos usuarios.
@@ -39,7 +39,7 @@ Cuando una cuenta profesional o educativa (por ejemplo, student1@school.edu) se 
 
 1. Elija la cantidad de fondos que se abonarán a la suscripción del alumno. Si no todos los alumnos recibirán la misma cantidad, puede seleccionar **Cambiar** y aplicar una cantidad personalizada a cada alumno o equipo de trabajo.
 
-1. Seleccione **Crear asignación** .
+1. Seleccione **Crear asignación**.
 1. (Opcional) También puede quitar a los alumnos existentes al hacer clic en **Quitar** junto al nombre del alumno.
 1. Seleccione el botón **Cerrar** cuando haya finalizado. Los permisos adicionales se muestran en la página Administración de créditos del patrocinador.
 

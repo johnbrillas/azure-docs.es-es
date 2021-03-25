@@ -3,18 +3,63 @@ title: Solución de problemas de Change Tracking e Inventario de Azure Automati
 description: En este artículo se trata cómo solucionar problemas con la característica Change Tracking e Inventario de Azure Automation.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 01/31/2019
+ms.date: 02/15/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 516f1a4e5e7c677b17a2941ee3c300db44d49a3b
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: dd027f94edad580836f0afb8c7293c81ca77605a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896552"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723833"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory-issues"></a>Solución de problemas de Change Tracking e Inventario
 
 En este artículo se describe cómo diagnosticar y solucionar problemas de Change Tracking e Inventario de Azure Automation. Para obtener información general de Change Tracking e Inventario, consulte [Información general de Change Tracking e Inventario](../change-tracking/overview.md).
+
+## <a name="general-errors"></a>Errores generales
+
+### <a name="scenario-machine-is-already-registered-to-a-different-account"></a><a name="machine-already-registered"></a>Escenario: La máquina ya está registrada en otra cuenta
+
+### <a name="issue"></a>Problema
+
+Aparece el siguiente mensaje de error:
+
+```error
+Unable to Register Machine for Change Tracking, Registration Failed with Exception System.InvalidOperationException: {"Message":"Machine is already registered to a different account."}
+```
+
+### <a name="cause"></a>Causa
+
+La máquina ya se ha implementado en otra área de trabajo para Change Tracking.
+
+### <a name="resolution"></a>Solución
+
+1. Asegúrese de que las notificaciones de la máquina se envían al área de trabajo correcta. Para obtener instrucciones sobre cómo comprobar esto, consulte [Comprobación de la conectividad del agente a Azure Monitor](../../azure-monitor/agents/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Asegúrese también de que esta área de trabajo esté vinculada a su cuenta de Azure Automation. Para ello, vaya a la cuenta de Automation y seleccione **Área de trabajo vinculada** en **Recursos relacionados**.
+
+1. Asegúrese de que la máquina se muestre en el área de trabajo de Log Analytics vinculada a la cuenta de Automation. Ejecute la siguiente consulta en el área de trabajo de Log Analytics.
+
+   ```kusto
+   Heartbeat
+   | summarize by Computer, Solutions
+   ```
+
+   Si no ve la máquina en los resultados de la consulta, significa que no se ha registrado recientemente. Probablemente haya un problema de configuración local. Debe volver a instalar el agente de Log Analytics.
+
+   Si el equipo aparece en los resultados de la consulta, compruebe en la propiedad Solutions que aparezca **changeTracking**. Esto comprueba que está registrado con Seguimiento de cambios e inventario. Si no es así, compruebe si hay problemas de configuración de ámbito. La configuración de ámbito determina qué máquinas están configuradas para Seguimiento de cambios e inventario. Para configurar la configuración de ámbito para el equipo de destino, consulte [Habilitación de Seguimiento de cambios e inventario desde una cuenta de Automation](../change-tracking/enable-from-automation-account.md).
+
+   En el área de trabajo, ejecute esta consulta.
+
+   ```kusto
+   Operation
+   | where OperationCategory == 'Data Collection Status'
+   | sort by TimeGenerated desc
+   ```
+
+1. Si recibe el resultado ```Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota```, significa que la cuota definida en el área de trabajo se ha alcanzado, lo que ha impedido que se guarden los datos. En el área de trabajo, vaya a **Uso y costos estimados**. Seleccione un nuevo **Plan de tarifa** que le permita usar más datos o haga clic en **Límite diario** y quite el límite.
+
+:::image type="content" source="./media/change-tracking/change-tracking-usage.png" alt-text="Uso y costos estimados." lightbox="./media/change-tracking/change-tracking-usage.png":::
+
+Si el problema no se resuelve, siga los pasos descritos en [Implementación de Hybrid Runbook Worker en Windows](../automation-windows-hrw-install.md) para volver a instalar Hybrid Worker para Windows. Para Linux, siga los pasos que aparecen en [Implementación de Hybrid Runbook Worker en Linux](../automation-linux-hrw-install.md).
 
 ## <a name="windows"></a>Windows
 
@@ -96,11 +141,11 @@ Heartbeat
 | summarize by Computer, Solutions
 ```
 
-Si no ve la máquina en los resultados de la consulta, no se ha registrado recientemente. Probablemente haya un problema de configuración local y debe volver a instalar el agente. Para obtener información sobre la instalación y configuración, consulte [Recopilación de datos de registro con el agente de Log Analytics](../../azure-monitor/platform/log-analytics-agent.md).
+Si no ve la máquina en los resultados de la consulta, no se ha registrado recientemente. Probablemente haya un problema de configuración local y debe volver a instalar el agente. Para obtener información sobre la instalación y configuración, consulte [Recopilación de datos de registro con el agente de Log Analytics](../../azure-monitor/agents/log-analytics-agent.md).
 
 Si el equipo aparece en los resultados de la consulta, compruebe la configuración de ámbito. Consulte [Soluciones de supervisión como destino en Azure Monitor](../../azure-monitor/insights/solution-targeting.md).
 
-Para más información sobre cómo solucionar este problema, consulte [Problema: no se ve ningún dato de Linux](../../azure-monitor/platform/agent-linux-troubleshoot.md#issue-you-are-not-seeing-any-linux-data).
+Para más información sobre cómo solucionar este problema, consulte [Problema: no se ve ningún dato de Linux](../../azure-monitor/agents/agent-linux-troubleshoot.md#issue-you-are-not-seeing-any-linux-data).
 
 ##### <a name="log-analytics-agent-for-linux-not-configured-correctly"></a>El agente de Log Analytics para Linux no está configurado correctamente
 

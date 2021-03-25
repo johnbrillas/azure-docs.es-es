@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: alzam
 ms.openlocfilehash: 9cc68eb60096c4431acfc988c87ca9bf99f1f045
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93043402"
 ---
 # <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>Configuración de la autenticación de Azure Active Directory para una VPN de usuario
@@ -51,14 +51,14 @@ Desde un explorador, navegue al [Portal de Azure](https://portal.azure.com) e in
 
 1. Vaya a la página de Virtual WAN. En el portal, haga clic en **+Crear un recurso**. Escriba **Virtual WAN** en el cuadro de búsqueda y seleccione ENTRAR.
 2. Seleccione **Virtual WAN** en los resultados. En la página Virtual WAN, haga clic en **Crear** para abrir la página Crear una red WAN.
-3. Dentro de la página **Crear una red WAN** , en la pestaña **Aspectos básicos** , rellene los campos siguientes:
+3. Dentro de la página **Crear una red WAN**, en la pestaña **Aspectos básicos**, rellene los campos siguientes:
 
    ![Red WAN virtual](./media/virtual-wan-point-to-site-azure-ad/vwan.png)
 
-   * **Suscripción** : seleccione la suscripción que quiere usar.
-   * **Grupo de recursos** : cree uno nuevo o utilice uno ya existente.
-   * **Ubicación del grupo de recursos** : elija una ubicación para los recursos en la lista desplegable. Una red WAN es un recurso global y no reside en una región determinada. De todas formas, tiene que seleccionar una región con el fin de administrar y ubicar más fácilmente el recurso WAN que cree.
-   * **Nombre** : escriba el nombre que desea dar a la WAN.
+   * **Suscripción**: seleccione la suscripción que quiere usar.
+   * **Grupo de recursos**: cree uno nuevo o utilice uno ya existente.
+   * **Ubicación del grupo de recursos**: elija una ubicación para los recursos en la lista desplegable. Una red WAN es un recurso global y no reside en una región determinada. De todas formas, tiene que seleccionar una región con el fin de administrar y ubicar más fácilmente el recurso WAN que cree.
+   * **Nombre**: escriba el nombre que desea dar a la WAN.
    * **Tipo:** Estándar. Si crea una WAN básica, solo puede crear un centro de conectividad básico. Los centros de conectividad básicos solo pueden tener conectividad VPN de sitio a sitio.
 4. Cuando termine de rellenar los campos, haga clic en **Revisión y creación**.
 5. Una vez que se haya superado la validación, seleccione **Crear** para crear la red WAN virtual.
@@ -70,15 +70,15 @@ Desde un explorador, navegue al [Portal de Azure](https://portal.azure.com) e in
    ![Captura de pantalla que muestra el cuadro de diálogo Configuración de centros de conectividad con la opción Nuevo centro de conectividad seleccionada.](media/virtual-wan-point-to-site-azure-ad/hub1.jpg)
 2. En la página Crear centro de conectividad virtual, complete los siguientes campos.
 
-   **Región** : seleccione la región en la que quiere implementar el centro de conectividad virtual.
+   **Región**: seleccione la región en la que quiere implementar el centro de conectividad virtual.
 
-   **Nombre** : escriba el nombre que quiere asignar al centro de conectividad virtual.
+   **Nombre**: escriba el nombre que quiere asignar al centro de conectividad virtual.
 
-   **Espacio de direcciones privadas del centro de conectividad** : intervalo de direcciones del centro de conectividad en la notación CIDR.
+   **Espacio de direcciones privadas del centro de conectividad**: intervalo de direcciones del centro de conectividad en la notación CIDR.
 
    ![Captura de pantalla que muestra el panel Crear centro de conectividad virtual, donde puede escribir valores.](media/virtual-wan-point-to-site-azure-ad/hub2.jpg)  
 3. Haga clic en **Revisar + crear**.
-4. En la página **Validación superada** , haga clic en **Crear**.
+4. En la página **Validación superada**, haga clic en **Crear**.
 
 ## <a name="create-a-new-user-vpn-configuration"></a><a name="site"></a> Creación de una configuración de VPN de usuario
 
@@ -94,10 +94,10 @@ Una configuración de VPN de usuario define los parámetros para conectarse a lo
 
 3. Escriba la información y haga clic en **Crear**.
 
-   * **Nombre de la configuración** : escriba el nombre que desea asignar a la configuración de VPN de usuario.
-   * **Tipo de túnel** : seleccione OpenVPN.
-   * **Método de autenticación** : seleccione Azure Active Directory.
-   * **Público** : escriba el identificador de aplicación de la [aplicación de Azure VPN](openvpn-azure-ad-tenant.md) Enterprise registrada en el inquilino de Azure AD. 
+   * **Nombre de la configuración**: escriba el nombre que desea asignar a la configuración de VPN de usuario.
+   * **Tipo de túnel**: seleccione OpenVPN.
+   * **Método de autenticación**: seleccione Azure Active Directory.
+   * **Público**: escriba el identificador de aplicación de la [aplicación de Azure VPN](openvpn-azure-ad-tenant.md) Enterprise registrada en el inquilino de Azure AD. 
    * **Emisor** - `https://sts.windows.net/<your Directory ID>/`
    * **Inquilino de AAD** - `https://login.microsoftonline.com/<your Directory ID>`
   
@@ -176,7 +176,7 @@ Use este [vínculo](https://www.microsoft.com/p/azure-vpn-client-preview/9np355q
 
     ![Captura de pantalla que muestra la opción de diagnóstico de la selección en el menú.](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose1.jpg)
 
-2. En la página **Propiedades de conexión** , seleccione **Ejecutar diagnóstico**.
+2. En la página **Propiedades de conexión**, seleccione **Ejecutar diagnóstico**.
 
     ![Captura de pantalla que muestra el botón Ejecutar diagnóstico para una conexión.](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose2.jpg)
 

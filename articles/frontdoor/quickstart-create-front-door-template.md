@@ -15,10 +15,10 @@ ms.date: 09/14/2020
 ms.author: duau
 ms.custom: subject-armqs
 ms.openlocfilehash: 223006193219afe4179f3161d5e60e6439207b22
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92896062"
 ---
 # <a name="quickstart-create-a-front-door-using-an-arm-template"></a>Inicio rápido: Creación de una instancia de Front Door mediante una plantilla de ARM
@@ -31,7 +31,7 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-front-door-create-basic%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 * Dirección IP o FQDN de un sitio web o una aplicación web.

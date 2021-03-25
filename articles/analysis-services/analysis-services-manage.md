@@ -8,10 +8,10 @@ ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 91ffcac98b2b919a8fc131d235e699aad4fa215d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93078907"
 ---
 # <a name="manage-analysis-services"></a>Administración de Analysis Services
@@ -36,11 +36,11 @@ Para obtener las últimas características y la experiencia más completa al con
 ### <a name="to-connect-with-ssms"></a>Para conectarse con SSMS
  Si se usa SSMS, antes de conectarse al servidor por primera vez, asegúrese de que su nombre de usuario se incluye en el grupo de administradores de Analysis Services. Para más información, consulte la sección[Administradores del servidor y usuarios de la base de datos](#server-administrators-and-database-users) en este mismo artículo.
 
-1. Antes de establecer la conexión, es necesario obtener el nombre del servidor. En **Azure Portal** > servidor > **Información general** > **Nombre de servidor** , copie el nombre del servidor.
+1. Antes de establecer la conexión, es necesario obtener el nombre del servidor. En **Azure Portal** > servidor > **Información general** > **Nombre de servidor**, copie el nombre del servidor.
    
     ![Obtención del nombre del servidor en Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
-2. En SSMS > **Explorador de objetos** , haga clic en **Conectar** > **Analysis Services**.
-3. En el cuadro de diálogo **Conectarse al servidor** , pegue el nombre del servidor y en **Autenticación** , elija uno de los siguientes tipos de autenticación:   
+2. En SSMS > **Explorador de objetos**, haga clic en **Conectar** > **Analysis Services**.
+3. En el cuadro de diálogo **Conectarse al servidor**, pegue el nombre del servidor y en **Autenticación**, elija uno de los siguientes tipos de autenticación:   
     > [!NOTE]
     > Se recomienda el tipo de autenticación **Active Directory - Universal compatible con MFA**.
 

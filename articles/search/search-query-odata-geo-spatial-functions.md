@@ -20,10 +20,10 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 376cece922ca424ec78011224852b1fa5499da16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88934844"
 ---
 # <a name="odata-geo-spatial-functions-in-azure-cognitive-search---geodistance-and-geointersects"></a>Funciones geoespaciales de OData en Azure Cognitive Search: `geo.distance` y `geo.intersects`
@@ -101,7 +101,7 @@ Como sucede con todos los demás campos que no son de colección en Azure Cognit
 
 ## <a name="examples"></a>Ejemplos
 
-### <a name="filter-examples"></a>Ejemplos de filtros
+### <a name="filter-examples"></a>Ejemplos de filtro
 
 Buscar todos los hoteles a una distancia no superior a diez kilómetros de un punto de referencia determinado (donde la ubicación es un campo de tipo `Edm.GeographyPoint`):
 
@@ -133,5 +133,5 @@ Clasificar hoteles en orden descendente por `search.score` y `rating`, y despué
 
 - [Filtros de Azure Cognitive Search](search-filters.md)
 - [Información general sobre el lenguaje de expresiones OData para Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
-- [Referencia de sintaxis de expresiones OData para Azure Cognitive Search](search-query-odata-syntax-reference.md)
+- [Referencia de sintaxis de expresiones de OData para Azure Cognitive Search](search-query-odata-syntax-reference.md)
 - [Búsqueda de documentos &#40;API REST de Azure Cognitive Search&#41;](/rest/api/searchservice/Search-Documents)

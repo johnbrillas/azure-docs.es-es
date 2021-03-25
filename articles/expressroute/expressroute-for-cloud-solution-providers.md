@@ -9,10 +9,10 @@ ms.date: 10/10/2016
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 09fee610ccc15874481ecfd4693e4b89379caa7a
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92330043"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute para proveedores de soluciones en la nube (CSP)
@@ -31,7 +31,7 @@ Microsoft Azure proporciona un número creciente de servicios que puede ofrecer 
 Microsoft proporciona a los CSP las API para administrar las suscripciones de clientes de Azure, que permiten la integración mediante programación con los propios sistemas de administración de servicios. Las funcionalidades de administración compatibles se explican [aquí](/previous-versions/windows/mt844538(v=win.10)).
 
 ## <a name="microsoft-azure-resource-management"></a>Administración de recursos de Microsoft Azure
-La forma en que se administre la suscripción dependerá del contrato que haya firmado con su cliente. El CSP puede administrar directamente la creación y el mantenimiento de los recursos o el cliente puede mantener el control sobre la suscripción de Microsoft Azure y crear los recursos de Azure cuando los necesite. Si el cliente administra la creación de recursos en su suscripción de Microsoft Azure, usará uno de estos modelos: " *Conexión a través* " o " *Conexión directa* ". Estos modelos se describen con más detalle en las secciones siguientes.  
+La forma en que se administre la suscripción dependerá del contrato que haya firmado con su cliente. El CSP puede administrar directamente la creación y el mantenimiento de los recursos o el cliente puede mantener el control sobre la suscripción de Microsoft Azure y crear los recursos de Azure cuando los necesite. Si el cliente administra la creación de recursos en su suscripción de Microsoft Azure, usará uno de estos modelos: "*Conexión a través*" o "*Conexión directa*". Estos modelos se describen con más detalle en las secciones siguientes.  
 
 ### <a name="connect-through-model"></a>Modelo Conexión a través
 ![Diagrama que muestra el modelo "Conexión a través".](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
@@ -117,7 +117,7 @@ Las rutas definidas por el usuario permiten controlar el tráfico saliente de la
 ## <a name="security"></a>Seguridad
 En función del modelo que se use (Conexión directa o Conexión a través), su cliente define las directivas de seguridad en su red virtual o proporciona los requisitos de directiva de seguridad al CSP para que los defina en sus redes virtuales. Se pueden definir los siguientes criterios de seguridad:
 
-1. **Aislamiento de clientes** : la plataforma Azure proporciona el aislamiento de los clientes mediante el almacenamiento del Id. de cliente y la información de la red virtual en una base de datos segura, que se utiliza para encapsular el tráfico de cada cliente en un túnel GRE.
+1. **Aislamiento de clientes**: la plataforma Azure proporciona el aislamiento de los clientes mediante el almacenamiento del Id. de cliente y la información de la red virtual en una base de datos segura, que se utiliza para encapsular el tráfico de cada cliente en un túnel GRE.
 2. **grupo de seguridad de red (NSG)** sirven para definir el tráfico que se permite que entre y salga de las subredes dentro de las redes virtuales en Azure. De forma predeterminada, el grupo de seguridad de red contiene reglas de bloqueo para bloquear el tráfico procedente de Internet hacia la red virtual y reglas de permiso para el tráfico dentro de una red virtual. Para más información sobre los grupos de seguridad de red, consulte [este artículo](https://azure.microsoft.com/blog/network-security-groups/).
 3. **Túnel forzado** : se trata de una opción para redirigir el tráfico que se origina en Azure y va destinado a Internet a través de la conexión ExpressRoute con el centro de datos local. Para más información acerca de Túnel forzado, consulte [este artículo](expressroute-routing.md#advertising-default-routes).  
 4. **Cifrado** : aunque los circuitos ExpressRoute están dedicados a un cliente específico, es posible que el proveedor de red sufra una infracción de seguridad, lo que permitiría que un intruso examinara el tráfico de paquetes. Para evitar esta posible situación, un cliente o un CSP puede cifrar el tráfico que atraviesa la conexión si define directivas de modo de túnel IPSec para todo el tráfico que fluye entre los recursos locales y los recursos de Azure (consulte el modo de túnel IPSec opcional para el cliente 1 en la ilustración 5: sobre la seguridad de ExpressRoute, más arriba). La segunda opción es usar un dispositivo de firewall en cada punto de conexión del circuito ExpressRoute. Para ello, será necesario instalar más dispositivos o máquinas virtuales de firewall de terceros en ambos extremos para cifrar el tráfico que atraviesa el circuito ExpressRoute.

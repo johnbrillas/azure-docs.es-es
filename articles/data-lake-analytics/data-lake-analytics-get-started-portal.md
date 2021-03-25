@@ -6,10 +6,10 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 03/21/2017
 ms.openlocfilehash: 6e51c6848476147073626119689407ebc02c036d
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92220965"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-the-azure-portal"></a>Introducción a Azure Data Lake Analytics mediante Azure Portal
@@ -17,7 +17,7 @@ ms.locfileid: "92220965"
 
 En este artículo se describe cómo usar Azure Portal para crear cuentas de Azure Data Lake Analytics, definir trabajos en [U-SQL](data-lake-analytics-u-sql-get-started.md) y enviar trabajos al servicio Data Lake Analytics.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para comenzar este tutorial, es preciso tener una **suscripción a Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -28,11 +28,11 @@ Ahora, creará una instancia de Data Lake Analytics y una cuenta de Azure Data L
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Haga clic en **Crear un recurso** >  **Datos y análisis** > **Data Lake Analytics**.
 3. Seleccione los valores de los siguientes elementos:
-   * **Name**: nombre de la cuenta de Data Lake Analytics (solo se permiten letras minúsculas y números).
+   * **Nombre**: nombre de la cuenta de Data Lake Analytics (solo se permiten letras minúsculas y números).
    * **Suscripción**: seleccione la suscripción de Azure usada para la cuenta de Analytics.
    * **Grupo de recursos**. seleccione un grupo de recursos de Azure existente o cree uno nuevo.
    * **Ubicación**. seleccione un centro de datos de Azure para la cuenta de Análisis de Data Lake.
-   * **Data Lake Storage Gen1**: siga las instrucciones para crear una nueva cuenta de Data Lake Storage Gen1 o seleccione una existente. 
+   * **Data Lake Storage Gen1**: siga las instrucciones para crear una nueva cuenta de Data Lake Storage Gen1 o seleccione una existente. 
 4. Si lo desea, seleccione un plan de tarifa para la cuenta de Data Lake Analytics.
 5. Haga clic en **Crear**. 
 

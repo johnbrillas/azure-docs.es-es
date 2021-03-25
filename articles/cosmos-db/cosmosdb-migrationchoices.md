@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.openlocfilehash: 8721c0eb728f568521e86baecb658dc9c869a7f6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93097590"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>Opciones para migrar los datos locales o en la nube a Azure Cosmos DB
@@ -31,13 +31,13 @@ Los siguientes factores determinan la elección de la herramienta de migración:
 
 * **Migración en línea frente a migración sin conexión** Muchas herramientas de migración proporcionan una ruta para realizar solo una migración única. Esto significa que las aplicaciones que acceden a la base de datos pueden experimentar un período de inactividad. Algunas soluciones de migración proporcionan una forma de realizar una migración en vivo en la que hay una canalización de replicación configurada entre el origen y el destino.
 
-* **Origen de datos** : Los datos existentes pueden estar en distintos orígenes de datos, como Oracle DB2, Datastax Cassanda, Azure SQL Database, PostgreSQL, etc. Los datos también pueden estar en una cuenta de Azure Cosmos DB existente y la intención de la migración puede ser que cambie el modelo de datos o que se vuelvan a particionar los datos de un contenedor con una clave de partición diferente.
+* **Origen de datos**: Los datos existentes pueden estar en distintos orígenes de datos, como Oracle DB2, Datastax Cassanda, Azure SQL Database, PostgreSQL, etc. Los datos también pueden estar en una cuenta de Azure Cosmos DB existente y la intención de la migración puede ser que cambie el modelo de datos o que se vuelvan a particionar los datos de un contenedor con una clave de partición diferente.
 
-* **API de Azure Cosmos DB** : En el caso de SQL API en Azure Cosmos DB, hay diversas herramientas desarrolladas por el equipo de Azure Cosmos DB que ayudan en los distintos escenarios de migración. Todas las demás API tienen su propio conjunto especializado de herramientas desarrolladas y mantenidas por la comunidad. Como Azure Cosmos DB admite estas API en un nivel de protocolo de conexión, estas herramientas también deberían funcionar tal cual al migrar datos a Azure Cosmos DB. Sin embargo, es posible que requieran un control personalizado para las limitaciones, ya que este concepto es específico de Azure Cosmos DB.
+* **API de Azure Cosmos DB**: En el caso de SQL API en Azure Cosmos DB, hay diversas herramientas desarrolladas por el equipo de Azure Cosmos DB que ayudan en los distintos escenarios de migración. Todas las demás API tienen su propio conjunto especializado de herramientas desarrolladas y mantenidas por la comunidad. Como Azure Cosmos DB admite estas API en un nivel de protocolo de conexión, estas herramientas también deberían funcionar tal cual al migrar datos a Azure Cosmos DB. Sin embargo, es posible que requieran un control personalizado para las limitaciones, ya que este concepto es específico de Azure Cosmos DB.
 
-* **Tamaño de los datos** : La mayoría de las herramientas de migración funcionan bien para los conjuntos de datos más pequeños. Cuando el conjunto de datos supera unos cientos de gigabytes, las opciones de herramientas de migración son limitadas. 
+* **Tamaño de los datos**: La mayoría de las herramientas de migración funcionan bien para los conjuntos de datos más pequeños. Cuando el conjunto de datos supera unos cientos de gigabytes, las opciones de herramientas de migración son limitadas. 
 
-* **Duración esperada de la migración** : Las migraciones se pueden configurar para que tengan lugar a un ritmo lento e incremental que consume menos capacidad de proceso o puede consumir toda la capacidad de proceso aprovisionada en el contenedor de Azure Cosmos DB de destino y completar la migración en menos tiempo.
+* **Duración esperada de la migración**: Las migraciones se pueden configurar para que tengan lugar a un ritmo lento e incremental que consume menos capacidad de proceso o puede consumir toda la capacidad de proceso aprovisionada en el contenedor de Azure Cosmos DB de destino y completar la migración en menos tiempo.
 
 ## <a name="azure-cosmos-db-sql-api"></a>API de SQL de Azure Cosmos DB
 

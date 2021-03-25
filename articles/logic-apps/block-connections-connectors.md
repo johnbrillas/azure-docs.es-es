@@ -7,10 +7,10 @@ ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.openlocfilehash: 02d9852f6615c3926a02294e0e7eca50f2fbe9a5
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92310032"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Bloqueo de conexiones creadas por conectores en Azure Logic Apps
@@ -125,7 +125,7 @@ Para bloquear la creación de una conexión en una aplicación lógica, siga est
 
    | Propiedad | Obligatorio | Value | Descripción |
    |----------|----------|-------|-------------|
-   | **Ubicación de definición** | Sí | <*Azure-subscription-name*> | La suscripción de Azure que se usará para la definición de la directiva. <p><p>1. Para buscar la suscripción, seleccione el botón de puntos suspensivos ( **...** ). <br>2. En la lista **Suscripción**, busque y seleccione su suscripción. <br>3. Cuando finalice, haga clic en **Seleccionar**. |
+   | **Ubicación de definición** | Sí | <*Azure-subscription-name*> | Suscripción de Azure que se usará para la definición de la directiva. <p><p>1. Para buscar la suscripción, seleccione el botón de puntos suspensivos ( **...** ). <br>2. En la lista **Suscripción**, busque y seleccione su suscripción. <br>3. Cuando finalice, haga clic en **Seleccionar**. |
    | **Nombre** | Sí | <*policy-definition-name*> | Nombre que se va a usar para la definición de directiva. |
    | **Descripción** | No | <*policy-definition-name*> | Descripción de la definición de directiva. |
    | **Categoría** | Sí | **Aplicaciones lógicas** | Nombre de una categoría existente o nueva categoría de la definición de directiva. |
@@ -155,7 +155,7 @@ Para bloquear la creación de una conexión en una aplicación lógica, siga est
    | `mode` | `All` | Modo que determina los tipos de recursos que evalúa la directiva. <p><p>En este escenario se establece `mode` en `All`, que aplica la directiva a los grupos de recursos, las suscripciones y todos los tipos de recursos de Azure. <p><p>Para obtener más información, vea [Estructura de definición de Azure Policy: modo](../governance/policy/concepts/definition-structure.md#mode). |
    | `if` | `{condition-to-evaluate}` | La condición que determina cuándo aplicar la regla de directiva. <p><p>En este escenario, `{condition-to-evaluate}` determina si el valor de `api.id` en `Microsoft.Web/connections/api.id` coincide con `*managedApis/{connector-name}`, que especifica un valor de carácter comodín (*). <p><p>Para obtener más información, vea [Estructura de definición de Azure Policy: regla de directiva](../governance/policy/concepts/definition-structure.md#policy-rule). |
    | `field` | `Microsoft.Web/connections/api.id` | Valor `field` que se va a comparar con la condición. <p><p>En este escenario, `field` usa el [*alias*](../governance/policy/concepts/definition-structure.md#aliases), `Microsoft.Web/connections/api.id`, para tener acceso al valor de la propiedad del conector, `api.id`. |
-   | `like` | `*managedApis/{connector-name}` | Operador lógico y valor que se va a usar para comparar el valor de `field`. <p><p>En este escenario, el operador `like` y el carácter comodín (*) se aseguran de que la regla funciona independientemente de la región, y la cadena, `*managedApis/{connector-name}`, es el valor que debe coincidir, donde `{connector-name}` es el identificador del conector que desea bloquear. <p><p>Por ejemplo, supongamos que desea bloquear la creación de conexiones a las plataformas o bases de datos de medios sociales: <p><p>- Twitter: `twitter` <br>- Instagram: `instagram` <br>- Facebook: `facebook` <br>- Pinterest: `pinterest` <br>- SQL Server o Azure SQL: `sql` <p><p>Para buscar estos identificadores de conector, vea [Búsqueda del identificador de referencia del conector](#connector-reference-ID) anteriormente en este tema. |
+   | `like` | `*managedApis/{connector-name}` | Operador lógico y valor que se va a usar para comparar el valor de `field`. <p><p>En este escenario, el operador `like` y el carácter comodín (*) se aseguran de que la regla funciona independientemente de la región, y la cadena, `*managedApis/{connector-name}`, es el valor que debe coincidir, donde `{connector-name}` es el identificador del conector que desea bloquear. <p><p>Por ejemplo, supongamos que desea bloquear la creación de conexiones a las plataformas o bases de datos de medios sociales: <p><p>- Twitter: `twitter` <br>- Instagram: `instagram` <br>- Facebook: `facebook` <br>- Pinterest: `pinterest` <br>- SQL Server or Azure SQL: `sql` <p><p>Para buscar estos identificadores de conector, vea [Búsqueda del identificador de referencia del conector](#connector-reference-ID) anteriormente en este tema. |
    | `then` | `{effect-to-apply}` | Efecto que se va a aplicar cuando se cumpla la condición de `if`. <p><p>En este escenario, `{effect-to-apply}` es bloquear y generar un error en una solicitud u operación que no cumpla con la directiva. <p><p>Para obtener más información, vea [Estructura de definición de Azure Policy: regla de directiva](../governance/policy/concepts/definition-structure.md#policy-rule). |
    | `effect` | `deny` | `effect` es bloquear la solicitud, lo cual sirve para crear la conexión especificada. <p><p>Para obtener más información, consulte [Comprender los efectos de Azure Policy: denegar](../governance/policy/concepts/effects.md#deny). |
    ||||

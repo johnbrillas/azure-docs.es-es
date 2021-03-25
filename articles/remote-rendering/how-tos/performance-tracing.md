@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.openlocfilehash: 1d4ce68bdda5fbc3dfdb7396141289a58dab5bd1
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92204102"
 ---
 # <a name="create-client-side-performance-traces"></a>Creación de seguimientos del rendimiento en el cliente
@@ -35,13 +35,13 @@ Cuando busca información acerca de seguimientos de rendimiento, inevitablemente
 * `WPR`
 * `WPA`
 
-**ETW** son las siglas en inglés de [**E**vent **T**racing para **W**indows](/windows/win32/etw/about-event-tracing) (o Seguimiento de eventos para Windows). Simplemente es el nombre de la eficaz herramienta de seguimiento del nivel de kernel que se integra en Windows. Se denomina de seguimiento de *eventos* porque las aplicaciones que admiten ETW emiten eventos para registrar las acciones que pueden ayudar a realizar un seguimiento de los problemas de rendimiento. De forma predeterminada, el sistema operativo ya emite eventos para elementos como los accesos al disco, los modificadores de tareas y otros similares. Las aplicaciones como ARR también emiten eventos personalizados, por ejemplo, los fotogramas que se han descartado, el retraso de la red, etc.
+**ETW** son las siglas en inglés de [**E** vent **T** racing para **W** indows](/windows/win32/etw/about-event-tracing) (o Seguimiento de eventos para Windows). Simplemente es el nombre de la eficaz herramienta de seguimiento del nivel de kernel que se integra en Windows. Se denomina de seguimiento de *eventos* porque las aplicaciones que admiten ETW emiten eventos para registrar las acciones que pueden ayudar a realizar un seguimiento de los problemas de rendimiento. De forma predeterminada, el sistema operativo ya emite eventos para elementos como los accesos al disco, los modificadores de tareas y otros similares. Las aplicaciones como ARR también emiten eventos personalizados, por ejemplo, los fotogramas que se han descartado, el retraso de la red, etc.
 
-**ETL** son las siglas en inglés de **E**vent **T**race **L**ogging (o registro del seguimiento de eventos). Simplemente significa que se ha recopilado (registrado) un seguimiento y, por lo tanto, se suele usar como extensión de archivo para los archivos que almacenan los datos de seguimiento. Así, cuando realice un seguimiento, después, normalmente, tendrá un archivo \*.etl.
+**ETL** son las siglas en inglés de **E** vent **T** race **L** ogging (o registro del seguimiento de eventos). Simplemente significa que se ha recopilado (registrado) un seguimiento y, por lo tanto, se suele usar como extensión de archivo para los archivos que almacenan los datos de seguimiento. Así, cuando realice un seguimiento, después, normalmente, tendrá un archivo \*.etl.
 
-**WPR** son las siglas en inglés de [**W**indows **P**erformance **R**ecorder](/windows-hardware/test/wpt/windows-performance-recorder) (o Grabador de rendimiento de Windows) y es el nombre de la aplicación que inicia y detiene la grabación de los seguimientos de evento. WPR toma un archivo de perfil (\*.wprp) que configura los eventos exactos que se van a registrar. Este tipo de archivo `wprp` se proporciona con el SDK de ARR. Al realizar seguimientos en un equipo de escritorio, puede iniciar WPR directamente. En cambio, cuando realiza un seguimiento en HoloLens, normalmente se hace mediante la interfaz web.
+**WPR** son las siglas en inglés de [**W** indows **P** erformance **R** ecorder](/windows-hardware/test/wpt/windows-performance-recorder) (o Grabador de rendimiento de Windows) y es el nombre de la aplicación que inicia y detiene la grabación de los seguimientos de evento. WPR toma un archivo de perfil (\*.wprp) que configura los eventos exactos que se van a registrar. Este tipo de archivo `wprp` se proporciona con el SDK de ARR. Al realizar seguimientos en un equipo de escritorio, puede iniciar WPR directamente. En cambio, cuando realiza un seguimiento en HoloLens, normalmente se hace mediante la interfaz web.
 
-**WPA** son las siglas de [**W**indows **P**erformance **A**nalyzer](/windows-hardware/test/wpt/windows-performance-analyzer) (o Analizador de rendimiento de Windows) y es el nombre de la aplicación GUI que se usa para abrir archivos \*.etl y examinar los datos a fin de identificar los problemas de rendimiento. WPA le permite ordenar los datos por varios criterios, mostrarlos de varias maneras, profundizar en los detalles y correlacionar la información.
+**WPA** son las siglas de [**W** indows **P** erformance **A** nalyzer](/windows-hardware/test/wpt/windows-performance-analyzer) (o Analizador de rendimiento de Windows) y es el nombre de la aplicación GUI que se usa para abrir archivos \*.etl y examinar los datos a fin de identificar los problemas de rendimiento. WPA le permite ordenar los datos por varios criterios, mostrarlos de varias maneras, profundizar en los detalles y correlacionar la información.
 
 Aunque los seguimientos de ETL se pueden crear en cualquier dispositivo Windows (equipo local, HoloLens, servidor en la nube, etc.), normalmente se guardan en el disco y se analizan con WPA en un equipo de escritorio. Los archivos ETL se pueden enviar a otros desarrolladores para que los examinen. Sin embargo, tenga en cuenta que la información importante, como las rutas de acceso de los archivos y las direcciones IP, se puede capturar en los seguimientos ETL. Puede usar ETW de dos maneras: para grabar o para analizar los seguimientos. La grabación de seguimientos es sencilla y requiere una configuración mínima. Por otro lado, el análisis de los seguimientos requiere un conocimiento aceptable tanto de la herramienta WPA como del problema que se esté investigando. El material general para el aprendizaje de WPA se proporcionará a continuación, así como directrices para interpretar los seguimientos específicos de ARR.
 

@@ -11,10 +11,10 @@ ms.author: jopapa
 ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
 ms.openlocfilehash: c8e2c707566b08219b495e76be7f6f6130d876ab
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93081321"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>Creación de una aplicación de Angular con la API de Azure Cosmos DB para MongoDB: Incorporación de funciones CRUD a la aplicación
@@ -68,7 +68,7 @@ Antes de iniciar esta parte del tutorial, asegúrese de que ha completado los pa
    }
    ```
 
-3. En **hero.service.js** , actualice `module.exports` para incluir la nueva función `postHero`. 
+3. En **hero.service.js**, actualice `module.exports` para incluir la nueva función `postHero`. 
 
     ```javascript
     module.exports = {
@@ -77,7 +77,7 @@ Antes de iniciar esta parte del tutorial, asegúrese de que ha completado los pa
     };
     ```
 
-4. En **routes.js** , agregue un enrutador para la función `post` después del enrutador `get`. Este enrutador publica los héroes de uno en uno. Al estructurar el archivo de enrutador de esta forma, se muestran limpiamente todos los puntos de conexión de la API disponibles y se deja el trabajo real para el archivo **hero.service.js**.
+4. En **routes.js**, agregue un enrutador para la función `post` después del enrutador `get`. Este enrutador publica los héroes de uno en uno. Al estructurar el archivo de enrutador de esta forma, se muestran limpiamente todos los puntos de conexión de la API disponibles y se deja el trabajo real para el archivo **hero.service.js**.
 
     ```javascript
     router.post('/hero', (req, res) => {
@@ -99,7 +99,7 @@ Antes de iniciar esta parte del tutorial, asegúrese de que ha completado los pa
 
 ## <a name="add-the-put-and-delete-functions"></a>Incorporación de las funciones Put y Delete
 
-1. En **routes.js** , agregue los enrutadores `put` y `delete` tras el enrutador post.
+1. En **routes.js**, agregue los enrutadores `put` y `delete` tras el enrutador post.
 
     ```javascript
     router.put('/hero/:uid', (req, res) => {
@@ -159,7 +159,7 @@ Antes de iniciar esta parte del tutorial, asegúrese de que ha completado los pa
    }
    ```
 
-3. En **hero.service.js** , exporte los nuevos módulos:
+3. En **hero.service.js**, exporte los nuevos módulos:
 
    ```javascript
     module.exports = {

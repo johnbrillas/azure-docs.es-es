@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ms.openlocfilehash: 86622bf96d4b59537a2946073fdc638e51c3852d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98945841"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Crear clústeres basados en Linux en HDInsight con Azure PowerShell
@@ -20,7 +20,7 @@ Azure PowerShell es un eficaz entorno de scripting que puede usar para controlar
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -33,7 +33,7 @@ Módulo Az de [Azure PowerShell](/powershell/azure/install-Az-ps).
 Para crear un clúster de HDInsight con Azure PowerShell, debe realizar los procedimientos siguientes:
 
 * Creación de un grupo de recursos de Azure
-* Creación de una cuenta de Azure Storage
+* Creación de una cuenta de Azure Storage
 * Creación de un contenedor de blobs de Azure
 * Creación de un clúster de HDInsight
 
@@ -103,5 +103,5 @@ Ahora que ya ha creado correctamente un clúster de HDInsight, use los siguiente
 
 * [Crear una aplicación independiente con Scala](spark/apache-spark-create-standalone-application.md)
 * [Ejecución de trabajos de forma remota en un clúster de Apache Spark mediante Apache Livy](spark/apache-spark-livy-rest-interface.md)
-* [Apache Spark con BI: Realización de análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](spark/apache-spark-use-bi-tools.md)
-* [Apache Spark con Machine Learning: Uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark con BI: Análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark con Machine Learning: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](spark/apache-spark-machine-learning-mllib-ipython.md)

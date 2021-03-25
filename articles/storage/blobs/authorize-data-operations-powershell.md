@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.openlocfilehash: 45fa5cf4c76577cb5e8ba9bf482f4aab7301e3c6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100391497"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-blob-data"></a>Ejecución de comandos de PowerShell con credenciales de Azure AD para acceder a los datos de blob
@@ -30,7 +30,7 @@ Las extensiones de Azure Storage se admiten para las operaciones en datos de blo
 Para más información sobre los permisos requeridos para cada operación de Azure Storage en un contenedor, consulte la sección [Llamadas a operaciones de almacenamiento con tokens de OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
 
 > [!IMPORTANT]
-> Cuando una cuenta de almacenamiento está bloqueada con un bloqueo **ReadOnly** de Azure Resource Manager, no se permite la operación [Crear lista de claves](/rest/api/storagerp/storageaccounts/listkeys) para esa cuenta de almacenamiento. **Crear lista de claves** es una operación POST y todas las operaciones POST se impiden cuando se configura un bloqueo **ReadOnly** para la cuenta. Por esta razón, cuando la cuenta está bloqueada con un bloqueo **ReadOnly**, los usuarios que no disponen ya de las claves de cuenta deben usar las credenciales de Azure AD para acceder a los datos del blob. En PowerShell, incluya el parámetro `-UseConnectedAccount` para crear un objeto **AzureStorageContext** con sus credenciales de Azure AD.
+> Cuando una cuenta de almacenamiento está bloqueada con un bloqueo **ReadOnly** de Azure Resource Manager, no se permite la operación [Crear lista de claves](/rest/api/storagerp/storageaccounts/listkeys) para esa cuenta de almacenamiento. **Enumerar claves** es una operación POST y todas las operaciones POST se evitan cuando se configura un bloqueo **ReadOnly** para la cuenta. Por esta razón, cuando la cuenta está bloqueada con un bloqueo **ReadOnly**, los usuarios que no disponen ya de las claves de cuenta deben usar las credenciales de Azure AD para acceder a los datos del blob. En PowerShell, incluya el parámetro `-UseConnectedAccount` para crear un objeto **AzureStorageContext** con sus credenciales de Azure AD.
 
 ## <a name="call-powershell-commands-using-azure-ad-credentials"></a>Llamada a comandos de PowerShell mediante credenciales de Azure AD
 

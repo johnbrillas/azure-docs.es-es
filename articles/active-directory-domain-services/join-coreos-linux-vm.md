@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 07/13/2020
 ms.author: justinha
 ms.openlocfilehash: 1e98f32bd6fe7d5373d5ab6621ffdce5e79abc08
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96619596"
 ---
 # <a name="join-a-coreos-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Unión de una máquina virtual CoreOS a un dominio administrado de Azure Active Directory Domain Services
@@ -128,7 +128,7 @@ Con el archivo de configuración de SSSD actualizado, una la máquina virtual al
     sudo adcli info AADDSCONTOSO.COM
     ```
 
-   Si el comando `adcli info` no se puede encontrar en el dominio administrado, repase los siguientes pasos de solución de problemas:
+   Si el comando `adcli info` no se encuentra en el dominio administrado, repase los siguientes pasos de solución de problemas:
 
     * Asegúrese de que el dominio sea accesible desde la máquina virtual. Pruebe `ping aaddscontoso.com` para ver si se devuelve una respuesta positiva.
     * Compruebe que la VM se ha implementado en la misma red virtual (o en otra emparejada) en la que el dominio administrado está disponible.

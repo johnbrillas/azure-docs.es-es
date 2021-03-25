@@ -4,10 +4,10 @@ description: En este artículo se proporciona información sobre cómo usar Apac
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: 84184ed3dffee97863b93c592d1cd577df313605
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92913745"
 ---
 # <a name="connect-your-apache-spark-application-with-azure-event-hubs"></a>Conexión de una aplicación de Apache Spark con Azure Event Hubs
@@ -37,7 +37,7 @@ Antes de comenzar este tutorial, asegúrese de que dispone de lo siguiente:
 
 
 ## <a name="create-an-event-hubs-namespace"></a>Creación de un espacio de nombres de Event Hubs
-Se requiere un espacio de nombres de Event Hubs para enviar y recibir de cualquier servicio de Event Hubs. Vea [Creación de un centro de eventos](event-hubs-create.md) para obtener instrucciones sobre cómo crear un espacio de nombres y un centro de eventos. Obtenga la cadena de conexión de Event Hubs y el nombre de dominio completo (FQDN) para su uso posterior. Para obtener instrucciones, consulte [Get an Event Hubs connection string](event-hubs-get-connection-string.md) (Obtención de una cadena de conexión de Event Hubs). 
+Se requiere un espacio de nombres de Event Hubs para enviar y recibir de cualquier servicio de Event Hubs. Consulte [Creación de un centro de eventos](event-hubs-create.md) para obtener instrucciones sobre cómo crear un espacio de nombres y un centro de eventos. Obtenga la cadena de conexión de Event Hubs y el nombre de dominio completo (FQDN) para su uso posterior. Para obtener instrucciones, consulte [Get an Event Hubs connection string](event-hubs-get-connection-string.md) (Obtención de una cadena de conexión de Event Hubs). 
 
 ## <a name="clone-the-example-project"></a>Clonación del proyecto de ejemplo
 Clone el repositorio de Azure Event Hubs y vaya a la subcarpeta `tutorials/spark`:

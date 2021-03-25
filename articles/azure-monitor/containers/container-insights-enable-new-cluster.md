@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.custom: devx-track-terraform, devx-track-azurecli
 ms.openlocfilehash: 9b6c4f8a05b8e7a350ebd5afd677e8bb2ee6e9b4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101717577"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Habilitar la supervisión de un nuevo clúster de Azure Kubernetes Service (AKS)
@@ -117,5 +117,5 @@ Transcurridos unos minutos, el comando se completa y devuelve información en fo
 
 * Si experimenta problemas al intentar incorporar la solución, consulte la [guía de solución de problemas](container-insights-troubleshoot.md).
 
-* Con la supervisión habilitada para recopilar el estado y la utilización de recursos del clúster de AKS y las cargas de trabajo que se ejecutan en ellos, aprenda [cómo usar](container-insights-analyze.md) Container Insights.
+* Con la supervisión habilitada para recopilar el estado y la utilización de recursos del clúster de AKS y las cargas de trabajo que se ejecutan en estos, aprenda [cómo usar](container-insights-analyze.md) Container Insights.
 

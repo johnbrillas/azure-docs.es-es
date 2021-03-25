@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 50ab66a1f98d06d79a46d61f683d56822b619721
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: ef1a49301cf150f92d30c163dee262a22f1515d9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007047"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714959"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Implementación de un clúster de Azure Service Fabric en Availability Zones
 Availability Zones de Azure es una oferta de alta disponibilidad que protege las aplicaciones y los datos de los errores del centro de datos. Una zona de disponibilidad es una ubicación física única equipada con alimentación independiente, refrigeración y redes dentro de una región de Azure.
@@ -345,7 +345,7 @@ Para habilitar zonas en un conjunto de escalado de máquinas virtuales, debe inc
 
 * El primer valor es la propiedad **zones**, que especifica las zonas de disponibilidad presentes en el conjunto de escalado de máquinas virtuales.
 * El segundo valor es la propiedad "singlePlacementGroup", que se debe establecer en true. **El conjunto de escalado distribuido en tres zonas de disponibilidad puede escalar hasta 300 máquinas virtuales, incluso con "singlePlacementGroup = true".**
-* El tercer valor es "zoneBalance", que garantiza el equilibrio de zona estricta si se establece en true. Recomendamos su establecimiento en true, a fin de evitar la distribución desequilibrada de máquinas virtuales entre zonas. Lea sobre el [equilibrio de zona](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
+* El tercer valor es "zoneBalance", que garantiza el equilibrio de zona estricta. Debe ser "true" para evitar la distribución desequilibrada de las máquinas virtuales entre zonas. Es menos probable que un clúster con una distribución desequilibrada de máquinas virtuales entre zonas sobreviva al escenario de una zona fuera de servicio. Lea sobre el [equilibrio de zona](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
 * No es necesario que las invalidaciones FaultDomain y UpgradeDomain estén configuradas.
 
 ```json
@@ -409,7 +409,7 @@ El elemento nodeType de Service Fabric debe estar habilitado para admitir varias
 > * Los recursos de Load Balancer e IP pública deben usar el SKU estándar tal como se describiró anteriormente en el artículo.
 > * La propiedad "multipleAvailabilityZones" del elemento nodeType solo se puede definir en el momento de la creación de nodeType y no se pueden modificar más adelante. Por lo tanto, los elementos nodeType no se pueden configurar con esta propiedad.
 > * Cuando "sfZonalUpgradeMode" se omite o se establece en "Jerárquico", las implementaciones de clúster y aplicación serán más lentas, porque habrá más dominios de actualización en el clúster. Es importante ajustar correctamente los tiempos de inactividad de la directiva de actualización para incorporar la duración del tiempo de actualización para 15 dominios de actualización.
-> * Se recomienda establecer el nivel de confiabilidad del clúster en Platinum para garantizar que el clúster sobreviva al escenario con una zona caída.
+> * Establezca la opción **reliabilityLevel = Platinum** del clúster para garantizar que el clúster sobreviva al escenario con una zona fuera de servicio.
 
 >[!NOTE]
 > Como procedimiento recomendado, se recomienda establecer sfZonalUpgradeMode en Jerárquico, o bien omitirlo. La implementación seguirá la distribución zonal de las máquinas virtuales que afectan a una cantidad menor de réplicas o instancias, para hacerlas más seguras.

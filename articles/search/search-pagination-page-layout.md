@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/09/2020
 ms.openlocfilehash: a7171d656ec9f839aea4ae73763ec6ebd20c2bb3
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98209838"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Procedimientos para trabajar con los resultados de búsqueda en Azure Cognitive Search
@@ -103,7 +103,7 @@ Las puntuaciones de búsqueda transmiten el sentido general de pertinencia, lo q
 
 ### <a name="how-to-get-consistent-ordering"></a>Obtención de una ordenación coherente
 
-Si el orden coherente es un requisito de la aplicación, puede definir explícitamente una expresión [ **`$orderby`** ](query-odata-filter-orderby-syntax.md) en un campo. Solo los campos que se indexan como **`sortable`** se pueden usar para ordenar los resultados. Los campos que se usan habitualmente en **`$orderby`** incluyen campos de clasificación, fecha y ubicación si se especifica el valor del parámetro **`orderby`** para que incluya nombres de campo y llamadas a la función [ **`geo.distance()`**](query-odata-filter-orderby-syntax.md) para obtener valores geoespaciales.
+Si el orden coherente es un requisito de la aplicación, puede definir explícitamente una expresión [ **`$orderby`**](query-odata-filter-orderby-syntax.md) en un campo. Solo los campos que se indexan como **`sortable`** se pueden usar para ordenar los resultados. Los campos que se usan habitualmente en **`$orderby`** incluyen campos de clasificación, fecha y ubicación si se especifica el valor del parámetro **`orderby`** para que incluya nombres de campo y llamadas a la función [ **`geo.distance()`**](query-odata-filter-orderby-syntax.md) para obtener valores geoespaciales.
 
 Otro enfoque que promueve la coherencia es el uso de un [perfil de puntuación personalizado](index-add-scoring-profiles.md). Los perfiles de puntuación ofrecen mayor control sobre la clasificación de los elementos en los resultados de la búsqueda, con la capacidad de aumentar las coincidencias que se encuentran en campos específicos. La lógica de puntuación adicional puede ayudar a invalidar las diferencias menores entre las réplicas, ya que las puntuaciones de búsqueda de cada documento están más alejadas. Para este enfoque, se recomienda usar el [algoritmo de clasificación](index-ranking-similarity.md).
 

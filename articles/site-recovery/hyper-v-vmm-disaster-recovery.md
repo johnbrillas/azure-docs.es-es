@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: b2164f8927e5c3224f8b07c30d057f48fb7bbc32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87495985"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configuración de la recuperación ante desastres para máquinas virtuales de Hyper-V en el sitio local secundario
@@ -131,7 +131,7 @@ Antes de comenzar, asegúrese de que todos los hosts que usan la directiva tiene
     - Si selecciona **Kerberos**, se usará un vale de Kerberos para la autenticación mutua de los servidores host. Kerberos solo es pertinente para servidores host de Hyper-V que se ejecutan en Windows Server 2012 R2 o versiones posteriores.
 1. En **Frecuencia de copia**, especifique la frecuencia con la que desea replicar diferencias de datos después de la replicación inicial (cada 30 segundos, 5 o 15 minutos).
 2. En **Retención de punto de recuperación**, especifique el tiempo (en horas) que estará disponible el período de retención para cada punto de recuperación. Las máquinas replicadas se pueden recuperar en cualquier punto dentro de un período.
-3. En **Frecuencia de instantánea coherente con la aplicación**especifique la frecuencia (entre 1 y 12 horas) con la que se crearán los puntos de recuperación que contengan las instantáneas coherentes con la aplicación. Hyper-V usa dos tipos de instantáneas:
+3. En **Frecuencia de instantánea coherente con la aplicación** especifique la frecuencia (entre 1 y 12 horas) con la que se crearán los puntos de recuperación que contengan las instantáneas coherentes con la aplicación. Hyper-V usa dos tipos de instantáneas:
     - **Instantánea estándar**: proporciona una instantánea incremental de toda la máquina virtual.
     - **Instantánea coherente con la aplicación**: toma una instantánea en un momento dado de los datos de la aplicación dentro de la máquina virtual. El Servicio de instantáneas de volumen (VSS) garantiza que las aplicaciones se encuentren en un estado coherente cuando se toma la instantánea. La habilitación de las instantáneas coherentes con la aplicación afecta al rendimiento de la aplicación en las máquinas virtuales de origen. Establezca un valor que sea inferior al número de puntos de recuperación adicionales que configure.
 4. En **Compresión de transferencia de datos**, especifique si se deben comprimir los datos replicados que se transfieren.

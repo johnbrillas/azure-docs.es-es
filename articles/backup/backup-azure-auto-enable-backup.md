@@ -4,10 +4,10 @@ description: Un artículo en el que se describe cómo usar Azure Policy para hab
 ms.topic: conceptual
 ms.date: 11/08/2019
 ms.openlocfilehash: dfa4364eeaa9f5b60af3f5d6a19aaeb188d4f65e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101707309"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Habilitación automática de la copia de seguridad al crear máquinas virtuales mediante Azure Policy

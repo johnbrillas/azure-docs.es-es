@@ -10,10 +10,10 @@ ms.date: 06/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
 ms.openlocfilehash: 765fd3afc7fe688d3e6b0e3394e7dc8c39af69b3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93096859"
 ---
 # <a name="how-to-create-a-java-application-that-uses-azure-cosmos-db-sql-api-and-change-feed-processor"></a>Cómo crear una aplicación de Java que utiliza SQL API de Azure Cosmos DB y el procesador de fuente de cambios
@@ -25,7 +25,7 @@ Esta guía de procedimientos le orienta por una sencilla aplicación de Java que
 > Este tutorial solo es para el SDK de Azure Cosmos DB para Java v4. Consulte las [notas de la versión](sql-api-sdk-java-v4.md) del SDK de Azure Cosmos DB para Java v4, el [repositorio de Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos), las [sugerencias de rendimiento](performance-tips-java-sdk-v4-sql.md) del SDK de Azure Cosmos DB para Java v4 y la [guía de solución de problemas](troubleshoot-java-sdk-v4-sql.md) del SDK de Azure Cosmos DB para Java v4 para más información. Si en la actualidad usa una versión anterior a v4, vea la guía [Migración al SDK de Azure Cosmos DB para Java v4](migrate-java-v4-sdk.md) a fin de obtener ayuda para actualizar a v4.
 >
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 * URI y clave de la cuenta de Azure Cosmos DB
 
@@ -75,9 +75,9 @@ mvn clean package
 
     A continuación, vuelva al Explorador de datos de Azure Portal en el explorador. Verá que se ha agregado la base de datos **GroceryStoreDatabase** con tres contenedores vacíos: 
 
-    * **InventoryContainer** : el registro de inventario de nuestra tienda de comestibles de ejemplo, con particiones en el elemento ```id```, que es un UUID.
-    * **InventoryContainer-pktype** : una vista materializada del registro de inventario, optimizada para consultas sobre el elemento ```type```.
-    * **InventoryContainer-leases** : un contenedor de concesiones siempre es necesario para la fuente de cambios; las concesiones realizan un seguimiento del progreso de la aplicación en la lectura de la fuente de cambios.
+    * **InventoryContainer**: el registro de inventario de nuestra tienda de comestibles de ejemplo, con particiones en el elemento ```id```, que es un UUID.
+    * **InventoryContainer-pktype**: una vista materializada del registro de inventario, optimizada para consultas sobre el elemento ```type```.
+    * **InventoryContainer-leases**: un contenedor de concesiones siempre es necesario para la fuente de cambios; las concesiones realizan un seguimiento del progreso de la aplicación en la lectura de la fuente de cambios.
 
     :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_account_resources_lease_empty.JPG" alt-text="Contenedores vacíos":::
 
@@ -95,7 +95,7 @@ mvn clean package
 
     ```"SampleHost_1"``` es el nombre del trabajo del procesador de fuente de cambios. ```changeFeedProcessorInstance.start()``` es lo que realmente inicia el procesador de fuente de cambios.
 
-    Vuelva al Explorador de datos de Azure Portal en el explorador. En el contenedor **InventoryContainer-leases** , haga clic en **Elementos** para ver su contenido. Verá que el procesador de fuente de cambios ha rellenado el contenedor de concesiones; es decir, el procesador ha asignado una concesión al trabajo ```SampleHost_1``` en algunas particiones del contenedor **InventoryContainer**.
+    Vuelva al Explorador de datos de Azure Portal en el explorador. En el contenedor **InventoryContainer-leases**, haga clic en **Elementos** para ver su contenido. Verá que el procesador de fuente de cambios ha rellenado el contenedor de concesiones; es decir, el procesador ha asignado una concesión al trabajo ```SampleHost_1``` en algunas particiones del contenedor **InventoryContainer**.
 
     :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_leases.JPG" alt-text="Concesiones":::
 

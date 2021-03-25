@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 3cf27319fa84ff5d693e74e90664b7a86f4d934a
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92897218"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Cobertura de geocodificación de Azure Maps
@@ -23,10 +23,10 @@ Pero el [servicio Search](/rest/api/maps/search) de Azure Maps no tiene el mismo
 
 La capacidad de obtener las coordenadas geográficas en un país o una región depende de la cobertura de los datos de las carreteras y la precisión del servicio de geocodificación. Las clasificaciones siguientes se usan para especificar el nivel de geocodificación en cada país o región.
 
-* **Puntos de dirección** : los datos de direcciones se pueden resolver en coordenadas de latitud y longitud dentro de la parcela de la dirección (límite de la propiedad). A menudo se hace referencia a los puntos de dirección como una precisión de "azotea", que es el nivel más alto de precisión disponible para las direcciones.
-* **Números de casa** : Las direcciones se interpolan a una coordenada de latitud y longitud de la calle.
-* **Nivel de calle** : Las direcciones se resuelven en la coordenada de latitud y longitud de la calle que contiene la dirección. No se puede procesar el número de casa.
-* **Nivel de ciudad** : Se admiten nombres de ciudad.
+* **Puntos de dirección**: los datos de direcciones se pueden resolver en coordenadas de latitud y longitud dentro de la parcela de la dirección (límite de la propiedad). A menudo se hace referencia a los puntos de dirección como una precisión de "azotea", que es el nivel más alto de precisión disponible para las direcciones.
+* **Números de casa**: Las direcciones se interpolan a una coordenada de latitud y longitud de la calle.
+* **Nivel de calle**: Las direcciones se resuelven en la coordenada de latitud y longitud de la calle que contiene la dirección. No se puede procesar el número de casa.
+* **Nivel de ciudad**: Se admiten nombres de ciudad.
 
 ## <a name="americas"></a>América
 
@@ -160,7 +160,7 @@ La capacidad de obtener las coordenadas geográficas en un país o una región d
 | Bélgica                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bosnia y Herzegovina                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bulgaria                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Bielorrusia                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Belarús                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Croacia                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Chipre                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | República Checa                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -191,7 +191,7 @@ La capacidad de obtener las coordenadas geográficas en un país o una región d
 | Luxemburgo                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Macedonia del Norte                                     |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malta                                               |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Moldavia                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Moldova                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Mónaco                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Montenegro                                          |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Países Bajos                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |

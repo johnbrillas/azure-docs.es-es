@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/15/2020
 ms.openlocfilehash: ef284661d44f700cf0b5282efcd2e6f7b94fa3b6
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96621525"
 ---
 # <a name="azure-cache-for-redis-network-isolation-options"></a>Opciones de aislamiento de red de Azure Cache for Redis 
@@ -54,7 +54,7 @@ VNet es el bloque de creación básico de una red privada en Azure. VNet permite
 [Azure Firewall](../firewall/overview.md) es un servicio de seguridad de red administrado y basado en la nube que protege los recursos de Azure VNet. Se trata de un firewall como servicio con estado completo que incorpora alta disponibilidad y escalabilidad en la nube sin restricciones. Puede crear, aplicar y registrar directivas de aplicaciones y de conectividad de red a nivel central en suscripciones y redes virtuales.  
 
 ### <a name="advantages"></a>Ventajas
-* Cuando se configuran las reglas de firewall, solo las cone Siempre se permiten las conexiones de los sistemas de supervisión de Azure Cache for Redis, incluso si se configuran reglas de firewall. También se permiten las reglas de NSG que defina.  
+* Cuando se configuran las reglas de firewall, solo las conexiones de cliente de los intervalos de direcciones IP especificados pueden conectarse a la memoria caché. Siempre se permiten las conexiones de los sistemas de supervisión de Azure Cache for Redis, incluso si se configuran reglas de firewall. También se permiten las reglas de NSG que defina.  
 
 ### <a name="limitations"></a>Limitaciones
 * Las reglas de firewall se pueden usar junto con memorias caché insertadas en VNet, pero actualmente no con puntos de conexión privados. 

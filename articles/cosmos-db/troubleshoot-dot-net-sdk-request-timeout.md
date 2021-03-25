@@ -10,10 +10,10 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: c8d35f7c666562022f503b2777f30f84193d0231
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102440010"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout-exceptions"></a>Diagnóstico y solución de problemas de tiempo de espera de la solicitud del SDK de .NET en Azure Cosmos DB

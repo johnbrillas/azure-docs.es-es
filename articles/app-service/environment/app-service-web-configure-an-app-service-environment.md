@@ -8,10 +8,10 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 598e43d07c213cfeb25f0ecbc7bd02b6ec54b7ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88962594"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Configuración de una instancia de App Service Environment v1
@@ -131,7 +131,7 @@ En la hoja del ASE hay una sección de **configuración** que contiene varias fu
 
 **Configuración** > **Direcciones IP**: Al crear una aplicación de capa de sockets seguros (SSL) de IP en la instancia de ASE, necesita una dirección SSL de IP. Para obtener una, el ASE debe tener algunas direcciones SSL de IP que se puedan asignar. Cuando se crea un ASE, este tiene una dirección SSL de IP para este propósito, pero puede agregar más. Las direcciones SSL de IP adicionales conllevan un cargo, como se muestra en los [precios de App Service][AppServicePricing], en la sección sobre las conexiones SSL. El precio adicional es el precio de SSL de IP.
 
-Grupos de trabajo**Configuración de** > **Grupo de servidores front-end** / **Grupos de trabajo**: Cada una de estas hojas del grupo de recursos ofrece la posibilidad de ver información únicamente acerca de ese grupo de recursos, además de proporcionar controles para escalar completamente ese grupo de recursos.  
+Grupos de trabajo **Configuración de** > **Grupo de servidores front-end** / **Grupos de trabajo**: Cada una de estas hojas del grupo de recursos ofrece la posibilidad de ver información únicamente acerca de ese grupo de recursos, además de proporcionar controles para escalar completamente ese grupo de recursos.  
 
 La hoja base de cada grupo de recursos proporciona un gráfico con métricas de dicho grupo de recursos. Al igual que con los gráficos de la hoja de ASE, puede acceder al gráfico y configurar las alertas como desee. Configurar una alerta desde la hoja del ASE para un grupo de recursos específico es igual que hacerlo desde el grupo de recursos. Desde la hoja de **configuración** del grupo de trabajo tendrá acceso a la lista de todas las aplicaciones o planes de App Service que se ejecutan en este grupo de trabajo.
 

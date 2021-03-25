@@ -6,10 +6,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 06/23/2017
 ms.openlocfilehash: 5920f2b5823e568d56d13107200eb0025a654db0
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92219928"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>Introducción a U-SQL en Azure Data Lake Analytics
@@ -22,7 +22,7 @@ U-SQL es un lenguaje que combina SQL declarativo con C# imperativo para permitir
 * Para más información sobre la **sintaxis del lenguaje U-SQL**, consulte la [referencia del lenguaje U-SQL](/u-sql/).
 * Para comprender la **filosofía del diseño de U-SQL**, consulte la entrada del blog de Visual Studio [Introducing U-SQL – A Language that makes Big Data Processing Easy](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/) (Introducción s U-SQL: un lenguaje que facilita el procesamiento de marcrodatos).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de examinar los ejemplos de U-SQL de este documento, lea y realice el [Tutorial: Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). En este tutorial se explican los mecanismos de uso de U-SQL con Herramientas de Azure Data Lake para Visual Studio.
 
@@ -226,4 +226,4 @@ Para escenarios avanzados de agregación, consulte la documentación de referenc
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Información general de Análisis de Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-* [Desarrollar scripts de U-SQL mediante Data Lake Tools para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+* [Desarrollo de scripts U-SQL mediante Data Lake Tools para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)

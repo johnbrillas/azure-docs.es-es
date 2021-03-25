@@ -1,15 +1,15 @@
 ---
 title: Tipos de recurso de Azure Resource Manager admitidos
 description: Proporcione una lista de los tipos de recurso de Azure Resource Manager admitidos en Azure Resource Graph y el Historial de cambios.
-ms.date: 02/04/2021
+ms.date: 03/10/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 865aed468f8a6bcb848b77a82467efc2c531398b
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: d7b4be0b35fdfebd2f680a299bc7b90375e36afc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594340"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102633774"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Referencia de tipo de recurso y tabla de Azure Resource Graph
 
@@ -26,9 +26,18 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 
 - microsoft.alertsmanagement/alerts
 
+## <a name="extendedlocationresources"></a>extendedlocationresources
+
+- microsoft.extendedlocation/customlocations/enabledresourcetypes
+
 ## <a name="guestconfigurationresources"></a>guestconfigurationresources
 
 - microsoft.guestconfiguration/guestconfigurationassignments
+
+## <a name="kubernetesconfigurationresources"></a>kubernetesconfigurationresources
+
+- microsoft.kubernetesconfiguration/extensions
+- microsoft.kubernetesconfiguration/sourcecontrolconfigurations
 
 ## <a name="maintenanceresources"></a>maintenanceresources
 
@@ -118,6 +127,7 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 - Microsoft.AzureArcData/postgresInstances (grupos de servidores de Azure Database for PostgreSQL - Azure Arc)
 - Microsoft.AzureArcData/sqlManagedInstances (instancias de SQL Managed Instance - Azure Arc)
 - Microsoft.AzureArcData/sqlServerInstances (SQL Server - Azure Arc)
+- microsoft.azurecis/autopilotenvironments
 - microsoft.azuredata/datacontrollers
 - microsoft.azuredata/hybriddatamanagers
 - microsoft.azuredata/postgresinstances
@@ -132,6 +142,7 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 - <<<<Microsoft.AzureStackHCI/clusters (Azure Stack HCI)
 - microsoft.azurestackhci/galleryimages
 - microsoft.azurestackhci/networkinterfaces
+- Microsoft.AzureStackHCI/virtualmachines (máquina virtual de Azure Stack HCI: Azure Arc)
 - microsoft.azurestackhci/virtualnetworks
 - microsoft.baremetal/consoleconnections
 - Microsoft.BareMetal/crayServers (servidores de Cray)
@@ -151,12 +162,13 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 - Microsoft.BotService/botServices (instancias de Bot Service)
 - Microsoft.Cache/Redis (Azure Cache for Redis)
 - Microsoft.Cache/RedisEnterprise (Redis Enterprise)
+- microsoft.cascade/sites
 - Microsoft.Cdn/CdnWebApplicationFirewallPolicies (directivas de firewall de aplicaciones web [WAF])
-- microsoft.cdn/profiles (perfiles CDN)
+- microsoft.cdn/profiles (instancias de Front Door Standard/Premium [versión preliminar])
 - microsoft.cdn/profiles/afdendpoints
 - microsoft.cdn/profiles/endpoints (puntos de conexión)
 - Microsoft.CertificateRegistration/certificateOrders (instancias de App Service Certificate)
-- microsoft.chaos/chaosexperiments
+- Microsoft.chaos/chaosexperiments (experimentos de Chaos)
 - microsoft.classicCompute/domainNames (servicios en la nube (clásicos))
 - Microsoft.ClassicCompute/VirtualMachines (máquinas virtuales (clásicas))
 - Microsoft.ClassicNetwork/networkSecurityGroups (grupos de seguridad de red (clásicos))
@@ -169,6 +181,7 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 - Microsoft.CloudTest/hostedpools (grupos hospedados de 1ES)
 - Microsoft.CloudTest/images (imágenes de CloudTest)
 - Microsoft.CloudTest/pools (grupos de CloudTest)
+- Microsoft.ClusterStor/nodes (ClusterStors)
 - microsoft.codespaces/plans
 - Microsoft.Cognition/syntheticsAccounts (cuentas de Synthetics)
 - Microsoft.CognitiveServices/accounts (Cognitive Services)
@@ -204,6 +217,11 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 - Microsoft.Confluent/organizations (organizaciones de Confluent)
 - Microsoft.ConnectedCache/cacheNodes (recursos de caché conectada)
 - microsoft.connectedvehicle/platformaccounts
+- microsoft.connectedvmwarevsphere/resourcepools
+- microsoft.connectedvmwarevsphere/vcenters
+- microsoft.connectedvmwarevsphere/virtualmachines
+- microsoft.connectedvmwarevsphere/virtualmachinetemplates
+- microsoft.connectedvmwarevsphere/virtualnetworks
 - Microsoft.ContainerInstance/containerGroups (instancias de contenedor)
 - Microsoft.ContainerRegistry/registries (registros de contenedor)
 - microsoft.containerregistry/registries/agentpools
@@ -226,7 +244,7 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 - Microsoft.Databricks/workspaces (servicios de Azure Databricks)
 - Microsoft.DataCatalog/catalogs (Data Catalog)
 - microsoft.datacatalog/datacatalogs
-- Microsoft.DataCollaboration/workspaces (colaboraciones de datos)
+- Microsoft.DataCollaboration/workspaces (CI de proyecto)
 - Microsoft.Datadog/monitors (Datadog)
 - Microsoft.DataFactory/dataFactories (factorías de datos)
 - Microsoft.DataFactory/factories (factorías de datos [V2])
@@ -244,6 +262,7 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 - Microsoft.DBforMySQL/servers (servidores de Azure Database for MySQL)
 - Microsoft.DBforPostgreSQL/flexibleServers (servidores flexibles de Azure Database for PostgreSQL)
 - Microsoft.DBforPostgreSQL/serverGroups (grupos de servidores de Azure Database for PostgreSQL)
+- microsoft.dbforpostgresql/servergroupsv2
 - Microsoft.DBforPostgreSQL/servers (servidores de Azure Database for PostgreSQL)
 - Microsoft.DBforPostgreSQL/serversv2 (servidores de Azure Database for PostgreSQL v2)
 - microsoft.dbforpostgresql/singleservers
@@ -258,7 +277,7 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 - microsoft.deploymentmanager/steps
 - Microsoft.DesktopVirtualization/ApplicationGroups (grupos de aplicaciones)
 - Microsoft.DesktopVirtualization/HostPools (grupos de hosts)
-- microsoft.desktopvirtualization/scalingplans
+- Microsoft.DesktopVirtualization/ScalingPlans (planes de escalado)
 - Microsoft.DesktopVirtualization/Workspaces (áreas de trabajo)
 - microsoft.devices/elasticpools
 - microsoft.devices/elasticpools/iothubtenants
@@ -274,9 +293,13 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 - Microsoft.DevTestLab/labs/virtualMachines (máquinas virtuales)
 - microsoft.devtestlab/schedules
 - Microsoft.DigitalTwins/digitalTwinsInstances (Azure Digital Twins)
+- Microsoft.DocumentDB/cassandraClusters (Azure Managed Instance for Apache Cassandra)
 - Microsoft.DocumentDb/databaseAccounts (cuentas de Azure Cosmos DB)
 - Microsoft.DomainRegistration/domains (dominios de App Service)
-- Microsoft.Elastic/monitors (Elastic)
+- microsoft.edgeorder/addresses
+- microsoft.edgeorder/ordercollections
+- microsoft.edgeorder/orders
+- Microsoft.Elastic/monitors (Elasticsearch)
 - microsoft.enterpriseknowledgegraph/services
 - Microsoft.EventGrid/domains (dominios de Event Grid)
 - Microsoft.EventGrid/partnerNamespaces (espacios de nombres de partners de Event Grid)
@@ -306,8 +329,8 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 - microsoft.hybridcompute/machines/extensions
 - Microsoft.HybridCompute/privateLinkScopes (ámbitos de Private Link de Azure Arc)
 - Microsoft.HybridData/dataManagers (instancias de StorSimple Data Manager)
-- Microsoft.HybridNetwork/devices (administrador de función de red de Azure – dispositivos)
-- Microsoft.HybridNetwork/networkFunctions (administrador de función de red de Azure – funciones de red)
+- Microsoft.HybridNetwork/devices (administrador de funciones de red de Azure: dispositivos [versión preliminar])
+- Microsoft.HybridNetwork/networkFunctions (administración de funciones de red de Azure: funciones de red [versión preliminar])
 - microsoft.hybridnetwork/virtualnetworkfunctions
 - Microsoft.ImportExport/jobs (trabajos de importación o exportación)
 - microsoft.industrydatalifecycle/basemodels
@@ -333,10 +356,10 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 - microsoft.insights/workbooks (libros de Azure)
 - microsoft.insights/workbooktemplates (plantillas de libro de Azure)
 - Microsoft.IntelligentITDigitalTwin/digitalTwins (Minervas)
-- microsoft.intelligentitdigitaltwin/digitaltwins/assets
-- microsoft.intelligentitdigitaltwin/digitaltwins/executionplans
-- microsoft.intelligentitdigitaltwin/digitaltwins/testplans
-- microsoft.intelligentitdigitaltwin/digitaltwins/tests
+- Microsoft.IntelligentITDigitalTwin/digitalTwins/assets (recursos)
+- Microsoft.IntelligentITDigitalTwin/digitalTwins/executionPlans (implementaciones)
+- Microsoft.IntelligentITDigitalTwin/digitalTwins/testPlans (conjuntos)
+- Microsoft.IntelligentITDigitalTwin/digitalTwins/tests (scripts)
 - Microsoft.IoTCentral/IoTApps (aplicaciones de IoT Central)
 - Microsoft. IoTSpaces/Graph (Digital Twins [en desuso])
 - microsoft.keyvault/hsmpools
@@ -351,15 +374,16 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 - Microsoft.Logic/integrationServiceEnvironments (entornos del servicio de integración)
 - Microsoft.Logic/integrationServiceEnvironments/managedApis (conector administrado)
 - Microsoft.Logic/workflows (aplicaciones lógicas)
-- Microsoft.Logz/Monitors (cuenta principal de Logz)
-- Microsoft.Logz/monitors/accounts (subcuenta de Logz)
+- Microsoft.Logz/monitors (cuenta principal de Logz)
+- Microsoft.Logz/monitors/accounts (cuenta secundaria de Logz)
 - Microsoft.MachineLearning/commitmentPlans (planes de servicio web de Estudio de Machine Learning [clásicos])
 - Microsoft.MachineLearning/webServices (servicios web de Estudio de Machine Learning [clásicos])
 - Microsoft.MachineLearning/workspaces (áreas de trabajo de Estudio de Machine Learning [clásicas])
 - microsoft.machinelearningcompute/operationalizationclusters
 - microsoft.machinelearningservices/modelinventories
 - microsoft.machinelearningservices/modelinventory
-- Microsoft.MachineLearningServices/workspaces (Machine Learning)
+- microsoft.machinelearningservices/virtualclusters
+- Microsoft.MachineLearningServices/workspaces (aprendizaje automático)
 - microsoft.machinelearningservices/workspaces/batchendpoints
 - microsoft.machinelearningservices/workspaces/batchendpoints/deployments
 - microsoft.machinelearningservices/workspaces/inferenceendpoints
@@ -383,16 +407,22 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 - microsoft.media/mediaservices/liveevents (eventos en directo)
 - microsoft.media/mediaservices/streamingEndpoints (puntos de conexión de streaming)
 - microsoft.media/mediaservices/transforms
+- microsoft.media/videoanalyzers
 - microsoft.microservices4spring/appclusters
 - microsoft.migrate/assessmentprojects
 - microsoft.migrate/migrateprojects
 - microsoft.migrate/movecollections
 - Microsoft.Migrate/projects (proyectos de migración)
 - Microsoft.MixedReality/holographicsBroadcastAccounts (cuentas de Holographics Broadcast)
+- Microsoft.MixedReality/objectAnchorsAccounts (cuentas de Object Anchors)
 - Microsoft.MixedReality/objectUnderstandingAccounts (cuentas de Object Understanding)
 - Microsoft.MixedReality/remoteRenderingAccounts (cuentas de Remote Rendering)
 - Microsoft.MixedReality/spatialAnchorsAccounts (cuentas de Spatial Anchors)
 - microsoft.mixedreality/surfacereconstructionaccounts
+- microsoft.mobilenetwork/networks
+- microsoft.mobilenetwork/networks/sites
+- microsoft.mobilenetwork/sims
+- microsoft.mobilenetwork/sims/simprofiles
 - Microsoft.NetApp/netAppAccounts (cuentas de NetApp)
 - microsoft.netapp/netappaccounts/backuppolicies
 - Microsoft.NetApp/netAppAccounts/capacityPools (grupos de capacidad)
@@ -485,6 +515,7 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 - microsoft.powerbi/privatelinkservicesforpowerbi
 - microsoft.powerbi/tenants
 - microsoft.powerbi/workspacecollections
+- microsoft.powerbidedicated/autoscalevcores
 - Microsoft.PowerBIDedicated/capacities (Power BI Embedded)
 - Microsoft.ProjectBabylon/Accounts (cuentas de Babylon)
 - Microsoft.Purview/Accounts (cuentas de Purview)
@@ -494,13 +525,13 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 - Microsoft.Relay/namespaces (retransmisiones)
 - microsoft.remoteapp/collections
 - microsoft.resiliency/chaosexperiments
-- microsoft.resourceconnector/appliances
+- Microsoft.ResourceConnector/Appliances (dispositivos)
 - Microsoft.resourcegraph/queries (consultas de Resource Graph)
 - Microsoft.Resources/deploymentScripts (scripts de implementación)
 - Microsoft.Resources/templateSpecs (especificaciones de plantilla)
 - microsoft.resources/templatespecs/versions
 - Microsoft.SaaS/applications (software como servicio [clásico])
-- Microsoft.SaaS/resources (CPX-Placeholder)
+- Microsoft.SaaS/resources (SaaS)
 - Microsoft.Scheduler/jobCollections (colecciones de trabajos de Scheduler)
 - microsoft.scvmm/clouds
 - Microsoft.scvmm/virtualMachines (máquina virtual de SCVMM - Azure Arc)
@@ -542,6 +573,7 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 - Microsoft.SqlVirtualMachine/SqlVirtualMachines (máquinas virtuales SQL)
 - microsoft.sqlvm/dwvm
 - Microsoft.Storage/StorageAccounts (cuentas de almacenamiento)
+- microsoft.storagecache/amlfilesystems
 - Microsoft.StorageCache/caches (cachés HPC)
 - microsoft.storagepool/diskpools
 - Microsoft.StorageSync/storageSyncServices (servicios de sincronización de almacenamiento)
@@ -558,12 +590,13 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 - microsoft.synapse/workspaces/sqldatabases
 - Microsoft.Synapse/workspaces/sqlPools (grupos de SQL dedicados)
 - microsoft.terraformoss/providerregistrations
+- microsoft.testbase/testbases
 - Microsoft.TimeSeriesInsights/environments (entornos de Time Series Insights)
 - Microsoft.TimeSeriesInsights/environments/eventsources (orígenes del evento de Time Series Insights)
 - Microsoft.TimeSeriesInsights/environments/referenceDataSets (conjuntos de datos de referencia de Time Series Insights)
 - microsoft.token/stores
 - microsoft.tokenvault/vaults
-- microsoft.virtualmachineimages/imagetemplates
+- Microsoft.VirtualMachineImages/imageTemplates (plantillas de imagen)
 - microsoft.visualstudio/account (organizaciones de Azure DevOps)
 - microsoft.visualstudio/account/extension
 - microsoft.visualstudio/account/project (DevOps Starter)
@@ -628,7 +661,8 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 
 - microsoft.security/assessments
 - microsoft.security/assessments/subassessments
-- microsoft.security/locations/alerts (alertas de seguridad [versión preliminar])
+- microsoft.security/iotalerts
+- microsoft.security/locations/alerts (aletas de seguridad)
 - microsoft.security/pricings
 - microsoft.security/regulatorycompliancestandards
 - microsoft.security/regulatorycompliancestandards/regulatorycompliancecontrols
@@ -639,6 +673,10 @@ Azure Resource Graph admite estos **tipos de recurso** de [Azure Resource Manage
 ## <a name="servicehealthresources"></a>servicehealthresources
 
 - microsoft.resourcehealth/events
+
+## <a name="workloadmonitorresources"></a>workloadmonitorresources
+
+- microsoft.workloadmonitor/monitors
 
 ## <a name="next-steps"></a>Pasos siguientes
 

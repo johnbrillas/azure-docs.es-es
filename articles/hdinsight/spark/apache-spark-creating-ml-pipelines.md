@@ -6,10 +6,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 07/22/2019
 ms.openlocfilehash: e9897c7ba14e6190698cf10792a94acc759699d4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98940187"
 ---
 # <a name="create-an-apache-spark-machine-learning-pipeline"></a>Creación de una canalización de aprendizaje automático de Apache Spark
@@ -28,7 +28,7 @@ Cada instancia sin estado de un transformador o un estimador tiene su propio ide
 
 Para mostrar un uso práctico de una canalización de ML, en este ejemplo se usa el archivo de datos `HVAC.csv` de ejemplo que está precargado en el almacenamiento predeterminado para el clúster HDInsight (Azure Storage o Data Lake Storage). Para ver el contenido del archivo, navegue hasta el directorio `/HdiSamples/HdiSamples/SensorSampleData/hvac`. `HVAC.csv` contiene un conjunto de horas con las temperaturas objetivo y reales de los sistemas HVAC (*calefacción, ventilación y aire acondicionado*) de varios edificios. El objetivo es entrenar el modelo con los datos y producir una previsión de temperatura para un edificio determinado.
 
-En el código siguiente:
+El código siguiente:
 
 1. Se define un elemento `LabeledDocument`, que almacena los objetos `BuildingID`, `SystemInfo` (identificador y antigüedad del sistema) y `label` (1,0 si la temperatura del edificio es demasiado elevada, 0,0 en otro caso).
 2. Se crea una función personalizada del analizador `parseDocument` que toma una línea (fila) de datos y determina si la temperatura del edificio es elevada comparando la temperatura objetivo con la temperatura real.
@@ -129,6 +129,6 @@ only showing top 20 rows
 
 Ahora puede usarse el objeto `model` para realizar predicciones. Para obtener el ejemplo completo de esta aplicación de aprendizaje automático, así como instrucciones detalladas para ejecutarla, consulte [Compilación de aplicaciones de aprendizaje automático de Apache Spark en Azure HDInsight](apache-spark-ipython-notebook-machine-learning.md).
 
-## <a name="see-also"></a>Consulte también
+## <a name="see-also"></a>Vea también
 
 * [Ciencia de datos mediante Scala y Apache Spark en Azure](../../machine-learning/team-data-science-process/scala-walkthrough.md)

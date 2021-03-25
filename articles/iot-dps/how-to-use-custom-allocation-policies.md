@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: devx-track-csharp, devx-track-azurecli
 ms.openlocfilehash: 14a405dbab0460f841a5e9104dbfeff101568f44
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98919231"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Uso de directivas de asignación personalizadas
@@ -467,7 +467,7 @@ En esta sección, actualizará el ejemplo de aprovisionamiento denominado **prov
 
 El código de ejemplo simula una secuencia de arranque de dispositivo que envía la solicitud de aprovisionamiento a la instancia de Device Provisioning Service. La secuencia de arranque hará que se reconozca y se asigne la tostadora al centro de IoT según la directiva de asignación personalizada.
 
-1. En Azure Portal, seleccione la pestaña **Información general** para su servicio Device Provisioning y anote el valor de **_Ámbito de id_** .
+1. En Azure Portal, seleccione la pestaña **Información general** para su servicio Device Provisioning y anote el valor de **_Ámbito de id_**.
 
     ![Extracción de información del punto de conexión del servicio Device Provisioning desde la hoja del portal](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
@@ -588,7 +588,7 @@ Para eliminar el grupo de recursos por nombre:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y después seleccione **Grupos de recursos**.
 
-2. En el cuadro de texto **Filtrar por nombre...** , escriba el nombre del grupo de recursos que contiene los recursos: **contoso-us-resource-group**. 
+2. En el cuadro de texto **Filtrar por nombre...**, escriba el nombre del grupo de recursos que contiene los recursos: **contoso-us-resource-group**. 
 
 3. A la derecha del grupo de recursos de la lista de resultados, seleccione **...** y, a continuación, **Eliminar grupo de recursos**.
 
