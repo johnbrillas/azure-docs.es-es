@@ -6,73 +6,65 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2021
+ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 3e0ad6aeb6110d04d9c2a8ff5b3e30726d9de03f
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 705bd926c2ac6f414464254969b5c511c88891f0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103490609"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656114"
 ---
-# <a name="chat-client-library-overview"></a>Información general de la biblioteca cliente de chat
+# <a name="chat-client-library-overview"></a>Información general de la biblioteca cliente de chat  
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]    
 
 Las bibliotecas cliente de chat de Azure Communication Services se pueden usar para agregar chats enriquecidos en tiempo real a las aplicaciones.
+    
+## <a name="chat-client-library-capabilities"></a>Funcionalidades de la biblioteca cliente de chat 
 
-## <a name="chat-client-library-capabilities"></a>Funcionalidades de la biblioteca cliente de chat
+En la lista siguiente se presenta el conjunto de características que están disponibles actualmente en las bibliotecas cliente de chat de Communication Services.  
 
-En la lista siguiente se presenta el conjunto de características que están disponibles actualmente en las bibliotecas cliente de chat de Communication Services.
+| Grupo de características | Capacidad | JavaScript  | Java | .NET | Python | iOS | Android |
+|-----------------|-------------------|---|-----|----|-----|----|----|
+| Funcionalidades principales | Crear una conversación de chat entre 2 o más usuarios (hasta 250 usuarios)                                                       | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |    
+|                   | Actualizar el tema de una conversación de chat                                                                              | ✔️   | ✔️ | ✔️    | ✔️   |  ✔️    | ✔️   |   
+|                   | Incorporación o eliminación de participantes de una conversación de chat                                                                           | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  
+|                   | Elegir si desea compartir el historial de mensajes de chat con el participante que se va a agregar                                   | ✔️   | ✔️   | ✔️    | ✔️  |  ✔️    | ✔️   | 
+|                   | Obtener una lista de participantes de una conversación de chat                                                                          | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   | 
+|                   | Eliminar una conversación de chat                                                                                              | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
+|                   | Dado un usuario de comunicación, obtenga la lista de conversaciones de chat de las que forma parte el usuario.                                           | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |   
+|                   | Obtener información sobre una conversación de chat determinada                                                                              | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |   
+|                   | Enviar y recibir mensajes en una conversación de chat                                                                            | ✔️   | ✔️   | ✔️    | ✔️  |  ✔️    | ✔️   |   
+|                   | Editar el contenido de un mensaje enviado                                                                                | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |   
+|                   | Eliminar un mensaje                                                                                                       | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |   
+|                   | Confirmaciones de lectura de mensajes leídos por otros participantes de un chat <br/> *No está disponible cuando hay más de 20 participantes en una conversación de chat*    | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |   
+|                   | Recibir notificaciones cuando los participantes escriben activamente un mensaje en una conversación de chat <br/> *No está disponible cuando hay más de 20 miembros en una conversación de chat*      | ✔️   | ✔️   | ✔️    | ✔️    |  ✔️    | ✔️   | 
+|                   | Obtener todos los mensajes de una conversación de chat <br/>                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  
+|                   | Enviar emojis de Unicode como parte del contenido del mensaje                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
+|Señalización en tiempo real (habilitada por un paquete de señalización propietario**)|  Suscribirse para obtener actualizaciones en tiempo real de los mensajes entrantes y otras operaciones de la aplicación de chat. Para ver una lista de las actualizaciones admitidas para la señalización en tiempo real, consulte [Conceptos de chat](concepts.md#real-time-signaling).                                     | ✔️   | ❌    | ❌  | ❌  | ❌  | ❌  |    
+| Compatibilidad con Event Grid             | Usar la integración con Azure Event Grid y configurar el servicio de comunicación para ejecutar la lógica de negocios basada en la actividad de chat o para conectar un servicio de notificaciones de inserción personalizado   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  
+| Supervisión        | Usar las métricas de solicitud de API emitidas en Azure Portal para compilar paneles, supervisar el estado de la aplicación de chat y establecer alertas para detectar anomalías      | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
+|                   | Configurar el recurso de Communication Services para que reciba registros operativos del chat con fines de supervisión y diagnóstico          | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  
 
-| Grupo de características | Capacidad                                                                                                          | JS  | Java | .NET | Python |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------- | --- | ----- | ---- | -----  |
-| Funcionalidades principales | Crear una conversación de chat entre 2 o más usuarios (hasta 250 usuarios)                                                       | ✔️   | ✔️  | ✔️    | ✔️   |
-|                   | Actualizar el tema de una conversación de chat                                                                              | ✔️   | ✔️ | ✔️    | ✔️   |
-|                   | Agrear o quitar miembros de una conversación de chat                                                                           | ✔️   | ✔️  | ✔️    | ✔️  |
-|                   | Optar por compartir el historial de mensajes del chat con miembros recién agregados (*todos/ninguno/hasta cierta fecha*) | ✔️   | ✔️   | ✔️    | ✔️  |
-|                   | Obtener una lista de todos los miembros de la conversación de chat                                                                          | ✔️   | ✔️  | ✔️ | ✔️ |
-|                   | Eliminar una conversación de chat                                                                                              | ✔️   | ✔️  | ✔️    | ✔️  |
-|                   | Obtener una lista de las conversaciones de chat a las que pertenece un usuario                                                                  | ✔️   | ✔️  | ✔️    | ✔️  |
-|                   | Obtener información sobre una conversación de chat determinada                                                                              | ✔️   | ✔️  | ✔️ | ✔️ |
-|                   | Enviar y recibir mensajes en una conversación de chat                                                                            | ✔️   | ✔️   | ✔️    | ✔️  |
-|                   | Editar el contenido de un mensaje después de enviarlo                                                                   | ✔️   | ✔️  | ✔️ | ✔️ |
-|                   | Eliminar un mensaje                                                                                                       | ✔️   | ✔️  | ✔️ | ✔️ |
-|                   | Etiquetar un mensaje con prioridad normal o alta en el momento del envío                                               | ✔️   | ✔️  | ✔️    | ✔️   |
-|                   | Enviar y recibir confirmaciones de lectura para los mensajes que han leído los miembros <br/> *No está disponible cuando hay más de 20 miembros en una conversación de chat*    | ✔️   | ✔️  | ✔️    | ✔️   |
-|                   | Enviar y recibir notificaciones de escritura cuando un miembro está escribiendo un mensaje en una conversación de chat <br/> *No está disponible cuando hay más de 20 miembros en una conversación de chat*      | ✔️   | ✔️   | ✔️    | ✔️    |
-|                   | Obtener todos los mensajes de una conversación de chat <br/> *Se admiten los emojis Unicode*                                                  | ✔️   | ✔️  | ✔️    | ✔️  |
-|                   | Enviar emojis como parte del contenido del mensaje                                                                              | ✔️   | ✔️  | ✔️    | ✔️  |
-|Señalización en tiempo real (habilitada por un paquete de señalización propietario**)| Recibir notificaciones cuando el usuario recibe un mensaje nuevo en una conversación de chat a la que pertenece                                     | ✔️   | ❌    | ❌  | ❌  |
-|                    | Recibir notificaciones cuando otro usuario de una conversación de chat a la que pertenece editó un mensaje                | ✔️   | ❌    | ❌    | ❌  |
-|                    | Recibir notificaciones cuando otro usuario de una conversación de chat a la que pertenece eliminó un mensaje                | ✔️   | ❌    | ❌    | ❌  |
-|                    | Recibir una notificación cuando otro miembro de la conversación de chat esté escribiendo                                                             | ✔️   | ❌    | ❌    | ❌  |
-|                    | Recibir una notificación cuando otro miembro ha leído un mensaje (confirmación de lectura) en la conversación de chat                               | ✔️   | ❌    | ❌    | ❌  |
-| Events             | Usar Event Grid para suscribirse a la actividad de usuario que se produce en las conversaciones de chat e integrar servicios de notificación personalizados o lógica de negocios     | ✔️   | ✔️  | ✔️    | ✔️  |
-| Supervisión        | Supervisar el uso en términos de los mensajes enviados                                                                               | ✔️   | ✔️  | ✔️    | ✔️  |
-|                    | Supervisar la calidad y el estado de las solicitudes de API realizadas por la aplicación y configurar las alertas a través del portal                                                          | ✔️   | ✔️  | ✔️    | ✔️  |
-|Características adicionales | Usar [Cognitive Services APIs](../../../cognitive-services/index.yml) junto con la biblioteca cliente de chat para habilitar las características inteligentes de *traducción de idioma y análisis de opinión de los mensajes entrantes en un cliente, conversión de voz en texto para redactar un mensaje mientras un miembro habla, etc.*                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
 
-** El paquete de señalización propietario se implementa mediante sockets web. Si no se admiten los sockets web, se reservará a un sondeo prolongado.
+** El paquete de señalización propietario se implementa mediante sockets web. Si no se admiten los sockets web, se reservará a un sondeo prolongado.  
 
-## <a name="javascript-chat-client-library-support-by-os-and-browser"></a>Compatibilidad de la biblioteca cliente de chat de JavaScript por sistema operativo y explorador
+## <a name="javascript-chat-client-library-support-by-os-and-browser"></a>Compatibilidad de la biblioteca cliente de chat de JavaScript por sistema operativo y explorador 
 
 En la tabla siguiente se representa el conjunto de exploradores y versiones compatibles que están disponibles actualmente.
-
+    
 |                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    | SO de iPad|
-| -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ | -------|
+|--------------------------------|----------------|--------------|-------|------|------|------|-------|
 | **Biblioteca cliente de chat** | Firefox *, Chrome*, nuevo Edge | Firefox *, Chrome*, Safari* | Chrome*  | Chrome* | Chrome* | Safari* | Safari* |
 
+\* Tenga en cuenta que se admite la versión más reciente además de las dos versiones anteriores.<br/>   
 
-\* Tenga en cuenta que se admite la versión más reciente además de las dos versiones anteriores.<br/>
+## <a name="next-steps"></a>Pasos siguientes   
 
-## <a name="next-steps"></a>Pasos siguientes
+> [!div class="nextstepaction"] 
+> [Introducción al chat](../../quickstarts/chat/get-started.md)    
 
-> [!div class="nextstepaction"]
-> [Introducción al chat](../../quickstarts/chat/get-started.md)
-
-Puede que los siguientes documentos le resulten interesantes:
-
+Puede que los siguientes documentos le resulten interesantes:  
 - Familiarícese con los [conceptos del chat](../chat/concepts.md)
