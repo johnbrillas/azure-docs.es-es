@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 55fa106f0515405dcad969f05d28e0bc7b975b40
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: c38e4681c76fb0dd52d77c7dc1438b87a9571a80
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96922294"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103562066"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>¿Qué es SQL Data Sync para Azure?
 
@@ -100,6 +100,9 @@ La nueva característica de vínculo privado (versión preliminar) le permite el
 
 - [Uso de PowerShell para sincronizar varias bases de datos de Azure SQL Database](scripts/sql-data-sync-sync-data-between-sql-databases.md)
 - [Uso de PowerShell para sincronizar una base de datos de Azure SQL Database y una base de datos de una instancia de SQL Server](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
+
+### <a name="set-up-data-sync-with-rest-api"></a>Configuración de la sincronización de datos con la API REST
+- [Uso de la API REST para sincronizar varias bases de datos de Azure SQL Database](scripts/sql-data-sync-sync-data-between-sql-databases-rest-api.md)
 
 ### <a name="review-the-best-practices-for-data-sync"></a>Revisión de los procedimientos recomendados para Data Sync
 

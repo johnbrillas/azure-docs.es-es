@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: b94cb6d6302cd92816fe25f6e672b1ce3bb9398d
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 34f54bb30e959ecc2fa27fba5ab7392b9eddc68e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792004"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103494519"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Copia de datos desde Amazon S3 a Azure Storage con AzCopy
 
@@ -70,7 +70,7 @@ Use la misma sintaxis de URL (`blob.core.windows.net`) para las cuentas que tien
 >
 > También puede usar direcciones URL similares a las de hospedaje virtual (por ejemplo: `http://bucket.s3.amazonaws.com`). 
 >
-> Para más información sobre el hospedaje virtual de los cubos, vea [Hospedaje virtual de cubos]](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html).
+> Para más información sobre el hospedaje virtual de los cubos, vea [Hospedaje virtual de cubos](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html).
 
 ### <a name="copy-a-directory"></a>Copia de un directorio
 
@@ -103,7 +103,7 @@ Use la misma sintaxis de URL (`blob.core.windows.net`) para las cuentas que tien
 |--------|-----------|
 | **Sintaxis** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>' --recursive=true` |
 | **Ejemplo** | `azcopy copy 'https://s3.amazonaws.com/mybucket' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive=true` |
-| **Ejemplo** (espacio de nombres jerárquico)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+| **Ejemplo** (espacio de nombres jerárquico)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive=true` |
 
 ### <a name="copy-all-buckets-in-all-regions"></a>Copia de todos los cubos de todas las regiones
 
@@ -113,7 +113,7 @@ Use la misma sintaxis de URL (`blob.core.windows.net`) para las cuentas que tien
 |--------|-----------|
 | **Sintaxis** | `azcopy copy 'https://s3.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **Ejemplo** | `azcopy copy 'https://s3.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
-| **Ejemplo** (espacio de nombres jerárquico)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+| **Ejemplo** (espacio de nombres jerárquico)| `azcopy copy 'https://s3.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
 
 ### <a name="copy-all-buckets-in-a-specific-s3-region"></a>Copia de todos los cubos de una región específica de S3
 
@@ -123,7 +123,7 @@ Use la misma sintaxis de URL (`blob.core.windows.net`) para las cuentas que tien
 |--------|-----------|
 | **Sintaxis** | `azcopy copy 'https://s3-<region-name>.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **Ejemplo** | `azcopy copy 'https://s3-rds.eu-north-1.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
-| **Ejemplo** (espacio de nombres jerárquico)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+| **Ejemplo** (espacio de nombres jerárquico)| `azcopy copy 'https://s3.amazonaws.com/mybucket' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 
 ## <a name="handle-differences-in-object-naming-rules"></a>Control de las diferencias en las reglas de nomenclatura de objetos
 
@@ -168,7 +168,5 @@ Puede encontrar más ejemplos en cualquiera de estos artículos:
 - [Introducción a AzCopy](storage-use-azcopy-v10.md)
 
 - [Transferencia de datos](storage-use-azcopy-v10.md#transfer-data)
-
-- [Transferencia de datos con AzCopy y File Storage](storage-use-azcopy-files.md)
 
 - [Configurar, optimizar y solucionar problemas de AzCopy](storage-use-azcopy-configure.md)

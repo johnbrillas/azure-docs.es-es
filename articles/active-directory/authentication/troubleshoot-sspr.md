@@ -11,18 +11,20 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7099de23b825fa7af203dff9696bb53e23a099c8
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: a1dee21182349108c44f9d498417d3b760ac4913
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741123"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103600869"
 ---
 # <a name="troubleshoot-self-service-password-reset-in-azure-active-directory"></a>Solución de problemas del autoservicio de restablecimiento de contraseña en Azure Active Directory
 
 El autoservicio de restablecimiento de contraseña de Azure Active Directory (Azure AD) permite a los usuarios restablecer sus contraseñas en la nube.
 
-Si tiene problemas con SSPR, puede que le sean de utilidad los pasos de resolución y los errores comunes que se describen a continuación. Si no encuentra la respuesta a un problema, [nuestros equipos de soporte técnico](#contact-microsoft-support) están siempre disponibles para ayudarle.
+Si tiene problemas con SSPR, puede que le sean de utilidad los pasos de resolución y los errores comunes que se describen a continuación. También puede ver este breve vídeo sobre [cómo resolver los seis mensajes de error más comunes de los usuarios finales de SSPR](https://www.youtube.com/watch?v=9RPrNVLzT8I&list=PL3ZTgFEc7LyuS8615yo39LtXR7j1GCerW&index=1).
+
+Si no encuentra la respuesta a un problema, [nuestros equipos de soporte técnico](#contact-microsoft-support) están siempre disponibles para ayudarle.
 
 ## <a name="sspr-configuration-in-the-azure-portal"></a>Configuración de SSPR en Azure Portal
 

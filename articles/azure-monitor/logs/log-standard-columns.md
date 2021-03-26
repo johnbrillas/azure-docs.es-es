@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/25/2021
-ms.openlocfilehash: 3e12bef7569110084cd059b0dfde8562bd914823
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 5b906bdbd07d59d2acc88f6b30f0db6b6cbc961a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102030773"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103562253"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Columnas estándar en registros de Azure Monitor
 Los datos de los registros de Azure Monitor se [almacenan como un conjunto de registros en un área de trabajo de Log Analytics o una aplicación de Application Insights](../logs/data-platform-logs.md), cada uno con un tipo de datos determinado que tiene un conjunto singular de columnas. Muchos tipos de datos tendrán columnas estándar que son comunes entre varios tipos. En este artículo se describen estas columnas y se proporcionan ejemplos de cómo puede usarlas en las consultas.
@@ -132,7 +132,7 @@ Use estas consultas `union withsource = tt *` con moderación, ya que la ejecuci
 
 Siempre resulta más eficaz usar la columna \_SubscriptionId que extraerla mediante el análisis de la columna \_ResourceId.
 
-## <a name="_substriptionid"></a>\_SubstriptionId
+## <a name="_subscriptionid"></a>\_SubscriptionId
 La columna **\_SubscriptionId** contiene el id. de suscripción del recurso con el que está asociado el registro. Esto le proporciona una columna estándar para definir el ámbito de la consulta a solo los registros de una suscripción determinada, o para comparar suscripciones distintas.
 
 En el caso de los recursos de Azure, el valor de **__SubscriptionId** es la parte de la suscripción de la [URL del id. de recurso de Azure](../../azure-resource-manager/templates/template-functions-resource.md). La columna se limita a los recursos de Azure, incluidos los recursos de [Azure Arc](../../azure-arc/overview.md) o a registros personalizados que indicaron el id. de recurso durante la ingesta.

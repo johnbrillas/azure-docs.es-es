@@ -7,26 +7,26 @@ author: ChristopherHouser
 ms.author: chrishou
 ms.reviewer: valthom, estfan, logicappspm
 ms.topic: article
-ms.date: 05/14/2020
+ms.date: 03/10/2021
 tags: connectors
-ms.openlocfilehash: e9e554fdc092e49f5a87049de0e3dc3163105f58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a07eb6e592c68794f0e4038a7cf9a42bd396b47a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85609510"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103495239"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-azure-logic-apps"></a>Conectarse a un servidor IBM MQ desde Azure Logic Apps
 
-El conector IBM MQ envía y recupera mensajes almacenados en un servidor IBM MQ local o en Azure. Este conector incluye un cliente de Microsoft MQ que se comunica con un servidor IBM MQ remoto a través de una red TCP/IP. En este artículo se proporciona una guía de inicio para usar el conector MQ. Puede empezar por examinar un único mensaje en una cola y luego intentar otras acciones.
+El conector MQ envía y recupera mensajes almacenados en un servidor MQ local o en Azure. Este conector incluye un cliente de Microsoft MQ que se comunica con un servidor IBM MQ remoto a través de una red TCP/IP. En este artículo se proporciona una guía de inicio para usar el conector MQ. Puede empezar por examinar un único mensaje en una cola y luego intentar otras acciones.
 
-El conector IBM MQ incluye estas acciones, pero no proporciona ningún desencadenador:
+El conector MQ incluye estas acciones, pero no proporciona ningún desencadenador:
 
-- Examinar un único mensaje sin eliminarlo del servidor IBM MQ.
-- Examinar un lote de mensajes sin eliminarlos del servidor IBM MQ.
-- Recibir un único mensaje y eliminarlo del servidor IBM MQ.
-- Recibir un lote de mensajes y eliminarlos del servidor IBM MQ.
-- Enviar un único mensaje al servidor IBM MQ.
+- Examinar un único mensaje sin eliminarlo del servidor MQ.
+- Examinar un lote de mensajes sin eliminarlos del servidor MQ.
+- Recibir un único mensaje y eliminarlo del servidor MQ.
+- Recibir un lote de mensajes y eliminarlos del servidor MQ.
+- Enviar un único mensaje al servidor MQ.
 
 Estas son las versiones oficialmente compatibles de IBM WebSphere MQ:
 
@@ -37,15 +37,20 @@ Estas son las versiones oficialmente compatibles de IBM WebSphere MQ:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Si usa un servidor MQ local, [instale la puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md) en un servidor de la red. El servidor donde está instalada la puerta de enlace de datos local también debe tener .NET Framework 4.6 instalado para que el conector de MQ funcione.
+* Si usa un servidor MQ local, debe [instalar la puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md) en un servidor de la red.
 
-  Al acabar de instalar la puerta de enlace, también debe crear un recurso de Azure para la puerta de enlace de datos local. Para más información, consulte [Configuración de una conexión de puerta de enlace de datos](../logic-apps/logic-apps-gateway-connection.md).
+  > [!NOTE]
+  > Si el servidor MQ está disponible públicamente o en Azure, no debe usar la puerta de enlace de datos.
 
-  Si el servidor MQ está disponible públicamente o en Azure, no debe usar la puerta de enlace de datos.
+  * Para que el conector MQ funcione, el servidor donde se instala la puerta de enlace de datos local también debe tener instalado .NET Framework 4.6.
+  
+  * Después de instalar la puerta de enlace de datos local, también debe [crear un recurso de puerta de enlace de Azure para la puerta de enlace de datos local](../logic-apps/logic-apps-gateway-connection.md) que usa el conector MQ para tener acceso a su servidor MQ local.
 
-* La aplicación lógica en la que desea agregar la acción de MQ. Esta aplicación lógica debe usar la misma ubicación que la conexión de puerta de enlace de datos local y debe tener un desencadenador que inicia el flujo de trabajo.
+* La aplicación lógica en la que desea usar el conector MQ. El conector de MQ no tiene ningún desencadenador, por lo que debe agregar primero un desencadenador a la aplicación lógica. Por ejemplo, puede usar el [desencadenador de periodicidad](../connectors/connectors-native-recurrence.md). Si no está familiarizado con el uso de aplicaciones lógicas, pruebe este [inicio rápido para crear su primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-  El conector de MQ no tiene ningún desencadenador, por lo que debe agregar primero un desencadenador a la aplicación lógica. Por ejemplo, puede usar el desencadenador de periodicidad. Si no está familiarizado con el uso de aplicaciones lógicas, pruebe este [inicio rápido para crear su primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+## <a name="limitations"></a>Limitaciones
+
+El conector MQ no admite ni usa el campo de **formato** del mensaje ni realiza ninguna conversión de juego de caracteres. El conector solo coloca los datos que aparecen en el campo de mensaje en un mensaje JSON y envía el mensaje.
 
 <a name="create-connection"></a>
 
@@ -61,7 +66,7 @@ Si aún no tiene ninguna conexión de MQ al agregar una acción de MQ, se le ped
 
    * Para **Servidor**, especifique el nombre del servidor MQ, o escriba la dirección IP seguida de dos puntos y el número del puerto.
 
-   * Para usar la Capa de sockets seguros (SSL), seleccione **¿Quiere habilitar SSL?** .
+   * Para usar seguridad de la capa de transporte (TLS) o la capa de sockets seguros (SSL), seleccione **¿Quiere habilitar SSL?**
 
      Actualmente, el conector de MQ solo admite la autenticación de servidor, no la de cliente. Para obtener más información, consulte [Connection and authentication problems](#connection-problems) (Problemas de conexión y autenticación).
 
@@ -185,7 +190,7 @@ La acción **Receive messages** tiene las mismas entradas y salidas que la acci�
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para obtener información técnica acerca de las acciones y los límites, que se detallan en la descripción de Swagger del conector, consulte la [página de referencia del conector](/connectors/mq/).
+Para obtener información técnica, como las acciones y los límites, que se describen en el archivo de Swagger del conector, consulte la [página de referencia del conector](/connectors/mq/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

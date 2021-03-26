@@ -1,6 +1,6 @@
 ---
 title: 'SQL Server a SQL Managed Instance: Guía de migración'
-description: Siga esta guía para migrar las bases de datos de SQL Server a Azure SQL Managed Instance.
+description: Esta guía le muestra cómo migrar las bases de datos de SQL Server a Azure SQL Managed Instance.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
 ms.custom: ''
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 67f5665225bc1297d0eb1b1e1da954fb47660dee
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 6dcbf4a570fb5cdb58c914ea5e4b1164ed6a76ca
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488977"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103564497"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Guía de migración: SQL Server a Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -197,10 +197,6 @@ El método de prueba para la migración de bases de datos consta de las siguient
 1. **Configurar un entorno de prueba**: el entorno de prueba debe contener una copia de la base de datos de origen y la base de datos de destino. Asegúrese de aislar el entorno de prueba.
 1. **Ejecutar pruebas de validación**: ejecute las pruebas de validación en el origen y el destino y, luego, analice los resultados.
 1. **Ejecutar pruebas de rendimiento**: ejecute la prueba de rendimiento en el origen y el destino y, luego, analice y compare los resultados.
-
-   > [!NOTE]
-   > Para obtener ayuda sobre el desarrollo y la ejecución de pruebas de validación tras la migración, tenga en cuenta la solución de calidad de datos [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
-
 
 
 ## <a name="leverage-advanced-features"></a>Aprovechamiento de las características avanzadas 

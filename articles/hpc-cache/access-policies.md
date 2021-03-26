@@ -4,16 +4,16 @@ description: Creación y aplicación de directivas de acceso personalizadas para
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/28/2020
+ms.date: 03/11/2021
 ms.author: v-erkel
-ms.openlocfilehash: 795b194eb7cd31e633128c22ddffe808b32e07da
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: eb9e71cc8ec463077e3b12b8738203a4945a2eab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97802426"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103471781"
 ---
-# <a name="use-client-access-policies"></a>Uso de directivas de acceso de cliente
+# <a name="control-client-access"></a>Control del acceso de cliente
 
 En este artículo se explica cómo crear y aplicar directivas de acceso de cliente personalizadas para los destinos de almacenamiento.
 
@@ -23,7 +23,7 @@ Las directivas de acceso se aplican a una ruta de acceso de espacio de nombres, 
 
 Esta característica está destinada a flujos de trabajo en los que es necesario controlar el modo en que los distintos grupos de clientes acceden a los destinos de almacenamiento.
 
-Si no necesita un control preciso sobre el acceso al destino de almacenamiento, puede usar la directiva predeterminada o puede personalizarla con reglas adicionales.
+Si no necesita un control preciso sobre el acceso al destino de almacenamiento, puede usar la directiva predeterminada o puede personalizarla con reglas adicionales. Por ejemplo, si desea habilitar el almacenamiento de raíz para todos los clientes que se conectan a través de la caché, puede editar la directiva denominada **predeterminada** para agregar el valor de la opción de configuración de la carpeta raíz.
 
 ## <a name="create-a-client-access-policy"></a>Creación de una directiva de acceso de cliente
 
@@ -81,15 +81,21 @@ Active esta casilla para permitir que los clientes especificados monten directam
 
 Elija si desea establecer o no el uso de root_squash para los clientes que coincidan con esta regla.
 
-Este valor le permite autorizar el uso de root_squash en el nivel de exportación del almacenamiento. También puede [establecer el uso de root_squash en el nivel de caché](configuration.md#configure-root-squash).
+Esta opción controla cómo Azure HPC Cache trata las solicitudes del usuario raíz en las máquinas cliente. Cuando está habilitada la opción de squash raíz, los usuarios raíz de un cliente se asignan automáticamente a un usuario sin privilegios al enviar solicitudes mediante Azure HPC Cache. También impide que las solicitudes de cliente usen bits de permiso set-UID.
 
-Si activa el uso de root_squash, también debe establecer el valor del identificador de usuario anónimo en una de estas opciones:
+Si se deshabilita la opción de squash raíz, una solicitud del usuario raíz del cliente (UID 0) se pasa a un sistema de almacenamiento de NFS de back-end como raíz. Esta configuración podría permitir un acceso a archivos inadecuado.
 
-* **-2** (nadie)
-* **65534** (nadie)
-* **-1** (sin acceso)
-* **65535** (sin acceso)
+Definir la opción de squash raíz en la memoria caché puede ayudar a compensar la configuración de ``no_root_squash`` necesaria en los sistemas NAS que se usan como destinos de almacenamiento. (Obtenga más información acerca de los [requisitos previos de destino de almacenamiento de NFS](hpc-cache-prerequisites.md#nfs-storage-requirements)). También puede mejorar la seguridad cuando se usa con destinos de almacenamiento de blobs de Azure.
+
+Si activa el uso de squash raíz, también debe establecer el valor del identificador de usuario anónimo. El portal acepta valores enteros entre 0 y 4294967295. (Los valores anteriores -2 y-1 se admiten por compatibilidad con versiones anteriores, pero no se recomiendan para las nuevas configuraciones).
+
+Estos valores se asignan a valores de usuario específicos:
+
+* **-2** o **65534** (nadie)
+* **-1** o **65535** (sin acceso)
 * **0** (raíz sin privilegios)
+
+Es posible que el sistema de almacenamiento tenga otros valores con significados especiales.
 
 ## <a name="update-access-policies"></a>Actualización de directivas de acceso
 

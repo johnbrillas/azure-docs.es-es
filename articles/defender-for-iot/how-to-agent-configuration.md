@@ -1,24 +1,14 @@
 ---
 title: Configuración de agentes de seguridad
 description: Aprenda a configurar los agentes de seguridad de Defender para IoT para su uso con el servicio de seguridad de Defender para IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/09/2020
-ms.author: mlottner
-ms.openlocfilehash: aa863ce556840903d16238d6afef32136ba2b80d
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 5ac9a5cdb4cc13ed91c0e5e29447b9cdbe71bcce
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090852"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784414"
 ---
 # <a name="tutorial-configure-security-agents"></a>Tutorial: Configuración de agentes de seguridad
 
@@ -88,7 +78,7 @@ Para usar un valor de propiedad predeterminado, quite la propiedad del objeto de
 
 1. Haga clic en **Identidad de módulo gemela**.
 
-1. Edite las propiedades que desea cambiar en el módulo de seguridad.
+1. Edite las propiedades que desea cambiar en el microagente de Defender para IoT.
 
    Por ejemplo, use la siguiente configuración para configurar eventos de conexión como de prioridad alta y recopilar eventos de prioridad alta cada 7 minutos.
 

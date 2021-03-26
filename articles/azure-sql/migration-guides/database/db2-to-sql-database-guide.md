@@ -1,6 +1,6 @@
 ---
 title: 'De DB2 a SQL Database: Guía de migración'
-description: Siga esta guía para migrar las bases de datos de DB2 a Azure SQL Database.
+description: En esta guía se explica cómo migrar las bases de datos de DB2 a Azure SQL Database mediante SQL Server Migration Assistant para DB2 (SSMA para DB2).
 ms.service: sql-database
 ms.subservice: migration-guide
 ms.custom: ''
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 3e216c4aeb8d1206011ff9cca2d80900c23b2399
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 917390b43a772cbb9374c560fc3a65cfa7278839
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356351"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103563953"
 ---
 # <a name="migration-guide-db2-to-sql-database"></a>Guía de migración: De DB2 a SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -142,9 +142,6 @@ El método de prueba para la migración de bases de datos consta de las siguient
 1. **Configurar un entorno de prueba**: el entorno de prueba debe contener una copia de la base de datos de origen y la base de datos de destino. Asegúrese de aislar el entorno de prueba.
 1. **Ejecutar pruebas de validación**: ejecute las pruebas de validación en el origen y el destino y, luego, analice los resultados.
 1. **Ejecutar pruebas de rendimiento**: ejecute la prueba de rendimiento en el origen y el destino y, luego, analice y compare los resultados.
-
-   > [!NOTE]
-   > Para obtener ayuda sobre el desarrollo y la ejecución de pruebas de validación tras la migración, tenga en cuenta la solución de calidad de datos [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
 
 
 ## <a name="leverage-advanced-features"></a>Aprovechamiento de las características avanzadas 

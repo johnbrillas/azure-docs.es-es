@@ -13,15 +13,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/24/2019
+ms.date: 03/15/2021
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 608401858c0119d281ab6ff46156fc7bdccd9d84
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a51f874d09aebfcb2c0b73e0b484f68042d1bb6d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101675334"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103496208"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un recurso compartido de archivos en Azure
 
@@ -32,7 +32,7 @@ Los clústeres de conmutación por error de Windows Server son la base de una in
 
 Un clúster de conmutación por error es un grupo de 1+n servidores independientes (nodos) que colaboran para aumentar la disponibilidad de aplicaciones y servicios. Si se produce un error de nodo, los clústeres de conmutación por error de Windows Server calculan el número de errores que se pueden producir y mantiene un clúster en buen estado para proporcionar aplicaciones y servicios. Para conseguir clústeres de conmutación por error, puede elegir entre distintos modos de cuórum.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de comenzar las tareas que se describen en este artículo, consulte este otro artículo:
 
 * [Escenarios y arquitectura de alta disponibilidad de Azure Virtual Machines para SAP NetWeaver][sap-high-availability-architecture-scenarios]
@@ -147,10 +147,14 @@ Para usar un recurso compartido de archivos de escalabilidad horizontal, el sist
 
 ### <a name="configure-sap-ascsscs-instances-and-a-scale-out-file-share-in-two-clusters"></a>Configuración de instancias de ASCS/SCS de SAP y un recurso compartido de archivos de escalabilidad horizontal en dos clústeres
 
-Puede implementar instancias de ASCS/SCS de SAP en un clúster, con su propio rol de clúster \<SID\> de SAP. En este caso, configure el recurso compartido de archivos de escalabilidad horizontal en otro clúster con otro rol de clúster.
+Debe implementar instancias de ASCS/SCS de SAP en un clúster independiente, con su propio rol de clúster \<SID\> de SAP. En este caso, configure el recurso compartido de archivos de escalabilidad horizontal en otro clúster con otro rol de clúster.
+
 
 > [!IMPORTANT]
->En este escenario, la instancia de ASCS/SCS de SAP se configura para tener acceso al host global de SAP mediante la ruta de acceso UNC \\\\&lt;host global de SAP&gt;\sapmnt\\&lt;SID&gt;\SYS\.
+> La configuración debe cumplir el siguiente requisito: las instancias ASCS/SCS de SAP y el recurso compartido de SOFS deben implementarse en clústeres separados.    
+>
+> [!IMPORTANT] 
+> En este escenario, la instancia de ASCS/SCS de SAP se configura para tener acceso al host global de SAP mediante la ruta de acceso UNC \\\\&lt;host global de SAP&gt;\sapmnt\\&lt;SID&gt;\SYS\.
 >
 
 ![Ilustración 5: Instancia de ASCS/SCS de SAP y un recurso compartido de archivos de escalabilidad horizontal implementados en dos clústeres][sap-ha-guide-figure-8007]

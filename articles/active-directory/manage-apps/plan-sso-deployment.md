@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 89f234ece2f7437e4a9d4092334e3dd3690e288d
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: a7949324cd4ad0459aa5ba111037b2f580da9cf8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258106"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103601719"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planeación de una implementación de inicio de sesión único
 
@@ -291,17 +291,12 @@ Los vínculos siguientes presentan escenarios de solución de problemas. Es posi
 
 - [Problema al iniciar sesión en una aplicación de Microsoft](./application-sign-in-problem-first-party-microsoft.md)
 
-#### <a name="sso-issues-for-applications-listed-in-the-azure-application-gallery"></a>Problemas de inicio de sesión único para aplicaciones de la Galería de aplicaciones de Azure
+#### <a name="sso-issues-for-applications"></a>Problemas de SSO para aplicaciones
 
-- [Problema con el inicio de sesión único con contraseña para aplicaciones de la Galería de aplicaciones de Azure](./troubleshoot-password-based-sso.md) 
+- [Problema con el SSO de contraseña para las aplicaciones](./troubleshoot-password-based-sso.md) 
 
-- [Problema con el inicio de sesión federado para aplicaciones de la Galería de aplicaciones de Azure](./application-sign-in-problem-federated-sso-gallery.md)   
+- [Problemas al iniciar sesión en aplicaciones configuradas con inicio de sesión único basado en SAML](/troubleshoot/azure/active-directory/troubleshoot-sign-in-saml-based-apps)   
 
-#### <a name="sso-issues-for-applications-not-listed-in-the-azure-application-gallery"></a>Problemas de inicio de sesión único para aplicaciones NO incluidas en la Galería de aplicaciones de Azure
-
-- [Problema con el inicio de sesión único con contraseña para aplicaciones NO incluidas en la Galería de aplicaciones de Azure](./troubleshoot-password-based-sso.md) 
-
-- [Problema con el inicio de sesión federado para aplicaciones NO incluidas en la Galería de aplicaciones de Azure](./application-sign-in-problem-federated-sso-gallery.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

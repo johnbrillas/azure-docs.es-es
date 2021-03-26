@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 403cf584c79bc0a166054ae36c9d2ea50e4b9d9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb0ee52d37fe901a610723d5864240b8778d8b17
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88008736"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103574601"
 ---
 # <a name="determine-user-connection-latency-in-windows-virtual-desktop"></a>Determinación de la latencia de la conexión de los usuarios en Windows Virtual Desktop
 
@@ -19,12 +19,23 @@ Windows Virtual Desktop está disponible a nivel mundial. Los administradores pu
 
 La [herramienta Estimador de experiencia de Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/assessment/) puede ayudarle a determinar la mejor ubicación para optimizar la latencia de las máquinas virtuales. Se recomienda usar la herramienta cada dos o tres meses para asegurarse de que la ubicación óptima no ha cambiado a medida que Windows Virtual Desktop se implementa en nuevas áreas.
 
-## <a name="azure-traffic-manager"></a>Administrador de tráfico de Azure
+## <a name="interpreting-results-from-the-windows-virtual-desktop-experience-estimator-tool"></a>Interpretación de los resultados de la herramienta de estimador de experiencia de Windows Virtual Desktop
 
-Windows Virtual Desktop emplea Azure Traffic Manager, que comprueba la ubicación del servidor DNS del usuario para encontrar la instancia más cercana de este servicio. Se recomienda a los administradores que revisen la ubicación del servidor DNS del usuario antes de elegir la ubicación de las máquinas virtuales.
+En Windows Virtual Desktop, la latencia de hasta 150 ms no debería afectar a la experiencia del usuario que no implica representación o vídeo. Las latencias entre 150 ms y 200 ms deben ser adecuadas para el procesamiento de texto. La latencia por encima de 200 ms puede afectar a la experiencia del usuario. 
+
+Además, la conexión de Windows Virtual Desktop depende de la conexión a Internet de la máquina desde la que el usuario está utilizando el servicio. Los usuarios pueden perder la conexión o experimentar un retraso en la entrada en una de las siguientes situaciones:
+
+ - El usuario no tiene una conexión a Internet local estable y la latencia es superior a 200 ms.
+ - La red está saturada o tiene la velocidad limitada.
+
+Le recomendamos que elija ubicaciones de VM que estén lo más cerca posible de sus usuarios. Por ejemplo, si el usuario se encuentra en la India pero la máquina virtual está en Estados Unidos, se producirá una latencia que afectará a la experiencia global del usuario. 
+
+## <a name="azure-front-door"></a>Azure Front Door
+
+Windows Virtual Desktop usa [Azure Front Door](https://azure.microsoft.com/services/frontdoor/) para redirigir la conexión de usuario a la puerta de enlace de Windows Virtual Desktop más cercana en función de la dirección IP de origen. Windows Virtual Desktop siempre usará la puerta de enlace de Windows Virtual Desktop que el cliente elija.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para comprobar cuál es la mejor ubicación de cara a una latencia óptima, consulte la [herramienta Estimador de experiencia de Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/assessment/).
 - Para información sobre los planes de precios, consulte [Precios de Windows Virtual Desktop](https://azure.microsoft.com/pricing/details/virtual-desktop/).
-- Para empezar a trabajar con la implementación de Windows Virtual Desktop, consulte [nuestro tutorial](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
+- Para empezar a trabajar con la implementación de Windows Virtual Desktop, consulte [nuestro tutorial](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace).

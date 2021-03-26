@@ -3,14 +3,14 @@ title: Funcionalidades de representación
 description: Las funcionalidades estándar de Azure Batch se utilizan para ejecutar aplicaciones y cargas de trabajo de representación. Batch incluye características específicas para admitir cargas de trabajo de representación.
 author: mscurrell
 ms.author: markscu
-ms.date: 02/01/2021
+ms.date: 03/12/2021
 ms.topic: how-to
-ms.openlocfilehash: c748c51311a70cd3b4fc6d435e97a33d709467b9
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: a2e2cfb71999bd5ab83591448342d4bac1dabdd5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429809"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103496344"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Funcionalidades de representación de Azure Batch
 
@@ -27,6 +27,9 @@ Las cadenas de línea de comandos de la tarea deberán hacer referencia a las ap
 La mayoría de las aplicaciones de representación requerirán licencias obtenidas de un servidor de licencias. Si existe un servidor de licencias local, el grupo y el servidor de licencias deben estar en la misma [red virtual](../virtual-network/virtual-networks-overview.md). También es posible ejecutar un servidor de licencias en una máquina virtual de Azure, con el grupo de Batch y la máquina virtual del servidor de licencias en la misma red virtual.
 
 ## <a name="batch-pools-using-rendering-vm-images"></a>Grupos de Batch mediante imágenes de máquina virtual de representación
+
+> [!IMPORTANT]
+> Las imágenes de VM de representación y las licencias de pago por uso han [quedado en desuso y se retirarán el 29 de febrero de 2024](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). Para usar Batch para la representación, [se debe usar una imagen de máquina virtual personalizada y una licencia de aplicación estándar.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
 
 ### <a name="rendering-application-installation"></a>Instalación de la aplicación de representación
 

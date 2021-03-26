@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: pepogors
-ms.openlocfilehash: 3767a16656ac4d11511c0928be8b2703c4e94c7c
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: eb19005019a6e4e878f6b0bd6a145048d4a2804c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98680610"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103563783"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-with-stateless-only-node-types-preview"></a>Implementación de un clúster de Azure Service Fabric con tipos de nodo sin estado (versión preliminar)
 Los tipos de nodo de Service Fabric incluyen suposiciones inherentes según las cuales se supone que en algún momento se agregarán servicios con estado en los nodos. Los tipos de nodos sin estado reducen las restricciones de esta suposición en cierto tipo de nodo, lo que permite que ese tipo de nodo use otras características, como operaciones de escalado horizontal más rápidas, compatibilidad con actualizaciones automáticas del sistema operativo en la durabilidad Bronze y un escalado horizontal a más de 100 nodos en un solo conjunto de escalado de máquina virtuales.
@@ -75,6 +75,10 @@ Para habilitar los tipos de nodo sin estado, debe configurar el recurso del conj
 * El valor **upgradePolicy** del conjunto de escalado cuyo valor de **mode** debe establecerse en **Rolling**.
 * El modo de actualización gradual requiere la configuración de la extensión de mantenimiento de la aplicación o de los sondeos de estado. Configure el sondeo de estado con la configuración predeterminada para los tipos de nodo sin estado, tal como se sugiere a continuación. Una vez que las aplicaciones se implementan en el tipo de nodo, los puertos de la extensión de mantenimiento o del sondeo de estado se pueden cambiar para supervisar el estado de la aplicación.
 
+>[!NOTE]
+> Es necesario que el número de dominios de error de plataforma se actualice a 5 cuando un tipo de nodo sin estado esté respaldado por un conjunto de escalado de máquinas virtuales que esté abarcando varias zonas. Consulte esta [plantilla](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-2-NodeTypes-Windows-Stateless-CrossAZ-Secure) para obtener más información.
+> 
+> **platformFaultDomainCount:5**
 ```json
 {
     "apiVersion": "2018-10-01",

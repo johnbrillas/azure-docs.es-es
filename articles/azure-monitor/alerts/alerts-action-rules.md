@@ -2,13 +2,13 @@
 title: Reglas de acción para las alertas de Azure Monitor
 description: Descripción de qué son las reglas de acción en Azure Monitor y cómo configurarlas y administrarlas.
 ms.topic: conceptual
-ms.date: 04/25/2019
-ms.openlocfilehash: 07d179f557671a515a7933b64a25e6d41f75219b
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/15/2021
+ms.openlocfilehash: f70d798270ad82193f7ae5935d34f8f418d35e05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102045622"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103471681"
 ---
 # <a name="action-rules-preview"></a>Reglas de acción (versión preliminar)
 
@@ -61,19 +61,33 @@ En primer lugar, elija el ámbito (suscripción, grupo de recursos o recurso de 
 
 ### <a name="filter-criteria"></a>Criterios de filtro
 
-Además, puede definir filtros para restringirlos a un subconjunto específico de las alertas.
+Opcionalmente, puede definir filtros para que la regla se aplique a un subconjunto específico de alertas o a eventos específicos de cada alerta (por ejemplo, solo "Activada" o "Resuelta").
 
 Los filtros disponibles son:
 
-* **Gravedad**: la opción para seleccionar uno o varios niveles de gravedad de alerta. **Gravedad = Sev1** significa que la regla de acción es aplicable a todas las alertas con un nivel de gravedad Sev1.
-* **Supervisar servicio**: filtro basado en el servicio de supervisión de origen. Este filtro también tiene varias selecciones. Por ejemplo, **Supervisar servicio = "Application Insights"** significa que la regla de acción se aplica a todas las alertas basadas en Application Insights.
-* **Tipo de recurso**:  filtro según un tipo de recurso específico. Este filtro también tiene varias selecciones. Por ejemplo, **Tipo de recurso = "Virtual Machines"** significa que la regla de acción es aplicable a todas las máquinas virtuales.
-* **Id. de regla de alerta**: opción para filtrar por reglas de alertas específicas mediante el identificador de Resource Manager de la regla de alerta.
-* **Condición del monitor**:  filtro para las instancias de alerta con la condición de supervisión **Desencadenada** o **Resuelta**.
-* **Descripción**: coincidencia regex (expresión regular) que define una coincidencia de cadena con la descripción, definida como parte de la regla de alerta. Por ejemplo, **La descripción contiene "prod**" buscará la coincidencia con todas las alertas que contengan la cadena "prod" en sus descripciones.
-* **Contexto de alerta (carga)** : coincidencia regex que define una coincidencia de cadena con los campos de contexto de alerta de la carga de una alerta. Por ejemplo, **Contexto de alerta (carga) contiene "Equipo 01"** buscará la coincidencia con todas las alertas cuyas cargas contengan la cadena "Equipo-01".
+* **Gravedad**  
+Esta regla solo se aplicará a las alertas con los niveles de gravedad seleccionados.  
+Por ejemplo, **gravedad = Sev1** significa que la regla solo se aplicará a las alertas con gravedad de tipo Sev1.
+* **Servicio de supervisión**  
+Esta regla solo se aplicará a las alertas procedentes de los servicios de supervisión seleccionados.  
+Por ejemplo, **servicio de supervisión = "Azure Backup"** significa que la regla solo se aplicará a las alertas de copia de seguridad (procedentes de Azure Backup).
+* **Tipo de recurso**  
+Esta regla solo se aplicará a las alertas de los tipos de recursos seleccionados.  
+Por ejemplo, **tipo de recurso = "Virtual Machines"** significa que la regla solo se aplicará a las alertas de máquinas virtuales.
+* **Id. de regla de alerta**  
+Esta regla solo se aplicará a las alertas que provengan de una regla de alerta específica. El valor debe ser el identificador del administrador de recursos de la regla de alerta.  
+Por ejemplo, **Id. de regla de alerta = "/subscriptions/SubId1/resourceGroups/RG1/providers/microsoft.insights/metricalerts/API-Latency"** significa que esta regla solo se aplicará a las alertas que provengan de la regla de alerta de métrica "latencia de API".  
+_Nota: Para obtener el identificador de la regla de alerta adecuada, puede enumerar las reglas de alerta de la CLI o abrir una regla de alerta específica en el portal, hacer clic en "Propiedades" y copiar el valor de "Id. de recurso"._
+* **Condición de supervisión**  
+Esta regla solo se aplicará a los eventos de alerta con la condición de monitor especificada, ya sea **Activada** o **Resuelta**.
+* **Descripción**  
+Esta regla solo se aplicará a las alertas que contengan una cadena específica en el campo Descripción de la alerta. Ese campo contiene la descripción de la regla de alerta.  
+Por ejemplo, **descripción contiene "prod"** significa que la regla solo coincidirá con las alertas que contengan la cadena "prod" en su descripción.
+* **Contexto de alerta (carga)**  
+Esta regla solo se aplicará a las alertas que contengan cualquiera de los valores específicos de los campos de contexto de alerta.  
+Por ejemplo, el **contexto de alerta (carga) contiene "equipo-01"** significa que la regla solo se aplicará a las alertas cuya carga contenga la cadena "equipo-01".
 
-Estos filtros se aplican junto con otro. Por ejemplo, si define **Tipo de recurso** = "Virtual Machines" y **"Gravedad" = Sev0**, se filtran todas las alertas con **Sev0** en solo sus máquinas virtuales.
+Si establece varios filtros en una regla, se aplican todos ellos. Por ejemplo, si establece **tipo de recurso = Virtual Machines** y **gravedad = Sev0**, la regla solo se aplicará a las alertas de tipo Sev0 en máquinas virtuales.
 
 ![Filtros de reglas de acción](media/alerts-action-rules/action-rules-new-rule-creation-flow-filters.png)
 

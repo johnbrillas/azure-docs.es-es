@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/19/2017
+ms.date: 02/17/2021
 ms.author: apimpm
-ms.openlocfilehash: 312a496a5acda05a6b04a0bb47abb101f4ffcc8e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: e809efa9da32da5fe9ca296608c602e770f78265
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107596"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103562355"
 ---
 # <a name="api-management-policies"></a>Directivas de administración de API
 En esta sección se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](api-management-howto-policies.md).
@@ -81,6 +81,12 @@ En esta sección se proporciona una referencia para las siguientes directivas de
     - [Enviar una solicitud a un servicio](api-management-dapr-policies.md#invoke): utiliza el tiempo de ejecución de Dapr para localizar y comunicarse de forma confiable con un microservicio de Dapr.
     -  [Envío de un mensaje a un tema de publicación/suscripción](api-management-dapr-policies.md#pubsub): utiliza el entorno de ejecución de Dapr para publicar un mensaje en un tema de publicación/suscripción.
     -  [Desencadenar el enlace de salida](api-management-dapr-policies.md#bind): utiliza el tiempo de ejecución de Dapr para invocar un sistema externo a través del enlace de salida.
+- [Directivas de validación](validation-policies.md)
+    - [Validar contenido](validation-policies.md#validate-content): valida el tamaño o el esquema JSON del cuerpo de una solicitud o respuesta con el esquema de la API.
+. 
+    - [Validar parámetros](validation-policies.md#validate-parameters): valida los parámetros del encabezado de solicitud, la consulta o la ruta de acceso con el esquema de la API.
+    - [Validar encabezados](validation-policies.md#validate-headers): valida los encabezados de respuesta con el esquema de la API.
+    - [Validar código de estado](validation-policies.md#validate-status-code): valida los códigos de estado HTTP en las respuestas con el esquema de la API.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre cómo trabajar con directivas, consulte:
