@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
 ms.openlocfilehash: 8cb1a490ac8edf2630253b45d99c3394bbe721b8
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98234161"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Recuperación ante desastres mediante Azure DNS y Traffic Manager
@@ -165,7 +165,7 @@ Si los reintentos se establecen en 1 y el valor de TTL se establece en 10 segund
 
 ### <a name="how-automatic-failover-works-using-traffic-manager"></a>Funcionamiento de la conmutación por error automática con Traffic Manager
 
-Durante un desastre, se sondea el punto de conexión principal y el estado cambia a **degradado** y el sitio de recuperación ante desastres permanece **En línea**. De forma predeterminada, Traffic Manager envía todo el tráfico al punto de conexión primario (prioridad más alta). Si el punto de conexión principal aparece degradado, Traffic Manager enruta el tráfico al segundo punto de conexión mientras no funcione correctamente. Es posible configurar más puntos de conexión en Traffic Manager que pueden actuar como puntos de conexión de conmutación por error adicional o como equilibradores de carga para compartir la carga entre puntos de conexión.
+Durante un desastre, se sondea el punto de conexión principal y el estado cambia a **degradado** y el sitio de recuperación ante desastres permanece **En línea**. De forma predeterminada, Traffic Manager envía todo el tráfico al punto de conexión principal (prioridad más alta). Si el punto de conexión principal aparece degradado, Traffic Manager enruta el tráfico al segundo punto de conexión mientras no funcione correctamente. Es posible configurar más puntos de conexión en Traffic Manager que pueden actuar como puntos de conexión de conmutación por error adicional o como equilibradores de carga para compartir la carga entre puntos de conexión.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información acerca de [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md).

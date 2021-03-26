@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: kumud
 ms.openlocfilehash: 73562d8d32f265fa43ca80d2f8d4f84b1b631ec6
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98223676"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnóstico de un problema de filtro del tráfico de red de una máquina virtual
@@ -176,7 +176,7 @@ Independientemente de que utilice Azure [Portal](#diagnose-using-azure-portal), 
 | Intervalos de puertos de destino | 80                                                                                 |
 | Protocolo                | TCP                                                                                |
 | Acción                  | Allow                                                                              |
-| Priority                | 100                                                                                |
+| Prioridad                | 100                                                                                |
 | Nombre                    | Allow-HTTP-All                                                                     |
 
 Después de crear la regla, el puerto 80 está permitido de entrada desde Internet, ya que la prioridad de la regla es mayor que la regla de seguridad predeterminada llamada *DenyAllInBound*, que deniega el tráfico. Aprenda a [crear una regla de seguridad](manage-network-security-group.md#create-a-security-rule). Si hay diferentes grupos de seguridad de red asociados tanto a la interfaz de red como a la subred, debe crear la misma regla en los dos grupos de seguridad de red.

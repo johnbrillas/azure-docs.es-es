@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/13/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 98c413f85fe556f5fb413716037163931753e1d7
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93240739"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-portal"></a>Cifrado de datos para un servidor único de Azure Database for PostgreSQL mediante Azure Portal
@@ -46,7 +46,7 @@ Aprenda a usar Azure Portal para configurar y administrar el cifrado de datos pa
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png" alt-text="Captura de pantalla de Key Vault, con las opciones Directivas de acceso y Agregar directiva de acceso resaltadas":::
 
-2. En **Permisos de clave** , seleccione **Get** , **Wrap** , **Unwrap** y **Principal** , que es el nombre del servidor PostgreSQL. Si no se encuentra la entidad de seguridad del servidor en la lista de entidades de seguridad existentes, debe registrarla. Se le pedirá que registre la entidad de seguridad del servidor cuando intente configurar el cifrado de datos por primera vez y se produzca un error.  
+2. En **Permisos de clave**, seleccione **Get**, **Wrap**, **Unwrap** y **Principal**, que es el nombre del servidor PostgreSQL. Si no se encuentra la entidad de seguridad del servidor en la lista de entidades de seguridad existentes, debe registrarla. Se le pedirá que registre la entidad de seguridad del servidor cuando intente configurar el cifrado de datos por primera vez y se produzca un error.  
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/access-policy-wrap-unwrap.png" alt-text="Introducción a la directiva de acceso":::
 
@@ -74,7 +74,7 @@ Después de cifrar un servidor único de Azure Database for PostgreSQL con la cl
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-restore.png" alt-text="Captura de pantalla de Azure Database for PostgreSQL, las opciones información general y Restaurar resaltadas":::
 
-   O bien, en el caso de un servidor habilitado para la replicación, en el encabezado **Configuración** , seleccione **Replicación**.
+   O bien, en el caso de un servidor habilitado para la replicación, en el encabezado **Configuración**, seleccione **Replicación**.
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/postgresql-replica.png" alt-text="Captura de pantalla de Azure Database for PostgreSQL, con la opción Replicación resaltada":::
 

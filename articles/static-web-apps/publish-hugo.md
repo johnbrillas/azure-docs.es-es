@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
 ms.openlocfilehash: 4539c32a367bb0974212d989176a96b530da21a4
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100652362"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicación de un sitio de Hugo en Azure Static Web Apps, versión preliminar
@@ -99,7 +99,7 @@ En los pasos siguientes se muestra cómo crear una aplicación de sitio estátic
 
 1. Vaya a [Azure Portal](https://portal.azure.com).
 1. Haga clic en **Crear un recurso**.
-1. Busque **Static Web Apps**.
+1. Busque **Static Web Apps**.
 1. Haga clic en **Static Web Apps (Preview)** (Static Web Apps [versión preliminar]).
 1. Haga clic en **Crear**
 

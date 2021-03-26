@@ -13,10 +13,10 @@ ms.date: 03/16/2018
 ms.author: duau
 ms.custom: ''
 ms.openlocfilehash: 618f8fff532da0f6ae315ad9e4cda35a289949d1
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98183717"
 ---
 # <a name="traffic-manager-real-user-measurements-overview"></a>Introducción a Real User Measurements en Traffic Manager
@@ -37,43 +37,43 @@ Cuando use Real User Measurements, se le facturará en función del número de m
 
 ## <a name="faqs"></a>Preguntas más frecuentes
 
-* [¿Cuáles son las ventajas de usar Mediciones de usuario reales?](./traffic-manager-faqs.md#what-are-the-benefits-of-using-real-user-measurements)
+* [¿Cuáles son las ventajas de usar Real User Measurements?](./traffic-manager-faqs.md#what-are-the-benefits-of-using-real-user-measurements)
 
-* [¿Se puede usar Mediciones de usuario reales con regiones que no son de Azure?](./traffic-manager-faqs.md#can-i-use-real-user-measurements-with-non-azure-regions)
+* [¿Se puede usar Real User Measurements con regiones que no son de Azure?](./traffic-manager-faqs.md#can-i-use-real-user-measurements-with-non-azure-regions)
 
-* [¿Qué método de enrutamiento se beneficia de Mediciones de usuario reales?](./traffic-manager-faqs.md#which-routing-method-benefits-from-real-user-measurements)
+* [¿Qué método de enrutamiento se beneficia de Real User Measurements?](./traffic-manager-faqs.md#which-routing-method-benefits-from-real-user-measurements)
 
-* [¿Es necesario habilitar Mediciones de usuario reales para cada perfil por separado?](./traffic-manager-faqs.md#do-i-need-to-enable-real-user-measurements-each-profile-separately)
+* [¿Es necesario habilitar Real User Measurements para cada perfil por separado?](./traffic-manager-faqs.md#do-i-need-to-enable-real-user-measurements-each-profile-separately)
 
-* [¿Cómo se desactiva Mediciones de usuario reales en una suscripción?](./traffic-manager-faqs.md#how-do-i-turn-off-real-user-measurements-for-my-subscription)
+* [¿Cómo se desactiva Real User Measurements en una suscripción?](./traffic-manager-faqs.md#how-do-i-turn-off-real-user-measurements-for-my-subscription)
 
-* [¿Se puede usar Mediciones de usuario reales con aplicaciones cliente que no sean páginas web?](./traffic-manager-faqs.md#can-i-use-real-user-measurements-with-client-applications-other-than-web-pages)
+* [¿Se puede usar Real User Measurements con aplicaciones cliente que no sean páginas web?](./traffic-manager-faqs.md#can-i-use-real-user-measurements-with-client-applications-other-than-web-pages)
 
-* [¿Cuántas medidas se realizan cada vez que se representa la página web habilitada para Mediciones de usuario reales?](./traffic-manager-faqs.md#how-many-measurements-are-made-each-time-my-real-user-measurements-enabled-web-page-is-rendered)
+* [¿Cuántas medidas se realizan cada vez que se representa la página web habilitada para Real User Measurements?](./traffic-manager-faqs.md#how-many-measurements-are-made-each-time-my-real-user-measurements-enabled-web-page-is-rendered)
 
-* [¿Existe un retraso antes de que el script de Mediciones de usuario reales se ejecute en la página web?](./traffic-manager-faqs.md#is-there-a-delay-before-real-user-measurements-script-runs-in-my-webpage)
+* [¿Existe un retraso antes de que el script de Real User Measurements se ejecute en la página web?](./traffic-manager-faqs.md#is-there-a-delay-before-real-user-measurements-script-runs-in-my-webpage)
 
-* [¿Se puede usar Mediciones de usuario reales solo con las regiones que se quieren medir?](./traffic-manager-faqs.md#can-i-use-real-user-measurements-with-only-the-azure-regions-i-want-to-measure)
+* [¿Se pueden usar las Mediciones de usuario reales solo con las regiones que se quieren medir?](./traffic-manager-faqs.md#can-i-use-real-user-measurements-with-only-the-azure-regions-i-want-to-measure)
 
 * [¿Se puede limitar el número de medidas realizadas a un número específico?](./traffic-manager-faqs.md#can-i-limit-the-number-of-measurements-made-to-a-specific-number)
 
-* [¿Se pueden ver las medidas realizadas por mis aplicaciones cliente como parte de Mediciones de usuario reales?](./traffic-manager-faqs.md#can-i-see-the-measurements-taken-by-my-client-application-as-part-of-real-user-measurements)
+* [¿Se pueden ver las medidas realizadas por mis aplicaciones cliente como parte de Real User Measurements?](./traffic-manager-faqs.md#can-i-see-the-measurements-taken-by-my-client-application-as-part-of-real-user-measurements)
 
 * [¿Se puede modificar el script de medida proporcionado por Traffic Manager?](./traffic-manager-faqs.md#can-i-modify-the-measurement-script-provided-by-traffic-manager)
 
-* [¿Podrán ver otros usuarios la clave que se usa con Mediciones de usuario reales?](./traffic-manager-faqs.md#will-it-be-possible-for-others-to-see-the-key-i-use-with-real-user-measurements)
+* [¿Podrán ver otros usuarios la clave que se usa con Real User Measurements?](./traffic-manager-faqs.md#will-it-be-possible-for-others-to-see-the-key-i-use-with-real-user-measurements)
 
-* [¿Pueden otros usuarios hacer un uso inapropiado de la clave de RUM?](./traffic-manager-faqs.md#can-others-abuse-my-rum-key)
+* [¿Pueden otros usuarios hacer un uso inapropiado de la clave RUM?](./traffic-manager-faqs.md#can-others-abuse-my-rum-key)
 
 * [¿Es necesario poner el código JavaScript de medida en todas las páginas web?](./traffic-manager-faqs.md#do-i-need-to-put-the-measurement-javascript-in-all-my-web-pages)
 
-* [¿Puede Traffic Manager identificar la información sobre mis usuarios finales si uso Mediciones de usuario reales?](./traffic-manager-faqs.md#can-information-about-my-end-users-be-identified-by-traffic-manager-if-i-use-real-user-measurements)
+* [¿Puede Traffic Manager identificar la información sobre mis usuarios finales si uso Real User Measurements?](./traffic-manager-faqs.md#can-information-about-my-end-users-be-identified-by-traffic-manager-if-i-use-real-user-measurements)
 
-* [¿Es necesario que la página web que realiza las medidas de Mediciones de usuario reales use Traffic Manager para el enrutamiento?](./traffic-manager-faqs.md#does-the-webpage-measuring-real-user-measurements-need-to-be-using-traffic-manager-for-routing)
+* [¿Es necesario que la página web que realiza las medidas de usuarios reales use Traffic Manager para el enrutamiento?](./traffic-manager-faqs.md#does-the-webpage-measuring-real-user-measurements-need-to-be-using-traffic-manager-for-routing)
 
-* [¿Es necesario hospedar algún servicio en regiones de Azure para usarlo con Mediciones de usuario reales?](./traffic-manager-faqs.md#do-i-need-to-host-any-service-on-azure-regions-to-use-with-real-user-measurements)
+* [¿Es necesario hospedar algún servicio en regiones de Azure para usar Real User Measurements?](./traffic-manager-faqs.md#do-i-need-to-host-any-service-on-azure-regions-to-use-with-real-user-measurements)
 
-* [¿Aumentará el uso de ancho de banda de Azure debido a la utilización de Mediciones de usuario reales?](./traffic-manager-faqs.md#will-my-azure-bandwidth-usage-increase-when-i-use-real-user-measurements)
+* [¿Aumentará el uso de ancho de banda de Azure debido a la utilización de Real User Measurements?](./traffic-manager-faqs.md#will-my-azure-bandwidth-usage-increase-when-i-use-real-user-measurements)
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga información acerca de cómo usar [Real User Measurements con páginas web](traffic-manager-create-rum-web-pages.md)

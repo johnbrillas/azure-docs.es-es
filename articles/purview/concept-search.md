@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.openlocfilehash: af8ec9e0aac38240c7da92edd614892ff65712e2
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96551127"
 ---
 # <a name="understand-search-features-in-azure-purview"></a>Descripción de las características de búsqueda de Azure Purview
@@ -58,6 +58,6 @@ La relevancia es el criterio de ordenación predeterminado en la página de resu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Inicio rápido: Creación de una cuenta de Azure Purview en Azure Portal](create-catalog-portal.md)
-* [Inicio rápido: Creación de una cuenta de Azure Purview mediante Azure PowerShell o la CLI de Azure](create-catalog-powershell.md)
-* [Inicio rápido: Uso de Purview Studio](use-purview-studio.md)
+* [Inicio rápido: creación de una cuenta de almacenamiento de Azure Purview en Azure Portal](create-catalog-portal.md).
+* [Inicio rápido: creación de una cuenta de Azure Purview mediante Azure PowerShell o la CLI de Azure](create-catalog-powershell.md).
+* [Inicio rápido: uso de Purview Studio](use-purview-studio.md).

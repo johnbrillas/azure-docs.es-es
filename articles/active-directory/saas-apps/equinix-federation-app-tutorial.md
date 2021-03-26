@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/27/2020
 ms.author: jeedes
 ms.openlocfilehash: b0c772b3f30b211cf83512ca2ff2f10325fb4bc1
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98735102"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-equinix-federation-app"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Equinix Federation App
@@ -26,7 +26,7 @@ En este tutorial aprenderá a integrar Equinix Federation App con Azure Active D
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Equinix Federation App con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 

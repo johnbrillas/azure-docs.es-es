@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.date: 12/09/2020
-ms.openlocfilehash: c7a0be6f1d402cc994532ab4bc5a5d0ea39bc8b7
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 06586b5bf20619f57b2ad1c3d5de84dd61952261
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599054"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102561252"
 ---
 # <a name="plan-and-manage-costs-for-azure-synapse-analytics"></a>Planeamiento y administración de costos de Azure Synapse Analytics
 
@@ -113,7 +113,12 @@ Para más información sobre los costos del grupo SQL sin servidor, consulte [Ad
 
 Para controlar los costos de un grupo de SQL dedicado, puede pausar el recurso cuando no se use. Por ejemplo, si no va a usar la base de datos durante la noche y los fines de semana, puede pausarla durante esas horas y reanudarla durante el día. Para obtener más información, consulte [Pausa y reanudación del proceso en un grupo de SQL dedicado mediante Azure Portal](./sql-data-warehouse/pause-and-resume-compute-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-<!-- ### Serverless Apache Spark pool -->
+### <a name="serverless-apache-spark-pool"></a>Grupo de Apache Spark sin servidor
+
+Para controlar los costos del grupo de Apache Spark sin servidor, habilite la característica de pausa automática de Apache Spark sin servidor y establezca el valor de tiempo de espera en consecuencia.  Al usar Synapse Studio para el desarrollo, Studio envía un mensaje de mantenimiento de conexión para mantener activa la sesión, que también es configurable, por lo que debe establecer un breve valor de tiempo de espera para la pausa automática.  Cuando haya terminado, cierre la sesión y el grupo de Apache Spark se pausará automáticamente una vez que se alcance el valor de tiempo de espera.
+ 
+Durante el desarrollo, cree varias definiciones de grupos de Apache Spark de varios tamaños.  La creación de definiciones de grupo de Apache Spark es gratuita y solo se le cobrará por el uso.  El uso de Apache Spark en Azure Synapse se cobra por hora de núcleo virtual y se prorratea por minuto.  Por ejemplo, use tamaños de grupo pequeños para el desarrollo y la validación de código al tiempo que usa tamaños de grupo mayores para las pruebas de rendimiento.
+
 
 ### <a name="data-integration---pipelines-and-data-flows"></a>Integración de datos: canalizaciones y flujos de datos 
 

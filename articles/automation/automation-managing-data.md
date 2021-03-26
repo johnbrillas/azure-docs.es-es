@@ -3,14 +3,14 @@ title: Seguridad de datos de Azure Automation
 description: En este artículo aprenderá cómo Azure Automation protege su privacidad y los datos.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 03/02/2021
+ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2bdf25ef24f1fbf4aaf4dec154ea6af3421b915a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: c3d1dfc5d6ea16a128f5f3bc1129f5f50bc9cb61
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050824"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954680"
 ---
 # <a name="management-of-azure-automation-data"></a>Administración de datos de Azure Automation
 
@@ -22,11 +22,11 @@ Para garantizar la seguridad de los datos en tránsito hacia Azure Automation, s
 
 * Llamadas de webhook
 
-* Instancias de Hybrid Runbook Worker, que incluyen máquinas administradas por Update Management y Change Tracking e inventario.
+* Instancias de Hybrid Runbook Worker, que incluyen las máquinas administradas por Update Management y Seguimiento de cambios e inventario.
 
 * Nodos de DSC
 
-Las versiones anteriores de TLS/Capa de sockets seguros (SSL) han demostrado ser vulnerables y, si bien todavía funcionan para permitir la compatibilidad con versiones anteriores, **no se recomiendan**. No se recomienda establecer explícitamente el agente para que solo use TLS 1.2, a menos que sea absolutamente necesario, ya que esto puede interrumpir las características de seguridad a nivel de la plataforma que le permiten detectar y aprovechar automáticamente las ventajas de los protocolos más seguros más recientes a medida que estén disponibles, como TLS 1.3.
+Las versiones anteriores de TLS/Capa de sockets seguros (SSL) han demostrado ser vulnerables y, si bien todavía funcionan para permitir la compatibilidad con versiones anteriores, **no se recomiendan**. No se recomienda establecer explícitamente el agente para que solo use TLS 1.2, a menos que sea necesario, ya que esto puede interrumpir las características de seguridad a nivel de la plataforma que le permiten detectar y aprovechar automáticamente las ventajas de los protocolos más seguros más recientes a medida que estén disponibles, como TLS 1.3.
 
 Para obtener información sobre la compatibilidad de TLS 1.2 con el agente de Log Analytics para Windows y Linux, que es una dependencia del rol de Hybrid Runbook Worker, consulte la [introducción del agente de Log Analytics: TLS 1.2](..//azure-monitor/agents/log-analytics-agent.md#tls-12-protocol).
 
@@ -41,7 +41,7 @@ Para obtener información sobre la compatibilidad de TLS 1.2 con el agente de L
 
 ## <a name="data-retention"></a>Retención de datos
 
-Cuando elimina un recurso en Azure Automation, se conserva durante un número de días para fines de auditoría antes de su eliminación permanente. Durante este tiempo, no es posible ver ni usar el recurso. Esta directiva también se aplica a los recursos que pertenecen a una cuenta de Automation eliminada. La directiva de retención se aplica a todos los usuarios y, por el momento, no se puede personalizar. Sin embargo, si tiene que conservar los datos durante un periodo de tiempo mayor, puede [reenviar los datos de trabajos de Azure Automation a los registros de Azure Monitor](automation-manage-send-joblogs-log-analytics.md).
+Cuando elimina un recurso en Azure Automation, se conserva durante muchos días con fines de auditoría antes de su eliminación definitiva. Durante este tiempo, no es posible ver ni usar el recurso. Esta directiva también se aplica a los recursos que pertenecen a una cuenta de Automation eliminada. La directiva de retención se aplica a todos los usuarios y, por el momento, no se puede personalizar. Sin embargo, si tiene que conservar los datos durante un periodo de tiempo mayor, puede [reenviar los datos de trabajos de Azure Automation a los registros de Azure Monitor](automation-manage-send-joblogs-log-analytics.md).
 
 La tabla siguiente resume la directiva de retención para distintos recursos.
 
@@ -56,7 +56,7 @@ La tabla siguiente resume la directiva de retención para distintos recursos.
 | Informes de nodo |Un informe de nodo se elimina de forma permanente 90 días después de que se genere un nuevo informe para ese nodo. |
 | Runbooks |Un runbook se elimina de forma permanente 30 días después de que un usuario lo elimina o 30 días después de que un usuario elimina la cuenta que contiene el recurso<sup>1</sup>. |
 
-<sup>1</sup>El runbook se puede recuperar en un período de 30 días mediante la presentación de un incidente de Soporte técnico de Azure en el soporte técnico de Microsoft Azure. Vaya al [sitio de Soporte técnico de Azure](/support/options) y seleccione **Submit a support request** (Enviar una solicitud de soporte técnico).
+<sup>1</sup>El runbook se puede recuperar en un período de 30 días mediante la presentación de un incidente de Soporte técnico de Azure en el soporte técnico de Microsoft Azure. Vaya al [sitio de Soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione **Submit a support request** (Enviar una solicitud de soporte técnico).
 
 ## <a name="data-backup"></a>Copia de seguridad de datos
 
@@ -68,7 +68,7 @@ Puede exportar los runbooks a archivos de script con Azure Portal o el cmdlet [G
 
 ### <a name="integration-modules"></a>Módulos de integración
 
-No es posible exportar módulos de integración desde Azure Automation. Debe hacer que estén disponibles fuera de la cuenta de Automation.
+Los módulos de integración no se pueden exportar desde Azure Automation, tienen que estar disponibles fuera de la cuenta de Automation.
 
 ### <a name="assets"></a>Recursos
 
@@ -84,7 +84,10 @@ Puede exportar las configuraciones de DSC a archivos de script con Azure Portal 
 
 La replicación geográfica es estándar en cuentas de Azure Automation. Puede elegir una región primaria al configurar su cuenta. El servicio de replicación geográfica interna de Automation asigna automáticamente una región secundaria a la cuenta. Después, el servicio realiza una copia de seguridad continua de los datos de la cuenta de la región primaria en la región secundaria. Puede encontrar la lista completa de las regiones primarias y secundarias en [Continuidad empresarial y recuperación ante desastres (BCDR): Regiones emparejadas de Azure](../best-practices-availability-paired-regions.md).
 
-La copia de seguridad creada por el servicio de replicación geográfica de Automation es una copia completa de los recursos de Automation, las configuraciones, etc. Esta copia de seguridad se puede usar si la región primaria deja de funcionar y pierde datos. En el improbable caso de que se pierdan datos de una región primaria, Microsoft intenta recuperarlos. Si la empresa no puede recuperar los datos principales, utiliza la conmutación automática por error y le informa de la situación a través de su suscripción de Azure.
+La copia de seguridad creada por el servicio de replicación geográfica de Automation es una copia completa de los recursos de Automation, las configuraciones, etc. Esta copia de seguridad se puede usar si la región primaria deja de funcionar y pierde datos. En el improbable caso de que se pierdan datos de una región primaria, Microsoft intenta recuperarlos.
+
+> [!NOTE]
+> Azure Automation almacena los datos de los clientes en la región seleccionada por el cliente. Con fines de BCDR, en todas las regiones, excepto Sur de Brasil y Sudeste Asiático, los datos de Azure Automation se almacenan en una región distinta (región emparejada de Azure). Solo para la región Sur de Brasil (estado de Sao Paulo) del área geográfica de Brasil y la región Sudeste Asiático (Singapur) del área geográfica de Asia Pacífico, almacenamos los datos de Azure Automation en la misma región para cumplir con los requisitos de residencia de datos de estas regiones.
 
 El servicio de replicación geográfica de Automation no es accesible directamente para los clientes externos si se produce un error regional. Si desea mantener la configuración de Automation y los runbooks durante errores regionales:
 

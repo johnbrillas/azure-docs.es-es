@@ -11,10 +11,10 @@ ms.date: 08/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
 ms.openlocfilehash: 5760c574e64a3b3b4a1df12092cff44374790a90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89018406"
 ---
 # <a name="get-started-with-device-management-net"></a>Introducción a la administración de dispositivos (.NET)
@@ -41,7 +41,7 @@ Al final de este tutorial tendrá dos aplicaciones de consola de .NET:
 
 * Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) en tan solo unos minutos.
 
-* Asegúrese de que el puerto 8883 está abierto en el firewall. En el ejemplo de dispositivo de este artículo se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y saber cómo solucionar este problema, consulte [Conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Asegúrese de que el puerto 8883 está abierto en el firewall. En el ejemplo de dispositivo de este artículo se usa el protocolo MQTT, que se comunica mediante el puerto 8883. Este puerto puede estar bloqueado en algunos entornos de red corporativos y educativos. Para más información y para saber cómo solucionar este problema, consulte el artículo sobre la [conexión a IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
@@ -248,7 +248,7 @@ Para crear la aplicación de dispositivo simulado, siga estos pasos:
 
 Ya está preparado para ejecutar las aplicaciones.
 
-1. Para ejecutar la aplicación de dispositivo .NET **SimulateManagedDevice**, en el Explorador de soluciones, haga clic con el botón derecho en**SimulateManagedDevice**, seleccione **Depurar** y, después, seleccione **Iniciar nueva instancia**. La aplicación debería empezar a escuchar llamadas de método desde el centro de IoT.
+1. Para ejecutar la aplicación de dispositivo .NET **SimulateManagedDevice**, en el Explorador de soluciones, haga clic con el botón derecho en **SimulateManagedDevice**, seleccione **Depurar** y, después, seleccione **Iniciar nueva instancia**. La aplicación debería empezar a escuchar llamadas de método desde el centro de IoT.
 
 1. Una vez que el dispositivo esté conectado y esperando invocaciones de método, haga clic con el botón derecho en **TriggerReboot**, seleccione **Depurar** y, después, **Iniciar nueva instancia**.
 

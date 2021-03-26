@@ -9,10 +9,10 @@ ms.author: terrylan
 manager: rkarlin
 ms.date: 11/10/2020
 ms.openlocfilehash: f4906d4e0590df047bac4ee15cb0e996a59c3d5b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96498870"
 ---
 # <a name="measured-boot-and-host-attestation"></a>Atestación del host y arranque medido
@@ -52,7 +52,7 @@ Los depuradores son herramientas eficaces para los desarrolladores. No obstante,
 El [arranque seguro](secure-boot.md) de UEFI garantiza que solo se puede ejecutar software de bajo nivel de confianza durante la secuencia de arranque. Sin embargo, las mismas comprobaciones se deben aplicar también en el entorno posterior al arranque a los controladores y otros ejecutables con acceso en modo kernel. Para ello, se usa una directiva de integridad del código (CI) para definir qué controladores, archivos binarios y otros ejecutables se consideran de confianza mediante la especificación de firmas válidas y no válidas. Estas directivas se aplican. Las infracciones de la directiva generan alertas al equipo de respuesta a incidentes de seguridad para que los investiguen.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información sobre lo que se debe hacer para fomentar la seguridad y la integridad de la plataforma, consulte:
+Para más información sobre lo que se hace para fomentar la seguridad y la integridad de la plataforma, vea:
 
 - [Seguridad de firmware](firmware.md)
 - [Arranque seguro](secure-boot.md)

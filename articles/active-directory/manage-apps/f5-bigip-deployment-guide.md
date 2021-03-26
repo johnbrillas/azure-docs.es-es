@@ -12,10 +12,10 @@ ms.date: 10/12/2020
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f962bf131b87f17712186145b8c8b8e6090f7002
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98730664"
 ---
 # <a name="tutorial-to-deploy-f5-big-ip-virtual-edition-vm-in-azure-iaas-for-secure-hybrid-access"></a>Tutorial para implementar la máquina virtual de F5 BIG-IP Virtual Edition en IaaS de Azure para el acceso híbrido seguro
@@ -212,7 +212,7 @@ En los pasos siguientes se da por supuesto que la zona DNS del dominio público 
 
 6. Utilice la siguiente información para crear el primer registro de alias del DNS:
 
- | Campo | Valor |
+ | Campo | Value |
  |:-------|:-----------|
  |Subscription| La misma suscripción que la máquina virtual de BIG-IP|
  |Zona DNS| Zona DNS que tiene autorización para el sufijo de dominio comprobado que usarán los sitios web publicados, por ejemplo, www.contoso.com |
@@ -241,7 +241,7 @@ De forma predeterminada, las redes virtuales de Azure y las subredes asociadas s
 
 2. Seleccione la regla de entrada **Agregar** para especificar las siguientes propiedades de la regla del grupo de seguridad de red:
 
- |     Campo   |   Valor        |
+ |     Campo   |   Value        |
  |:------------|:------------|
  |Source| Any|
  |Source port ranges| *|

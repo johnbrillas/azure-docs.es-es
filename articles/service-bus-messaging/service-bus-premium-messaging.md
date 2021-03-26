@@ -2,13 +2,13 @@
 title: Niveles premium y estándar de Azure Service Bus
 description: En este artículo se describen los niveles estándar y premium de Azure Service Bus. Compara estos niveles y proporciona diferencias técnicas.
 ms.topic: conceptual
-ms.date: 07/28/2020
-ms.openlocfilehash: 31c53a1375078cd5d185945cba55a6e5a6dd5ffb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/17/2021
+ms.openlocfilehash: 0385526560e6aafaab66d9212ff54caff2362ebd
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90966781"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100636516"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Niveles de mensajería Premium y Estándar de Service Bus
 
@@ -28,7 +28,7 @@ En la tabla siguiente, se resaltan algunas de las principales diferencias.
 
 La **mensajería Premium de Service Bus** proporciona aislamiento de recursos en el nivel de CPU y memoria para que cada carga de trabajo de cliente se ejecute de forma aislada. Este contenedor de recursos se llama *unidad de mensajería*. A cada espacio de nombres premium se le asigna al menos una unidad de mensajería. Puede comprar 1, 2, 4 u 8 unidades de mensajería para cada espacio de nombres Premium de Service Bus. Una sola carga de trabajo o entidad puede abarcar varias unidades de mensajería y el número de unidades de mensajería puede cambiarse a voluntad. El resultado es un rendimiento predecible y repetible para su solución basada en Service Bus.
 
-Este rendimiento no es solo más predecible y presenta mayor disponibilidad, sino que también es más rápido. La mensajería Premium de Service Bus se basa en el motor de almacenamiento presentado en [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Con la mensajería Premium, obtener el máximo rendimiento es mucho más rápido que en el nivel Estándar.
+Este rendimiento no es solo más predecible y presenta mayor disponibilidad, sino que también es más rápido. Con la mensajería Premium, obtener el máximo rendimiento es mucho más rápido que en el nivel Estándar.
 
 ## <a name="premium-messaging-technical-differences"></a>Diferencias técnicas de la mensajería Premium
 
@@ -40,9 +40,7 @@ Los temas y colas con particiones no se admiten en Mensajería Premium. Para má
 
 ### <a name="express-entities"></a>Entidades exprés
 
-Dado que la Mensajería Premium se ejecuta en un entorno de tiempo de ejecución aislado, no se admiten entidades rápidas en los espacios de nombres Premium. Para más información sobre la característica exprés, consulte la propiedad [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress).
-
-Si tiene código en ejecución en mensajería estándar y desea migrarlo al nivel Premium, asegúrese de que la propiedad [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) esté establecida en **false** (valor predeterminado).
+Dado que la Mensajería Premium se ejecuta en un entorno de tiempo de ejecución aislado, no se admiten entidades rápidas en los espacios de nombres Premium. Una entidad express conserva un mensaje en la memoria temporalmente antes de escribirlo en el almacenamiento persistente. Si tiene código que se ejecuta en la mensajería estándar y desea trasladarlo al nivel Premium, asegúrese de que la característica de entidad express está deshabilitada.
 
 ## <a name="premium-messaging-resource-usage"></a>Uso de recursos de mensajería premium
 En general, cualquier operación en una entidad puede causar uso de CPU y memoria. Estas son algunas de las operaciones: 
@@ -69,8 +67,8 @@ Hay una serie de factores que se deben tener en cuenta a la hora de decidir el n
 
 - Comience con ***1 o 2 unidades de mensajería*** asignadas al espacio de nombres.
 - Estudie las métricas de uso de la CPU en [Métricas de uso de recursos](service-bus-metrics-azure-monitor.md#resource-usage-metrics) para el espacio de nombres.
-    - Si el uso de CPU está ***por debajo del 20 %***, es posible que pueda ***reducir verticalmente*** el número de unidades de mensajería asignadas al espacio de nombres.
-    - Si el uso de CPU está ***por encima del 70 %***, la aplicación se beneficiará del ***escalado vertical*** del número de unidades de mensajería asignadas al espacio de nombres.
+    - Si el uso de CPU está por ***debajo del 20 %** , es posible que pueda *_reducir verticalmente_** el número de unidades de mensajería asignadas al espacio de nombres.
+    - Si el uso de CPU está ***por encima del 70 %** , la aplicación se beneficiará del *_escalado vertical_** del número de unidades de mensajería asignadas al espacio de nombres.
 
 Para obtener información sobre cómo configurar un espacio de nombres de Service Bus para escalar automáticamente (aumentar o disminuir las unidades de mensajería), consulte [Actualización automática de unidades de mensajería](automate-update-messaging-units.md).
 

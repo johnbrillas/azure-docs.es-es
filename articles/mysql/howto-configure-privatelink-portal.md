@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.openlocfilehash: ce916336ea47cd223c10a8f664b2dc9806ed0a17
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99221033"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Creación y administración de Private Link para Azure Database for MySQL mediante el portal
@@ -56,7 +56,7 @@ En esta sección, va a crear una red virtual y una subred para hospedar la máqu
     | Configuración | Value |
     | ------- | ----- |
     | **DETALLES DEL PROYECTO** | |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.  |
     | **DETALLES DE INSTANCIA** |  |
     | Nombre de la máquina virtual | Escriba *myVm*. |
@@ -106,7 +106,7 @@ En esta sección, creará un servidor de Azure Database for MySQL en Azure.
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** | |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.|
     | **Detalles del servidor** |  |
     |Nombre de servidor  | Escriba *myServer*. Si el nombre ya existe, cree uno único.|
@@ -141,7 +141,7 @@ En esta sección, creará una instancia de MySQL Server y le agregará un punto 
     | Configuración | Value |
     | ------- | ----- |
     | **Detalles del proyecto** | |
-    | Suscripción | Seleccione su suscripción. |
+    | Subscription | Seleccione su suscripción. |
     | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.|
     | **Detalles de instancia** |  |
     | Nombre | Escriba *myPrivateEndpoint*. Si el nombre ya existe, cree uno único. |
@@ -154,7 +154,7 @@ En esta sección, creará una instancia de MySQL Server y le agregará un punto 
     | Configuración | Value |
     | ------- | ----- |
     |Método de conexión  | Seleccione Connect to an Azure resource in my directory (Conectarse a un recurso de Azure en mi directorio).|
-    | Suscripción| Seleccione su suscripción. |
+    | Subscription| Seleccione su suscripción. |
     | Tipo de recurso | Seleccione **Microsoft.DBforMySQL/servers**. |
     | Recurso |Seleccione *miServidor*.|
     |Recurso secundario de destino |Seleccione *mysqlServer*.|

@@ -1,19 +1,14 @@
 ---
 title: SDL de Horizon
-titleSuffix: Azure Defender for IoT
 description: El SDK de Horizon permite que los desarrolladores de Azure Defender para IoT diseñen complementos de disección que descodifiquen el tráfico de red para que se pueda procesar mediante los programas de análisis de red automatizados de Defender para IoT.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/13/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 06663e12bbcaee2243be75d6aa9ea9cf4fd125bf
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 500f1d78a6a2ab91284c993a5c56ef8e679db83f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523369"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782493"
 ---
 # <a name="horizon-proprietary-protocol-dissector"></a>Disección del protocolo propietario de Horizon
 
@@ -1640,6 +1635,6 @@ Para supervisar, haga lo siguiente:
 
 En Información general, seleccione el botón Supervisar del complemento.
 
-## <a name="next-steps"></a>Pasos siguientes
+Pasos siguientes
 
 Configuración de la [API de Horizon](references-horizon-api.md).
