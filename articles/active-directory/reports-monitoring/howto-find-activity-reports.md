@@ -15,10 +15,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 42afa073da9197c12e4cbd316d311a7699d9a95f
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96013042"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Búsqueda de informes de actividad en Azure Portal
@@ -207,7 +207,7 @@ Espere entre 15 minutos y dos horas para ver si las acciones aparecen en el regi
 
 No puedo ver más de 30 días de datos de inicio de sesión y auditoría en Azure Portal. ¿Por qué? 
 
- ![Captura de pantalla que muestra el menú Fecha.](./media/troubleshoot-missing-audit-data/03.png)
+ ![Captura de pantalla que muestra el menú de fecha.](./media/troubleshoot-missing-audit-data/03.png)
 
 #### <a name="cause"></a>Causa
 

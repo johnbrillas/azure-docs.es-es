@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
 ms.openlocfilehash: 2f6eb3998c611cb7a72886d1c577c665d73cb5a2
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102035575"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>Expresión workspace() en consultas de registro de Azure Monitor
@@ -29,7 +29,7 @@ La expresión `workspace` se usa en una consulta de Azure Monitor para recuperar
 |:---|:---|:---|
 | Nombre de recurso | Nombre legible del área de trabajo (también denominado "nombre del componente") | workspace("contosoretail") |
 | Nombre completo | Nombre completo del área de trabajo con el siguiente formato: "subscriptionName/resourceGroup/componentName" | workspace("Contoso/ContosoResource/ContosoWorkspace") |
-| ID | GUID del área de trabajo | workspace("b438b3f6-912a-46d5-9db1-b42069242ab4") |
+| id | GUID del área de trabajo | workspace("b438b3f6-912a-46d5-9db1-b42069242ab4") |
 | Id. de recurso de Azure | Identificador del recurso de Azure | workspace("/subscriptions/e4227-645-44e-9c67-3b84b5982/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail") |
 
 

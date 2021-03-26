@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 97209dca7d30de037dbd21f5cc145b2941060e70
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96015407"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Usar indicadores de supervisión de StorSimple para administrar su dispositivo
@@ -36,7 +36,7 @@ Existen tres estados de LED para indicar el estado de un módulo: verde, intermi
 En lo que resta de artículo se describen los distintos indicadores LED de supervisión, sus ubicaciones en el dispositivo StorSimple, el estado del dispositivo en función de los estados de LED y las alarmas audibles asociadas.
 
 ## <a name="front-panel-indicator-leds"></a>Indicadores LED en el panel frontal
-El panel frontal, también conocido como *panel de* *operaciones*, muestra el estado global de todos los módulos del sistema. El panel frontal es idéntico en el gabinete EBOD y el gabinete principal de StorSimple, tal como se ilustra a continuación.  
+El panel frontal, también conocido como *panel de**operaciones*, muestra el estado global de todos los módulos del sistema. El panel frontal es idéntico en el gabinete EBOD y el gabinete principal de StorSimple, tal como se ilustra a continuación.  
 
    ![Panel frontal del dispositivo][1]
 
@@ -110,7 +110,7 @@ El estado del PCM se indica en el panel de LED. El panel de LED de PCM del dispo
 ## <a name="pcm-leds-for-the-ebod-enclosure"></a>LED de PCM del revestimiento de EBOD
 El revestimiento de EBOD tiene un PCM de 580 W sin batería adicional. El panel del PCM del revestimiento de EBOD tiene LED únicamente para las fuentes de alimentación y el ventilador. En la siguiente ilustración se muestran estos indicadores.
 
-   ![LED de PCM del revestimiento de EBOD][3] 
+   ![ LED de PCM del revestimiento de EBOD][3] 
 
 Use la siguiente tabla para conocer el estado del PCM.  
 
@@ -219,7 +219,7 @@ Puede desactivar la alarma audible presionando el botón Silencio del panel de o
 En la siguiente tabla se describen las diversas condiciones de alarma.
 
 ### <a name="alarm-conditions"></a>Condiciones de alarma
-| Status | severity | Alarma | LED del panel de operaciones |
+| Estado | Gravedad | Alarma | LED del panel de operaciones |
 | --- | --- | --- | --- |
 | Alerta de PCM: pérdida de corriente continua de un único PCM |Error: no hay pérdida de redundancia |S1 |Error de módulo |
 | Alerta de PCM: pérdida de corriente continua de un único PCM |Error: pérdida de redundancia |S1 |Error de módulo |
@@ -239,7 +239,7 @@ En la siguiente tabla se describen las diversas condiciones de alarma.
 | Error de control de alimentación de la unidad |Advertencia: sin pérdida de alimentación de la unidad |S1 |Error de módulo |
 | Error de control de alimentación de la unidad |Error: crítico; pérdida de alimentación de la unidad |S1 |Error de módulo |
 | Unidad extraída |Advertencia |None |Error de módulo |
-| Alimentación insuficiente disponible |Advertencia |None |Error de módulo |
+| Alimentación insuficiente disponible |Advertencia |ninguno |Error de módulo |
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre los [componentes de hardware de StorSimple y su estado](storsimple-8000-monitor-hardware-status.md).

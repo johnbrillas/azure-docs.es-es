@@ -10,10 +10,10 @@ ms.date: 11/05/2020
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: fa43f40d4849a8e773241fa17a1e1787ce86a8ff
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102564754"
 ---
 # <a name="tutorial-set-up-disaster-recovery-for-linux-virtual-machines"></a>Tutorial: Configuración de la recuperación ante desastres para máquinas virtuales Linux
@@ -45,7 +45,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
     **Nombre** | **Nube pública** | **Nube del gobierno** | **Detalles**
     --- | --- | --- | ---
     Storage | `*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`| Escriba datos desde la máquina virtual a la cuenta de almacenamiento de caché en la región de origen. 
-    Azure AD  | `login.microsoftonline.com` | `login.microsoftonline.us`| Realice la autorización y autenticación de las direcciones URL del servicio Site Recovery. 
+    Azure AD  | `login.microsoftonline.com` | `login.microsoftonline.us`| Realice la autorización y autenticación de las direcciones URL del servicio Site Recovery. 
     Replicación | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`  |Comunicación de la máquina virtual con el servicio Site Recovery. 
     Service Bus | `*.servicebus.windows.net` | `*.servicebus.usgovcloudapi.net` | La máquina virtual escribe en Site Recovery para los datos de supervisión y diagnóstico. 
 

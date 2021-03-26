@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 08/14/2020
 ms.author: apimpm
 ms.openlocfilehash: fae4e349d46425c0c2b2b923d6a61e2e588708c1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93077258"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Procedimiento para autorizar a las cuentas de desarrollador para que usen OAuth 2.0 en Azure API Management
@@ -61,7 +61,7 @@ En esta guía se explica cómo configurar la instancia del servicio Administraci
 
     El **Método de solicitud de autorización** especifica cómo se envía la solicitud de autorización al servidor OAuth 2.0. El valor predeterminado es **GET** .
 
-5. A continuación, debe especificar **URL del punto de conexión de token** , **Métodos de autenticación de cliente** , **Método de envío de tokens de acceso** y **Ámbito predeterminado**.
+5. A continuación, debe especificar **URL del punto de conexión de token**, **Métodos de autenticación de cliente**, **Método de envío de tokens de acceso** y **Ámbito predeterminado**.
 
     ![Captura de pantalla en la que se muestra la pantalla Agregar el servicio OAuth2.](./media/api-management-howto-oauth2/oauth-03.png)
 
@@ -71,7 +71,7 @@ En esta guía se explica cómo configurar la instancia del servicio Administraci
 
     Los valores predeterminados para **Métodos de autenticación de cliente** y **Método de envío de tokens de acceso** son **Básico** y **Encabezado de autorización** respectivamente. Estos valores se configuran en esta sección del formulario, junto con el **Ámbito predeterminado**.
 
-6. La sección **Credenciales de cliente** contiene el **Id. de cliente** y el **Secreto del cliente** que se obtienen durante los procesos de creación y configuración del servidor OAuth 2.0. Al especificar el **Id. de cliente** y el **Secreto del cliente** , se genera el **uri de redirección** para el **código de autorización**. Con este URI se configura la URL de respuesta en la configuración del servidor OAuth 2.0.
+6. La sección **Credenciales de cliente** contiene el **Id. de cliente** y el **Secreto del cliente** que se obtienen durante los procesos de creación y configuración del servidor OAuth 2.0. Al especificar el **Id. de cliente** y el **Secreto del cliente**, se genera el **uri de redirección** para el **código de autorización**. Con este URI se configura la URL de respuesta en la configuración del servidor OAuth 2.0.
 
     En el nuevo portal para desarrolladores, el sufijo del URI tiene el formato siguiente:
 
@@ -111,7 +111,7 @@ Haga clic en **API** en el menú superior y seleccione **API eco**.
 > [!NOTE]
 > Si solamente tiene una API configurada o visible en su cuenta, al hacer clic en API irá directamente a las operaciones de dicha API.
 
-Seleccione la operación **Recurso GET** , haga clic en **Abrir consola** y seleccione **Código de autorización** en la lista desplegable.
+Seleccione la operación **Recurso GET**, haga clic en **Abrir consola** y seleccione **Código de autorización** en la lista desplegable.
 
 ![Open console][api-management-open-console]
 

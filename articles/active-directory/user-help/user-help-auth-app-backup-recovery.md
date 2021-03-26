@@ -12,10 +12,10 @@ ms.date: 06/03/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: e7608196c962a6918a90b91457f856f3e11b04f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91530908"
 ---
 # <a name="back-up-and-recover-account-credentials-using-the-microsoft-authenticator-app"></a>Copia de seguridad y recuperación de las credenciales de cuenta con la aplicación Microsoft Authenticator
@@ -87,17 +87,17 @@ Para las cuentas Microsoft personales, puede probar su identidad mediante la esp
 
 1. Puntee en el icono de la cuenta que va a recuperar y, a continuación, puntee en la opción para iniciar sesión para recuperarla. Escriba la contraseña y confirme el número de teléfono o la dirección de correo electrónico como verificación adicional.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-codes.png" alt-text="Captura de pantalla que muestra la aplicación Microsoft Authenticator con los iconos de las cuentas disponibles." border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-codes.png" alt-text="Captura de pantalla que muestra el código de contraseña de un solo uso de Microsoft Authenticator." border="true":::
 
 ### <a name="to-provide-more-verification-for-work-or-school-accounts"></a>Para proporcionar más comprobación a las cuentas profesionales o educativas
 
 1. En la pantalla **Cuentas** de la aplicación Microsoft Authenticator, pulse la cuenta que quiere recuperar para abrir la vista de pantalla completa de la cuenta.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-arrow.png" alt-text="Captura de pantalla que muestra la aplicación Microsoft Authenticator con los iconos de las cuentas disponibles." border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-arrow.png" alt-text="Aplicación Microsoft Authenticator, que muestra los iconos de las cuentas disponibles" border="true":::
 
 1. En la vista de pantalla completa, puntee en la opción de escanear un código QR para recuperarla por completo.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-qr-code.png" alt-text="Captura de pantalla que muestra la aplicación Microsoft Authenticator con los iconos de las cuentas disponibles." border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-qr-code.png" alt-text="Authenticador presenta una contraseña de un solo uso como código de verificación." border="true":::
 
 >[!NOTE]
 >Para más información acerca de los códigos QR y cómo obtener uno, consulte [Introducción a la aplicación Microsoft Authenticator](./user-help-auth-app-download-install.md) o [Configuración de la información de seguridad para usar una aplicación autenticadora](./security-info-setup-auth-app.md), en función de si el administrador ha activado la información de seguridad.

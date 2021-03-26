@@ -11,10 +11,10 @@ ms.subservice: files
 services: storage
 tags: ''
 ms.openlocfilehash: 3d4f10745d90ccd83e7251af40d3e92a230f2fcd
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94629689"
 ---
 # <a name="azure-file-share--failed-to-delete-files-from-azure-file-share"></a>Recurso compartido de archivos de Azure: no se pudieron eliminar archivos del recurso compartido de archivos de Azure
@@ -44,7 +44,7 @@ Reduzca el número de identificadores abiertos al cerrar algunos.
 
 ### <a name="install-the-latest-azure-powershell-module"></a>Instalación del módulo de Azure PowerShell más reciente.
 
-* [Instalación del módulo Azure PowerShell](/powershell/azure/install-az-ps)
+* [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps)
 
 ### <a name="connect-to-azure"></a>Conexión a Azure:
 

@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 09/25/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: ea1cc022cbea7dbf3d1fa12cb83cfe3084b28560
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92788090"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Uso de Python y AI para generar contenido que permita búsquedas desde blobs de Azure
@@ -32,7 +32,7 @@ En este tutorial se usa Python y las [API REST de Search](/rest/api/searchservic
 
 Si no tiene una suscripción a Azure, abra una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 + [Almacenamiento de Azure](https://azure.microsoft.com/services/storage/)
 + [Anaconda 3.7](https://www.anaconda.com/distribution/#download-section)
@@ -45,7 +45,7 @@ Si no tiene una suscripción a Azure, abra una [cuenta gratuita](https://azure.m
 
 1. Abra esta [carpeta de OneDrive](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) y, en la esquina superior izquierda, haga clic en **Descargar** para copiar los archivos en el equipo. 
 
-1. Haga clic con el botón derecho en el archivo ZIP y seleccione **Extraer todo** . Hay 14 archivos de varios tipos. Para este ejercicio, usará 7.
+1. Haga clic con el botón derecho en el archivo ZIP y seleccione **Extraer todo**. Hay 14 archivos de varios tipos. Para este ejercicio, usará 7.
 
 ## <a name="1---create-services"></a>1: Creación de servicios
 
@@ -55,7 +55,7 @@ Si es posible, cree los dos en la misma región y grupo de recursos para la prox
 
 ### <a name="start-with-azure-storage"></a>Comienzo con Azure Storage
 
-1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y haga clic en **+ Crear un recurso** .
+1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y haga clic en **+ Crear un recurso**.
 
 1. Busque *cuenta de almacenamiento* y seleccione la oferta de Cuenta de almacenamiento de Microsoft.
 
@@ -63,25 +63,25 @@ Si es posible, cree los dos en la misma región y grupo de recursos para la prox
 
 1. En la pestaña Datos básicos, se necesitan los siguientes elementos. Acepte los valores predeterminados para todo lo demás.
 
-   + **Grupo de recursos** . Seleccione un grupo existente o cree uno nuevo, pero use el mismo grupo para todos los servicios, con el fin de que pueda administrarlos colectivamente.
+   + **Grupo de recursos**. Seleccione un grupo existente o cree uno nuevo, pero use el mismo grupo para todos los servicios, con el fin de que pueda administrarlos colectivamente.
 
-   + **Nombre de cuenta de almacenamiento** . Si cree que puede tener varios recursos del mismo tipo, use el nombre para diferenciarlos por tipo y región, por ejemplo *blobstoragewestus* . 
+   + **Nombre de cuenta de almacenamiento**. Si cree que puede tener varios recursos del mismo tipo, use el nombre para diferenciarlos por tipo y región, por ejemplo *blobstoragewestus*. 
 
-   + **Ubicación** . Si es posible, elija la misma ubicación que se usa para Azure Cognitive Search y Cognitive Services. Una ubicación única anula los cargos de ancho de banda.
+   + **Ubicación**. Si es posible, elija la misma ubicación que se usa para Azure Cognitive Search y Cognitive Services. Una ubicación única anula los cargos de ancho de banda.
 
-   + **Tipo de cuenta** . Elija el valor predeterminado, *StorageV2 (uso general v2)* .
+   + **Tipo de cuenta**. Elija el valor predeterminado, *StorageV2 (uso general v2)* .
 
 1. Haga clic en **Revisar y crear** para crear el servicio.
 
 1. Una vez creado, haga clic en **Go to the resource** (Ir al recurso) para abrir la página de información general.
 
-1. Haga clic en el servicio **Blobs** .
+1. Haga clic en el servicio **Blobs**.
 
-1. Haga clic en **+ Contenedor** para crear un contenedor y asígnele el nombre *cog-search-demo* .
+1. Haga clic en **+ Contenedor** para crear un contenedor y asígnele el nombre *cog-search-demo*.
 
 1. Seleccione *cog-search-demo* y haga clic en **Cargar** para abrir la carpeta en la que guardó los archivos de descarga. Seleccione todos los archivos que no sean de imagen. Debería tener 7 archivos. Haga clic en **Aceptar** para empezar a cargar.
 
-   :::image type="content" source="media/cognitive-search-tutorial-blob/sample-files.png" alt-text="Creación de una cuenta de almacenamiento" border="false":::
+   :::image type="content" source="media/cognitive-search-tutorial-blob/sample-files.png" alt-text="Carga de archivos de ejemplo" border="false":::
 
 1. Antes de salir de Azure Storage, obtenga una cadena de conexión para poder formular una conexión en Azure Cognitive Search. 
 
@@ -113,11 +113,11 @@ Al igual que con Azure Blob Storage dedique un momento a recopilar la clave de a
 
 1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y, en la página **Información general** del servicio de búsqueda, obtenga el nombre del servicio de búsqueda. Para confirmar el nombre del servicio, revise la dirección URL del punto de conexión. Si la dirección URL del punto de conexión fuera `https://mydemo.search.windows.net`, el nombre del servicio sería `mydemo`.
 
-2. En **Configuración** > **Claves** , obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
+2. En **Configuración** > **Claves**, obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
 
    Obtenga también la clave de consulta. Es una práctica recomendada emitir solicitudes de consulta con acceso de solo lectura.
 
-   :::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="Creación de una cuenta de almacenamiento" border="false":::
+   :::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="Obtención del nombre del servicio y las claves de consulta y administrador" border="false":::
 
 Todas las solicitudes enviadas al servicio necesitan una clave de API en el encabezado. Una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que la envía y el servicio que se encarga de ella.
 
@@ -188,13 +188,13 @@ print(r.status_code)
 
 La solicitud debe devolver un código de estado 201 que confirme el éxito de la operación.
 
-En Azure Portal, en la página del panel de información del servicio de búsqueda, compruebe que cogsrch-py-datasource aparece en la lista **Orígenes de datos** . Haga clic en **Actualizar**  para actualizar la página.
+En Azure Portal, en la página del panel de información del servicio de búsqueda, compruebe que cogsrch-py-datasource aparece en la lista **Orígenes de datos**. Haga clic en **Actualizar**  para actualizar la página.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-data-source-tile.png" alt-text="Creación de una cuenta de almacenamiento" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-data-source-tile.png" alt-text="Icono de orígenes de datos en el portal" border="false":::
 
 ### <a name="step-2-create-a-skillset"></a>Paso 2: Creación de un conjunto de aptitudes
 
-En este paso, definirá un conjunto de pasos de enriquecimiento para aplicar a los datos. Llamará a cada paso de enriquecimiento una *aptitud* y al conjunto de pasos de enriquecimiento, un *conjunto de aptitudes* . Este tutorial usa un conjunto de [aptitudes cognitivas integradas](cognitive-search-predefined-skills.md):
+En este paso, definirá un conjunto de pasos de enriquecimiento para aplicar a los datos. Llamará a cada paso de enriquecimiento una *aptitud* y al conjunto de pasos de enriquecimiento, un *conjunto de aptitudes*. Este tutorial usa un conjunto de [aptitudes cognitivas integradas](cognitive-search-predefined-skills.md):
 
 + [Reconocimiento de entidades](cognitive-search-skill-entity-recognition.md) para extraer los nombres de las organizaciones del contenido del contenedor de blobs.
 
@@ -303,7 +303,7 @@ Cada aptitud se ejecuta en el contenido del documento. Durante el procesamiento,
 
 A continuación se muestra una representación gráfica del conjunto de aptitudes.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob/skillset.png" alt-text="Creación de una cuenta de almacenamiento" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob/skillset.png" alt-text="Descripción de un conjunto de aptitudes" border="false":::
 
 Las salidas se pueden asignar a un índice, usar como entrada para una aptitud de bajada, o ambas cosas como sucede con el código de idioma. En el índice, un código de idioma es útil para el filtrado. Como entrada, el código de idioma se usa en las aptitudes de análisis de texto para informar a las reglas lingüísticas de la separación de palabras.
 
@@ -315,7 +315,7 @@ En esta sección, se define el esquema de índice. Para ello, se especifican los
 
 En este ejercicio se utilizan los siguientes campos y tipos de campos:
 
-| field-names: | ID         | content   | languageCode | keyPhrases         | organizations     |
+| field-names: | id         | content   | languageCode | keyPhrases         | organizations     |
 |--------------|----------|-------|----------|--------------------|-------------------|
 | field-types: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 
@@ -472,11 +472,11 @@ pprint(json.dumps(r.json(), indent=1))
 
 En la respuesta, supervise los valores `"status"` y `"endTime"` en `"lastResult"`. Ejecute el script de forma periódica para comprobar el estado. Cuando haya finalizado el indexador el estado se establecerá en "success", se especificará un "endTime", y la respuesta incluirá cualquier error o advertencia que se produjera durante el enriquecimiento.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png" alt-text="Creación de una cuenta de almacenamiento" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png" alt-text="Se crea el indexador" border="false":::
 
 Las advertencias son comunes con algunas combinaciones de aptitudes y archivos de origen y no siempre indican un problema. Muchas advertencias son benignas. Por ejemplo, si indexa un archivo JPEG que no tenga texto, se verá la advertencia de esta captura de pantalla.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png" alt-text="Creación de una cuenta de almacenamiento" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png" alt-text="Advertencia de ejemplo del indexador" border="false":::
 
 ## <a name="5---search"></a>5: Búsqueda
 
@@ -493,7 +493,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 Los resultados deben tener un aspecto similar al del siguiente ejemplo. La captura de pantalla muestra solo una parte de la respuesta.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png" alt-text="Creación de una cuenta de almacenamiento" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-fields.png" alt-text="Índice de consulta para todos los campos" border="false":::
 
 La salida es el esquema de índice, con el nombre, el tipo y los atributos de cada campo.
 
@@ -508,7 +508,7 @@ pprint(json.dumps(r.json(), indent=1))
 
 Los resultados deben tener un aspecto similar al del siguiente ejemplo. La captura de pantalla muestra solo una parte de la respuesta.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png" alt-text="Creación de una cuenta de almacenamiento" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-query-index-for-organizations.png" alt-text="Índice de consulta para los contenidos de las organizaciones" border="false":::
 
 Repita el procedimiento con los campos adicionales: `content`, `languageCode`, `keyPhrases` y `organizations` en este ejercicio. Puede devolver varios campos a través de `$select` con una lista delimitada por comas.
 
@@ -522,7 +522,7 @@ En las primeras etapas experimentales de desarrollo, el enfoque más práctico p
 
 También puede usar el portal para eliminar los índices, los indexadores, los orígenes de datos y los conjuntos de aptitudes. Al eliminar el indexador, puede opcionalmente, de forma selectiva elimina el índice, aptitudes y datos de origen al mismo tiempo.
 
-:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png" alt-text="Creación de una cuenta de almacenamiento" border="false":::
+:::image type="content" source="media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png" alt-text="Eliminación de objetos de búsqueda en el portal" border="false":::
 
 También puede eliminarlos mediante un script. El script siguiente muestra cómo eliminar un conjunto de aptitudes. 
 

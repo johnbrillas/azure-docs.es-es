@@ -10,10 +10,10 @@ ms.date: 04/24/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: e5ea94fea00771b64634d6c28a7879fabb195f09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89069666"
 ---
 # <a name="manage-storage-account-access-keys"></a>Administración de las claves de acceso de la cuenta de almacenamiento
@@ -35,7 +35,7 @@ Para ver y copiar la cadena de conexión o las claves de acceso de la cuenta de 
 1. Vaya a la cuenta de almacenamiento en [Azure Portal](https://portal.azure.com).
 1. En **Configuración**, seleccione **Claves de acceso**. Aparecen las claves de acceso de la cuenta, así como la cadena de conexión completa de cada clave.
 1. Busque el valor de **Clave** en **key1** y haga clic en el botón **Copiar** para copiar la clave de cuenta.
-1. Como alternativa, puede copiar la cadena de conexión completa. Busque el valor de **Cadena de conexión** en **key1**y haga clic en el botón **Copiar** para copiar la cadena de conexión.
+1. Como alternativa, puede copiar la cadena de conexión completa. Busque el valor de **Cadena de conexión** en **key1** y haga clic en el botón **Copiar** para copiar la cadena de conexión.
 
     :::image type="content" source="media/storage-account-keys-manage/portal-connection-string.png" alt-text="Captura de pantalla que muestra cómo ver las claves de acceso en Azure Portal":::
 

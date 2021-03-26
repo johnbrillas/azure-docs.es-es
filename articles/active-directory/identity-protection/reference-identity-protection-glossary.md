@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1a17f52e519a84c58c9ed5b75259cc0b96d0a175
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88949181"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glosario de Azure Active Directory Identity Protection
@@ -95,7 +95,7 @@ Acción para proteger una identidad o un dispositivo que antes fue sospechoso o 
 ### <a name="resolved-risk-detection"></a>Resuelta (detección de riesgo)
 Estado de detección de riesgo establecido manualmente por un usuario de Identity Protection, que indica que el usuario aplicó una acción de corrección adecuada fuera de Identity Protection y que se debe considerar la detección de riesgo cerrada.
 
-### <a name="risk-detection-status"></a>Estado de detección de riesgo
+### <a name="risk-detection-status"></a>Estado de detección de riesgos
 Propiedad de una detección de riesgo, que indica si el evento está activo y, si está cerrado, el motivo para haberlo cerrarlo.
 
 ### <a name="risk-detection-type"></a>Tipo de detección de riesgo

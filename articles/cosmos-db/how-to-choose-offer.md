@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: dech
 ms.openlocfilehash: d8a6471d53ad4b2428504f9c53cbec6bc1967c49
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93089647"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>Cómo elegir entre el rendimiento aprovisionado estándar (manual) y el de escalabilidad automática 
@@ -121,14 +121,14 @@ Para calcular el promedio del uso normalizado más alto durante todas las horas:
 1. Seleccione 1 hora para la **Granularidad de tiempo**.
 1. Vaya a **Opciones de gráfico**.
 1. Seleccione la opción de gráfico de barras. 
-1. En **Compartir** , seleccione la opción **Download to Excel** (Descargar en Excel). En la hoja de cálculo generada, calcule el uso promedio durante todas las horas. 
+1. En **Compartir**, seleccione la opción **Download to Excel** (Descargar en Excel). En la hoja de cálculo generada, calcule el uso promedio durante todas las horas. 
 
 :::image type="content" source="media/how-to-choose-offer/variable-workload-highest-util-by-hour.png" alt-text="Para ver el consumo normalizado de RU por hora, 1) Seleccione una granularidad de tiempo de 1 hora; 2) Edite la configuración del gráfico; 3) Seleccione la opción de gráfico de barras; 4) En Compartir, seleccione la opción descargar en Excel para calcular el promedio durante todas las horas. ":::
 
 ## <a name="measure-and-monitor-your-usage"></a>Medición y supervisión del uso
 Con el tiempo, después de elegir el tipo de rendimiento, debe supervisar la aplicación y realizar los ajustes necesarios. 
 
-Si usa la escalabilidad automática, use Azure Monitor para ver el máximo de RU/s de escalabilidad automática aprovisionado ( **rendimiento máximo de escalabilidad automática** ) y el valor de RU/s al que el sistema está escalado actualmente ( **rendimiento aprovisionado** ). A continuación se muestra un ejemplo de una carga de trabajo variable o imprevisible que usa la escalabilidad automática. Tenga en cuenta que, cuando no hay tráfico, el sistema escala las RU/s al mínimo del 10 % de la cantidad máxima de RU/s, que, en este caso, es de 5000 RU/s y 50 000 RU/s, respectivamente. 
+Si usa la escalabilidad automática, use Azure Monitor para ver el máximo de RU/s de escalabilidad automática aprovisionado (**rendimiento máximo de escalabilidad automática**) y el valor de RU/s al que el sistema está escalado actualmente (**rendimiento aprovisionado**). A continuación se muestra un ejemplo de una carga de trabajo variable o imprevisible que usa la escalabilidad automática. Tenga en cuenta que, cuando no hay tráfico, el sistema escala las RU/s al mínimo del 10 % de la cantidad máxima de RU/s, que, en este caso, es de 5000 RU/s y 50 000 RU/s, respectivamente. 
 
 :::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Ejemplo de carga de trabajo con escalabilidad automática, con un máximo de escalabilidad automática de RU/s de 50 000 RU/s y un rendimiento que va desde 5000 a 50 000 RU/s":::
 

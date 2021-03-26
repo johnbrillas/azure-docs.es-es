@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/16/2019
 ms.openlocfilehash: af1d7110cccfd8b0617d6c79eb5373cc7c087159
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94594018"
 ---
 # <a name="use-powershell-to-add-a-managed-instance-to-a-failover-group"></a>Uso de PowerShell para agregar una instancia administrada a un grupo de conmutación por error 
@@ -69,9 +69,9 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Crea una configuración de IP para una puerta de enlace de Virtual Network. |
 | [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Crea una puerta de enlace de Virtual Network. |
 | [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) | Crea una conexión entre las dos puertas de enlace de redes virtuales.   |
-| [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup)| Crea un nuevo grupo de conmutación por error de la instancia administrada de Azure SQL.  |
-| [Get-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) | Obtiene o enumera los grupos de conmutación por error de la instancia administrada de SQL.| 
-| [Switch-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) | Ejecuta una conmutación por error de un grupo de conmutación por error de la instancia administrada de SQL. | 
+| [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup)| Crea un nuevo grupo de conmutación por error de la Instancia administrada de Azure SQL.  |
+| [Get-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) | Obtiene o enumera los grupos de conmutación por error de la Instancia administrada de SQL.| 
+| [Switch-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) | Ejecuta una conmutación por error de un grupo de conmutación por error de la Instancia administrada de SQL. | 
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina un grupo de recursos. | 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -9,10 +9,10 @@ ms.date: 05/08/2020
 ms.author: chnwamba
 ms.custom: devx-track-js
 ms.openlocfilehash: a22d06137c3ec17851280605ac85c94ef8b342cd
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97563082"
 ---
 # <a name="deploy-static-rendered-nextjs-websites-on-azure-static-web-apps-preview"></a>Implementación de sitios web de Next.js representados de forma estática en la versión preliminar de Azure Static Web Apps
@@ -136,7 +136,7 @@ En los pasos siguientes se muestra cómo vincular la aplicación que acaba de in
 
 1. Vaya a [Azure Portal](https://portal.azure.com).
 1. Haga clic en **Crear un recurso**.
-1. Busque **Static Web Apps**.
+1. Busque **Static Web Apps**.
 1. Haga clic en **Static Web Apps (Preview)** (Static Web Apps [versión preliminar]).
 1. Haga clic en **Crear**
 

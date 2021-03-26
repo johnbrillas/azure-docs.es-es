@@ -4,10 +4,10 @@ description: En este artículo se proporciona información general sobre la repl
 ms.topic: article
 ms.date: 12/12/2020
 ms.openlocfilehash: e47f633fcd9248eab6f47936aa7c45877decc1fe
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98880834"
 ---
 # <a name="message-replication-and-cross-region-federation"></a>Replicación de mensajes y federación entre regiones

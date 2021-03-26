@@ -13,10 +13,10 @@ ms.topic: troubleshooting
 ms.date: 09/29/2020
 ms.custom: seodec18
 ms.openlocfilehash: e89189b22b144d9e92ee8315bc6fd9aabe699eec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91531656"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights-gen1"></a>Supervisión y reducción de la limitación para reducir la latencia en Azure Time Series Insights Gen1
@@ -65,9 +65,9 @@ Las alertas pueden ayudarle a diagnosticar y mitigar los problemas de latencia q
    |**Mensajes no válidos de entrada recibidos**     | Número de mensajes no válidos leídos desde todos los orígenes de eventos de Azure Event Hubs o Azure IoT Hub.      |
    |**Mensajes de entrada recibidos**   | Número de mensajes leídos desde todos los orígenes de eventos de Event Hubs o IoT Hub.        |
    |**Bytes de entrada almacenados**     | Tamaño total de los eventos almacenados y disponibles para su consulta. Se calcula el tamaño solo sobre el valor de propiedad.        |
-   |**Eventos de entrada almacenados**     |   Número de eventos planos almacenados y disponibles para su consulta.      |
-   |**Tiempo de retardo de los mensajes de entrada recibidos**    |  Diferencia en segundos entre el momento en el que el mensaje se pone en la cola en el origen del evento y el momento en que se procesa en la entrada.      |
-   |**Retardo de recuento de los mensajes de entrada recibidos**    |  Diferencia entre el número de secuencia del último mensaje en cola en la partición del origen del evento y el del mensaje que se está procesando en la entrada.      |
+   |**Eventos de entrada almacenados**     |   Número de eventos planos almacenados y disponibles para su consulta.      |
+   |**Tiempo de retardo de los mensajes de entrada recibidos**    |  Diferencia en segundos entre el momento en el que el mensaje se pone en la cola en el origen del evento y el momento en que se procesa en la entrada.      |
+   |**Retardo de recuento de los mensajes de entrada recibidos**    |  Diferencia entre el número de secuencia del último mensaje en cola en la partición del origen del evento y el del mensaje que se está procesando en la entrada.      |
 
    Seleccione **Listo**.
 

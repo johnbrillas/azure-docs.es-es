@@ -8,10 +8,10 @@ ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 82e15712fe1e7a5791b1374e4aa4cd446f8f5e90
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100574436"
 ---
 # <a name="azure-security-baseline-for-network-watcher"></a>Base de referencia de seguridad de Azure para Network Watcher
@@ -44,7 +44,7 @@ Para más información, consulte [Introducción a la línea de base de seguridad
 
 ### <a name="13-protect-critical-web-applications"></a>1.3: Proteja las aplicaciones web críticas
 
-**Guía**: No aplicable; esta recomendación está pensada para las aplicaciones web que se ejecutan en Azure App Service o en recursos de proceso.
+**Instrucciones**: No aplicable; esta recomendación está pensada para las aplicaciones web que se ejecutan en Azure App Service o en recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 

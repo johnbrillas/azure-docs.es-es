@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: a0d2bd6a07cfc9e5ebe205322550c9e898022846
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88008447"
 ---
 # <a name="connect-to-windows-virtual-desktop-classic-with-the-macos-client"></a>Conexión a Windows Virtual Desktop (clásico) con el cliente macOS
@@ -35,13 +35,13 @@ Para suscribirse a una fuente:
 1. Seleccione **Agregar área de trabajo** en la página principal para conectarse al servicio y recuperar los recursos.
 2. Escriba la dirección URL de la fuente. Puede ser una dirección URL o una dirección de correo electrónico:
    - Si usa una dirección URL, use la que le proporcionó el administrador. Normalmente, la dirección URL es <https://rdweb.wvd.microsoft.com>.
-   - Para usar el correo electrónico, escriba su dirección de correo electrónico. Esto indica al cliente que busque una dirección URL asociada a su dirección de correo electrónico si el administrador configuró el servidor de esa forma.
+   - Para usar un correo electrónico, escribe tu dirección de correo: Esto indica al cliente que busque una dirección URL asociada a su dirección de correo electrónico si el administrador configuró el servidor de esa forma.
 3. Seleccione **Agregar**.
 4. Inicie sesión con su cuenta de usuario cuando se le solicite.
 
-Una vez que haya iniciado sesión, debería ver una lista de recursos disponibles.
+Después de iniciar sesión, verás una lista de los recursos disponibles.
 
-Una vez que se haya suscrito a una fuente, el contenido de la misma se actualizará automáticamente de forma periódica. Pueden agregarse, cambiarse o quitarse recursos de acuerdo con los cambios hechos por el administrador.
+Una vez suscrito a una fuente, el contenido de la fuente se actualizará automáticamente de forma periódica. Pueden agregarse, cambiarse o quitarse recursos de acuerdo con los cambios hechos por el administrador.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

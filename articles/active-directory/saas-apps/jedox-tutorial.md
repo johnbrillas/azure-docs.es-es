@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: jeedes
 ms.openlocfilehash: 1f03e9f0336a0d9e38ba1186e28bfc4854030aba
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96180819"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jedox"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Jedox
@@ -26,7 +26,7 @@ En este tutorial aprenderá a integrar Jedox con Azure Active Directory (Azure 
 * Permitir que los usuarios inicien sesión automáticamente en Jedox con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 

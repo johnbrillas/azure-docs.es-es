@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: a98ab9ea347ba4d9ec53c80626f97b429e083cb1
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: b6fd5b5f70eb813792be003836790752db1d071f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242388"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101732826"
 ---
 # <a name="deny-public-network-access-in-azure-database-for-mysql-using-azure-portal"></a>Denegación del acceso a una red pública en Azure Database for MySQL mediante Azure Portal
 
@@ -21,7 +21,7 @@ En este artículo se describe cómo puede configurar un servidor de Azure Databa
 
 Para completar esta guía, necesita:
 
-* Una base de datos de [Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
+* Una instancia de [Azure Database for MySQL](quickstart-create-mysql-server-database-using-azure-portal.md) de uso general o un plan de tarifa optimizado para memoria
 
 ## <a name="set-deny-public-network-access"></a>Establecimiento de la denegación del acceso a una red pública
 
@@ -29,7 +29,7 @@ Siga estos pasos para establecer la denegación del acceso a una red pública de
 
 1. En [Azure Portal](https://portal.azure.com/), seleccione el servidor de Azure Database for MySQL existente.
 
-1. En la página del servidor de MySQL, en **Configuración** , haga clic en **Seguridad de la conexión** para abrir la página de configuración de seguridad de la conexión.
+1. En la página del servidor de MySQL, en **Configuración**, haga clic en **Seguridad de la conexión** para abrir la página de configuración de seguridad de la conexión.
 
 1. En **Deny Public Network Access** (Denegar acceso de red pública), seleccione **Yes** (Sí) para habilitar la denegación del acceso público para el servidor de MySQL.
 

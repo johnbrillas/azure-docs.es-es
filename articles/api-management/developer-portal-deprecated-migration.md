@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/15/2020
 ms.author: apimpm
 ms.openlocfilehash: f5105c685de4b3ccdffe69eec8ee8eeb32976c1f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92325947"
 ---
 # <a name="migrate-to-the-new-developer-portal"></a>Migración al nuevo portal para desarrolladores
@@ -57,7 +57,7 @@ Al migrar desde el portal en desuso, tenga en cuenta los siguientes cambios:
 - Si cambió las plantillas de notificación de correo electrónico predeterminadas para incluir una dirección URL de portal en desuso definida explícitamente, cámbielas para usar el parámetro de la dirección URL del portal o para apuntar a la dirección URL del nuevo portal. Si en su lugar las plantillas usan el parámetro de dirección URL del portal integrado, no se requieren cambios.
 - Las características *Problemas* y *Aplicaciones* no se admiten en el nuevo portal para desarrolladores.
 - La integración directa con Facebook, Microsoft, Twitter y Google como proveedores de identidades no se admite en el nuevo portal para desarrolladores. Puede realizar la integración con estos proveedores a través de Azure AD B2C.
-- Si usa la delegación, cambie la dirección URL de retorno en las aplicaciones y use el [*punto de conexión Get Shared Access Token* API](/rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken) en lugar del punto de conexión *Generate SSO URL* .
+- Si usa la delegación, cambie la dirección URL de retorno en las aplicaciones y use el [*punto de conexión Get Shared Access Token* API](/rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken) en lugar del punto de conexión *Generate SSO URL*.
 - Si usa Azure AD como proveedor de identidades:
 
     - Cambie la dirección URL de retorno en la aplicación para que apunte al nuevo dominio del portal para desarrolladores.
@@ -67,7 +67,7 @@ Al migrar desde el portal en desuso, tenga en cuenta los siguientes cambios:
 
     - Cambie la dirección URL de retorno en la aplicación para que apunte al nuevo dominio del portal para desarrolladores.
     - Modifique el sufijo de la dirección URL de retorno en la aplicación de `/signin-aad` a `/signin`.
-    - Incluya el *Nombre propio* , el *Apellido* y el *Identificador de objeto del usuario* en las notificaciones de la aplicación.
+    - Incluya el *Nombre propio*, el *Apellido* y el *Identificador de objeto del usuario* en las notificaciones de la aplicación.
 
 - Si usa OAuth 2.0 en la consola de prueba interactiva, cambie la dirección URL de retorno en la aplicación para que apunte al nuevo dominio del portal para desarrolladores y modifique el sufijo:
 

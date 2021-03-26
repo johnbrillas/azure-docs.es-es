@@ -7,10 +7,10 @@ ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.openlocfilehash: 63c7f226dcd99ec8040f2078ce12be0fe3c594df
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99548820"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Azure Migrate Server Migration: Preguntas frecuentes
@@ -18,7 +18,7 @@ ms.locfileid: "99548820"
 En este artículo se responde a preguntas habituales sobre Azure Migrate: Herramienta de migración del servidor. Si tiene otras preguntas, repase estos recursos:
 
 - [Preguntas generales](resources-faq.md) sobre Azure Migrate
-- Preguntas sobre el dispositivo de [Azure Migrate](common-questions-appliance.md)
+- Preguntas sobre el [dispositivo de Azure Migrate](common-questions-appliance.md)
 - Preguntas sobre la [detección, valoración y visualización de dependencias](common-questions-discovery-assessment.md)
 - Obtenga respuestas a sus preguntas en el [foro de Azure Migrate](https://aka.ms/AzureMigrateForum)
 

@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 83f38797e406ff7e62503f59ef979b9ce4f07f97
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 81d4527817d637e7b764cc83160153d974ced5c0
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94917943"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103600969"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>¿Qué es Instancia administrada de Azure SQL?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -35,6 +35,9 @@ En el diagrama siguiente se describen las características principales de SQL Ma
 
 Azure SQL Managed Instance está diseñada para aquellos clientes que quieran migrar un gran número de aplicaciones desde un entorno local o de IaaS, compilado automáticamente o que hayan proporcionado los fabricantes de software independientes, a un entorno en la nube de PaaS totalmente administrado, con el menor esfuerzo de migración posible. Mediante el uso del [Azure Data Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance), los clientes pueden migrar mediante lift-and-shift su instancia de SQL Server existente a SQL Managed Instance, que ofrece compatibilidad con SQL Server y aislamiento completo de las instancias de cliente con compatibilidad nativa con redes virtuales. Para más información sobre las opciones y las herramientas de migración, consulte [Información general sobre la migración: SQL Server a Instancia administrada de SQL](../migration-guides/managed-instance/sql-server-to-managed-instance-overview.md).</br> Con Software Assurance, puede intercambiar sus licencias existentes para obtener descuentos en SQL Managed Instance mediante la [Ventaja híbrida de Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). SQL Managed Instance es el mejor destino de migración en la nube para instancias de SQL Server que requieren alta seguridad y una completa superficie de programación.
 
+> [!TIP]
+> ¿Cómo podemos mejorar Azure SQL? [Realice la encuesta](https://aka.ms/AzureSQLSurvey).
+
 ## <a name="key-features-and-capabilities"></a>Funcionalidades y características clave
 
 SQL Managed Instance combina las mejores características que están disponibles tanto en Azure SQL Database como en el motor de base de datos de SQL Server.
@@ -46,7 +49,7 @@ SQL Managed Instance combina las mejores características que están disponibles
 | --- | --- |
 |No hay compras de hardware ni administración <br>Ninguna sobrecarga de administración a la hora de administrar la infraestructura subyacente <br>Aprovisionamiento y escalado de servicio rápidos <br>Aplicación de revisiones y actualización de versiones automatizadas <br>Integración con otros servicios de datos de PaaS |Acuerdo de Nivel de Servicio de tiempo de actividad del 99,99 %  <br>[Alta disponibilidad](../database/high-availability-sla.md) integrada <br>Datos protegidos con [copias de seguridad automatizadas](../database/automated-backups-overview.md) <br>Período de retención de copia de seguridad configurable por el cliente <br>[Copias de seguridad](/sql/t-sql/statements/backup-transact-sql?preserve-view=true&view=azuresqldb-mi-current) que haya iniciado el usuario <br>Funcionalidad de [restauración de base de datos a un momento dado](../database/recovery-using-backups.md#point-in-time-restore) |
 |**Seguridad y cumplimiento normativo** | **Administración**|
-|Entorno aislado ([integración con red virtual](connectivity-architecture-overview.md), servicio de inquilino único y procesos y almacenamiento dedicados) <br>[Cifrado de datos transparente (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticación de Azure Active Directory (Azure AD)](../database/authentication-aad-overview.md), compatibilidad con el inicio de sesión único <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Entidades de seguridad (inicios de sesión) de un servidor de Azure AD</a>  <br>Se adhiere a las mismas normas de cumplimiento estándar que Azure SQL Database <br>[Auditoría de SQL](auditing-configure.md) <br>[Advanced Threat Protection](threat-detection-configure.md) |API de Azure Resource Manager para automatizar el aprovisionamiento y escalado del servicio <br>Funcionalidad de Azure Portal para el aprovisionamiento y escalado manuales del servicio <br>Data Migration Service
+|Entorno aislado ([integración con red virtual](connectivity-architecture-overview.md), servicio de inquilino único y procesos y almacenamiento dedicados) <br>[Cifrado de datos transparente (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticación de Azure Active Directory (Azure AD)](../database/authentication-aad-overview.md), compatibilidad con el inicio de sesión único <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true">Entidades de seguridad (inicios de sesión) de un servidor de Azure AD</a>  <br>Se adhiere a las mismas normas de cumplimiento estándar que Azure SQL Database <br>[Auditoría de SQL](auditing-configure.md) <br>[Advanced Threat Protection](threat-detection-configure.md) |API de Azure Resource Manager para automatizar el aprovisionamiento y escalado del servicio <br>Funcionalidad de Azure Portal para el aprovisionamiento y escalado manuales del servicio <br>Data Migration Service
 
 > [!IMPORTANT]
 > Instancia administrada de Azure SQL ha obtenido la certificación de diversas normas de cumplimiento. Para más información, consulte las [Ofertas de cumplimiento de Microsoft Azure](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=44bbae63-bf4d-4e3b-9d3d-c96fb25ec363&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_FAQ_and_White_Papers), donde encontrará la lista más reciente de certificaciones de cumplimiento de SQL Managed Instance, en **SQL Database**.
@@ -158,7 +161,7 @@ Se admite la migración de una base de datos cifrada a SQL Managed Instance a tr
 
 SQL Managed Instance admite los inicios de sesión tradicionales del motor de base de datos de SQL Server, así como los inicios de sesión integrados con Azure AD. Las entidades de seguridad (inicios de sesión) de un servidor de Azure AD (**versión preliminar pública**) son una versión en la nube de Azure de los inicios de sesión de la base de datos local que está utilizando en su entorno local. Las entidades de seguridad (inicios de sesión) de un servidor de Azure AD le permiten especificar usuarios y grupos del inquilino de Azure AD como entidades de seguridad de la instancia con capacidad para llevar a cabo operaciones dentro del ámbito de la misma, incluidas consultas entre bases de datos dentro de la misma instancia administrada.
 
-Se ha incluido una nueva sintaxis para crear entidades de seguridad (inicios de sesión) de un servidor de Azure AD, **FROM EXTERNAL PROVIDER**. Para más información sobre la sintaxis, consulte <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> y revise el artículo [Aprovisionamiento de un administrador de Azure Active Directory para SQL Managed Instance](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
+Se ha incluido una nueva sintaxis para crear entidades de seguridad (inicios de sesión) de un servidor de Azure AD, **FROM EXTERNAL PROVIDER**. Para más información sobre la sintaxis, consulte <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true">CREATE LOGIN</a> y revise el artículo [Aprovisionamiento de un administrador de Azure Active Directory para SQL Managed Instance](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integración de Azure Active Directory y autenticación multifactor
 

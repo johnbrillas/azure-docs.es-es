@@ -11,16 +11,16 @@ ms.topic: sample
 ms.date: 03/09/2021
 ms.author: kenwith
 ms.reviewer: mifarca
-ms.openlocfilehash: 7123c87d8883d9ac309797255152611fb9fb81d2
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: def9b55a1d873cccda5d1c48921e3f098beeced1
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102583325"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149722"
 ---
 # <a name="export-apps-with-expiring-secrets-and-certificates"></a>Exportación de aplicaciones con certificados y secretos que van a expirar
 
-Este ejemplo de script de PowerShell exporta todas las aplicaciones con secretos y certificados que van a expirar para las aplicaciones especificadas desde el directorio a un archivo CSV.
+Este ejemplo de script de PowerShell exporta todas las aplicaciones con secretos y certificados que van a expirar y sus propietarios para las aplicaciones especificadas desde el directorio a un archivo CSV.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -32,8 +32,11 @@ El ejemplo requiere el [módulo Azure AD V2 de PowerShell para Graph](/powershe
 
 ## <a name="script-explanation"></a>Explicación del script
 
+El script se puede utilizar directamente sin ninguna modificación. Se le preguntará al administrador sobre la fecha de expiración y si desea ver los secretos o certificados que ya han expirado o no.
+
 El comando "Add-Member" es responsable de la creación de las columnas en el archivo CSV.
-En el caso de que prefiera que la exportación no sea interactiva, puede modificar la variable "$Path" directamente en PowerShell con la ruta de acceso del archivo CSV.
+El comando "New-Object" crea un objeto que se utilizará para las columnas de la exportación en el archivo CSV.
+En el caso de que prefiera que la exportación sea no interactiva, puede modificar la variable "$Path" directamente en PowerShell mediante una ruta de acceso del archivo CSV.
 
 | Get-Help | Notas |
 |---|---|

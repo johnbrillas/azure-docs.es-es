@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 11/13/2020
 ms.openlocfilehash: 69d27c102ca059974da87224e44f0ad7aa103fff
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94592641"
 ---
 # <a name="import-data-module"></a>Módulo Importación de datos
@@ -35,7 +35,7 @@ El módulo **Importación de datos** admite la lectura de datos de los siguiente
     - Recurso compartido de archivos de Azure
     - Azure Data Lake
     - Azure Data Lake Gen2
-    - Azure SQL Database
+    - Azure SQL Database
     - Azure PostgreSQL    
 
 Antes de usar el almacenamiento en la nube, debe registrar un almacén de datos en el área de trabajo de Azure Machine Learning. Para obtener más información, consulte [Cómo acceder a datos](../how-to-access-data.md). 

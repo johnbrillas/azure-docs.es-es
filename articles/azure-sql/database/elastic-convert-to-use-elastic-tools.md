@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: c6ad8b4c80f4b9c2fdb3c1a14209dcf0febc89e9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92787149"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migración de bases de datos existentes al escalado horizontal
@@ -72,7 +72,7 @@ Para un modelo de un solo inquilino, cree un mapa de particiones de **asignació
 
 ![Asignación de lista][1]
 
-El modelo de varios inquilinos asigna varios inquilinos a una base de datos individual (además, puede distribuir grupos de inquilinos entre varias bases de datos). Use este modelo si espera que cada inquilino tenga pequeñas necesidades de datos. En este modelo, asigne un intervalo de inquilinos a una base de datos mediante **asignación de intervalo** .
+El modelo de varios inquilinos asigna varios inquilinos a una base de datos individual (además, puede distribuir grupos de inquilinos entre varias bases de datos). Use este modelo si espera que cada inquilino tenga pequeñas necesidades de datos. En este modelo, asigne un intervalo de inquilinos a una base de datos mediante **asignación de intervalo**.
 
 ![Asignación de intervalo][2]
 

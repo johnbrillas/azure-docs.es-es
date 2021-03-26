@@ -4,10 +4,10 @@ description: Obtenga información acerca de cómo conceder permisos de usuario p
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 976862476d25e4e9a4933d8a5319eec9d77ca39b
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92328477"
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>Concesión de permisos de usuario a directivas específicas de laboratorio
@@ -19,7 +19,7 @@ Como se ha explicado en el artículo [Control de acceso basado en rol de Azure (
 
 En DevTest Labs, una directiva es un tipo de recurso que permite la acción de RBAC de Azure **Microsoft.DevTestLab/labs/policySets/policies/** . Cada directiva de laboratorio es un recurso en el tipo de recurso Directiva, y se puede asignar como ámbito a un rol de Azure.
 
-Por ejemplo, para conceder permisos de lectura y escritura a los usuarios para la directiva **Tamaños permitidos de máquina virtual** , debe crear un rol personalizado que funcione con la acción **Microsoft.DevTestLab/labs/policySets/policies/** y, después, asignar los usuarios adecuados a este rol personalizado en el ámbito de **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab** .
+Por ejemplo, para conceder permisos de lectura y escritura a los usuarios para la directiva **Tamaños permitidos de máquina virtual**, debe crear un rol personalizado que funcione con la acción **Microsoft.DevTestLab/labs/policySets/policies/** y, después, asignar los usuarios adecuados a este rol personalizado en el ámbito de **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab**.
 
 Para obtener más información sobre los roles personalizados de RBAC de Azure, vea [Roles personalizados de Azure](../role-based-access-control/custom-roles.md).
 
@@ -53,7 +53,7 @@ $policyRoleDef = (New-AzRoleDefinition -Role $policyRoleDef)
 ```
 
 ## <a name="assigning-permissions-to-a-user-for-a-specific-policy-using-custom-roles"></a>Asignación de permisos a un usuario para una directiva determinada utilizando roles personalizados
-Una vez haya definido los roles personalizados, puede asignárselos a los usuarios. A fin de asignar un rol personalizado a un usuario, primero debe obtener el **ObjectId** que representa a ese usuario. Para ello, use el cmdlet **Get-AzADUser** .
+Una vez haya definido los roles personalizados, puede asignárselos a los usuarios. A fin de asignar un rol personalizado a un usuario, primero debe obtener el **ObjectId** que representa a ese usuario. Para ello, use el cmdlet **Get-AzADUser**.
 
 En el ejemplo siguiente, el valor **ObjectId** del usuario *SomeUser* es 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3.
 
@@ -65,7 +65,7 @@ DisplayName                    Type                           ObjectId
 someuser@hotmail.com                                          05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3
 ```
 
-Una vez que tenga el **ObjectId** para el usuario y un nombre de rol personalizado, puede asignar ese rol al usuario con el cmdlet **New-AzRoleAssignment** :
+Una vez que tenga el **ObjectId** para el usuario y un nombre de rol personalizado, puede asignar ese rol al usuario con el cmdlet **New-AzRoleAssignment**:
 
 ```azurepowershell
 PS C:\>New-AzRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/default/policies/AllowedVmSizesInLab

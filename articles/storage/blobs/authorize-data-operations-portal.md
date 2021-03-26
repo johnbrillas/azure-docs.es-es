@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 319bbdd7809e224ca608fdac06d4b304c2052e86
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a12936f8f9f84dacfab4850253df665ae7758be1
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391548"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102613262"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-in-the-azure-portal"></a>Elección de la forma de autorizar el acceso a los datos de blob en Azure Portal
 
@@ -66,9 +66,9 @@ Los roles personalizados pueden admitir diferentes combinaciones de los mismos p
 
 ## <a name="navigate-to-blobs-in-the-azure-portal"></a>Desplazamiento a blobs en Azure Portal
 
-Para ver datos de blob en Azure Portal, vaya a la sección **Información general** de la cuenta de almacenamiento y haga clic en los vínculos **Blobs**. También puede ir a la sección **Blob service** del menú.
+Para ver datos de blob en Azure Portal, vaya a la sección **Información general** de la cuenta de almacenamiento y haga clic en los vínculos **Blobs**. También tiene la opción de ir a la sección **Contenedores** del menú.
 
-:::image type="content" source="media/anonymous-read-access-configure/blob-public-access-portal.png" alt-text="Captura de pantalla que muestra cómo ir a los datos de blob en Azure Portal":::
+:::image type="content" source="media/authorize-data-operations-portal/blob-access-portal.png" alt-text="Captura de pantalla que muestra cómo ir a los datos de blob en Azure Portal":::
 
 ## <a name="determine-the-current-authentication-method"></a>Determinar el método de autenticación actual
 

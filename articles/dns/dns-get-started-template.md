@@ -10,10 +10,10 @@ ms.date: 09/8/2020
 ms.author: duau
 ms.custom: subject-armqs
 ms.openlocfilehash: 24460167e2279e7d3001d0bc16d050beb5b55289
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92791008"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>Creación de un registro y una zona DNS de Azure mediante una plantilla de Resource Manager
@@ -26,7 +26,7 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-dns-new-zone%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

@@ -3,7 +3,7 @@ title: Uso de Azure AD Identity Governance para revisar y eliminar usuarios ext
 description: Uso de revisiones de acceso para extender o eliminar el acceso de miembros de organizaciones asociadas
 services: active-directory
 documentationcenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 09/06/2020
-ms.author: barclayn
-ms.openlocfilehash: 19f88da6a678221cde66bf61668d16ba9ab998a4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.author: ajburnle
+ms.openlocfilehash: fe68ec498d17ec20778c8f34fc6ffa1f0964c44e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677311"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176967"
 ---
 # <a name="use-azure-active-directory-azure-ad-identity-governance-to-review-and-remove-external-users-who-no-longer-have-resource-access"></a>Uso de Azure Active Directory (Azure AD) Identity Governance para revisar y eliminar usuarios externos que ya no tienen acceso a los recursos
 
@@ -65,14 +65,15 @@ Los usuarios que ya no tienen acceso a los recursos del inquilino se pueden elim
 
 Cuando finaliza la revisión, la página **Resultados** muestra una visión general de la respuesta proporcionada por cada identidad externa. Puede optar por aplicar los resultados automáticamente y permitir que las revisiones de acceso los deshabiliten y eliminen. También puede examinar las respuestas dadas y decidir si desea eliminar el acceso de un usuario o hacer un seguimiento de ellos y obtener información adicional antes de tomar una decisión. Si algunos usuarios siguen con acceso a los recursos que aún no ha revisado, puede usar la revisión como parte de la detección y enriquecer el siguiente ciclo de revisión y atestación.
 
-## <a name="disable-and-delete-external-identities-with-azure-ad-access-reviews-preview"></a>Deshabilitación y eliminación de identidades externas con las revisiones de acceso de Azure AD (versión preliminar)
+## <a name="disable-and-delete-external-identities-with-azure-ad-access-reviews"></a>Deshabilitación y eliminación de identidades externas con las revisiones de acceso de Azure AD
 
-Además de la opción de eliminar las identidades externas no deseadas de recursos como grupos o aplicaciones, las revisiones de acceso de Azure AD pueden impedir que las identidades externas inicien sesión en el inquilino y eliminar las identidades externas del inquilino después de 30 días. Una vez que seleccione **Bloquear el inicio de sesión del usuario durante 30 días y después quitar el usuario del inquilino** , la revisión permanecerá en el estado "Aplicando" durante 30 días. Durante este período, la configuración, los resultados, los revisores o los registros de auditoría de la revisión actual no se podrán ver ni configurar. 
+Además de la opción de eliminar las identidades externas no deseadas de recursos como grupos o aplicaciones, las revisiones de acceso de Azure AD pueden impedir que las identidades externas inicien sesión en el inquilino y eliminar las identidades externas del inquilino después de 30 días. Una vez que seleccione **Bloquear el inicio de sesión del usuario durante 30 días y después quitar el usuario del inquilino**, la revisión permanecerá en el estado "Aplicando" durante 30 días. Durante este período, la configuración, los resultados, los revisores o los registros de auditoría de la revisión actual no se podrán ver ni configurar. 
 
 ![Configuración de finalización](media/access-reviews-external-users/upon-completion-settings.png)
 
 Al crear una nueva revisión de acceso, en la sección "Configuración de finalización", para la opción **Acción que se aplicará a los usuarios denegados** puede definir **Impedir que los usuarios inicien sesión durante 30 días y, a continuación, eliminar el usuario del inquilino**.
-Esta configuración, actualmente en versión preliminar, permite identificar, bloquear y eliminar identidades externas del inquilino de Azure AD. Las identidades externas que se han revisado y a las que el revisor ha denegado continuar con el acceso se bloquearán y eliminarán, independientemente del acceso a los recursos o de la pertenencia a grupos que tengan. Esta configuración es más útil como último paso después de haber validado que los usuarios externos en revisión ya no conllevan el acceso a los recursos y se pueden eliminar de forma segura del inquilino, o si desea asegurarse de que se eliminan, con independencia de su acceso actual. La característica "Deshabilitar y eliminar" bloquea primero al usuario externo, retirando su capacidad de iniciar sesión en el inquilino y acceder a los recursos. En esta fase no se revoca el acceso a los recursos y, en caso de que quisiera volver a crear instancias del usuario externo, se puede volver a configurar la capacidad de iniciar sesión. Si no se realiza ninguna otra acción, una identidad externa bloqueada se eliminará del directorio después de 30 días y se eliminará la cuenta, así como su acceso.
+
+Esta configuración le permite identificar, bloquear y eliminar identidades externas del inquilino de Azure AD. Las identidades externas que se han revisado y a las que el revisor ha denegado continuar con el acceso se bloquearán y eliminarán, independientemente del acceso a los recursos o de la pertenencia a grupos que tengan. Esta configuración es más útil como último paso después de haber validado que los usuarios externos en revisión ya no conllevan el acceso a los recursos y se pueden eliminar de forma segura del inquilino, o si desea asegurarse de que se eliminan, con independencia de su acceso actual. La característica "Deshabilitar y eliminar" bloquea primero al usuario externo, retirando su capacidad de iniciar sesión en el inquilino y acceder a los recursos. En esta fase no se revoca el acceso a los recursos y, en caso de que quisiera volver a crear instancias del usuario externo, se puede volver a configurar la capacidad de iniciar sesión. Si no se realiza ninguna otra acción, una identidad externa bloqueada se eliminará del directorio después de 30 días y se eliminará la cuenta, así como su acceso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

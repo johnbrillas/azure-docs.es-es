@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
 ms.openlocfilehash: 9d81419721e94a2e181f094c0e0e64b1b23544a8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93073526"
 ---
 # <a name="date_bucket-transact-sql"></a>Date_Bucket (Transact-SQL)
@@ -41,14 +41,14 @@ Parte de *date* que se usa con el parámetro ‘number’. Por ejemplo, Año, me
   
 |*datePart*|Abreviaturas|  
 |---|---|
-|**day**|**dd** , **d**|  
-|**week**|**wk** , **ww**| 
-|**month**|**mm** , **m**|
-|**quarter**|**qq** , **q**|  
-|**year**|**yy** , **yyyy**|  
+|**day**|**dd**, **d**|  
+|**week**|**wk**, **ww**| 
+|**month**|**mm**, **m**|
+|**quarter**|**qq**, **q**|  
+|**year**|**yy**, **yyyy**|  
 |**hour**|**hh**|  
-|**minute**|**mi** , **n**|  
-|**second**|**ss** , **s**|  
+|**minute**|**mi**, **n**|  
+|**second**|**ss**, **s**|  
 |**millisecond**|**ms**|  
 
 *número*
@@ -66,7 +66,7 @@ Una expresión que se puede resolver en uno de los valores siguientes:
 + **smalldatetime**
 + **time**
 
-Para *data* , `DATE_BUCKET` aceptará una expresión de columna, una expresión o una variable definida por el usuario si se resuelven en cualquiera de los tipos de datos mencionados anteriormente.
+Para *data*, `DATE_BUCKET` aceptará una expresión de columna, una expresión o una variable definida por el usuario si se resuelven en cualquiera de los tipos de datos mencionados anteriormente.
 
 **Origen** 
 
@@ -125,7 +125,7 @@ Select DATE_BUCKET(wk, 5, @date, @origin)
 
 ## <a name="datepart-argument"></a>Argumento datepart
 
-**dayofyear** , **day** y **weekday** devuelven el mismo valor. Cada *datepart* y sus abreviaturas devuelven el mismo valor.
+**dayofyear**, **day** y **weekday** devuelven el mismo valor. Cada *datepart* y sus abreviaturas devuelven el mismo valor.
   
 ## <a name="number-argument"></a>Argumento number
 
@@ -200,7 +200,7 @@ En los ejemplos siguientes se usan otros tipos de expresiones como argumentos pa
   
 #### <a name="specifying-user-defined-variables-as-number-and-date"></a>Especificar las variables definidas por el usuario como number y date  
 
-En este ejemplo se especifican variables definidas por el usuario como argumentos para *number* y *date* :
+En este ejemplo se especifican variables definidas por el usuario como argumentos para *number* y *date*:
   
 ```sql
 DECLARE @days int = 365,
