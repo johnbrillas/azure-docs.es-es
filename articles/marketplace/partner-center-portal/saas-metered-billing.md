@@ -8,10 +8,10 @@ ms.date: 05/08/2020
 author: mingshen-ms
 ms.author: mingshen
 ms.openlocfilehash: 9f72d54fda8f66c2fce35f0520b51406aa276bb0
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92892760"
 ---
 # <a name="metered-billing-for-saas-using-the-commercial-marketplace-metering-service"></a>Facturación según uso mediante el servicio de medición de marketplace comercial
@@ -73,12 +73,12 @@ En función del plan seleccionado, un cliente de Azure que compre una suscripci�
 
 Cada dimensión de facturación define una unidad personalizada por la que el ISV puede emitir eventos de uso.  Las dimensiones de facturación se utilizan también para comunicar al cliente cómo se le facturará el uso del software.  Estas dimensiones se definen de la manera siguiente:
 
-- **Identificador** : el identificador de dimensión inmutable al que se hace referencia al emitir eventos de uso.
-- **Nombre para mostrar** : el nombre para mostrar asociado a la dimensión; por ejemplo, "mensajes de texto enviados".
-- **Unidad de medida** : descripción de la unidad de facturación; por ejemplo, "por mensaje de texto" o "por cada 100 correos electrónicos".
-- **Precio por unidad en USD** : el precio de una unidad de la dimensión.  Puede ser 0. 
-- **Cantidad mensual incluida en base** : la cantidad de dimensión incluida por mes para los clientes que pagan la cuota mensual periódica; tiene que ser un número entero. Puede ser 0 o ilimitado.
-- **Cantidad anual incluida en base** : la cantidad de dimensión incluida por cada año para los clientes que pagan la cuota anual periódica; tiene que ser un número entero. Puede ser 0 o ilimitado.
+- **Identificador**: el identificador de dimensión inmutable al que se hace referencia al emitir eventos de uso.
+- **Nombre para mostrar**: el nombre para mostrar asociado a la dimensión; por ejemplo, "mensajes de texto enviados".
+- **Unidad de medida**: descripción de la unidad de facturación; por ejemplo, "por mensaje de texto" o "por cada 100 correos electrónicos".
+- **Precio por unidad en USD**: el precio de una unidad de la dimensión.  Puede ser 0. 
+- **Cantidad mensual incluida en base**: la cantidad de dimensión incluida por mes para los clientes que pagan la cuota mensual periódica; tiene que ser un número entero. Puede ser 0 o ilimitado.
+- **Cantidad anual incluida en base**: la cantidad de dimensión incluida por cada año para los clientes que pagan la cuota anual periódica; tiene que ser un número entero. Puede ser 0 o ilimitado.
 
 Las dimensiones de facturación se comparten entre todos los planes de una oferta.  Algunos atributos son aplicables a la dimensión en todos los planes y otros son específicos de un plan.
 
@@ -97,7 +97,7 @@ Los demás atributos de una dimensión son específicos de cada plan y pueden te
 Las dimensiones también tienen dos conceptos especiales, "habilitado" e "infinito":
 
 - **Habilitado** indica que este plan participa en esta dimensión.  Si va a crear un nuevo plan que no envía eventos de uso basados en esta dimensión, es posible que desee dejar esta opción desactivada.  Además, las nuevas dimensiones que se agregan después de publicar un plan por primera vez se muestran como "no habilitadas" en el plan ya publicado.  Ahora se mostrará una dimensión deshabilitada en todas las listas de dimensiones de un plan visualizado por los clientes.
-- **Infinito** , representado por el símbolo de infinito "∞", indica que este plan participa en esta dimensión, pero que no emite ningún uso de esta dimensión.  Permite indicar a los clientes que la funcionalidad representada por esta dimensión está incluida en el plan, sin límite de uso.  Una dimensión con uso infinito se mostrará en las listas de dimensiones de un plan visto por los clientes con una indicación de que nunca incurrirá en un cargo por este plan.
+- **Infinito**, representado por el símbolo de infinito "∞", indica que este plan participa en esta dimensión, pero que no emite ningún uso de esta dimensión.  Permite indicar a los clientes que la funcionalidad representada por esta dimensión está incluida en el plan, sin límite de uso.  Una dimensión con uso infinito se mostrará en las listas de dimensiones de un plan visto por los clientes con una indicación de que nunca incurrirá en un cargo por este plan.
 
 >[!Note] 
 >Los siguientes escenarios se admiten explícitamente: <br> - Puede agregar una nueva dimensión a un nuevo plan.  La nueva dimensión no se habilitará para los planes ya publicados. <br> - Puede publicar un plan de **tarifa plana** sin dimensiones y, a continuación, agregar un nuevo plan y configurar una nueva dimensión para ese plan. La nueva dimensión no se habilitará para los planes ya publicados.

@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 6586375d7db71274f40eb62aeb24f9daad0d7c2e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e247e372237572586e5a4647d24d9ed6067ea823
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101688304"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104949794"
 ---
 # <a name="use-postgresql-extensions-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Uso de extensiones de PostgreSQL en el grupo de servidores Hiperescala de PostgreSQL habilitado para Azure Arc
 
@@ -55,7 +55,7 @@ En esta guía se mostrará un escenario en el que se usan dos de estas extension
 ## <a name="add-extensions-to-the-shared_preload_libraries"></a>Agregar extensiones a shared_preload_libraries
 Para más información sobre shared_preload_libraries, lea la documentación de PostgreSQL [aquí](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES):
 - Este paso no es necesario para las extensiones que forman parte de `contrib`.
-- Este paso no es necesario para las extensiones que shared_preload_libraries no necesita cargar previamente. En el caso de estas extensiones, puede pasar al siguiente párrafo: [Creación de extensiones](https://docs.microsoft.com/azure/azure-arc/data/using-extensions-in-postgresql-hyperscale-server-group#create-extensions).
+- Este paso no es necesario para las extensiones que shared_preload_libraries no necesita cargar previamente. En el caso de estas extensiones, puede pasar al siguiente párrafo: [Creación de extensiones](#create-extensions).
 
 ### <a name="add-an-extension-at-the-creation-time-of-a-server-group"></a>Adición de una extensión en el momento de crear un grupo de servidores
 ```console

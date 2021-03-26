@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/25/2020
-ms.openlocfilehash: 7063452d23d2975cf0c26a89e7a08a422de54942
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.date: 03/10/2021
+ms.openlocfilehash: 77927472dae6c8e7e6fddacf9088b479636edd37
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751944"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103224351"
 ---
 # <a name="train-model-module"></a>Módulo Entrenar modelo
 
@@ -60,12 +60,34 @@ En Azure Machine Learning, crear y usar un modelo suele ser un proceso de tres p
     > [!TIP] 
     > Si tiene problemas para usar el selector de columnas, consulte el artículo [Select Columns in Dataset](./select-columns-in-dataset.md) (Seleccionar columnas en conjunto de datos) para obtener sugerencias. En él, se describen algunos escenarios y sugerencias comunes para usar las opciones **WITH RULES** (CON REGLAS) y **BY NAME** (POR NOMBRE).
   
-1.  Envíe la canalización. Si tiene una gran cantidad de datos, puede tardar.
+1.  Envíe la canalización. Si tiene muchos datos, la operación puede tardar.
 
     > [!IMPORTANT] 
     > Si tiene una columna de identificador que sea el identificador de cada fila o una columna de texto que contenga demasiados valores únicos, **Train Model** (Entrenar modelo) puede producir un error como "Number of unique values in colum: '{column_name}' is greater than allowed" (El número de valores únicos en la columna '{nombre_de_la_columna}' es mayor que lo permitido).
     >
     > Esto se debe a que la columna de identificador alcanza el umbral de valores únicos y puede agotar la memoria. Puede utilizar [Editar metadatos](edit-metadata.md) para marcar esa columna como **Clear feature** (Borrar característica) y no se utilizará en el entrenamiento, o puede emplear el módulo [Extract N-Gram Features from Text module](extract-n-gram-features-from-text.md) (Extracción de características de n-gramas del texto) para preprocesar la columna de texto. Consulte [Códigos de error para el diseñador](././designer-error-codes.md) para más detalles sobre este error.
+
+## <a name="model-interpretability"></a>Interpretabilidad del modelo
+
+La interpretabilidad del modelo ofrece la posibilidad de comprender el modelo de aprendizaje automático y de presentar la base subyacente para la toma de decisiones de una manera comprensible para los seres humanos.
+
+Actualmente, el módulo **Train Model** (Entrenar modelo) admite el [uso del paquete de interpretabilidad para explicar los modelos de aprendizaje automático](https://docs.microsoft.com/azure/machine-learning/how-to-machine-learning-interpretability-aml#generate-feature-importance-values-via-remote-runs). Se admiten los siguientes algoritmos integrados:
+
+- Regresión lineal
+- Regresión de red neuronal
+- Regresión logística de dos clases
+- Máquina de vectores de soporte de dos clases
+- Bosque de decisión de varias clases
+
+Para generar explicaciones del modelo, puede seleccionar **Verdadero** en la lista desplegable **Model Explanation** (Explicación del modelo) del módulo Train Model (Entrenar modelo). De forma predeterminada, se establece en Falso en el módulo **Train Model** (Entrenar modelo). Tenga en cuenta que la generación de una explicación requiere costos de proceso adicionales.
+
+![Captura de pantalla que muestra la casilla de explicación del modelo](./media/module/train-model-explanation-checkbox.png)
+
+Una vez completada la ejecución de la canalización, puede visitar la pestaña **Explanations** (Explicaciones) en el panel derecho del módulo **Train Model** (Entrenar modelo) y explorar el rendimiento del modelo, el conjunto de datos y la importancia de las características.
+
+![Captura de pantalla que muestra los gráficos de explicación del modelo](./media/module/train-model-explanations-tab.gif)
+
+Para más información sobre el uso de las explicaciones del modelo en Azure Machine Learning, consulte el artículo de procedimientos sobre cómo [interpretar los modelos de aprendizaje automático](https://docs.microsoft.com/azure/machine-learning/how-to-machine-learning-interpretability-aml#generate-feature-importance-values-via-remote-runs).
 
 ## <a name="results"></a>Results
 

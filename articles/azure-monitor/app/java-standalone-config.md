@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 32b1558bf4af2ee151fef33a8c0cbe7df82f1e84
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: e58d69634712a9cc640ba9e4785a7bf1effaf88c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201760"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103224663"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opciones de configuración: Application Insights de Azure Monitor para Java
 
@@ -61,7 +61,7 @@ Se requiere la cadena de conexión. Puede encontrar la cadena de conexión en el
 }
 ```
 
-También puede establecer la cadena de conexión mediante la variable de entorno `APPLICATIONINSIGHTS_CONNECTION_STRING`.
+También puede establecer la cadena de conexión mediante la variable de entorno `APPLICATIONINSIGHTS_CONNECTION_STRING` (que tendrá prioridad si la cadena de conexión también se especifica en la configuración de JSON).
 
 Si no se establece la cadena de conexión, se deshabilitará el agente de Java.
 
@@ -81,7 +81,7 @@ Si quiere establecer el nombre del rol de nube, haga lo siguiente:
 
 Si no se establece el nombre del rol en la nube, se usará el nombre del recurso de Application Insights para etiquetar el componente en el mapa de aplicación.
 
-También puede establecer el nombre de rol en la nube mediante la variable de entorno `APPLICATIONINSIGHTS_ROLE_NAME`.
+También puede establecer el nombre del rol en la nube mediante la variable de entorno `APPLICATIONINSIGHTS_ROLE_NAME` (que tendrá prioridad si el nombre del rol en la nube también se especifica en la configuración de JSON).
 
 ## <a name="cloud-role-instance"></a>Instancia de rol en la nube
 
@@ -98,7 +98,7 @@ Si quiere establecer la instancia de rol de nube en un valor diferente en lugar 
 }
 ```
 
-También puede establecer la instancia de rol en la nube mediante la variable de entorno `APPLICATIONINSIGHTS_ROLE_INSTANCE`.
+También puede establecer la instancia de rol en la nube mediante la variable de entorno `APPLICATIONINSIGHTS_ROLE_INSTANCE` (que tendrá prioridad si la instancia de rol en la nube también se especifica en la configuración de JSON).
 
 ## <a name="sampling"></a>muestreo
 
@@ -117,7 +117,7 @@ A continuación se muestra un ejemplo de cómo establecer el muestreo para captu
 }
 ```
 
-También puede establecer el porcentaje de muestreo mediante la variable de entorno `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE`.
+También puede establecer el porcentaje de muestreo mediante la variable de entorno `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` (que tendrá prioridad si el porcentaje de muestreo también se especifica en la configuración de JSON).
 
 > [!NOTE]
 > Para el porcentaje de muestreo, elija un porcentaje que esté cerca de 100/N, donde N es un número entero. Actualmente el muestreo no es compatible con otros valores.
@@ -150,9 +150,6 @@ Si quiere recopilar algunas métricas de JMX adicionales:
 `attribute` es el nombre del método JMX de MBean que desea recopilar.
 
 Se admiten los valores de métrica JMX numéricos y booleanos. Las métricas JMX booleanas se asignan a `0` para false y `1` para true.
-
-[//]: # "NOTA: No se documenta APPLICATIONINSIGHTS_JMX_METRICS aquí"
-[//]: # "JSON insertado en env var es confuso y solo debe documentarse para el escenario de conexión sin código"
 
 ## <a name="custom-dimensions"></a>Dimensiones personalizadas
 
@@ -187,9 +184,11 @@ Para obtener más información, consulte la documentación del [procesador de te
 
 Log4j, Logback y java.util.logging se instrumentan automáticamente y los registros creados mediante estas plataformas de registro se recopilan automáticamente.
 
-Los registros solo se capturan si cumple primero el umbral configurado de las plataformas de registro, y si el segundo también cumple el umbral configurado de Application Insights.
+El registro solo se captura si primero cumple el nivel que está configurado para la plataforma de registro, y segundo, también cumple el nivel configurado para Application Insights.
 
-El umbral predeterminado de Application Insights es `INFO`. Si quiere cambiar este nivel:
+Por ejemplo, si la plataforma de registro está configurada para registrar `WARN` (y versiones posteriores) del paquete `com.example`, y Application Insights está configurado para capturar `INFO` (y superiores), Application Insights solo capturará `WARN` (y superiores) del paquete `com.example`.
+
+El nivel predeterminado configurado para Application Insights es `INFO`. Si quiere cambiar este nivel:
 
 ```json
 {
@@ -201,7 +200,7 @@ El umbral predeterminado de Application Insights es `INFO`. Si quiere cambiar es
 }
 ```
 
-También puede establecer el umbral mediante la variable de entorno `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL`.
+También puede establecer el nivel mediante la variable de entorno `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL` (que tendrá prioridad si el nivel también se especifica en la configuración de JSON).
 
 A continuación se muestran los valores `level` válidos que puede especificar en el archivo `applicationinsights.json` y cómo se corresponden con los niveles de registro en diferentes plataformas de registro:
 
@@ -284,7 +283,7 @@ De forma predeterminada, Application Insights Java 3.0 envía una métrica de la
 ```
 
 > [!NOTE]
-> No puede reducir la frecuencia del latido, ya que los datos de dicho latido también se usan para supervisar el uso de Application Insights.
+> No se puede aumentar el intervalo a más de 15 minutos, porque los datos de latido también se usan para hacer un seguimiento del uso de Application Insights.
 
 ## <a name="http-proxy"></a>Proxy HTTP
 
@@ -300,6 +299,30 @@ Si su aplicación está protegida por un firewall y no puede conectarse directam
 ```
 
 Application Insights Java 3.0 también respeta `-Dhttps.proxyHost` y `-Dhttps.proxyPort` globales si se establecen.
+
+## <a name="metric-interval"></a>Intervalo de métrica
+
+Esta característica se encuentra en su versión preliminar.
+
+De forma predeterminada, las métricas se capturan cada 60 segundos.
+
+A partir de la versión 3.0.3-BETA, puede cambiar este intervalo:
+
+```json
+{
+  "preview": {
+    "metricIntervalSeconds": 300
+  }
+}
+```
+
+La configuración se aplica a todas estas métricas:
+
+* Contadores de rendimiento predeterminados, por ejemplo, CPU y memoria.
+* Métricas personalizadas predeterminadas, por ejemplo, tiempo de recolección de elementos no utilizados.
+* Métricas de JMX configuradas ([consulte más arriba](#jmx-metrics)).
+* Métricas de Micrometer ([consulte más arriba](#auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics)).
+
 
 [//]: # "Tenga en cuenta que la compatibilidad con OpenTelemetry está en versión preliminar privada hasta que la API de OpenTelemetry alcance 1.0"
 
@@ -349,7 +372,7 @@ De forma predeterminada, Application Insights Java 3.0 registra en el nivel `INF
 
 `maxHistory` es el número de archivos de registro revertidos que se conservan (además del archivo de registro actual).
 
-A partir de la versión 3.0.2, también puede establecer el `level` de diagnóstico automático mediante la variable de entorno `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL`.
+A partir de la versión 3.0.2, también puede establecer los diagnósticos automáticos `level` mediante la variable de entorno `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL` (que tendrá prioridad si el diagnóstico automático `level` también se especifica en la configuración de JSON).
 
 ## <a name="an-example"></a>Un ejemplo
 

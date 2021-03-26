@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,seodec18,seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: d352fc86f4451f60951b84929ad5d9450c1003d6
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 72c82e8f425b05dde37352225dd7167b089ba48a
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942797"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868467"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Tutorial: Uso del flujo estructurado de Apache Spark con Apache Kafka en HDInsight
 
@@ -113,7 +113,7 @@ Apache Kafka en HDInsight no proporciona acceso a los agentes de Kafka a través
 
 En el diagrama siguiente, se muestra cómo fluye la comunicación entre Spark y Kafka:
 
-![Diagrama de clústeres Spark y Kafka en una red virtual de Azure](./media/hdinsight-apache-kafka-spark-structured-streaming/apache-spark-kafka-vnet.png)
+:::image type="content" source="./media/hdinsight-apache-kafka-spark-structured-streaming/apache-spark-kafka-vnet.png" alt-text="Diagrama de clústeres Spark y Kafka en una red virtual de Azure" border="false":::
 
 > [!NOTE]  
 > El servicio Kafka se limita a la comunicación dentro de la red virtual. Se puede acceder a otros servicios del clúster, como SSH y Ambari, a través de Internet. Para más información sobre los puertos públicos disponibles en HDInsight, consulte [Puertos e identificadores URI usados en HDInsight](hdinsight-hadoop-port-settings-for-services.md).
@@ -149,7 +149,7 @@ Para crear una instancia de Azure Virtual Network y, posteriormente, crear clús
     | SSH User Name (Nombre de usuario de SSH) | El usuario de SSH que se crea para los clústeres. |
     | SSH Password (Contraseña de SSH) | La contraseña del usuario de SSH. |
 
-    ![Captura de pantalla de la plantilla personalizada](./media/hdinsight-apache-kafka-spark-structured-streaming/spark-kafka-template.png)
+    :::image type="content" source="./media/hdinsight-apache-kafka-spark-structured-streaming/spark-kafka-template.png" alt-text="Captura de pantalla de la plantilla personalizada":::
 
 3. Lea los **Términos y condiciones** y seleccione **Acepto los términos y condiciones indicados anteriormente**.
 

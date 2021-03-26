@@ -9,10 +9,10 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 78fff48a97965f0b80456cd3e56ed1507bc784fc
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93336697"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Cómo crear varios desencadenadores de Azure Functions para Cosmos DB
@@ -34,7 +34,7 @@ Dados los *requisitos* del desencadenador de Azure Functions para Cosmos DB, nec
 
 Dispone de dos opciones:
 
-* Crear **un contenedor de concesiones para cada función** : Este enfoque puede suponer costos adicionales, a menos que use una [base de datos de rendimiento compartido](./set-throughput.md#set-throughput-on-a-database). Recuerde que el rendimiento mínimo a nivel de contenedor es de 400 [unidades de solicitud](./request-units.md) y, en el caso del contenedor de concesiones, solo se usa para aplicar el punto de control al progreso y mantener el estado.
+* Crear **un contenedor de concesiones para cada función**: Este enfoque puede suponer costos adicionales, a menos que use una [base de datos de rendimiento compartido](./set-throughput.md#set-throughput-on-a-database). Recuerde que el rendimiento mínimo a nivel de contenedor es de 400 [unidades de solicitud](./request-units.md) y, en el caso del contenedor de concesiones, solo se usa para aplicar el punto de control al progreso y mantener el estado.
 * Tener **un contenedor de concesiones y compartirlo** para todas las funciones: Esta segunda opción hace un mejor uso de las unidades de solicitud aprovisionadas en el contenedor, ya que permite que varias instancias de Azure Functions se compartan y usen el mismo rendimiento aprovisionado.
 
 El objetivo de este artículo es guiarle con la segunda opción.

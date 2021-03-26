@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: a2969ce6ceda0d1b71ec991b32f5b10acf9bfa12
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92780383"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Aplicación SaaS Wingtip Tickets
@@ -36,7 +36,7 @@ Hay tres versiones disponibles de la aplicación, donde cada una explora un patr
 
 El patrón de aplicación independiente por inquilino usa una aplicación de inquilino único con una base de datos para cada inquilino. La aplicación de cada inquilino, incluida su base de datos, se implementa en un grupo de recursos de Azure independiente. El grupo de recursos se puede implementar en la suscripción del proveedor de servicios o en la suscripción del inquilino, y el proveedor la administra en nombre del inquilino. Este patrón de aplicación independiente por inquilino proporciona el mayor nivel de aislamiento del inquilino, pero suele ser la opción más costosa porque no se pueden compartir los recursos entre varios inquilinos.  Este patrón se adapta perfectamente a las aplicaciones que pueden resultar más complejas y que se implementan en cantidades menores de inquilinos.  Con las aplicaciones independientes, la aplicación se puede personalizar para cada inquilino de manera más simple que en otros patrones.  
 
-Consulte los [tutoriales][docs-tutorials-for-wingtip-sa] y el código en GitHub [.../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa].
+Consulte los [tutoriales][docs-tutorials-for-wingtip-sa] y el código en GitHub  [.../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa].
 
 ## <a name="database-per-tenant-pattern"></a>Patrón de base de datos por inquilino
 
@@ -56,7 +56,7 @@ Consulte los [tutoriales][docs-tutorials-for-wingtip-mt] y el código en GitHub 
 
 #### <a name="conceptual-descriptions"></a>Descripciones de conceptos
 
-- Puede encontrar una explicación más detallada del patrón de inquilinato de aplicación en [Patrones de inquilinato de base de datos SaaS multiinquilino][saas-tenancy-app-design-patterns-md].
+- Puede encontrar una aplicación más detallada del patrón de inquilinato de aplicación en [Patrones de inquilinato de base de datos SaaS multiinquilino][saas-tenancy-app-design-patterns-md]
 
 #### <a name="tutorials-and-code"></a>Tutoriales y código
 

@@ -5,12 +5,12 @@ description: Aprenda a crear una conexión RDP con los nodos de Windows Server 
 services: container-service
 ms.topic: article
 ms.date: 06/04/2019
-ms.openlocfilehash: 4cfac73c66969148927897de7ed6da0c56aa276a
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 4b6ccc05d1cb49a77a2867dfc1c5fe5f45134dd6
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102173824"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951919"
 ---
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>Conexión con RDP a los nodos de Windows Server de clúster de Azure Kubernetes Service (AKS) para el mantenimiento o la solución de problemas
 
@@ -20,7 +20,7 @@ En este artículo se muestra cómo crear una conexión RDP con un nodo de AKS me
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-En este artículo se presupone que ya tiene un clúster de AKS con un nodo de Windows Server. Si necesita un clúster de AKS, consulte el artículo sobre la [creación de un clúster de AKS con un contenedor de Windows mediante la CLI de Azure][aks-windows-cli]. Necesitará el nombre de usuario de administrador de Windows y la contraseña para el nodo de Windows Server cuyos problemas quiera solucionar. Si no los recuerda, puede restablecerlos con las instrucciones de [Restablecer los Servicios de Escritorio remoto o su contraseña de administrador en una máquina virtual Windows](../virtual-machines/troubleshooting/reset-rdp.md). También necesitará un cliente RDP, como [Escritorio remoto de Microsoft][rdp-mac].
+En este artículo se presupone que ya tiene un clúster de AKS con un nodo de Windows Server. Si necesita un clúster de AKS, consulte el artículo sobre la [creación de un clúster de AKS con un contenedor de Windows mediante la CLI de Azure][aks-windows-cli]. Necesitará el nombre de usuario de administrador de Windows y la contraseña para el nodo de Windows Server cuyos problemas quiera solucionar. Si no los recuerda, puede restablecerlos con las instrucciones de [Restablecer los Servicios de Escritorio remoto o su contraseña de administrador en una máquina virtual Windows](/troubleshoot/azure/virtual-machines/reset-rdp). También necesitará un cliente RDP, como [Escritorio remoto de Microsoft][rdp-mac].
 
 También es preciso que esté instalada y configurada la versión 2.0.61 de la CLI de Azure u otra versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][install-azure-cli].
 

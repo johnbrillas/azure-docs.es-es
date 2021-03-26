@@ -3,12 +3,12 @@ title: 'Funciones de plantillas: fecha'
 description: Aquí se describen las funciones que se usan en una plantilla de Azure Resource Manager (plantilla de ARM) para trabajar con fechas.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 58d865f109ecca2629b89eeb55e554743824c195
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: abff5b86ad1e10042596b11f613cdb594e307209
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920495"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889933"
 ---
 # <a name="date-functions-for-arm-templates"></a>Funciones de cadena para plantillas de Resource Manager
 
@@ -287,7 +287,7 @@ El ejemplo siguiente muestra cómo usar un valor de la función cuando se establ
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2018-05-01",
+      "apiVersion": "2020-10-01",
       "name": "[parameters('rgName')]",
       "location": "westeurope",
       "tags": {
@@ -311,7 +311,7 @@ El ejemplo siguiente muestra cómo usar un valor de la función cuando se establ
 param utcShort string = utcNow('d')
 param rgName string
 
-resource myRg 'Microsoft.Resources/resourceGroups@2018-05-01' = {
+resource myRg 'Microsoft.Resources/resourceGroups@2020-10-01' = {
   name: rgName
   location: 'westeurope'
   tags: {

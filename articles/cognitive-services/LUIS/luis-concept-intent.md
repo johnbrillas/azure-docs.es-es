@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.openlocfilehash: bf5ab7361c84fb787366c7c361829e52362fe427
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95025915"
 ---
 # <a name="intents-in-your-luis-app"></a>Intenciones en la aplicación de LUIS
@@ -25,7 +25,7 @@ Defina un conjunto de intenciones que se correspondan con las acciones que los u
 Intenciones de la aplicación de viajes   |   Expresiones de ejemplo   |
 ------|------|
  BookFlight     |   "Resérvame un vuelto a Río la próxima semana" <br/> "Llévame a Río en avión el 24" <br/> "Necesito un billete de avión para el próximo domingo a Río de Janeiro"    |
- Greeting     |   "Buenas" <br/>"Hola" <br/>"Buenos días"  |
+ Saludo     |   "Buenas" <br/>"Hello" <br/>"Buenos días"  |
  CheckWeather | "¿Qué tiempo hace en Boston?" <br/> "Muéstrame la previsión de este fin de semana" |
  None         | "Dame una receta de galletas"<br>"¿Ganaron los Lakers?" |
 
@@ -49,7 +49,7 @@ La intención representa la acción que la aplicación debe realizar para el usu
 
 <a name="how-do-intents-relate-to-entities"></a>
 
-Cree una intención cuando la _intención_ del usuario desencadenaría una acción en la aplicación cliente, como una llamada a la función checkweather(). Después, cree entidades para representar los parámetros necesarios para ejecutar la acción.
+ Cree una intención cuando la _intención_ del usuario desencadenaría una acción en la aplicación cliente, como una llamada a la función checkweather(). Después, cree entidades para representar los parámetros necesarios para ejecutar la acción.
 
 |Intención   | Entidad | Expresión de ejemplo   |
 |------------------|------------------------------|------------------------------|

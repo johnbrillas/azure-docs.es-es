@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 8fbbe137ece7aac2dd2196c5ebec435e118297ad
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: c3f912b4f4c2e78c44425f489927cee185b3d312
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98929822"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868722"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Administración segura del entorno de Python en Azure HDInsight mediante la acción de scripts
 
@@ -104,7 +104,7 @@ El clúster de HDInsight depende del entorno integrado de Python, tanto Python 2
 
     1. Abra la UI de Ambari, vaya a la página Spark2, pestaña Configs.
 
-        ![Cambiar la configuración de Spark y Livy a través de Ambari](./media/apache-spark-python-package-installation/ambari-spark-and-livy-config.png)
+        :::image type="content" source="./media/apache-spark-python-package-installation/ambari-spark-and-livy-config.png" alt-text="Cambiar la configuración de Spark y Livy a través de Ambari" border="true":::
 
     2. Expanda Advanced livy2-env y agregue las siguientes instrucciones al final. Si instaló el entorno virtual con otro prefijo, cambie la ruta de acceso correspondiente.
 
@@ -113,7 +113,7 @@ El clúster de HDInsight depende del entorno integrado de Python, tanto Python 2
         export PYSPARK_DRIVER_PYTHON=/usr/bin/anaconda/envs/py35new/bin/python
         ```
 
-        ![Cambiar la configuración de Livy a través de Ambari](./media/apache-spark-python-package-installation/ambari-livy-config.png)
+        :::image type="content" source="./media/apache-spark-python-package-installation/ambari-livy-config.png" alt-text="Cambiar la configuración de Livy a través de Ambari" border="true":::
 
     3. Expanda Advanced spark2-env y reemplace la instrucción de exportación PYSPARK_PYTHON existente al final. Si instaló el entorno virtual con otro prefijo, cambie la ruta de acceso correspondiente.
 
@@ -121,11 +121,11 @@ El clúster de HDInsight depende del entorno integrado de Python, tanto Python 2
         export PYSPARK_PYTHON=${PYSPARK_PYTHON:-/usr/bin/anaconda/envs/py35new/bin/python}
         ```
 
-        ![Cambiar la configuración de Spark a través de Ambari](./media/apache-spark-python-package-installation/ambari-spark-config.png)
+        :::image type="content" source="./media/apache-spark-python-package-installation/ambari-spark-config.png" alt-text="Cambiar la configuración de Spark a través de Ambari" border="true":::
 
     4. Guarde los cambios y reinicie los servicios afectados. Estos cambios necesitan el reinicio del servicio Spark2. La UI de Ambari le mostrará un aviso de reinicio obligatorio, haga clic en Restart para reiniciar todos los servicios afectados.
 
-        ![Reiniciar los servicios](./media/apache-spark-python-package-installation/ambari-restart-services.png)
+        :::image type="content" source="./media/apache-spark-python-package-installation/ambari-restart-services.png" alt-text="Reiniciar los servicios" border="true":::
 
     5. Establezca dos propiedades en la sesión de Spark para asegurarse de que el trabajo apunte a la configuración de Spark actualizada: `spark.yarn.appMasterEnv.PYSPARK_PYTHON` y `spark.yarn.appMasterEnv.PYSPARK_DRIVER_PYTHON`. 
 
@@ -153,7 +153,7 @@ El clúster de HDInsight depende del entorno integrado de Python, tanto Python 2
 
     Puede volver a confirmar el entorno de Python en Jupyter Notebook ejecutando el código siguiente:
 
-    ![Comprobar la versión de Python en Jupyter Notebook](./media/apache-spark-python-package-installation/check-python-version-in-jupyter.png)
+    :::image type="content" source="./media/apache-spark-python-package-installation/check-python-version-in-jupyter.png" alt-text="Comprobar la versión de Python en Jupyter Notebook" border="true":::
 
 ## <a name="known-issue"></a>Problema conocido
 

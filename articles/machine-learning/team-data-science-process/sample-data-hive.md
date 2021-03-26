@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 6a015da77cb7c0ba54be1dd5e729a9ee8a848c9d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93321891"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Muestreo de datos en tablas de HDInsight Hive de Azure
@@ -54,7 +54,7 @@ where samplekey<='${hiveconf:sampleRate}'
 En este caso, `<sample rate, 0-1>` especifica la proporción de registros que los usuarios quieren usar como muestra.
 
 ## <a name="random-sampling-by-groups"></a><a name="group"></a> Muestreo aleatorio por grupos
-Cuando se realiza un muestreo de datos de categoría, podría querer incluir o excluir todas las instancias de algún valor de la variable de categoría. Este tipo de muestreo se denomina "muestreo por grupos". Por ejemplo, si tiene una variable de categoría " *Estado* ", que tiene valores como NY, MA, CA, NJ y PA, querrá que los registros de cada estado estén juntos, ya estén muestreados o no.
+Cuando se realiza un muestreo de datos de categoría, podría querer incluir o excluir todas las instancias de algún valor de la variable de categoría. Este tipo de muestreo se denomina "muestreo por grupos". Por ejemplo, si tiene una variable de categoría "*Estado*", que tiene valores como NY, MA, CA, NJ y PA, querrá que los registros de cada estado estén juntos, ya estén muestreados o no.
 
 Aquí se muestra una consulta de ejemplo que realiza un muestreo por grupo:
 

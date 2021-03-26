@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo navegar por los procedimientos rec
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 63484d882d8ccd387257c6f246c2048a09c77bc8
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 549eab1547b75eb9461b23df2c157290943b4ed9
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98933119"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869793"
 ---
 # <a name="gateway-deep-dive-and-best-practices-for-apache-hive-in-azure-hdinsight"></a>Análisis detallado y procedimientos recomendados de puerta de enlace para Apache Hive en Azure HDInsight
 
@@ -21,7 +21,7 @@ La puerta de enlace de HDInsight es la única parte de un clúster de HDInsight 
 
 En el diagrama siguiente se muestra una ilustración aproximada de cómo la puerta de enlace proporciona una abstracción delante de todas las distintas posibilidades de resolución del host en HDInsight.
 
-![Diagrama de resolución del host](./media/gateway-best-practices/host-resolution-diagram.png "Diagrama de resolución del host")
+:::image type="content" source="./media/gateway-best-practices/host-resolution-diagram.png " alt-text="Diagrama de resolución del host" border="true":::
 
 ## <a name="motivation"></a>Motivación
 
@@ -39,7 +39,7 @@ La degradación del rendimiento de la puerta de enlace en torno a las consultas 
 
 En el siguiente diagrama se ilustran los pasos implicados en una consulta SELECT.
 
-![Diagrama de resultados](./media/gateway-best-practices/result-retrieval-diagram.png "Diagrama de resultados")
+:::image type="content" source="./media/gateway-best-practices/result-retrieval-diagram.png " alt-text="Diagrama de resultados" border="true":::
 
 Apache Hive es una abstracción relacional sobre un sistema de archivos compatible con HDFS. Esta abstracción significa que las instrucciones **SELECT** en Hive se corresponden con operaciones **READ** en el sistema de archivos. Las operaciones **READ** se traducen en el esquema adecuado antes de notificarse al usuario. La latencia de este proceso aumenta con el tamaño de los datos y los saltos totales necesarios para llegar al usuario final.
 
@@ -53,9 +53,9 @@ Existen múltiples lugares para mitigar y comprender los problemas de rendimient
 
 * Use la cláusula **LIMIT** al ejecutar las consultas **SELECT** de gran tamaño. La cláusula **LIMIT** reducirá el número total de filas que se envían al host del cliente. La cláusula **LIMIT** solo afecta a la generación de resultados y no cambia el plan de consulta. Para aplicar la cláusula **LIMIT** al plan de consulta, use la configuración `hive.limit.optimize.enable`. **LIMIT** se puede combinar con un desplazamiento mediante el formato de argumento **LIMIT x,y**.
 
-* Asigne un nombre a las columnas que le interesen cuando se ejecutan consultas **SELECT** en lugar de usar *SELECT \** . Al seleccionar menos columnas se reducirá la cantidad de datos leídos.
+* Asigne un nombre a las columnas que le interesen al ejecutar consultas **SELECT** en lugar de usar **SELECT \*** . Al seleccionar menos columnas se reducirá la cantidad de datos leídos.
 
-Pruebe a ejecutar la consulta de interés mediante Apache Beeline. Si la recuperación de resultados a través de Apache Beeline tarda demasiado tiempo, es de esperar que se produzcan retrasos al recuperar los mismos resultados a través de herramientas externas.
+* Pruebe a ejecutar la consulta de interés a través de Apache Beeline. Si la recuperación de resultados a través de Apache Beeline tarda demasiado tiempo, es de esperar que se produzcan retrasos al recuperar los mismos resultados a través de herramientas externas.
 
 * Pruebe una consulta de Hive básica para asegurarse de que se puede establecer una conexión con la puerta de enlace de HDInsight. Pruebe a ejecutar una consulta básica desde dos o más herramientas externas para asegurarse de que ninguna herramienta individual está teniendo problemas.
 

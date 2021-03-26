@@ -9,10 +9,10 @@ ms.date: 05/07/2020
 ms.author: tisande
 ms.custom: devx-track-js
 ms.openlocfilehash: 449af63ef3409b8c8173edef7a5d77074cca02b9
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93335847"
 ---
 # <a name="how-to-write-stored-procedures-and-triggers-in-azure-cosmos-db-by-using-the-javascript-query-api"></a>Escritura de procedimientos almacenados y desencadenadores en Azure Cosmos DB con la API de consulta de Javascript
@@ -93,4 +93,4 @@ Consulte los artículos siguientes para obtener información sobre procedimiento
 
 * [How to register and use user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md#udfs) (Registro y uso de funciones definidas por el usuario en Azure Cosmos DB)
 
-* [Synthetic partition keys in Azure Cosmos DB](synthetic-partition-keys.md) (Claves de partición sintéticas en Azure Cosmos DB)
+* [Claves de partición sintéticas en Azure Cosmos DB](synthetic-partition-keys.md)

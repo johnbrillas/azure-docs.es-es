@@ -8,10 +8,10 @@ ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord
 ms.openlocfilehash: 283ec9999f9b4362035b6770383984efb0879d49
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92783766"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Guía de seguridad del Explorador de Azure Storage
@@ -81,7 +81,7 @@ Las claves de cuenta de almacenamiento conceden acceso no restringido a los serv
 
 Algunos roles de Azure conceden permiso para recuperar claves de cuentas de almacenamiento. Los usuarios con estos roles pueden eludir de manera eficaz los permisos concedidos o denegados mediante Azure RBAC. Se recomienda no conceder este permiso, a menos que sea necesario.
 
-El Explorador de Storage intentará usar claves de cuenta de almacenamiento, si están disponibles para autenticar solicitudes. Puede deshabilitar esta característica en Configuración ( **Servicios > Cuentas de almacenamiento > Usage of Keys [Deshabilitar el uso de claves]** ). Algunas características no son compatibles con Azure RBAC, como trabajar con cuentas de almacenamiento clásicas. Estas características siguen requiriendo claves y no se ven afectadas por esta configuración.
+El Explorador de Storage intentará usar claves de cuenta de almacenamiento, si están disponibles para autenticar solicitudes. Puede deshabilitar esta característica en Configuración (**Servicios > Cuentas de almacenamiento > Usage of Keys [Deshabilitar el uso de claves]** ). Algunas características no son compatibles con Azure RBAC, como trabajar con cuentas de almacenamiento clásicas. Estas características siguen requiriendo claves y no se ven afectadas por esta configuración.
 
 Si debe usar claves para tener acceso a los recursos de almacenamiento, se recomiendan las siguientes directrices:
 

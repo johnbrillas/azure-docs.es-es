@@ -9,18 +9,20 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 71bfc84eb50521aef72f78b482bddda112c00c6c
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 01b30fed23b33719f08e93907075eee757343b1c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94964378"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103461749"
 ---
-# <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Tutorial: Desarrollo de un módulo IoT Edge con C# para dispositivos Linux
+# <a name="tutorial-develop-a-c-iot-edge-module-using-linux-containers"></a>Tutorial: Desarrollo de un módulo IoT Edge con C# con Java mediante contenedores Linux
 
-Use Visual Studio Code para desarrollar código de C# e implementarlo en un dispositivo Linux que ejecute Azure IoT Edge.
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Los módulos Azure IoT Edge se pueden usar para implementar código que, a su vez, implementa una lógica de negocios directamente en los dispositivos IoT Edge. En este tutorial, se detallan los pasos para crear e implementar un módulo de IoT Edge que filtra los datos de sensor. Utilizará el dispositivo de IoT Edge simulado que creó en las guías de inicio rápido para implementar Azure IoT Edge en un dispositivo simulado con [Windows](quickstart.md) o [Linux](quickstart-linux.md). En este tutorial, aprenderá a:
+Use Visual Studio Code para desarrollar código de C# e implementarlo en un dispositivo que ejecute Azure IoT Edge.
+
+Los módulos Azure IoT Edge se pueden usar para implementar código que, a su vez, implementa una lógica de negocios directamente en los dispositivos IoT Edge. En este tutorial, se detallan los pasos para crear e implementar un módulo de IoT Edge que filtra los datos de sensor. Utilizará el dispositivo de IoT Edge simulado que creó en las guías de inicio rápido. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 >
@@ -35,9 +37,9 @@ El módulo IoT Edge que creó en este tutorial filtra lo datos sobre la temperat
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En este tutorial se muestra cómo desarrollar un módulo en **C#** mediante **Visual Studio Code** y cómo se implementa en un **dispositivo Linux**. Si va a desarrollar módulos para dispositivos Windows, vaya a [Desarrollo de un módulo IoT Edge en C# para dispositivos Windows](tutorial-csharp-module-windows.md) en su lugar.
+En este tutorial se muestra cómo desarrollar un módulo en **C#** mediante **Visual Studio Code** y cómo se implementa en un dispositivo IoT Edge. Si va a desarrollar módulos para usar contenedores de Windows, vaya a [Desarrollo de un módulo IoT Edge con C# para contenedores de Windows](tutorial-csharp-module-windows.md) en su lugar.
 
-Utilice la tabla siguiente si desea conocer las opciones para desarrollar e implementar módulos de C# en Linux:
+Utilice la tabla siguiente si quiere conocer las opciones para desarrollar e implementar módulos de C# con contenedores de Linux:
 
 | C# | Visual Studio Code | Visual Studio |
 | -- | ------------------ | ------------- |
@@ -47,10 +49,10 @@ Utilice la tabla siguiente si desea conocer las opciones para desarrollar e impl
 >[!NOTE]
 >La compatibilidad con dispositivos ARM64 de Linux está disponible en [versión preliminar pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para más información, consulte [Desarrollo y depuración de módulos ARM64 IoT Edge en Visual Studio Code (versión preliminar)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
 
-Antes de comenzar este tutorial, debe haber realizado el anterior para configurar el entorno de desarrollo, [Desarrollo de un módulo IoT Edge para un dispositivo Linux](tutorial-develop-for-linux.md). Después de completar este tutorial, ya debe tener los siguientes requisitos previos:
+Antes de comenzar este tutorial, debe haber realizado el anterior para configurar el entorno de desarrollo, [Desarrollo de un módulo IoT Edge con contenedores de Linux](tutorial-develop-for-linux.md). Después de completar este tutorial, ya debe tener los siguientes requisitos previos:
 
 * Una instancia de [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) de nivel estándar o gratis en Azure.
-* Un [dispositivo Linux que ejecute Azure IoT Edge](quickstart-linux.md).
+* Un dispositivo que ejecuta Azure IoT Edge. Puede usar los inicios rápidos para configurar un [dispositivo Linux](quickstart-linux.md) o un [dispositivo Windows](quickstart.md).
 * Un registro de contenedor, como [Azure Container Registry](../container-registry/index.yml).
 * [Visual Studio Code](https://code.visualstudio.com/) configurado con [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [CE de Docker](https://docs.docker.com/install/) configurado para ejecutar contenedores de Linux.

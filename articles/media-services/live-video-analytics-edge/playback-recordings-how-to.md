@@ -4,10 +4,10 @@ description: Puede usar Live Video Analytics on IoT Edge para la grabación cont
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.openlocfilehash: 0351f10d9fac3ad7e3b4fdd5fd549eb7c0023694
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99490902"
 ---
 # <a name="playback-of-recordings"></a>Reproducción de grabaciones 
@@ -89,7 +89,7 @@ Para la consulta availableMedia, la API usará la escala de tiempo del vídeo. C
 
 ##### <a name="example-1-live-recording-with-no-gaps"></a>Ejemplo 1: Grabación en directo sin separación
 
-A continuación se incluye una respuesta en la que se muestran todos los contenidos multimedia disponibles para el 21 de diciembre de 2019, cuando la grabación se había completado al 100 %. La respuesta solo tiene un par de inicio y fin.
+A continuación, se incluye una respuesta en la que se muestran todos los contenidos multimedia disponibles para el 21 de diciembre de 2019, cuando la grabación se había completado al 100 %. La respuesta solo tiene un par de inicio y fin.
 
 ```
 GET https://hostname/locatorId/content.ism/availableMedia?precision=full&startTime=2019-12-21T00:00:00Z&endTime=2019-12-22T00:00:00Z

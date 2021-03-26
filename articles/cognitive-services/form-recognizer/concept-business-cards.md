@@ -3,19 +3,19 @@ title: 'Tarjetas de presentación: Form Recognizer'
 titleSuffix: Azure Cognitive Services
 description: 'Conozca los conceptos relacionados con el análisis de tarjetas de presentación con la API Form Recognizer: uso y límites.'
 services: cognitive-services
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 08/17/2019
-ms.author: pafarley
-ms.openlocfilehash: c2543f74b90205a36d3f5b4481beca35c779f77e
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.date: 03/15/2021
+ms.author: lajanuar
+ms.openlocfilehash: 5211c1263af599eb5fd09ad276545c725ce5c867
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546030"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103467007"
 ---
 # <a name="form-recognizer-prebuilt-business-cards-model"></a>Modelo de tarjetas de presentación pregenerado de Form Recognizer 
 
@@ -52,19 +52,19 @@ La API de tarjeta de presentación también puede devolver todo el texto reconoc
 
 ### <a name="input-requirements"></a>Requisitos de entrada 
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
+[!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
 ## <a name="the-analyze-business-card-operation"></a>Operación Analyze Business Card
 
-[Analyze Business Card](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync) toma una imagen o PDF de una tarjeta de presentación como entrada y extrae los valores de interés. La llamada devuelve un campo de encabezado de respuesta denominado `Operation-Location`. El valor `Operation-Location` es una dirección URL que contiene el id. de resultado que se va a usar en el paso siguiente.
+[Analyze Business Card](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeBusinessCardAsync) toma una imagen o PDF de una tarjeta de presentación como entrada y extrae los valores de interés. La llamada devuelve un campo de encabezado de respuesta denominado `Operation-Location`. El valor `Operation-Location` es una dirección URL que contiene el id. de resultado que se va a usar en el paso siguiente.
 
 |Encabezado de respuesta| Dirección URL del resultado |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.2/prebuilt/businessCard/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.3/prebuilt/businessCard/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
 ## <a name="the-get-analyze-business-card-result-operation"></a>Operación Get Analyze Business Card Result
 
-El segundo paso consiste en llamar a la operación [Get Analyze Business Card Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/GetAnalyzeBusinessCardResult). Esta operación toma como entrada el id. de resultado que la operación Analyze Business Card ha creado. Devuelve una respuesta JSON que contiene un campo de **estado** con los siguientes valores posibles. Llamará a esta operación de forma iterativa hasta que se devuelva con el valor **correcto**. Use un intervalo de 3 a 5 segundos para evitar superar la tasa de solicitudes por segundo (RPS).
+El segundo paso consiste en llamar a la operación [Get Analyze Business Card Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/GetAnalyzeBusinessCardResult). Esta operación toma como entrada el id. de resultado que la operación Analyze Business Card ha creado. Devuelve una respuesta JSON que contiene un campo de **estado** con los siguientes valores posibles. Llamará a esta operación de forma iterativa hasta que se devuelva con el valor **correcto**. Use un intervalo de 3 a 5 segundos para evitar superar la tasa de solicitudes por segundo (RPS).
 
 |Campo| Tipo | Valores posibles |
 |:-----|:----:|:----|
@@ -386,7 +386,7 @@ Siga el [inicio rápido](./QuickStarts/client-library.md) para implementar la ex
 
 ## <a name="customer-scenarios"></a>Escenarios de cliente  
 
-Los datos extraídos con la API de tarjeta de presentación se pueden usar para realizar varias tareas. Si extrae esta información de contacto, automáticamente ahorrará tiempo en los roles orientados al cliente. A continuación se muestran algunos ejemplos de lo que nuestros clientes han realizado con la API de tarjeta de presentación:
+Los datos extraídos con Business Card API se pueden usar para realizar varias tareas. La extracción de esta información de contacto supone automáticamente un ahorro de tiempo para los usuarios en el caso de los roles orientados al cliente. A continuación se muestran algunos ejemplos de lo que nuestros clientes han realizado con la API de tarjeta de presentación:
 
 * Extraer información de contacto de tarjetas de presentación y crear contactos de teléfono rápidamente. 
 * Integrarse con CRM para crear automáticamente el contacto mediante las imágenes de la tarjeta de presentación. 
@@ -402,4 +402,4 @@ Business Card API también contribuye a la [característica de procesamiento de 
 ## <a name="see-also"></a>Consulte también
 
 * [¿Qué es Form Recognizer?](./overview.md)
-* [Documentos de referencia de la API de REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync)
+* [Documentos de referencia de la API de REST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeBusinessCardAsync)

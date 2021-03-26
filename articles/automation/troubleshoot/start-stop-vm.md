@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: ff2ef8970afa21c0218da20a5b79ea2fb782dd5c
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: f6d2696a68643f87de0fcaf2e723da9365d9953e
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053591"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953857"
 ---
 # <a name="troubleshoot-startstop-vms-during-off-hours-issues"></a>Solución de problemas de la característica Start/Stop VMs during off-hours
 
@@ -149,7 +149,7 @@ Revise la siguiente lista de posibles resoluciones:
   ```
 
 * Para iniciar y detener las VM, la cuenta de ejecución de la cuenta de Automation debe tener los permisos apropiados para la VM. Para obtener información sobre cómo comprobar los permisos para un recurso, vea [Guía de inicio rápido: Visualización de los roles asignados a un usuario mediante Azure Portal](../../role-based-access-control/check-access.md). Deberá proporcionar el identificador de aplicación de la entidad de servicio usada por la cuenta de ejecución. Puede recuperar este valor si va a la cuenta de Automation en Azure Portal. Seleccione **Cuentas de ejecución** en **Configuración de la cuenta** y seleccione la cuenta de ejecución adecuada.
-* Si la VM presenta algún problema para iniciarse o desasignarse, es posible que exista un problema en la propia VM. Entre los ejemplos se encuentra una actualización en curso mientras una VM intenta apagarse, el bloqueo de un servicio, etc. Vaya al recurso de máquina virtual y consulte los **registros de actividad** para ver si en ellos se ha identificado algún error. También puede tratar de iniciar sesión en la VM para ver si existe algún error en los registros de eventos. Para más información sobre la solución de problemas de la máquina virtual, consulte [Solución de problemas de máquinas virtuales de Azure](../../virtual-machines/troubleshooting/index.yml).
+* Si la VM presenta algún problema para iniciarse o desasignarse, es posible que exista un problema en la propia VM. Entre los ejemplos se encuentra una actualización en curso mientras una VM intenta apagarse, el bloqueo de un servicio, etc. Vaya al recurso de máquina virtual y consulte los **registros de actividad** para ver si en ellos se ha identificado algún error. También puede tratar de iniciar sesión en la VM para ver si existe algún error en los registros de eventos. Para más información sobre la solución de problemas de la máquina virtual, consulte [Solución de problemas de máquinas virtuales de Azure](/troubleshoot/azure/virtual-machines/welcome-virtual-machines).
 * Compruebe los [flujos de trabajo](../automation-runbook-execution.md#job-statuses) para buscar errores. En Azure Portal, vaya a la cuenta de Automation y seleccione **Trabajos** en **Automatización de procesos**.
 
 ## <a name="scenario-my-custom-runbook-fails-to-start-or-stop-my-vms"></a><a name="custom-runbook"></a>Escenario: Mi runbook personalizado no puede iniciar o detener mis máquinas virtuales

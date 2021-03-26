@@ -5,12 +5,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: fdf482f5afc444aff77c2ab528a4e333a0282c3d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d88bf65f1bd94e29bd9f60f5597d655f0040623b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582367"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725807"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Exploración de Azure Monitor para Azure Cosmos DB
 
@@ -87,13 +87,51 @@ Seleccione **Capacidad** en la parte superior de la página; se abre la sección
 
 Al igual que en el libro de información general, al seleccionar la lista desplegable junto a un recurso de Azure Cosmos DB en la columna **Suscripción** se mostrará un desglose por los contenedores individuales que componen la base de datos.
 
-### <a name="operations"></a>Operaciones 
+### <a name="operations"></a>Operaciones
 
-Seleccione **Operaciones** en la parte superior de la página; se abre la plantilla de libro **Operaciones**. Esta plantilla le ofrece la posibilidad de ver las solicitudes desglosadas por el tipo de solicitudes realizadas. 
+Seleccione **Operaciones** en la parte superior de la página; se abre la plantilla de libro **Operaciones**. Esta plantilla le ofrece la posibilidad de ver las solicitudes desglosadas por el tipo de solicitudes realizadas.
 
 De modo que, en el ejemplo siguiente, verá que `eastus-billingint` está recibiendo principalmente solicitudes de lectura, pero con un pequeño número de solicitudes upsert y de creación. Considerando que `westeurope-billingint` es de solo lectura desde una perspectiva de la solicitud, al menos en las últimas cuatro horas el libro ha estado limitado mediante su parámetro de intervalo de tiempo.
 
-![Libro de operaciones](./media/cosmosdb-insights-overview/operation.png) 
+![Libro de operaciones](./media/cosmosdb-insights-overview/operation.png)
+
+## <a name="view-from-an-azure-cosmos-db-resource"></a>Visualización desde un recurso de Azure Cosmos DB
+
+1. Busque o seleccione cualquiera de las cuentas de Azure Cosmos DB existentes.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-search.png" alt-text="HTAP para Azure Cosmos DB" border="true":::
+
+2. Cuando se haya desplazado a su cuenta de Azure Cosmos DB, en la sección Supervisión, seleccione **Conclusiones (versión preliminar)** o **Libros** para realizar análisis adicionales sobre el rendimiento, las solicitudes, el almacenamiento, la disponibilidad, la latencia, el sistema y la administración de cuentas.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-overview.png" alt-text="Información general sobre Conclusiones de Cosmos DB." border="true":::
+
+### <a name="time-range"></a>Intervalo de horas
+
+De forma predeterminada, el campo **Intervalo de tiempo** muestra los datos de las **últimas 24 horas**. Puede modificar el intervalo de tiempo para mostrar los datos en cualquier lugar desde los últimos cinco minutos hasta los últimos siete días. El selector de intervalos de tiempo también incluye un modo **personalizado** que le permite escribir las fechas de inicio y finalización para ver un intervalo de tiempo personalizado en función de los datos disponibles de la cuenta seleccionada.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-time-range.png" alt-text="Intervalo de tiempo de Cosmos DB" border="true":::
+
+### <a name="insights-overview"></a>Introducción a Conclusiones
+
+En la pestaña **Información general** se proporcionan las métricas más comunes para la cuenta de Azure Cosmos DB seleccionada, como las siguientes:
+
+* Total de solicitudes
+* Solicitudes con error (429)
+* Consumo de RU normalizado (máx.)
+* Uso de datos e índices
+* Métricas de cuenta de Cosmos DB por recopilación
+
+**Total de solicitudes:** este gráfico proporciona una vista de las solicitudes totales de la cuenta desglosadas por código de estado. Las unidades de la parte inferior del gráfico son una suma de las solicitudes totales para el período.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-total-requests.png" alt-text="Gráfico de solicitudes totales de Cosmos DB" border="true":::
+
+**Solicitudes con error (429)** : este gráfico proporciona una vista de las solicitudes con error con el código de estado 429. Las unidades situadas en la parte inferior del gráfico son la suma del total de solicitudes con error para el período.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-429.png" alt-text="Gráfico de solicitudes con error de Cosmos DB." border="true":::
+
+**Consumo de RU normalizado (máx.)** : este gráfico proporciona el porcentaje máximo entre el 0-100 % de unidades de consumo de RU normalizadas durante el período especificado.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-normalized-ru.png" alt-text="Consumo de RU normalizado de Cosmos DB" border="true":::
 
 ## <a name="pin-export-and-expand"></a>Anclaje, exportación y expansión
 

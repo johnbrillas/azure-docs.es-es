@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/06/2020
 ms.author: dayshen
 ms.openlocfilehash: 92e93c3746308d2d6c1a489efc6b5c866b0ad2d9
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98682637"
 ---
 # <a name="use-private-endpoints-for-azure-signalr-service"></a>Uso de puntos de conexión privados para Azure SignalR Service
@@ -69,7 +69,7 @@ Los registros de recursos DNS "foobar", cuando los resuelva un cliente en la red
 | Nombre                                                  | Tipo  | Value                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``foobar.service.signalr.net``                        | CNAME | ``foobar.privatelink.service.signalr.net``            |
-| ``foobar.privatelink.service.signalr.net``            | A     | 10.1.1.5                                              |
+| ``foobar.privatelink.service.signalr.net``            | Un     | 10.1.1.5                                              |
 
 Este enfoque permite el acceso a Azure SignalR Service **mediante la misma cadena de conexión** para los clientes de la red virtual que hospeda los puntos de conexión privados y los clientes que están fuera de esta.
 

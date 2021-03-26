@@ -7,10 +7,10 @@ ms.subservice: process-automation
 ms.date: 09/15/2020
 ms.topic: tutorial
 ms.openlocfilehash: 1b6c02778b0ee790d81c713283e653058c29c153
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92899799"
 ---
 # <a name="tutorial-create-a-graphical-runbook"></a>Tutorial: Creación de un runbook gráfico
@@ -42,7 +42,7 @@ Empiece por crear un runbook simple que genere el texto `Hello World`.
 
     La página de la cuenta de Automation proporciona una vista rápida de los recursos que hay en esa cuenta. Ya debería tener algunos recursos. La mayoría son los módulos que se incluyen automáticamente en una cuenta nueva de Automation. También debe tener el recurso de credencial asociado a su suscripción.
 
-2. En **Automatización de procesos** , haga clic en **Runbooks** para abrir la lista de runbooks.
+2. En **Automatización de procesos**, haga clic en **Runbooks** para abrir la lista de runbooks.
 
 3. Seleccione **Crear un Runbook** para crear uno.
 
@@ -78,7 +78,7 @@ El control Biblioteca en la parte izquierda del editor permite seleccionar activ
 
    Puede usar la salida de esos orígenes como otra actividad, un recurso de Automation o una expresión de PowerShell. En este caso, la salida es simplemente `Hello World`. Puede usar una expresión de PowerShell y especificar una cadena.
 
-8. En el cuadro **Expresión** , escriba `"Hello World"` y haga clic en **Aceptar** dos veces para volver al lienzo.
+8. En el cuadro **Expresión**, escriba `"Hello World"` y haga clic en **Aceptar** dos veces para volver al lienzo.
 
 9. Guarde el Runbook, para lo que debe hacer clic en **Guardar**.
 
@@ -142,10 +142,10 @@ Ha probado y publicado el runbook, pero hasta ahora no resulta útil para gestio
 
 4. En la página Nueva variable, realice la siguiente configuración en los campos indicados.
 
-    * **Nombre** : escriba `AzureSubscriptionId`.
-    * **Valor** : escriba el identificador de la suscripción.
-    * **Tipo** : mantenga string seleccionado.
-    * **Cifrado** : use el valor predeterminado.
+    * **Nombre**: escriba `AzureSubscriptionId`.
+    * **Valor**: escriba el identificador de la suscripción.
+    * **Tipo**: mantenga string seleccionado.
+    * **Cifrado**: use el valor predeterminado.
 
 5. Haga clic en **Crear** para crear la variable.
 
@@ -174,7 +174,7 @@ Ahora que tiene una variable para incluir el identificador de suscripción, pued
 
 8. En el lienzo, seleccione `Connect-AzAccount`. En el panel de control de configuración, escriba **Login to Azure** (Iniciar sesión en Azure) en el campo **Etiqueta**.
 
-9. Haga clic en **Parámetros** ; aparece la página Configuración de parámetros de la actividad.
+9. Haga clic en **Parámetros**; aparece la página Configuración de parámetros de la actividad.
 
 10. El cmdlet `Connect-AzAccount` tiene varios conjuntos de parámetros; deberá seleccionar uno antes de proporcionar los valores de los parámetros. Haga clic en **Conjunto de parámetros** y seleccione **ServicePrincipalCertificateWithSubscriptionId**.
 
@@ -184,23 +184,23 @@ Ahora que tiene una variable para incluir el identificador de suscripción, pued
 
 12. En la página Valor de parámetro, realice la siguiente configuración y, a continuación, haga clic en **Aceptar**.
 
-   * **Origen de datos** : seleccione **Resultado de la actividad**.
+   * **Origen de datos**: seleccione **Resultado de la actividad**.
    * Lista de orígenes de datos: seleccione **Get Run As Connection** (Obtener conexión de ejecución).
-   * **Ruta de campo** : escriba `ApplicationId`. Vamos a especificar el nombre de la propiedad para la ruta de acceso del campo porque la actividad genera un objeto con varias propiedades.
+   * **Ruta de campo**: escriba `ApplicationId`. Vamos a especificar el nombre de la propiedad para la ruta de acceso del campo porque la actividad genera un objeto con varias propiedades.
 
 13. Haga clic en **CERTIFICATETHUMBPRINT** y, en la página Valor de parámetro, realice la configuración siguiente; después, haga clic en **Aceptar**.
 
-    * **Origen de datos** : seleccione **Resultado de la actividad**.
+    * **Origen de datos**: seleccione **Resultado de la actividad**.
     * Lista de orígenes de datos: seleccione **Get Run As Connection** (Obtener conexión de ejecución).
-    * **Ruta de campo** : escriba `CertificateThumbprint`.
+    * **Ruta de campo**: escriba `CertificateThumbprint`.
 
 14. Haga clic en **SERVICEPRINCIPAL** y, en la página Valor de parámetro, seleccione **ConstantValue** en el campo **Origen de datos**. Haga clic en la opción **True** y, a continuación, en **Aceptar**.
 
 15. Haga clic en **TENANTID** y realice la siguiente configuración en la página Valor de parámetro. Cuando termine, haga clic en **Aceptar** dos veces.
 
-    * **Origen de datos** : seleccione **Resultado de la actividad**.
+    * **Origen de datos**: seleccione **Resultado de la actividad**.
     * Lista de orígenes de datos: seleccione **Get Run As Connection** (Obtener conexión de ejecución).
-    * **Ruta de campo** : escriba `TenantId`.
+    * **Ruta de campo**: escriba `TenantId`.
 
 16. En el control Biblioteca, escriba `Set-AzContext` en el campo de búsqueda.
 
@@ -208,7 +208,7 @@ Ahora que tiene una variable para incluir el identificador de suscripción, pued
 
 18. Seleccione `Set-AzContext` en el lienzo. En el panel de control de configuración, escriba `Specify Subscription Id` en el campo **Etiqueta**.
 
-19. Haga clic en **Parámetros** ; aparece la página Configuración de parámetros de la actividad.
+19. Haga clic en **Parámetros**; aparece la página Configuración de parámetros de la actividad.
 
 20. El cmdlet `Set-AzContext` tiene varios conjuntos de parámetros; deberá seleccionar uno antes de proporcionar los valores de los parámetros. Haga clic en **Conjunto de parámetros** y seleccione **SubscriptionId**.
 
@@ -234,7 +234,7 @@ Ahora debe agregar una actividad `Start-AzVM` para iniciar una máquina virtual.
 
 5. Seleccione **ResourceGroupNameParameterSetName** para el conjunto de parámetros. Los campos **ResourceGroupName** y **Name** tienen signos de exclamación junto a ellos para indicar que son parámetros necesarios. Tenga en cuenta que ambos campos esperan valores de cadena.
 
-6. Seleccione **Name**. En el campo **Origen de datos** , seleccione **Expresión de PowerShell**. Escriba, delimitado por comillas dobles, el nombre de la máquina virtual que usará para iniciar este runbook. Haga clic en **OK**.
+6. Seleccione **Name**. En el campo **Origen de datos**, seleccione **Expresión de PowerShell**. Escriba, delimitado por comillas dobles, el nombre de la máquina virtual que usará para iniciar este runbook. Haga clic en **OK**.
 
 7. Seleccione **ResourceGroupName**. Utilice el valor **Expresión de PowerShell** en el campo **Origen de datos** y escriba el nombre del grupo de recursos entre comillas dobles. Haga clic en **OK**.
 
@@ -250,12 +250,12 @@ Actualmente, el runbook inicia la máquina virtual en el grupo de recursos que e
 
 1. Abra el editor gráfico; para ello, haga clic en **Editar** en la página MyFirstRunbook-Graphical.
 
-2. Seleccione **Entrada y salida** , y en **Agregar entrada** para abrir el panel Parámetros de entrada de Runbook.
+2. Seleccione **Entrada y salida**, y en **Agregar entrada** para abrir el panel Parámetros de entrada de Runbook.
 
 3. Realice la siguiente configuración en los campos indicados y, a continuación, haga clic en **Aceptar**.
-   * **Nombre** : especifique `VMName`.
-   * **Tipo** : mantenga el valor String.
-   * **Obligatorio** : cambie el valor a **Sí**.
+   * **Nombre**: especifique `VMName`.
+   * **Tipo**: mantenga el valor String.
+   * **Obligatorio**: cambie el valor a **Sí**.
 
 4. Cree un segundo parámetro de entrada obligatorio denominado `ResourceGroupName` y haga clic en **Aceptar** para cerrar el panel Entrada y salida.
 
@@ -297,11 +297,11 @@ Ahora puede modificar el runbook para que solo intente iniciar la máquina virtu
 
 6. Seleccione el conjunto de parámetros **GetVirtualMachineInResourceGroupNameParamSet** . Los campos **ResourceGroupName** y **Name** tienen signos de exclamación junto a ellos, lo que indica que especifican parámetros necesarios. Tenga en cuenta que ambos campos esperan valores de cadena.
 
-7. En **Origen de datos** de **Name** , seleccione **Entrada de Runbook** y después **VMName**. Haga clic en **OK**.
+7. En **Origen de datos** de **Name**, seleccione **Entrada de Runbook** y después **VMName**. Haga clic en **OK**.
 
-8. En **Origen de datos** de **ResourceGroupName** , seleccione **Entrada de Runbook** y después **ResourceGroupName**. Haga clic en **OK**.
+8. En **Origen de datos** de **ResourceGroupName**, seleccione **Entrada de Runbook** y después **ResourceGroupName**. Haga clic en **OK**.
 
-9. En **Origen de datos** de **Status** , seleccione **Valor constante** y después **True**. Haga clic en **OK**.
+9. En **Origen de datos** de **Status**, seleccione **Valor constante** y después **True**. Haga clic en **OK**.
 
 10. Cree un vínculo desde `Specify Subscription Id` a `Get-AzVM`.
 
@@ -333,7 +333,7 @@ Ahora puede modificar el runbook para que solo intente iniciar la máquina virtu
 
 17. Seleccione el vínculo y, en el panel Configuración, cambie **Aplicar condición** a **Sí**. Observe que el vínculo se convierte en una línea discontinua, lo que indica que la actividad de destino solo se ejecuta si la condición se resuelve como verdadera.  
 
-18. En **Expresión de condición** , escriba `$ActivityOutput['Get Status'] -eq "Stopped"`. Ahora, `Start-AzVM` solo se ejecuta si la máquina virtual está detenida.
+18. En **Expresión de condición**, escriba `$ActivityOutput['Get Status'] -eq "Stopped"`. Ahora, `Start-AzVM` solo se ejecuta si la máquina virtual está detenida.
 
 19. En el control Biblioteca, expanda **Cmdlets** y **Microsoft.PowerShell.Utility**.
 
@@ -341,21 +341,21 @@ Ahora puede modificar el runbook para que solo intente iniciar la máquina virtu
 
 21. En el primer control `Write-Output`, haga clic en **Parámetros** y cambie el valor de **Etiqueta** a **Notify VM Started** (Notificar VM iniciada).
 
-22. En **InputObject** , cambie **Origen de datos** a **Expresión de PowerShell** y escriba la expresión `$VMName successfully started.`.
+22. En **InputObject**, cambie **Origen de datos** a **Expresión de PowerShell** y escriba la expresión `$VMName successfully started.`.
 
 23. En el segundo control `Write-Output`, haga clic en **Parámetros** y cambie el valor de **Etiqueta** a **Notify VM Start Failed** (Notificar error al iniciar VM).
 
-24. En **InputObject** , cambie **Origen de datos** a **Expresión de PowerShell** y escriba la expresión `$VMName could not start`.
+24. En **InputObject**, cambie **Origen de datos** a **Expresión de PowerShell** y escriba la expresión `$VMName could not start`.
 
 25. Cree vínculos desde `Start-AzVM` a `Notify VM Started` y `Notify VM Start Failed`.
 
 26. Seleccione el vínculo a `Notify VM Started` y cambie **Aplicar condición** a True.
 
-27. En **Expresión de condición** , escriba `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -eq $true`. Este control `Write-Output` ahora solo se ejecuta si la máquina virtual se inicia correctamente.
+27. En **Expresión de condición**, escriba `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -eq $true`. Este control `Write-Output` ahora solo se ejecuta si la máquina virtual se inicia correctamente.
 
 28. Seleccione el vínculo a `Notify VM Start Failed` y cambie **Aplicar condición** a True.
 
-29. En el campo **Expresión de condición** , escriba `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -ne $true`. Ahora, este control `Write-Output` solo se ejecuta si la máquina virtual no se ha iniciado correctamente. El runbook debe tener un aspecto similar al de la siguiente imagen.
+29. En el campo **Expresión de condición**, escriba `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -ne $true`. Ahora, este control `Write-Output` solo se ejecuta si la máquina virtual no se ha iniciado correctamente. El runbook debe tener un aspecto similar al de la siguiente imagen.
 
     ![Runbook con Write-Output](../media/automation-tutorial-runbook-graphical/runbook-startazurermvm-complete.png)
 

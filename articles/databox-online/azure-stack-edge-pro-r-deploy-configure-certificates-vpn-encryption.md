@@ -10,10 +10,10 @@ ms.date: 10/19/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure certificates for Azure Stack Edge Pro R so I can use it to transfer data to Azure.
 ms.openlocfilehash: abea192f209b968c6842e985620c067c93990687
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100548155"
 ---
 # <a name="tutorial-configure-certificates-for-your-azure-stack-edge-pro-r"></a>Tutorial: Configuración de certificados para un dispositivo Azure Stack Edge Pro R
@@ -110,11 +110,11 @@ Siga estos pasos para agregar sus propios certificados, incluida la cadena de fi
     1. En la página de la VPN, seleccione **Configure** (Configurar).
     2. En la hoja **Configure VPN** (Configurar VPN):
 
-    - Habilite **VPN settings** (Configuración de VPN).
+    - Habilite **Configuración de VPN**.
     - Proporcione el valor de **VPN shared secret** (Secreto compartido de VPN). Esta es la clave compartida que proporcionó al crear el objeto de conexión de la VPN de Azure.
     - Proporcione la dirección para **VPN gateway IP** (Dirección IP de VPN Gateway). Esta es la dirección IP de la puerta de enlace de red local de Azure.
-    - En **PFS group** (Grupo PFS), seleccione **None** (Ninguno). 
-    - En **DH group** (Grupo DH), seleccione **Group2**.
+    - En **Grupo PFS**, seleccione **Ninguno**. 
+    - En **Grupo DH**, seleccione **Group2**.
     - Para **IPsec integrity method** (Método de integridad de IPsec), seleccione **SHA256**.
     - Para **IPsec cipher transform constants** (Constantes de transformación de cifrado de IPsec), seleccione **GCMAES256**.
     - Para **IPsec authentication transform constants** (Constantes de transformación de autenticación de IPsec), seleccione **GCMAES256**.
@@ -135,8 +135,8 @@ Siga estos pasos para agregar sus propios certificados, incluida la cadena de fi
     
     4. Para agregar rutas específicas del cliente, configure los intervalos de direcciones IP a los que se va a tener acceso solo mediante VPN. 
     
-        - En **IP address ranges to be accessed using VPN only** (Intervalos de direcciones IP a los que acceder solo mediante VPN), seleccione **Configure** (Configurar).
-        - Proporcione un intervalo IPv4 válido y seleccione **Add** (Agregar). Repita los pasos para agregar otros intervalos.
+        - En **IP address ranges to be accessed using VPN only** (Intervalos de direcciones IP a los que acceder solo mediante VPN), seleccione **Configurar**.
+        - Especifique un intervalo IPv4 válido y seleccione **Agregar**. Repita los pasos para agregar otros intervalos.
         - Seleccione **Aplicar**.
     
             ![Configuración de la interfaz de usuario local 5](./media/azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption/configure-vpn-local-ui-5.png)

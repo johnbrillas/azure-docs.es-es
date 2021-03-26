@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/19/2019
-ms.openlocfilehash: e4c9124ebd0b61b8db1b1da964355a3c36b5bba5
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a5e623b0429194db6d03beb674679bd10e337844
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98930554"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869484"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Administración de clústeres de ML Services en Azure HDInsight
 
@@ -26,7 +26,7 @@ En este artículo, aprenderá a administrar un clúster de ML Services en Azure 
 
 Para habilitar varios usuarios simultáneos para un clúster de ML Services en HDInsight agregando más usuarios al nodo perimetral en el que se ejecuta la versión de comunidad de RStudio. Al crear un clúster de HDInsight, es preciso especificar dos usuarios, un usuario HTTP y un usuario SSH:
 
-![Parámetros de inicio de sesión de HDI en Azure Portal](./media/r-server-hdinsight-manage/hdi-concurrent-users1.png)
+:::image type="content" source="./media/r-server-hdinsight-manage/hdi-concurrent-users1.png" alt-text="Parámetros de inicio de sesión de HDI en Azure Portal" border="true":::
 
 - **Nombre de usuario de inicio de sesión del clúster**: un usuario HTTP para la autenticación a través de la puerta de enlace de HDInsight que se usa para proteger los clústeres de HDInsight que ha creado. Este usuario HTTP se utiliza para acceder a la interfaz de usuario de Apache Ambari, a la interfaz de usuario de Apache Hadoop YARN y a otros componentes de la interfaz de usuario.
 - **Nombre de usuario de Secure Shell (SSH)** : un usuario SSH para acceder al clúster a través de Secure Shell. Este es un usuario del sistema Linux para todos los nodos principales, nodos de trabajo y nodos perimetrales. Por consiguiente, puede usar Secure Shell para acceder a cualquiera de los nodos de un clúster remoto.
@@ -49,7 +49,7 @@ Dado que RStudio se ejecuta en el nodo perimetral del clúster, hay que dar vari
 
 Siga las instrucciones que se proporcionan en [Conexión a través de SSH con HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md) para acceder al nodo perimetral. La dirección del nodo perimetral para el clúster de ML Services en HDInsight es `CLUSTERNAME-ed-ssh.azurehdinsight.net`.
 
-### <a name="step-2-add-more-linux-users-in-edge-node"></a>Paso 2: Agregar más usuarios de Linux al nodo perimetral.
+### <a name="step-2-add-more-linux-users-in-edge-node"></a>Paso 2: Adición de más usuarios de Linux al nodo perimetral
 
 Para agregar un usuario al nodo perimetral, ejecute los comandos:
 
@@ -63,11 +63,11 @@ sudo passwd <yournewusername>
 
 En la captura de pantalla siguiente se muestra el resultado.
 
-![Captura de pantalla de salida de usuarios simultáneos](./media/r-server-hdinsight-manage/hdi-concurrent-users2.png)
+:::image type="content" source="./media/r-server-hdinsight-manage/hdi-concurrent-users2.png" alt-text="Captura de pantalla de salida de usuarios simultáneos" border="true":::
 
 Cuando se le pida la "contraseña actual de Kerberos", presione **Entrar** para ignorarlo. La opción `-m` del comando `useradd` indica que el sistema creará una carpeta particular para el usuario, que se requiere para la versión de comunidad de RStudio.
 
-### <a name="step-3-use-rstudio-community-version-with-the-user-created"></a>Paso 3: Utilizar la versión de comunidad de RStudio con el usuario creado.
+### <a name="step-3-use-rstudio-community-version-with-the-user-created"></a>Paso 3: Uso de la versión de comunidad de RStudio con el usuario creado
 
 Acceda a RStudio desde `https://CLUSTERNAME.azurehdinsight.net/rstudio/`. La primera vez que inicie sesión después de crear el clúster, escriba las credenciales de administrador del clúster seguidas de las credenciales del usuario SSH que ha creado. Si no se trata del primer inicio de sesión, escriba solo las credenciales del usuario SSH que ha creado.
 
@@ -77,7 +77,7 @@ Tenga en cuenta también que los usuarios recién agregados no tienen privilegio
 
 ## <a name="connect-remotely-to-microsoft-ml-services"></a>Conexión de forma remota a Microsoft ML Services
 
-Puede configurar el acceso al contexto de proceso de HDInsight Spark desde una instancia remota de ML Client que se ejecute en un equipo de escritorio. Para ello, debe especificar las opciones (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches y sshProfileScript) al definir el contexto de proceso RxSpark en el equipo de escritorio: Por ejemplo:
+Puede configurar el acceso al contexto de proceso de HDInsight Spark desde una instancia remota de ML Client que se ejecute en un equipo de escritorio. Para ello, debe especificar las opciones (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches y sshProfileScript) al definir el contexto de proceso RxSpark en el equipo de escritorio. Por ejemplo:
 
 ```r
 myNameNode <- "default"
@@ -211,7 +211,7 @@ Para instalar paquetes de R en los nodos de trabajo del clúster, debe usar una 
    > 2. Algunos paquetes de R requieren otras bibliotecas de sistema de Linux. Por comodidad, ML Services de HDInsight está preinstalado con las dependencias que necesitan los 100 paquetes de R más populares. Sin embargo, si los paquetes de R que instale necesitan otras bibliotecas, debe descargar el script base usado aquí y realizar los pasos para instalar las bibliotecas del sistema. A continuación, debe cargar el script modificado a un contenedor de blobs público en Azure Storage y usar el script modificado para instalar los paquetes.
    >    Para más información sobre cómo desarrollar acciones de script, consulte [Desarrollo de acciones de script](../hdinsight-hadoop-script-actions-linux.md).
 
-   ![Envío de acción de script en Azure Portal](./media/r-server-hdinsight-manage/submit-script-action.png)
+   :::image type="content" source="./media/r-server-hdinsight-manage/submit-script-action.png" alt-text="Envío de acción de script en Azure Portal" border="true":::
 
 4. Seleccione **Crear** para ejecutar el script. Una vez que finalice el script, los paquetes de R estarán disponibles en todos los nodos de trabajo.
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 24baa0dc7444f632040ddaf9fcc2266f9e4ccae5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: e64253aa79cfaeb2655bb091d038dc7c98b198bd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036147"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103419412"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Preguntas más frecuentes sobre las plantillas de Resource Manager
 
@@ -100,7 +100,7 @@ En este artículo se responde a preguntas frecuentes sobre las plantillas de Azu
 
 * **¿Ofrecerán una herramienta para que pueda convertir mis plantillas JSON al nuevo lenguaje de plantilla?**
 
-  Sí. Consulte [Descompilación de JSON a Bicep](compare-template-syntax.md#decompile-json-to-bicep).
+  Sí. Consulte [Conversión de plantillas de ARM entre JSON y Bicep](bicep-decompile.md).
 
 ## <a name="template-specs"></a>Especificaciones de plantilla
 
