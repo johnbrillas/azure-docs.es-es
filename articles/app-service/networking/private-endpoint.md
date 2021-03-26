@@ -4,17 +4,17 @@ description: Conexión privada a una aplicación web mediante un punto de conexi
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 10/09/2020
+ms.date: 03/16/2021
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 4534a315429a120af45dfd495df4a8c29b233de7
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 4de405e07a9ae9d1efb33f2cee3630a1eefdef33
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98763037"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655910"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Uso de puntos de conexión privados para una aplicación web de Azure
 
@@ -118,9 +118,9 @@ Al usar Azure Functions en el plan Elástico Premium con un punto de conexión p
 
 Puede conectar hasta 100 puntos de conexión privados a una aplicación web en particular.
 
-Las ranuras no pueden utilizar un punto de conexión privado.
-
 La funcionalidad de depuración remota no está disponible cuando se habilita el punto de conexión privado para la aplicación web. Le recomendamos implementar el código en una ranura y depurarlo de forma remota en la misma.
+
+El acceso FTP se proporciona a través de la dirección IP pública de entrada. El punto de conexión privado no admite el acceso FTP a la aplicación web.
 
 Estamos mejorando la característica Private Link y el punto de conexión privado periódicamente. Consulte [este artículo][pllimitations] para información actualizada sobre las limitaciones.
 

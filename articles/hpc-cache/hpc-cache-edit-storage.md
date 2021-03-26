@@ -4,14 +4,14 @@ description: Procedimientos para editar los destinos de almacenamiento en Azure�
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 03/10/2021
 ms.author: v-erkel
-ms.openlocfilehash: f97ff1c20b7edbf24e5a2c58e22097f88883ae4f
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 0c505937d4adbe2596e91ed7269676e60ada8253
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204038"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772604"
 ---
 # <a name="edit-storage-targets"></a>Edición de los destinos de almacenamiento
 
@@ -19,13 +19,16 @@ Puede quitar o modificar destinos de almacenamiento con Azure Portal o la CLI de
 
 En función del tipo de almacenamiento, puede modificar estos valores de destino de almacenamiento:
 
-* En el caso de los destinos de almacenamiento de blob, se puede cambiar la ruta de acceso del espacio de nombres.
+* En el caso de los destinos de almacenamiento de blobs, se puede cambiar la ruta del espacio de nombres y la directiva de acceso.
 
 * En el caso de los destinos de almacenamiento de NFS, se pueden cambiar estos valores:
 
   * Rutas de acceso del espacio de nombres
+  * Directiva de acceso
   * El subdirectorio de exportación o la exportación de almacenamiento asociados a una ruta de acceso del espacio de nombres
   * Modelo de uso
+
+* En el caso de los destinos de almacenamiento de ADLS-NFS, puede cambiar la ruta de acceso del espacio de nombres, la directiva de acceso y el modelo de uso.
 
 No se puede editar el nombre, el tipo o el sistema de almacenamiento de back-end de un destino de almacenamiento (contenedor de blobs, o dirección IP o nombre de host de NFS). Si tiene que cambiar estas propiedades, elimine el destino de almacenamiento y cree un reemplazo con el valor nuevo.
 
@@ -73,7 +76,7 @@ Use la página **Espacio de nombres** de su instancia de Azure HPC Cache. La pá
 
 Haga clic en el nombre de la ruta de acceso que desea cambiar y cree la nueva ruta de acceso en la ventana de edición que aparece.
 
-![Captura de pantalla de la página del espacio de nombres después de hacer clic en una ruta de acceso del espacio de nombres del blob: los campos de edición aparecen en un panel a la derecha.](media/edit-namespace-blob.png)
+![Captura de pantalla de la página del espacio de nombres después de hacer clic en una ruta de acceso del espacio de nombres del blob: los campos de edición aparecen en un panel a la derecha.](media/update-namespace-blob.png)
 
 Después de realizar los cambios, haga clic en **Aceptar** para actualizar el destino de almacenamiento o en **Cancelar** para descartar los cambios.
 
@@ -94,10 +97,13 @@ Para cambiar el espacio de nombres de un destino de almacenamiento de blobs con 
 
 En el caso de los destinos de almacenamiento de NFS, puede cambiar o agregar rutas de acceso de espacios de nombres virtuales, cambiar los valores de exportación o el subdirectorio de NFS al que apunta una ruta de acceso de espacio de nombres, y cambiar el modelo de uso.
 
+Los destinos de almacenamiento en cachés con algunos tipos de valores de DNS personalizados también tienen un control para actualizar sus direcciones IP. (Este tipo de configuración es poco frecuente).
+
 A continuación se muestran los detalles:
 
-* [Cambiar los valores del espacio de nombres agregado](#change-aggregated-namespace-values) (ruta de acceso del espacio de nombres virtual, exportación y subdirectorio de exportación)
+* [Cambio de los valores del espacio de nombres agregado](#change-aggregated-namespace-values) (ruta de acceso del espacio de nombres virtual, de exportación y del subdirectorio de exportación)
 * [Cambiar el modelo de uso](#change-the-usage-model)
+* [Actualización de DNS](#update-ip-address-custom-dns-configurations-only)
 
 ### <a name="change-aggregated-namespace-values"></a>Cambio de los valores del espacio de nombres agregado
 
@@ -112,7 +118,7 @@ Use la página **Espacio de nombres** de su instancia de Azure HPC Cache para ac
 ![Captura de pantalla de la página del espacio de nombres del portal con la página de actualización de NFS abierta a la derecha](media/update-namespace-nfs.png)
 
 1. Haga clic en el nombre de la ruta de acceso que desee cambiar.
-1. Utilice la ventana de edición para escribir nuevos valores de ruta de acceso virtual, exportación o subdirectorio.
+1. Utilice la ventana de edición para escribir nuevos valores de ruta de acceso virtual, de exportación o de subdirectorio, o para seleccionar una directiva de acceso diferente.
 1. Después de realizar los cambios, haga clic en **Aceptar** para actualizar el destino de almacenamiento o en **Cancelar** para descartar los cambios.
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
@@ -174,6 +180,37 @@ Si quiere, compruebe los nombres de los modelos de uso con el comando [az hpc-ca
 Si la memoria caché se ha detenido o no tiene un estado correcto, la actualización se aplicará después de que la memoria caché vuelva al estado correcto.
 
 ---
+
+### <a name="update-ip-address-custom-dns-configurations-only"></a>Actualización de la dirección IP (solo configuraciones DNS personalizadas)
+
+Si la memoria caché usa una configuración de DNS no predeterminada, es posible que la dirección IP de su destino de almacenamiento de NFS cambie debido a los cambios de DNS de back-end. Si el servidor DNS cambia la dirección IP del sistema de almacenamiento de back-end, Azure HPC Cache puede perder el acceso al sistema de almacenamiento.
+
+Idealmente, debe trabajar con el administrador del sistema DNS personalizado de la memoria caché para planear las actualizaciones, ya que estos cambios hacen que el almacenamiento no esté disponible.
+
+Si necesita actualizar la dirección IP proporcionada por DNS de un destino de almacenamiento, hay un botón en la lista de destinos de almacenamiento. Haga clic en **Actualizar DNS** para consultar el servidor DNS personalizado para obtener una nueva dirección IP.
+
+![Captura de pantalla de la lista de destinos de almacenamiento Para un destino de almacenamiento, el menú "..." de la columna de la derecha está abierto y aparecen dos opciones: eliminar y actualizar DNS.](media/refresh-dns.png)
+
+Si se realiza correctamente, la actualización debe tardar menos de dos minutos. Solo puede actualizar un destino de almacenamiento a la vez; Espere a que se complete la operación anterior antes de intentar otra.
+
+## <a name="update-an-adls-nfs-storage-target-preview"></a>Actualización de un destino de almacenamiento de ADLS-NFS (versión preliminar)
+
+De forma similar a los destinos de NFS, puede cambiar la ruta de acceso del espacio de nombres y el modelo de uso para los destinos de almacenamiento de ADLS-NFS.
+
+### <a name="change-an-adls-nfs-namespace-path"></a>Cambio de la ruta de acceso de un espacio de nombres de ADLS-NFS
+
+Use la página **Espacio de nombres** de su instancia de Azure HPC Cache para actualizar los valores de espacio de nombres. Esta página se describe con más detalle en el artículo [Configuración del espacio de nombres agregado](add-namespace-paths.md).
+
+![Captura de pantalla de la página del espacio de nombres del portal con la página de actualización de NFS abierta a la derecha](media/update-namespace-adls.png)
+
+1. Haga clic en el nombre de la ruta de acceso que desee cambiar.
+1. Utilice la ventana de edición para escribir nuevas rutas de acceso virtual o para actualizar la directiva de acceso.
+1. Después de realizar los cambios, haga clic en **Aceptar** para actualizar el destino de almacenamiento o en **Cancelar** para descartar los cambios.
+
+### <a name="change-adls-nfs-usage-models"></a>Cambio de los modelos de uso de ADLS-NFS
+
+La configuración de los modelos de uso de ADLS-NFS es idéntica a la selección del modelo de uso de NFS. Lea las instrucciones del portal en [Cambio del modelo de uso](#change-the-usage-model) en la sección de NFS anterior. Hay herramientas adicionales para actualizar los destinos de almacenamiento de ADLS-NFS en desarrollo.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

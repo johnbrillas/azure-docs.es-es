@@ -6,14 +6,14 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/07/2021
+ms.date: 03/21/2021
 ms.custom: references_regions
-ms.openlocfilehash: ddd5c5de85da5ae8cec9d24d33dfd2bf035b5b34
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: f77bd69f8266d9461481cd0a12a7b70107622de5
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102438735"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773460"
 ---
 # <a name="azure-purview-connector-for-amazon-s3"></a>Conector de Azure Purview para Amazon S3
 
@@ -49,29 +49,30 @@ En la tabla siguiente se asignan las regiones en las que se almacenan los datos 
 | Región de almacenamiento | Región de examen |
 | ------------------------------- | ------------------------------------- |
 | Este de EE. UU. (Ohio)                  | Este de EE. UU. (Ohio)                        |
-| Este de EE. UU. (N. Virginia)           | Este de EE. UU. (Ohio)                        |
+| Este de EE. UU. (N. Virginia)           | Este de EE. UU. (Ohio) o Este de EE. UU. (N. Virginia)                       |
 | Oeste de EE. UU. (N. California)         | Este de EE. UU. (Ohio)                        |
 | Oeste de EE. UU. (Oregon)                | Este de EE. UU. (Ohio)                        |
 | África (Ciudad del cabo)              | Europa (Frankfurt)                    |
-| Asia Pacífico (Hong Kong)        | Europa (Frankfurt)                    |
-| Asia Pacífico (Mumbai)           | Europa (Frankfurt)                    |
-| Asia Pacífico (Osaka-local)      | Europa (Frankfurt)                    |
-| Asia Pacífico (Seúl)            | Europa (Frankfurt)                    |
-| Asia Pacífico (Singapur)        | Europa (Frankfurt)                    |
-| Asia Pacífico (Sídney)           | Europa (Frankfurt)                    |
-| Asia Pacífico (Tokio)            | Europa (Frankfurt)                    |
+| Asia Pacífico (Hong Kong)        | Europa (Frankfurt) o Asia Pacífico (Sydney)                   |
+| Asia Pacífico (Mumbai)           | Europa (Frankfurt) o Asia Pacífico (Sydney)                   |
+| Asia Pacífico (Osaka-local)      | Europa (Frankfurt) o Asia Pacífico (Sydney)                   |
+| Asia Pacífico (Seúl)            | Europa (Frankfurt) o Asia Pacífico (Sydney)                   |
+| Asia Pacífico (Singapur)        | Europa (Frankfurt) o Asia Pacífico (Sydney)                   |
+| Asia Pacífico (Sídney)           | Europa (Frankfurt) o Asia Pacífico (Sydney)                  |
+| Asia Pacífico (Tokio)            | Europa (Frankfurt) o Asia Pacífico (Sydney)                 |
 | Canada (Central)                | Este de EE. UU. (Ohio)                        |
 | China (Pekín)                 | No compatible                    |
 | China (Ningxia)                 | No compatible                   |
 | Europa (Frankfurt)              | Europa (Frankfurt)                    |
-| Europa (Irlanda)                | Europa (Frankfurt)                    |
-| Europa (Londres)                 | Europa (Frankfurt)                    |
+| Europa (Irlanda)                | Europa (Frankfurt) o Europa (Irlanda)                   |
+| Europa (Londres)                 | Europa (Frankfurt) o Europa (Irlanda)                   |
 | Europa (Milán)                  | Europa (Frankfurt)                    |
 | Europa (París)                  | Europa (Frankfurt)                    |
 | Europa (Estocolmo)              | Europa (Frankfurt)                    |
 | Oriente Medio (Bahrein)           | Europa (Frankfurt)                    |
 | Sudamérica (Sao Paulo)       | Este de EE. UU. (Ohio)                        |
 | | |
+
 ## <a name="prerequisites"></a>Prerrequisitos
 
 Asegúrese de que ha completado los siguientes requisitos previos antes de agregar los cubos de Amazon S3 como orígenes de datos de Purview y examinar los datos de S3.

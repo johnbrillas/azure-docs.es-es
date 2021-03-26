@@ -1,24 +1,14 @@
 ---
 title: Comprobaciones personalizadas y de línea de base
 description: Obtenga información sobre el concepto de línea de base de Azure Defender para IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/07/2019
-ms.author: mlottner
-ms.openlocfilehash: 04fe87cd69efc4c064b8fbdc596a5f9e187abbb1
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 1b8b9d62918e40262da6b3df48d0fece842e050f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102247"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779365"
 ---
 # <a name="azure-defender-for-iot-baseline-and-custom-checks"></a>Comprobaciones personalizadas y línea de base de Azure Defender para IoT
 
@@ -42,7 +32,7 @@ Las comprobaciones personalizadas de base de referencia establecen una lista de 
 
 1. Cargue el archivo de **comprobaciones personalizadas de línea de base** en el dispositivo.
 
-1. Agregue propiedades de línea de base al módulo de seguridad y haga clic en **Guardar**.
+1. Agregue propiedades de línea de base al microagente de Defender para IoT y haga clic en **Guardar**.
 
 ### <a name="baseline-custom-check-file-example"></a>Ejemplo de archivo de comprobación personalizada de línea de base
 

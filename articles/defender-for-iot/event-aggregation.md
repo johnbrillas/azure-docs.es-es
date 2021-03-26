@@ -1,26 +1,16 @@
 ---
-title: Agregación de eventos clásica del módulo de seguridad
+title: Agregación de eventos clásicos del microagente de Defender para IoT
 description: Obtenga más información sobre la agregación de eventos de Defender para IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 1/20/2021
-ms.author: shhazam
-ms.openlocfilehash: 0718c2637658e5519760a68f29c7a816b2aa61a1
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.date: 3/23/2021
+ms.openlocfilehash: e6c0f0e6e1f4027716ff8e3ca99f1c8803f33260
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809225"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779144"
 ---
-# <a name="security-module-classic-event-aggregation"></a>Agregación de eventos clásica del módulo de seguridad
+# <a name="defender-iot-micro-agent-classic-event-aggregation"></a>Agregación de eventos clásicos del microagente de Defender para IoT
 
 Los agentes de seguridad de Defender para IoT recopilan datos y eventos del sistema del dispositivo local, y envían estos datos a la nube de Azure para su procesamiento y análisis. El agente de seguridad recopila muchos tipos de eventos de dispositivo, incluidos los eventos de nuevo proceso y nueva conexión. En un dispositivo se pueden producir de forma legítima eventos tanto de nuevo proceso como de nueva conexión en un segundo, y si bien es importante para una seguridad sólida y completa, el número de mensajes que obliga a enviar a los agentes de seguridad puede alcanzar o superar rápidamente los límites de cuota y costo de su instancia de IoT Hub. Sin embargo, estos eventos contienen información de seguridad muy valiosa que es crucial para proteger el dispositivo.
 
@@ -99,4 +89,4 @@ Para seguir obteniendo información sobre la implementación de Defender para Io
 - Seleccione e implemente un [agente de seguridad](how-to-deploy-agent.md)
 - Repase los [requisitos previos del sistema](quickstart-system-prerequisites.md) de Defender para IoT.
 - Obtenga información sobre cómo [habilitar el servicio Defender para IoT en IoT Hub](quickstart-onboard-iot-hub.md).
-- Obtenga información sobre el servicio en las [preguntas más frecuentes de Defender para IoT](resources-frequently-asked-questions.md).
+- Obtenga más información sobre el servicio en las [preguntas más frecuentes de Defender para IoT](resources-frequently-asked-questions.md)

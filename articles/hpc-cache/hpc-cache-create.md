@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: 77bd5e3b7a258ef83e5de4ec645ea70578fb9dfb
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 63a179f7123f088c9c60fbfb8996a5b21d1c704d
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94657098"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773273"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Creación de una instancia de Azure HPC Cache
 
@@ -59,7 +59,7 @@ Azure HPC Cache administra qué archivos se almacenan en caché y se cargan prev
 
 ## <a name="enable-azure-key-vault-encryption-optional"></a>Habilitación del cifrado de Azure Key Vault (opcional)
 
-Si su memoria caché se encuentra en una región que admite claves de cifrado administradas por el cliente, aparece la página **Claves de cifrado de disco** entre las pestañas **Caché** y **Etiquetas**. Lea [Disponibilidad regional](hpc-cache-overview.md#region-availability) para obtener más información sobre la compatibilidad con regiones.
+Aparece la página **Claves de cifrado de disco** entre las pestañas **Caché** y **Etiquetas**.<!-- Read [Regional availability](hpc-cache-overview.md#region-availability) to learn more about region support. -->
 
 Si desea administrar las claves de cifrado usadas para el almacenamiento en caché, proporcione la información de Azure Key Vault en la página **Claves de cifrado de disco**. El almacén de claves debe estar en la misma región y en la misma suscripción que la memoria caché.
 
@@ -132,7 +132,7 @@ nets/<cache_subnet_name>"``
 
   | Tamaño de memoria caché | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072 GB    | sí         | No          | No          |
+  | 3072 GB    | sí         | no          | No          |
   | 6144 GB    | sí         | sí         | No          |
   | 12288 GB   | sí         | sí         | sí         |
   | 24576 GB   | No          | sí         | sí         |
@@ -235,7 +235,7 @@ nets/<cache_subnet_name>"`
 
   | Tamaño de memoria caché | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072 GB    | sí         | No          | No          |
+  | 3072 GB    | sí         | no          | No          |
   | 6144 GB    | sí         | sí         | no          |
   | 12,288 GB   | sí         | sí         | sí         |
   | 24,576 GB   | no          | sí         | sí         |

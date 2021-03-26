@@ -1,24 +1,14 @@
 ---
 title: Instalación e implementación del agente basado en C para Linux
 description: Aprenda a instalar e implementar el agente de seguridad basado en C de Defender for IoT en Linux.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/23/2019
-ms.author: mlottner
-ms.openlocfilehash: 6d3f96ed60ca784402b6d24eea7234f37c4fb959
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 6f59db7ff24412c66a6a4898b14272ea9540fdd2
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449788"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778821"
 ---
 # <a name="deploy-defender-for-iot-c-based-security-agent-for-linux"></a>Implementación del agente de seguridad basado en C de Defender for IoT en Linux
 
@@ -35,7 +25,7 @@ Para obtener información sobre otras plataformas y tipos de agente, vea [Elegir
 
 1. Para implementar el agente de seguridad, se necesitan derechos de administrador local en el equipo de instalación (sudo).
 
-1. [Crear un módulo de seguridad](quickstart-create-security-twin.md) para el dispositivo.
+1. [Cree un microagente de Defender para IoT](quickstart-create-security-twin.md) para el dispositivo.
 
 ## <a name="installation"></a>Instalación
 
