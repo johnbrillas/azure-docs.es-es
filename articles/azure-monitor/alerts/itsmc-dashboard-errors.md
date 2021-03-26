@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/18/2021
-ms.openlocfilehash: 5cc3c4a07cc698f3592a2ff2fd76e9f4bbef441b
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 727e744c59d0a8d90cf320e1ee2e2a17e10ff847
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036459"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103471532"
 ---
 # <a name="connector-status-errors-in-the-itsmc-dashboard"></a>Errores de estado del conector en el panel de ITSMC
 
@@ -88,3 +88,11 @@ En las secciones siguientes se describen los errores comunes que aparecen en la 
 
 * Cuando se crea una nueva instancia de ITSMC, inicia la sincronización de la información del sistema ITSM, como elementos de trabajo y plantillas de elementos de trabajo. [Sincronice ITSMC para generar un nuevo token de actualización](./itsmc-resync-servicenow.md).
 * [Revise los detalles de conexión en ITSMC](./itsmc-connections-servicenow.md#create-a-connection) y compruebe que ITSMC puede realizar la [sincronización](./itsmc-resync-servicenow.md) correctamente.
+
+
+## <a name="ip-restrictions"></a>Restricciones de IP
+**Error**: "No se pudo agregar la conexión de ITSM denominada "XXX"debido a una solicitud incorrecta. Error: Solicitud incorrecta. Parámetros no válidos proporcionados para la conexión. Excepción HTTP: Código de estado prohibido".
+
+**Causa**: La dirección IP de la aplicación ITSM no permite conexiones de ITSM desde las herramientas ITSM de los asociados.
+
+**Resolución**: Para obtener una lista de las direcciones IP de ITSM con el fin de permitir las conexiones de ITSM desde las herramientas ITSM de los asociados, se recomienda que muestre el intervalo IP pública completo de la región de Azure a la que pertenece el área de trabajo de Log Analytics. [Detalles aquí](https://www.microsoft.com/download/details.aspx?id=56519) En las regiones EUS/WEU/EUS2/WUS2/Centro y Sur de EE. UU., el cliente solo puede enumerar la etiqueta de red ActionGroup.

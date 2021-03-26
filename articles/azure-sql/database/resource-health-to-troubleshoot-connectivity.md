@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: wiassaf, sstein
 ms.date: 02/26/2019
-ms.openlocfilehash: a51840daa2c8b19c323ad761ff6e6d1dcef15f75
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 1a74a2f44ac9b03e39e9fea48a3428b82111a48c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497969"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103472001"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database-and-azure-sql-managed-instance"></a>Uso de Resource Health para solucionar problemas de conectividad para Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -61,7 +61,7 @@ Puede obtener acceso al historial de mantenimiento de hasta 14 días en la secci
 
 ### <a name="downtime-reasons"></a>Motivos del tiempo de inactividad
 
-Cuando la base de datos experimenta un tiempo de inactividad, se realizan análisis para determinar un motivo. Cuando esté disponible, el motivo del tiempo de inactividad se notifica en la sección Historial de estado de Resource Health. Normalmente, los motivos del tiempo de inactividad se publican 30 minutos después de un evento.
+Cuando la base de datos experimenta un tiempo de inactividad, se realizan análisis para determinar un motivo. Cuando esté disponible, el motivo del tiempo de inactividad se notifica en la sección Historial de estado de Resource Health. Los motivos de tiempo de inactividad se publican normalmente en un plazo de 45 minutos después de un evento.
 
 #### <a name="planned-maintenance"></a>Mantenimiento planeado
 

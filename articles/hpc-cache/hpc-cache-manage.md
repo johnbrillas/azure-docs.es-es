@@ -4,14 +4,14 @@ description: Administración y actualización de Azure HPC Cache mediante Azure 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 03/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: 40d091782f37a32b75659cd274e49798dbe527cb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b34beb65bb8c4136887651d8365c937b17718572
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590793"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103471876"
 ---
 # <a name="manage-your-cache"></a>Administración de la caché
 
@@ -254,6 +254,20 @@ La página de información general muestra gráficos para algunas estadísticas 
 ![Captura de pantalla de tres gráficos de líneas que muestran las estadísticas mencionadas anteriormente para una memoria caché de ejemplo](media/hpc-cache-overview-stats.png)
 
 Estos gráficos forman parte de las herramientas de supervisión y análisis integradas de Azure. Existen otras herramientas y alertas disponibles en las páginas del encabezado **Supervisión** de la barra lateral del portal. Obtenga más información en la sección del portal de la [documentación de Supervisión de Azure](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-in-the-azure-portal).
+
+## <a name="view-warnings"></a>Ver advertencias
+
+Si la caché entra en un estado incorrecto, Compruebe la **página advertencias**. En esta página se muestran notificaciones del software de caché que podrían ayudarle a entender su estado.
+
+Estas notificaciones no aparecen en el registro de actividad porque no están controladas por Azure Portal. A menudo se asocian con la configuración personalizada que podría haber realizado.
+
+Los tipos de advertencias que puede ver aquí incluyen:
+
+* La memoria caché no puede tener acceso a su servidor NTP.
+* La caché no pudo descargar la información de nombre de usuario de grupos extendidos.
+* La configuración de DNS personalizada ha cambiado en un destino de almacenamiento.
+
+![Captura de pantalla de la página Supervisión > Advertencias que muestra un mensaje que indica que no se pudieron descargar los nombres de usuario de los grupos extendidos](media/warnings-page.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
