@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: c7b0ea489c1d70ab86d677aad666ea6728fa76b4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96017090"
 ---
 # <a name="change-the-device-mode-on-your-storsimple-device"></a>Cambiar el modo del dispositivo en su dispositivo StorSimple
@@ -78,7 +78,7 @@ Puede colocar el dispositivo StorSimple en modo de mantenimiento (desde el modo 
 #### <a name="to-enter-maintenance-mode"></a>Para acceder al modo de mantenimiento
 
 1. Inicie sesión en la consola serie del dispositivo siguiendo los pasos detallados en [Uso de PuTTY para conectarse a la consola serie del dispositivo](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
-2. En el menú de la consola serie, seleccione la opción 1, **Iniciar sesión con acceso completo**. Cuando se le solicite, proporcione la **contraseña de administrador de dispositivo**. La contraseña predeterminada es: `Password1`.
+2. En el menú de la consola serie, elija la opción 1, **Iniciar sesión con acceso total**. Cuando se le solicite, proporcione la **contraseña de administrador de dispositivo**. La contraseña predeterminada es: `Password1`.
 3. En el símbolo del sistema, escriba 
    
     `Enter-HcsMaintenanceMode`

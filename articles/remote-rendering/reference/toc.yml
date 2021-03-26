@@ -12,8 +12,15 @@
   href: data-residency.md
 - name: Repositorio de ejemplos de Remote Rendering (GitHub)
   href: 'https://github.com/Azure/azure-remote-rendering'
-- name: API REST de administración de recursos de Azure Mixed Reality
-  href: /rest/api/mixedreality/
+- name: API DE REST
+  expanded: true
+  items:
+    - name: API REST de administración de recursos de Azure Mixed Reality
+      href: /rest/api/mixedreality/
+    - name: Referencia de la API REST de Remote Rendering
+      href: /rest/api/mixedreality/2021-01-01/remoterendering
+    - name: Definición de Swagger de Remote Rendering
+      href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mixedreality/data-plane/Microsoft.MixedReality'
 - name: Documentación de la API de C#
   href: /dotnet/api/Microsoft.Azure.RemoteRendering
 - name: Documentación de la API de C++

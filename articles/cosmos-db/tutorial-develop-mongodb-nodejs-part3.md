@@ -11,10 +11,10 @@ ms.author: jopapa
 ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
 ms.openlocfilehash: 181af5cf26d19a9f51e8d456e777badf7efa224d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93097828"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Creación de una aplicación de Angular con la API de Azure Cosmos DB para MongoDB: Compilación de la interfaz de usuario con Angular
@@ -56,7 +56,7 @@ Antes de iniciar esta parte del tutorial, asegúrese de que ha completado los pa
 
     A continuación, se pueden visualizar los archivos que se han creado y actualizado. 
 
-3. En Visual Studio Code, en el panel **Explorer** , vaya a la nueva carpeta **src\app** y abra el nuevo archivo **heroes.component.ts** generado en la carpeta de la aplicación. Este archivo de componente de TypeScript se creó mediante el comando anterior.
+3. En Visual Studio Code, en el panel **Explorer**, vaya a la nueva carpeta **src\app** y abra el nuevo archivo **heroes.component.ts** generado en la carpeta de la aplicación. Este archivo de componente de TypeScript se creó mediante el comando anterior.
 
     > [!TIP]
     > Si la carpeta de la aplicación no se muestra en Visual Studio Code, escriba CMD + MAYÚS P en un Mac o Ctrl + Mayús + P en Windows para abrir la paleta de comandos y, a continuación, escriba *Reload Window* (Volver a cargar la ventana) para recoger el cambio del sistema.
@@ -172,7 +172,7 @@ Antes de iniciar esta parte del tutorial, asegúrese de que ha completado los pa
     }
     ```
 
-8. En **Explorer** , abra el archivo **app/app.module.ts** y actualice la sección de importaciones para agregar una importación para `FormsModule`. La sección de importación debe tener el siguiente aspecto:
+8. En **Explorer**, abra el archivo **app/app.module.ts** y actualice la sección de importaciones para agregar una importación para `FormsModule`. La sección de importación debe tener el siguiente aspecto:
 
     ```
     imports: [
@@ -193,7 +193,7 @@ Antes de iniciar esta parte del tutorial, asegúrese de que ha completado los pa
 
 1. En el panel Explorer, abra el archivo **src/styles.scss**.
 
-2. Copie el código siguiente en el archivo **styles.scss** , reemplazando el contenido existente del archivo.
+2. Copie el código siguiente en el archivo **styles.scss**, reemplazando el contenido existente del archivo.
 
     ```css
     /* You can add global styles to this file, and also import other style files */
@@ -354,7 +354,7 @@ Antes de iniciar esta parte del tutorial, asegúrese de que ha completado los pa
 
 Ahora que tenemos el componente, ¿cómo se consigue que se muestre en la pantalla? Vamos a modificar los componentes predeterminados de **app.component.ts**.
 
-1. En el panel Explorer, abra **/app/app.component.ts** , cambie el título a Heroes y coloque el nombre del componente que hemos creado en **heroes.components.ts** (app-heroes) para hacer referencia a ese nuevo componente. El contenido del archivo ahora debería ser como este: 
+1. En el panel Explorer, abra **/app/app.component.ts**, cambie el título a Heroes y coloque el nombre del componente que hemos creado en **heroes.components.ts** (app-heroes) para hacer referencia a ese nuevo componente. El contenido del archivo ahora debería ser como este: 
 
     ```ts
     import { Component } from '@angular/core';
@@ -375,13 +375,13 @@ Ahora que tenemos el componente, ¿cómo se consigue que se muestre en la pantal
 
     ```
 
-2. Hay otros componentes de **heroes.components.ts** a los que también se hace referencia, como el componente Hero, por lo que tenemos que crearlo también. En el símbolo del sistema de la CLI de Angular, use el siguiente comando para crear un modelo de Hero y un archivo llamado **hero.ts** , donde g = generar cl = clase y hero = nombre de clase.
+2. Hay otros componentes de **heroes.components.ts** a los que también se hace referencia, como el componente Hero, por lo que tenemos que crearlo también. En el símbolo del sistema de la CLI de Angular, use el siguiente comando para crear un modelo de Hero y un archivo llamado **hero.ts**, donde g = generar cl = clase y hero = nombre de clase.
 
     ```bash
     ng g cl hero
     ```
 
-3. En el panel Explorer, abra **src\app\hero.ts**. En **hero.ts** , reemplace el contenido del archivo por el código siguiente, que agrega una clase Hero con un identificador, un nombre y un comentario.
+3. En el panel Explorer, abra **src\app\hero.ts**. En **hero.ts**, reemplace el contenido del archivo por el código siguiente, que agrega una clase Hero con un identificador, un nombre y un comentario.
 
     ```ts
       export class Hero {
@@ -409,7 +409,7 @@ Ahora que tenemos el componente, ¿cómo se consigue que se muestre en la pantal
 
 ## <a name="create-the-service"></a>Creación del servicio
 
-1. En el símbolo del sistema de la CLI de Angular, escriba el siguiente comando para crear un servicio Hero en **app.module.ts** , donde g = generar, s = servicio, hero = nombre del servicio, -m = colocar en app.module.
+1. En el símbolo del sistema de la CLI de Angular, escriba el siguiente comando para crear un servicio Hero en **app.module.ts**, donde g = generar, s = servicio, hero = nombre del servicio, -m = colocar en app.module.
 
     ```bash
     ng g s hero -m app.module
@@ -467,7 +467,7 @@ Ahora que tenemos el componente, ¿cómo se consigue que se muestre en la pantal
     ],
     ```
 
-5. En **app.module.ts** , agregue la instrucción de importación de HttpClientModule a la lista de importaciones.
+5. En **app.module.ts**, agregue la instrucción de importación de HttpClientModule a la lista de importaciones.
 
     ```ts
     import { HttpClientModule } from '@angular/common/http';

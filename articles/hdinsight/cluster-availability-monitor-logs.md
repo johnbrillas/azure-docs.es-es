@@ -4,12 +4,12 @@ description: Aprenda a usar los registros de Azure Monitor para supervisar la di
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 08/12/2020
-ms.openlocfilehash: 3bc5c659d9871cb8f1d49d2a3bfde2ce03faea86
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 299a17e23ca3eb2d954bae7335571ae1f645152e
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571889"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867158"
 ---
 # <a name="how-to-monitor-cluster-availability-with-azure-monitor-logs-in-hdinsight"></a>Supervisión de la disponibilidad de un clúster con los registros Azure Monitor en HDInsight
 
@@ -25,7 +25,7 @@ Como requisito previo, necesitará un área de trabajo de Log Analytics para alm
 
 En la página de recursos del clúster de HDInsight, en el portal, seleccione **Azure Monitor**. Luego, seleccione **Habilitar** y seleccione el área de trabajo de Log Analytics de la lista desplegable.
 
-![HDInsight Operations Management Suite](media/cluster-availability-monitor-logs/azure-portal-monitoring.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/azure-portal-monitoring.png" alt-text="HDInsight Operations Management Suite":::
 
 De forma predeterminada, esto instala el agente de OMS en todos los nodos del clúster, excepto en los nodos perimetrales. Dado que no se instala ningún agente de OMS en los nodos perimetrales del clúster, no hay telemetría en los nodos perimetrales presentes en Log Analytics de forma predeterminada.
 
@@ -33,7 +33,7 @@ De forma predeterminada, esto instala el agente de OMS en todos los nodos del cl
 
 Cuando se haya habilitado la integración de registros de Azure Monitor (esto puede tardar unos minutos), vaya al recurso **Área de trabajo de Log Analytics** y seleccione **Registros**.
 
-![Registros del área de trabajo de Log Analytics](media/cluster-availability-monitor-logs/hdinsight-portal-logs.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/hdinsight-portal-logs.png" alt-text="Registros del área de trabajo de Log Analytics":::
 
 La hoja Registros muestra un número de consultas de ejemplo, como:
 
@@ -47,7 +47,7 @@ La hoja Registros muestra un número de consultas de ejemplo, como:
 
 Por ejemplo, ejecute la consulta de ejemplo **Índice de disponibilidad**. Para ello, seleccione **Ejecutar** en esa consulta, tal como se muestra en la captura de pantalla anterior. Esto mostrará el índice de disponibilidad de cada nodo del clúster como un porcentaje. Si habilitó varios clústeres de HDInsight para enviar métricas a la misma área de trabajo de Log Analytics, verá el índice de disponibilidad para todos los nodos (salvo los perimetrales) en los clústeres que se muestran.
 
-![Consulta de ejemplo de "índice de disponibilidad" de los registros del área de trabajo de Log Analytics](media/cluster-availability-monitor-logs/portal-availability-rate.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-availability-rate.png" alt-text="Consulta de ejemplo de &quot;índice de disponibilidad&quot; de los registros del área de trabajo de Log Analytics":::
 
 > [!NOTE]  
 > El índice de disponibilidad se mide en un período de 24 horas, por lo que el clúster tendrá que ejecutarse durante al menos 24 horas antes de poder ver índice de disponibilidad precisos.
@@ -60,16 +60,16 @@ También puede configurar alertas de Azure Monitor que se desencadenarán cuando
 
 En la hoja **Registros**, ejecute la consulta de ejemplo **Equipos no disponibles**. Para ello, seleccione **Ejecutar** en esa consulta, tal como se muestra a continuación.
 
-![Ejemplo de registros de "equipos no disponibles" del área de trabajo de Log Analytics](media/cluster-availability-monitor-logs/portal-unavailable-computers.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-unavailable-computers.png" alt-text="Ejemplo de registros de &quot;equipos no disponibles&quot; del área de trabajo de Log Analytics":::
 
 Si todos los nodos están disponibles, esta consulta debería devolver 0 resultados por ahora. Haga clic en **Nueva regla de alertas** para comenzar a configurar la alerta para esta consulta.
 
-![Nueva regla de alertas del área de trabajo de Log Analytics](media/cluster-availability-monitor-logs/portal-logs-new-alert-rule.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-logs-new-alert-rule.png" alt-text="Nueva regla de alertas del área de trabajo de Log Analytics":::
 
 Una alerta tiene tres componentes: el *recursos* para el que crear la regla (en este caso, el área de Log Analytics), la *condición* para desencadenar la alerta y los *grupos de acciones*  que determinan lo que sucederá cuando se desencadene la alerta.
 Haga clic en el **título de la condición**, tal como se muestra abajo, para finalizar la configuración de la lógica de señal.
 
-![Condición de regla de creación de alertas del portal](media/cluster-availability-monitor-logs/portal-condition-title.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-condition-title.png" alt-text="Condición de regla de creación de alertas del portal":::
 
 Se abrirá **Configurar lógica de señal**.
 
@@ -85,11 +85,11 @@ Para esta alerta, debería asegurarse de que **Período=Frecuencia**. Puede enco
 
 Seleccione **Listo** cuando haya terminado de configurar la lógica de señal.
 
-![Configuración de la lógica de señal en la regla de alertas](media/cluster-availability-monitor-logs/portal-configure-signal-logic.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-configure-signal-logic.png" alt-text="Configuración de la lógica de señal en la regla de alertas":::
 
 Si no dispone de un grupo de acciones existente, haga clic en **Crear nuevo** en la sección **Grupos de acciones**.
 
-![Creación de un nuevo grupo de acciones en la regla de alertas](media/cluster-availability-monitor-logs/portal-create-new-action-group.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-create-new-action-group.png" alt-text="Creación de un nuevo grupo de acciones en la regla de alertas":::
 
 Se abrirá **Agregar grupo de acciones**. Elija un valor de **Nombre del grupo de acciones**, **Nombre corto**, **Suscripción** y **Grupo de recursos**. En la sección **Acciones**, elija un valor de **Nombre de acción** y seleccione **Correo electrónico/SMS/Inserción/Voz** como el valor de **Tipo de acción.**
 
@@ -98,26 +98,26 @@ Se abrirá **Agregar grupo de acciones**. Elija un valor de **Nombre del grupo d
 
 Se abrirá **Correo electrónico/SMS/Inserción/Voz**. Elija un valor de **Nombre** para el destinatario, **active** la casilla **Correo electrónico** y escriba una dirección de correo electrónico a la que enviar la alerta. Seleccione **Aceptar** en **Correo electrónico/SMS/Inserción/Voz** y luego en **Agregar grupo de acciones** para terminar de configurar el grupo de acciones.
 
-![Incorporación de un grupo de acciones en la regla de alertas](media/cluster-availability-monitor-logs/portal-add-action-group.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-add-action-group.png" alt-text="Incorporación de un grupo de acciones en la regla de alertas":::
 
 Después de que se cierren estas hojas, debería ver el grupo de acciones en la sección **Grupos de acciones**. Por último, complete la sección **Detalles de alerta**. Para ello, escriba un valor en **Nombre de la regla de alertas** y en **Descripción**, y luego elija **Gravedad**. Haga clic en **Crear regla de alerta** para finalizar.
 
-![Finalización después de la creación de una regla de alertas del portal](media/cluster-availability-monitor-logs/portal-create-alert-rule-finish.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-create-alert-rule-finish.png" alt-text="Finalización después de la creación de una regla de alertas del portal":::
 
 > [!TIP]
 > La capacidad de especificar el valor de **Gravedad** es una herramienta eficaz que puede usarse al crear varias alertas. Por ejemplo, podría crear una alerta para generar una advertencia (gravedad 1) si un único nodo principal se queda inactivo y otra alerta crítica (gravedad 0) en el improbable caso de que ambos nodos principales dejen de funcionar.
 
 Cuando se cumple la condición de la alerta, esta última se desencadena y recibirá un correo electrónico con los detalles de la misma, que tendrá el aspecto siguiente:
 
-![Ejemplo de correo electrónico de alerta de Azure Monitor](media/cluster-availability-monitor-logs/portal-oms-alert-email.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-oms-alert-email.png" alt-text="Ejemplo de correo electrónico de alerta de Azure Monitor":::
 
 También puede ver todas las alertas desencadenadas, agrupadas por gravedad. Para ello, vaya a **Alertas** en su **Área de trabajo de Log Analytics**.
 
-![Alertas del área de trabajo de Log Analytics](media/cluster-availability-monitor-logs/hdi-portal-oms-alerts.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/hdi-portal-oms-alerts.png" alt-text="Alertas del área de trabajo de Log Analytics":::
 
 Al seleccionar una agrupación de gravedad (por ejemplo, las de **Gravedad 1** tal como se ha mencionado anteriormente), se mostrarán los registros de todas las alertas de esta gravedad que se hayan desencadenado, como se muestra a continuación:
 
-![Alertas de gravedad 1 del área de trabajo de Log Analytics](media/cluster-availability-monitor-logs/portal-oms-alerts-sev1.png)
+:::image type="content" source="media/cluster-availability-monitor-logs/portal-oms-alerts-sev1.png" alt-text="Alertas de gravedad 1 del área de trabajo de Log Analytics":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

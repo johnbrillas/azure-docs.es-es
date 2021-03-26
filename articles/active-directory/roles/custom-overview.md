@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b66b004a0371b76f82d525972feefab9c89efb2d
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 3fad2c683890776908afbfbf15ee91d46d564783
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742053"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466769"
 ---
 # <a name="overview-of-role-based-access-control-in-azure-active-directory"></a>Introducción al control de acceso basado en rol en Azure Active Directory
 
@@ -60,7 +60,7 @@ Una asignación de roles es un recurso de Azure AD que asocia una *definición 
 - Definición de roles
 - Ámbito de recursos
 
-Puede [crear asignaciones de roles](custom-create.md) mediante Azure Portal, Azure AD PowerShell y Graph API. También puede [ver las asignaciones de un rol personalizado](custom-view-assignments.md#view-the-assignments-of-a-role).
+Puede [crear asignaciones de roles](custom-create.md) mediante Azure Portal, Azure AD PowerShell y Graph API. También puede [enumerar las asignaciones de roles](view-assignments.md).
 
 El diagrama siguiente muestra un ejemplo de una asignación de roles. En este ejemplo, se ha asignado a Chris Green el rol personalizado de administrador del registro de aplicaciones en el ámbito del registro de la aplicación del generador de widgets de Contoso. Esta asignación concede a Chris los permisos del rol de administrador del registro de aplicaciones solo en este registro de aplicación específico.
 
@@ -89,4 +89,4 @@ El uso de roles integrados en Azure AD es gratis, mientras que los roles person
 
 - [Descripción de los roles de Azure AD](concept-understand-roles.md)
 - Creación de asignaciones de roles personalizados mediante [Azure Portal, Azure AD PowerShell y Graph API](custom-create.md).
-- [Visualización de las asignaciones de un rol personalizado](custom-view-assignments.md).
+- [Lista de asignaciones de roles](view-assignments.md)

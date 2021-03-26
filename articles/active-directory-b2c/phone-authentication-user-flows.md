@@ -12,10 +12,10 @@ ms.date: 02/01/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: dd21c1dca0dd54331780ba98f9c53d5b99d6b4e9
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100557235"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-for-user-flows-preview"></a>Configuración del registro e inicio de sesión telefónico para flujos de usuario (versión preliminar)
@@ -129,9 +129,9 @@ Puede habilitar la solicitud de correo electrónico de recuperación en las prop
 
 Una vez que haya habilitado el registro e inicio de sesión telefónico y la solicitud de correo electrónico de recuperación en el flujo de usuario, puede usar **Ejecutar flujo de usuario** para probar la experiencia del usuario.
 
-1. Seleccione **Directivas** > **Flujos de usuario** y, a continuación, seleccione el flujo de usuario que ha creado. En la página Introducción del flujo de usuario, seleccione **Ejecutar flujo de usuario**.
+1. Seleccione **Directivas** > **Flujos de usuario** y, a continuación, seleccione el flujo de usuario que ha creado. En la página de información general del flujo de usuario, seleccione **Ejecutar flujo de usuario**.
 
-2. En **Aplicación**, seleccione la aplicación web que registró en el paso 1. La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
+2. En **Aplicación**, seleccione la aplicación web que registró en el paso 1. La **dirección URL de respuesta** debe mostrar `https://jwt.ms`.
 
 3. Seleccione **Ejecutar flujo de usuario** y compruebe el comportamiento siguiente:
 

@@ -3,12 +3,12 @@ title: Cifrado de datos de copia de seguridad mediante claves administradas por 
 description: Obtenga información sobre el modo en que Azure Backup le permite cifrar los datos de copia de seguridad mediante claves administradas por el cliente.
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 230669e0a3543a0709dda3f7fee35a0cae300d5a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 474f4238276f460abde3d600422e309171875a0c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369465"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716744"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Cifrado de datos de copia de seguridad mediante claves administradas por el cliente
 
@@ -235,11 +235,11 @@ InfrastructureEncryptionState : Disabled
 >[!NOTE]
 > El proceso para actualizar o cambiar la clave de cifrado sigue siendo el mismo. Si desea actualizar y usar una clave de otro almacén de Key Vault (diferente del que se está usando actualmente), asegúrese de lo siguiente:
 >
-> - El almacén de Key Vault se encuentra en la misma región que el almacén de Recovery Services.
+> - El almacén de claves se encuentra en la misma región que el almacén de Recovery Services.
 >
-> - El almacén de Key Vault tiene habilitadas la eliminación temporal y la protección de purga.
+> - El almacén de claves tiene habilitadas la eliminación temporal y la protección de purga.
 >
-> - El almacén de Recovery Services tiene los permisos necesarios para obtener acceso al almacén de Key Vault.
+> - El almacén de Recovery Services tiene los permisos necesarios para obtener acceso al almacén de claves.
 
 ## <a name="backing-up-to-a-vault-encrypted-with-customer-managed-keys"></a>Copia de seguridad en un almacén cifrado con claves administradas por el cliente
 

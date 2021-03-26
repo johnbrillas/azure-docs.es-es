@@ -13,17 +13,17 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: references_regions
 ms.openlocfilehash: 9cb7a97b3f57ee7ac10babc53ee2263d51838777
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92309679"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Disponibilidad de región y residencia de datos
 
 La disponibilidad en regiones y residencia de datos son dos conceptos muy diferentes que se aplican de forma diferente a Azure AD B2C del resto de Azure. En este artículo se explican las diferencias entre estos dos conceptos y se compara cómo se aplican a Azure frente a Azure AD B2C.
 
-Azure AD B2C suele estar **disponible en todo el mundo** con la opción de **residencia de datos** en **Estados Unidos, Europa o Asia Pacifico** .
+Azure AD B2C suele estar **disponible en todo el mundo** con la opción de **residencia de datos** en **Estados Unidos, Europa o Asia Pacifico**.
 
 [Disponibilidad en regiones ](#region-availability) se refiere a que un servicio esté disponible para su uso.
 
@@ -33,7 +33,7 @@ Azure AD B2C suele estar **disponible en todo el mundo** con la opción de **re
 
 Azure AD B2C está disponible en todo el mundo a través de la nube pública de Azure.
 
-Esto difiere del modelo seguido por la mayoría de los demás servicios de Azure, que suelen aunar la *disponibilidad* con la *residencia de datos* . Puede ver ejemplos de esto en la página [Productos disponibles por región](https://azure.microsoft.com/regions/services/) de Azure y en la [calculadora de precios de Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+Esto difiere del modelo seguido por la mayoría de los demás servicios de Azure, que suelen aunar la *disponibilidad* con la *residencia de datos*. Puede ver ejemplos de esto en la página [Productos disponibles por región](https://azure.microsoft.com/regions/services/) de Azure y en la [calculadora de precios de Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
 ## <a name="data-residency"></a>Residencia de datos
 
@@ -69,13 +69,13 @@ Una vez que se ha completado el registro, la edición de perfiles o el inicio de
 
 ## <a name="preview-tenant"></a>Inquilino de versión preliminar
 
-Si había creado un inquilino de B2C durante el período de versión preliminar de Azure AD B2C, es probable que en **Tipo de inquilino** aparezca **Inquilino de vista previa** .
+Si había creado un inquilino de B2C durante el período de versión preliminar de Azure AD B2C, es probable que en **Tipo de inquilino** aparezca **Inquilino de vista previa**.
 
 En ese caso, al inquilino se debe usar solo para las pruebas y en el desarrollo. NO use el inquilino de la versión preliminar para aplicaciones de producción.
 
 **No hay ninguna ruta de migración** de un inquilino de B2C de la versión preliminar a un inquilino de B2C de escala de producción. Debe crear un nuevo inquilino de B2C para las aplicaciones de producción.
 
-Existen problemas conocidos al eliminar un inquilino de B2C preliminar y volver a crear un inquilino B2C a escala de producción con el mismo nombre de dominio. *Es necesario crear un inquilino de B2C a escala de producción con otro nombre de dominio* .
+Existen problemas conocidos al eliminar un inquilino de B2C preliminar y volver a crear un inquilino B2C a escala de producción con el mismo nombre de dominio. *Es necesario crear un inquilino de B2C a escala de producción con otro nombre de dominio*.
 
 ![Captura de pantalla de un tipo de inquilino, como inquilino de versión preliminar.](./media/data-residency/preview-b2c-tenant.png)
 

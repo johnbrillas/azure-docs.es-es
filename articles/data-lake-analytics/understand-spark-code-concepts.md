@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
 ms.openlocfilehash: 2abd5882e310b17c633a82009f44624fad156f14
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92221135"
 ---
 # <a name="understand-apache-spark-code-for-u-sql-developers"></a>Descripción del código de Apache Spark para los desarrolladores de U-SQL
@@ -20,7 +20,7 @@ En esta sección se proporcionan instrucciones generales sobre cómo transformar
 - Empieza con una [comparación de los paradigmas de procesamiento de los dos lenguajes](#understand-the-u-sql-and-spark-language-and-processing-paradigms).
 - Proporciona recomendaciones sobre cómo:
    - [Transformar scripts](#transform-u-sql-scripts), incluidas las [expresiones de conjunto de filas](#transform-u-sql-rowset-expressions-and-sql-based-scalar-expressions) de U-SQL.
-   - [Código .NET](#transform-net-code).
+   - [Código .NET](#transform-net-code)
    - [Tipos de datos](#transform-typed-values)
    - [Objetos de catálogo](#transform-u-sql-catalog-objects).
 
@@ -214,7 +214,7 @@ El optimizador de consultas basado en el costo de Spark tiene sus propias funcio
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Descripción de los formatos de datos de Spark para desarrolladores de U-SQL](understand-spark-data-formats.md)
-- [.NET para Apache Spark](/dotnet/spark/what-is-apache-spark-dotnet)
+- [.NET para Apache Spark](/dotnet/spark/what-is-apache-spark-dotnet)
 - [Actualización de las soluciones de análisis de macrodatos de Azure Data Lake Storage Gen1 a Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md)
 - [Transformación de datos mediante la actividad de Spark en Azure Data Factory](../data-factory/transform-data-using-spark.md)
 - [Transformación de datos mediante la actividad de Hive de Hadoop en Azure Data Factory](../data-factory/transform-data-using-hadoop-hive.md)

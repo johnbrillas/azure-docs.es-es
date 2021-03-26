@@ -13,10 +13,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 09/12/2019
 ms.openlocfilehash: 2a23fc0b769727cab5a28d3d313a7791bcfa6eee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91617713"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-managed-instance"></a>Creación de una red virtual para Instancia administrada de Azure SQL
@@ -66,4 +66,4 @@ La manera más fácil de crear y configurar una red virtual es usar una plantill
 - Obtenga información sobre la [arquitectura de conectividad en Instancia administrada de SQL](connectivity-architecture-overview.md).
 - Aprenda a [modificar una red virtual existente para Instancia administrada de SQL](vnet-existing-add-subnet.md).
 - Para obtener un tutorial en el que se muestra cómo crear una red virtual y una instancia administrada, y restaurar una base de datos a partir de una copia de seguridad de base de datos, vea [Creación de una instancia administrada](instance-create-quickstart.md).
-- Para incidencias de DNS, consulte [Configuración de un DNS personalizado](custom-dns-configure.md).
+- Para problemas de DNS, consulte [Configuración de un DNS personalizado](custom-dns-configure.md).

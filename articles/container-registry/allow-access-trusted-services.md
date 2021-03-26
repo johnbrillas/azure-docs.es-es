@@ -3,11 +3,11 @@ title: Acceso al registro con restricción de red con el servicio de confianza d
 description: Habilitación de una instancia de servicio de Azure de confianza para acceder de forma segura a un registro de contenedor con restricción de red para extraer o insertar imágenes
 ms.topic: article
 ms.date: 01/29/2021
-ms.openlocfilehash: 3cc32630ea689891e7ba75163c33bc499a38becd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2e6b6ee3736f98f53ebb0aa43d707d42ba4cc058
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101716489"
 ---
 # <a name="allow-trusted-services-to-securely-access-a-network-restricted-container-registry-preview"></a>Permitir que los servicios de confianza accedan de forma segura a un registro de contenedor con restricción de red (versión preliminar)
@@ -41,6 +41,7 @@ Las instancias de los siguientes servicios pueden acceder a un registro de conte
 |Servicio de confianza  |Escenarios de uso admitidos  |
 |---------|---------|
 |ACR Tasks     | [Acceder a otro registro desde una tarea de ACR](container-registry-tasks-cross-registry-authentication.md)       |
+|Machine Learning | [Implementar](../machine-learning/how-to-deploy-custom-docker-image.md) o [entrenar](../machine-learning/how-to-train-with-custom-image.md) un modelo en un área de trabajo de Machine Learning mediante una imagen de contenedor personalizada de Docker |
 |Azure Container Registry | [Importar imágenes desde otro registro de contenedor de Azure](container-registry-import-images.md#import-from-an-azure-container-registry-in-the-same-ad-tenant) | 
 
 > [!NOTE]

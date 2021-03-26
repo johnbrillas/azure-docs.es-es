@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 443232bb41ba73b5bd02d45c542e555904f539db
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792878"
 ---
 # <a name="use-powershell-to-sync-data-between-sql-database-and-sql-server"></a>Uso de PowerShell para sincronizar datos entre SQL Database y SQL Server
@@ -318,7 +318,7 @@ Para más información acerca de SQL Data Sync, consulte:
     - Uso de Azure Portal: [Tutorial: Configuración de SQL Data Sync para sincronizar datos entre una base de datos de Azure SQL Database y una base datos de SQL Server](../sql-data-sync-sql-server-configure.md)
     - Uso de PowerShell: [Uso de PowerShell para sincronizar entre varias bases de datos de Azure SQL Database](sql-data-sync-sync-data-between-sql-databases.md)
 - Data Sync Agent: [Data Sync Agent para Azure SQL Data Sync](../sql-data-sync-agent-overview.md)
-- Procedimientos recomendados: [Procedimientos recomendados para Azure SQL Data Sync](../sql-data-sync-best-practices.md)
+- Procedimientos recomendados: [Procedimientos recomendados para Azure SQL Data Sync](../sql-data-sync-best-practices.md)
 - Supervisión: [Monitor SQL Data Sync with Azure Monitor logs](../monitor-tune-overview.md) (Supervisión de SQL Data Sync con registros de Azure Monitor)
 - Solución de problemas: [Solución de problemas con Azure SQL Data Sync](../sql-data-sync-troubleshoot.md)
 - Actualización del esquema de sincronización

@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 8be878cf40967356d68e9be0765e898c81b5ba0a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93314624"
 ---
 # <a name="process-data-in-sql-server-virtual-machine-on-azure"></a><a name="heading"></a>Proceso de datos en una máquina virtual de SQL Server en Azure
@@ -43,7 +43,7 @@ A continuación se muestran algunos scripts de SQL de ejemplo que se pueden usar
 1. Obtener el número de observaciones por día
    
     `SELECT CONVERT(date, <date_columnname>) as date, count(*) as c from <tablename> group by CONVERT(date, <date_columnname>)` 
-2. Obtención de los niveles de una columna de categorías
+2. Obtención de los niveles de una columna de categorías 
    
     `select  distinct <column_name> from <databasename>`
 3. Obtener el número de niveles de combinación de dos columnas de categorías 
