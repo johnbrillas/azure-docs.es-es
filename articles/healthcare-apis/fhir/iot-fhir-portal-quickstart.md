@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: quickstart
 ms.date: 11/13/2020
 ms.author: punagpal
-ms.openlocfilehash: 91b3097e465458181074d1e450e69f267d0fe556
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 3e293782e6f00852a51e0617a07eebd5d8c56261
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105026792"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644853"
 ---
 # <a name="quickstart-deploy-azure-iot-connector-for-fhir-preview-using-azure-portal"></a>Inicio rápido: Implementación del conector de Azure IoT para FHIR (versión preliminar): Azure Portal
 
@@ -50,7 +50,7 @@ Escriba la configuración del nuevo conector de Azure IoT para FHIR. Haga clic e
 
 [![Creación de un conector de IoT](media/quickstart-iot-fhir-portal/portal-iot-connector-create.jpg)](media/quickstart-iot-fhir-portal/portal-iot-connector-create.jpg#lightbox)
 
-|Configuración|Valor|Descripción |
+|Configuración|Value|Descripción |
 |---|---|---|
 |Nombre del conector|Un nombre único|Escriba un nombre para identificar el conector de Azure IoT para FHIR. Este nombre debe ser único en un recurso Azure API for FHIR. El nombre solo puede contener letras minúsculas, números y el carácter de guion (-). Debe comenzar y terminar con una letra o un número, y debe tener entre 3 y 24 caracteres de longitud.|
 |Tipo de resolución|Lookup o Create|Seleccione **Lookup** si tiene un proceso fuera de banda para crear recursos FHIR de tipo [Device](https://www.hl7.org/fhir/device.html) y [Patient](https://www.hl7.org/fhir/patient.html) en su instancia de Azure API for FHIR. El conector de Azure IoT para FHIR usará la referencia a estos recursos al crear un recurso FHIR de tipo [Observation](https://www.hl7.org/fhir/observation.html) para representar los datos del dispositivo. Seleccione **Crear** si desea que el conector de Azure IoT para FHIR cree recursos de tipo Device y Patient esenciales en Azure API for FHIR con los respectivos valores de identificador presentes en los datos del dispositivo.|
@@ -85,12 +85,12 @@ En la página **Asignación de dispositivos**, agregue el siguiente script al ed
       "templateType": "IotJsonPathContent",
       "template": {
         "typeName": "heartrate",
-        "typeMatchExpression": "$..[?(@Body.HeartRate)]",
-        "patientIdExpression": "$.SystemProperties.iothub-connection-device-id",
+        "typeMatchExpression": "$..[?(@Body.telemetry.HeartRate)]",
+        "patientIdExpression": "$.Properties.iotcentral-device-id",
         "values": [
           {
             "required": "true",
-            "valueExpression": "$.Body.HeartRate",
+            "valueExpression": "$.Body.telemetry.HeartRate",
             "valueName": "hr"
           }
         ]
