@@ -4,7 +4,7 @@ description: En este artículo se describen las opciones de configuración de YA
 author: sukhans
 manager: sukhans
 ms.author: terrylan
-ms.date: 11/29/2019
+ms.date: 03/22/2021
 ms.topic: article
 ms.service: security
 services: azure
@@ -12,14 +12,17 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6985107dd8f13e26875cf5ea7428b3280d00cea1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a41a788a84770201996fd369d9b47031674afee3
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85367264"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799554"
 ---
 # <a name="yaml-configuration-options-to-customize-the-build-tasks"></a>Opciones de configuración de YAML para personalizar las tareas de compilación
+
+> [!Note]
+> A partir del 1 de marzo de 2022, se retirará la extensión Análisis de código de seguridad de Microsoft (MSCA). Los clientes existentes de MSCA conservarán su acceso a la extensión hasta el 1 de marzo de 2022. Consulte en el artículo sobre [herramientas de análisis de código fuente de OWASP](https://owasp.org/www-community/Source_Code_Analysis_Tools) las opciones alternativas en Azure DevOps. Los clientes que planean migrar a GitHub pueden consultar el artículo sobre la [seguridad avanzada de GitHub](https://docs.github.com/github/getting-started-with-github/about-github-advanced-security).
 
 En este artículo se muestran todas las opciones de configuración de YAML disponibles en cada una de las tareas de compilación. El artículo se inicia con las tareas para las herramientas de análisis de código de seguridad. Finaliza con las tareas posteriores al procesamiento.
 

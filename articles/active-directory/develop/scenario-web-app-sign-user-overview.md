@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: dbd4923dd2843ab2c043da69f1b72efd8e1eb701
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: 0bbc799f946d318c305a96d9cb8c6831d9242ff6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103573054"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578301"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Escenario: Aplicación web que permite iniciar sesión a los usuarios
 
@@ -43,6 +43,12 @@ Si es un desarrollador de Java, pruebe el siguiente inicio rápido:
 
 [Inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web de Java](quickstart-v2-java-webapp.md)
 
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Si es un desarrollador de Node.js, pruebe el siguiente inicio rápido:
+
+[Inicio rápido: Inicio de sesión de los usuarios y obtención de un token de acceso en una aplicación web de Node mediante el flujo de código de autorización](quickstart-v2-nodejs-webapp-msal.md)
+
 # <a name="python"></a>[Python](#tab/python)
 
 Si desarrolla con Python, pruebe el siguiente inicio rápido:
@@ -62,7 +68,7 @@ Las aplicaciones web autentican un usuario en un explorador web. En este escenar
 En una segunda fase, puede habilitar la aplicación para llamar a las API web en nombre del usuario con sesión iniciada. Esta fase siguiente es un escenario diferente, que encontrará en [Aplicación web que llama a las API web](scenario-web-app-call-api-overview.md).
 
 > [!NOTE]
-> Agregar inicio de sesión a una aplicación web consiste en proteger la aplicación web y validar un token de usuario, que es lo que hacen las bibliotecas de **middleware**. En el caso de .NET, este escenario aún no requiere la biblioteca de autenticación de Microsoft (MSAL), que se refiere a la adquisición de un token para llamar a las API protegidas. Las bibliotecas de autenticación se incluirán en el escenario de seguimiento cuando la aplicación web necesite llamar a las API web.
+> Agregar inicio de sesión a una aplicación web consiste en proteger la aplicación web y validar un token de usuario, que es lo que hacen las bibliotecas de **middleware**. En el caso de .NET, este escenario aún no requiere la biblioteca de autenticación de Microsoft (MSAL), que se refiere a la adquisición de un token para llamar a las API protegidas. Las bibliotecas de autenticación para .NET se incluirán en el escenario de seguimiento cuando la aplicación web necesite llamar a las API web.
 
 ## <a name="specifics"></a>Características específicas
 
@@ -87,6 +93,10 @@ Avance al siguiente artículo de este escenario, [Registro de la aplicación](./
 # <a name="java"></a>[Java](#tab/java)
 
 Avance al siguiente artículo de este escenario, [Registro de la aplicación](./scenario-web-app-sign-user-app-registration.md?tabs=java).
+
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+
+Avance al siguiente artículo de este escenario, [Registro de la aplicación](./scenario-web-app-sign-user-app-registration.md?tabs=nodejs).
 
 # <a name="python"></a>[Python](#tab/python)
 

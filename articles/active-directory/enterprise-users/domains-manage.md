@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/20/2020
+ms.date: 03/12/2021
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47c991457925664c82baed1a47d89f77a323ff45
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: a201452a9c708d898ee1762385955b63684876c7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102561541"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577978"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Administración de los nombres de dominio personalizados en Azure Active Directory
 
@@ -43,7 +43,7 @@ Puede cambiar el nombre de dominio principal para la organización de modo que s
 
 ## <a name="add-custom-domain-names-to-your-azure-ad-organization"></a>Adición de nombres de dominio personalizados a la organización de Azure AD
 
-Puede agregar un máximo de 900 nombres de dominio administrados. Si configura todos los dominios para la federación con Windows Server Active Directory, puede agregar un máximo de 450 nombres de dominio en cada organización.
+Puede agregar un máximo de 5000 nombres de dominio administrado. Si configura todos los dominios para la federación con Active Directory local, puede agregar un máximo de 2500 nombres de dominio en cada organización.
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>Adición de subdominios de un dominio personalizado
 

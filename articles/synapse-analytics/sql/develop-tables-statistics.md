@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 218803d0b7e1f5add2f033a7ce01e0a8f6ffc956
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 450a089c6cc1c77ac26cb0aa339277d5c49b41c8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101674092"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594791"
 ---
 # <a name="statistics-in-synapse-sql"></a>Estadísticas en SQL de Synapse
 
@@ -90,9 +90,9 @@ Es posible que las estadísticas de una columna de un país o región en una tab
 
 Sin embargo, cuando el almacenamiento de datos solo contiene un país o región y trae datos de uno nuevo, debe actualizar las estadísticas en la columna de dicho país o región.
 
-Las siguientes son recomendaciones para actualizar las estadísticas:
+A continuación se incluyen recomendaciones para actualizar las estadísticas:
 
-|||
+|Tipo|Recomendación|
 |-|-|
 | **Frecuencia de actualizaciones de estadísticas**  | Conservadora: Diario </br> Después de cargar o transformar los datos |
 | **Muestreo** |  Con menos de mil millones de filas, use el muestreo predeterminado (20 por ciento) </br> Con más de mil millones de filas, use el muestreo del dos por ciento. |
@@ -884,6 +884,6 @@ WHERE   st.[user_created] = 1
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para mejorar aún más el rendimiento de las consultas de los grupos de SQL dedicados, consulte [Supervisión de la carga de trabajo](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) y [Procedimientos recomendados para grupos de SQL dedicados](best-practices-sql-pool.md#maintain-statistics).
+Para mejorar aún más el rendimiento de las consultas de los grupos de SQL dedicados, consulte [Supervisión de la carga de trabajo](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) y [Procedimientos recomendados para grupos de SQL dedicados](best-practices-dedicated-sql-pool.md#maintain-statistics).
 
-Para mejorar aún más el rendimiento de las consultas de los grupos de SQL sin servidor, consulte [Procedimientos recomendados para grupos de SQL sin servidor](best-practices-sql-on-demand.md).
+Para mejorar aún más el rendimiento de las consultas de los grupos de SQL sin servidor, consulte [Procedimientos recomendados para grupos de SQL sin servidor](best-practices-serverless-sql-pool.md).

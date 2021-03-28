@@ -3,13 +3,13 @@ title: Direcciones IP de entrada y salida
 description: Aprenda cómo se usan las direcciones IP de entrada y salida en App Service, cuándo cambian y cómo encontrar las direcciones de su aplicación.
 ms.topic: article
 ms.date: 08/25/2020
-ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: e5b271cc5cd8cb52267b6ee44bc3965d0e4b0aab
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: seodec18
+ms.openlocfilehash: 4237e51251a7ece05800aa7efa328a9c6cf65e76
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746147"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104591374"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Direcciones IP de entrada y salida en Azure App Service
 
@@ -19,7 +19,7 @@ Los [entornos de App Service](environment/intro.md) usan infraestructuras de red
 
 ## <a name="how-ip-addresses-work-in-app-service"></a>Funcionamiento de las direcciones IP en App Service
 
-Una aplicación de App Service se ejecuta en un plan de App Service, y los planes de App Service se implementan en una de las unidades de implementación de la infraestructura de Azure (llamada internamente "espacio web"). Cada unidad de implementación tiene asignadas hasta cinco direcciones IP virtuales, que incluyen una dirección IP de entrada pública y cuatro direcciones IP de salida. Todos los planes de App Service en la misma unidad de implementación, así como las instancias de aplicación que se ejecutan en ellas, comparten el mismo conjunto de direcciones IP virtuales. En el caso de un App Service Environment (un plan de App Service en el [nivel Aislado](https://azure.microsoft.com/pricing/details/app-service/)), el plan de App Service es la propia unidad de implementación, por lo que las direcciones IP virtuales se dedican esta como resultado.
+Una aplicación de App Service se ejecuta en un plan de App Service, y los planes de App Service se implementan en una de las unidades de implementación de la infraestructura de Azure (llamada internamente "espacio web"). Cada unidad de implementación tiene asignadas hasta cinco direcciones IP virtuales, lo que incluye una dirección IP de entrada pública y un conjunto de [direcciones IP de salida](#find-outbound-ips). Todos los planes de App Service en la misma unidad de implementación, así como las instancias de aplicación que se ejecutan en ellas, comparten el mismo conjunto de direcciones IP virtuales. En el caso de un App Service Environment (un plan de App Service en el [nivel Aislado](https://azure.microsoft.com/pricing/details/app-service/)), el plan de App Service es la propia unidad de implementación, por lo que las direcciones IP virtuales se dedican esta como resultado.
 
 Dado que no se permite cambiar un plan de App Service entre unidades de implementación, las direcciones IP virtuales asignadas a la aplicación suelen ser las mismas, aunque hay excepciones.
 
@@ -51,13 +51,13 @@ El conjunto de direcciones IP de salida de la aplicación cambia cuando realiza 
 
 - Eliminar una aplicación y volver a crearla en otro grupo de recursos (puede cambiar la unidad de implementación).
 - Eliminar la última aplicación de un grupo de recursos _y_ región y volver a crearla (puede cambiar la unidad de implementación).
-- Escale la aplicación entre los niveles inferiores ( **Básica** , **Estándar** , **Premium** ) y **Premium V2** (las direcciones IP se pueden agregar o quitar del conjunto).
+- Escale la aplicación entre los niveles inferiores (**Básica**, **Estándar**, **Premium**) y **Premium V2** (las direcciones IP se pueden agregar o quitar del conjunto).
 
 Puede encontrar el conjunto de todas las posibles direcciones IP de salida que puede utilizar la aplicación, independientemente de los planes de tarifa, buscando la propiedad `possibleOutboundIpAddresses` o en el campo **Direcciones IP salientes adicionales** de la hoja **Propiedades** de Azure Portal. Consulte [Búsqueda de las direcciones IP de salida](#find-outbound-ips).
 
 ## <a name="find-outbound-ips"></a>Búsqueda de las direcciones IP de salida
 
-Para buscar las direcciones IP de salida que usa actualmente su aplicación en Azure Portal, haga clic en **Propiedades** en el panel de navegación izquierdo de la aplicación. Se enumeran en el campo **Direcciones IP de salida** .
+Para buscar las direcciones IP de salida que usa actualmente su aplicación en Azure Portal, haga clic en **Propiedades** en el panel de navegación izquierdo de la aplicación. Se enumeran en el campo **Direcciones IP de salida**.
 
 Puede encontrar la misma información si ejecuta el comando siguiente en [Cloud Shell](../cloud-shell/quickstart.md).
 
@@ -69,7 +69,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query outboundI
 (Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).OutboundIpAddresses
 ```
 
-Para buscar _todas_ las posibles direcciones IP de salida para la aplicación, con independencia de los planes de tarifa, haga clic en **Propiedades** en el panel de navegación izquierdo de la aplicación. Se enumeran en el campo **Direcciones IP salientes adicionales** .
+Para buscar _todas_ las posibles direcciones IP de salida para la aplicación, con independencia de los planes de tarifa, haga clic en **Propiedades** en el panel de navegación izquierdo de la aplicación. Se enumeran en el campo **Direcciones IP salientes adicionales**.
 
 Puede encontrar la misma información si ejecuta el comando siguiente en [Cloud Shell](../cloud-shell/quickstart.md).
 

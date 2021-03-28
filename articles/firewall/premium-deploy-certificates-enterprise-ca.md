@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 03/18/2021
 ms.author: victorh
-ms.openlocfilehash: fba95214a6bbb0482166eab8f77f30911986fbb7
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 38d83186c06eac0fc3a49834172c2a4b8542caff
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102525454"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590473"
 ---
 # <a name="deploy-and-configure-enterprise-ca-certificates-for-azure-firewall-preview"></a>Implementación y configuración de certificados de entidad de certificación de empresa para la versión preliminar de Azure Firewall
 
@@ -42,7 +42,7 @@ Para usar una entidad de certificación de empresa para generar un certificado p
 1. Obtenga acceso al sitio de inscripción en web en la entidad de certificación raíz, normalmente `https://<servername>/certsrv`, y seleccione **Solicitar un certificado**.
 1. Seleccione **Solicitud de certificado avanzada**.
 1. Seleccione **Crear y enviar una solicitud a esta CA**.
-1. Rellene el formulario mediante la plantilla Entidad de certificación subordinada como se muestra a continuación:
+1. Rellene el formulario mediante la plantilla Entidad de certificación subordinada.
 1. Envíe la solicitud e instale el certificado.
 1. Suponiendo que esta solicitud se realice desde una instancia de Windows Server con Internet Explorer, abra **Opciones de Internet**.
 1. Vaya a la pestaña **Contenido** y seleccione **Certificados**.

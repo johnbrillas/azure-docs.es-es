@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4390291eb96c11b8fb7fdb48eb92abaf802b80c0
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 748ad9fdab781ba03135f026ab846099fe50c51f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030788"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604413"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Creación de un proveedor de sugerencias para habilitar la función autocompletar y los resultados sugeridos en una consulta
 
@@ -66,7 +66,7 @@ La elección de un analizador determina el modo en que los campos se tokenizan y
 
 Al evaluar analizadores, considere la posibilidad de usar [Analyze Text API](/rest/api/searchservice/test-analyzer) para obtener información sobre cómo se procesan los términos. Una vez creado un índice, puede probar varios analizadores en una cadena para ver la salida de los tokens.
 
-Los campos que utilizan [analizadores personalizados](index-add-custom-analyzers.md) o [predefinidos](index-add-custom-analyzers.md#predefined-analyzers-reference) (con la excepción del estándar de Lucene) no se permiten para evitar resultados deficientes.
+Los campos que utilizan [analizadores personalizados](index-add-custom-analyzers.md) o [integrados](index-add-custom-analyzers.md#built-in-analyzers) (con la excepción del estándar de Lucene) no se permiten para evitar resultados deficientes.
 
 > [!NOTE]
 > Si necesita solucionar la restricción del analizador, por ejemplo si necesita una palabra clave o un analizador de n-gramas para ciertos escenarios de consulta, debería usar dos campos independientes para el mismo contenido. De esta forma, uno de los campos tendrá un proveedor de sugerencias y el otro se puede configurar con una configuración de analizador personalizada.

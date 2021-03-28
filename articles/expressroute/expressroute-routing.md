@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: duau
-ms.openlocfilehash: 0dc2b48d02eb8a69afc947891c263ef1510257a7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c65825a6d8d2d7f9059e91a1f248367fa1788e1a
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101721844"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799503"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de enrutamiento de ExpressRoute
 Para conectarse a los servicios en la nube de Microsoft mediante ExpressRoute, es preciso configurar y administrar el enrutamiento. Algunos proveedores de conectividad ofrecen la configuración y administración de enrutamiento como un servicio administrado. Consulte a su proveedor de conectividad para saber si ofrece este servicio. Si no es así, debe cumplir los siguientes requisitos:
@@ -106,7 +106,7 @@ Asegúrese de que la dirección IP y el número AS se registran en uno de los re
 
 Si no se le asignaron los prefijos y el número de sistema autónomo en los registros anteriores, debe abrir una incidencia de soporte técnico para validar manualmente sus prefijos y ASN. El equipo de soporte técnico requiere documentación, por ejemplo, una carta de autorización, que certifique que puede utilizar los recursos.
 
-Con el emparejamiento de Microsoft se permite un número de sistema autónomo privado, pero debe validarse manualmente. Además, se quitan los números AS privados en AS PATH para los prefijos recibidos. En consecuencia, no puede anexar números AS privados en AS PATH para que [influyan en el enrutamiento del emparejamiento de Microsoft](expressroute-optimize-routing.md). 
+Con el emparejamiento de Microsoft se permite un número de sistema autónomo privado, pero debe validarse manualmente. Además, se quitan los números AS privados en AS PATH para los prefijos recibidos. En consecuencia, no puede anexar números AS privados en AS PATH para que [influyan en el enrutamiento del emparejamiento de Microsoft](expressroute-optimize-routing.md). Tampoco se permiten los números AS de 64496 a 64511, reservados por IANA para fines de documentación.
 
 > [!IMPORTANT]
 > No anuncie la misma ruta de dirección IP pública en la red pública de Internet ni mediante ExpressRoute. Para reducir el riesgo de configuración incorrecta que causa el enrutamiento asimétrico, se recomienda encarecidamente que las [direcciones IP de NAT](expressroute-nat.md) anunciadas a Microsoft a través de ExpressRoute provengan de un intervalo que no se anuncie en Internet. Si esto no es posible, es esencial que garantice que a través de ExpressRoute anuncia un intervalo más específico que el que anuncia en la conexión a Internet. Además de la ruta pública para NAT, también puede anunciar mediante ExpressRoute las direcciones IP públicas usadas por los servidores en la red local que se comunican con puntos de conexión de Microsoft 365 en Microsoft. 

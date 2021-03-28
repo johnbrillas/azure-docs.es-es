@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Obtenga información sobre cómo proteger el tráfico que fluye dentro y fuera de los pods mediante directivas de red de Kubernetes en Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 4b72c5551d6ed33deb4df40a60215aed8071141d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 03/16/2021
+ms.openlocfilehash: 17e14859ecdfe11872d5b0526d755d01bc1b034a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178905"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577859"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Protección del tráfico entre pods mediante directivas de red en Azure Kubernetes Service (AKS)
 
@@ -181,9 +181,13 @@ Las directivas de red de Calico con nodos de Windows se encuentran actualmente e
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-```azurecli
-PASSWORD_WIN="P@ssw0rd1234"
+Cree un nombre de usuario para usarlo como credenciales de administrador para los contenedores de Windows Server en el clúster. Los comandos siguientes le solicitan un nombre de usuario y lo establecen en WINDOWS_USERNAME para su uso en un comando posterior (recuerde que los comandos de este artículo se incluyen en un shell de BASH).
 
+```azurecli-interactive
+echo "Please enter the username to use as administrator credentials for Windows Server containers on your cluster: " && read WINDOWS_USERNAME
+```
+
+```azurecli
 az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
@@ -195,8 +199,7 @@ az aks create \
     --vnet-subnet-id $SUBNET_ID \
     --service-principal $SP_ID \
     --client-secret $SP_PASSWORD \
-    --windows-admin-password $PASSWORD_WIN \
-    --windows-admin-username azureuser \
+    --windows-admin-username $WINDOWS_USERNAME \
     --vm-set-type VirtualMachineScaleSets \
     --kubernetes-version 1.20.2 \
     --network-plugin azure \
@@ -222,7 +225,7 @@ az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAM
 
 ## <a name="deny-all-inbound-traffic-to-a-pod"></a>Denegación de todo el tráfico entrante a un pod
 
-Antes de definir reglas para permitir el tráfico de red específico, primero cree una directiva de red para denegar todo el tráfico. Esta directiva proporciona un punto inicial para empezar a crear una lista de admisión solo para el tráfico deseado. También puede ver claramente que el tráfico se descarta cuando se aplica la directiva de red.
+Antes de definir reglas para permitir el tráfico de red específico, primero cree una directiva de red para denegar todo el tráfico. Esta directiva proporciona un punto inicial para empezar a crear una lista de permitidos solo para el tráfico deseado. También puede ver claramente que el tráfico se descarta cuando se aplica la directiva de red.
 
 En lo que respecta al entorno de aplicación de ejemplo y a las reglas de tráfico, vamos a crear un espacio de nombres denominado *development* para ejecutar los pods de ejemplo:
 
@@ -234,13 +237,13 @@ kubectl label namespace/development purpose=development
 Cree un pod de back-end de ejemplo que ejecute NGINX. Este pod de back-end puede usarse para simular una aplicación web de back-end de ejemplo. Cree este pod en el espacio de nombres *development* y abra el puerto *80* para atender el tráfico web. Etiquete el pod con *app=webapp,role=backend* para que podamos utilizarlo como destino con una directiva de red en la sección siguiente:
 
 ```console
-kubectl run backend --image=nginx --labels app=webapp,role=backend --namespace development --expose --port 80
+kubectl run backend --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine --labels app=webapp,role=backend --namespace development --expose --port 80
 ```
 
 Cree otro pod y asocie una sesión de terminal para probar que puede llegar correctamente a la página web de NGINX predeterminada:
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development
+kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 network-policy --namespace development
 ```
 
 Cuando se encuentre en el símbolo del sistema del shell, use `wget` para confirmar que puede acceder a la página web de NGINX predeterminada:
@@ -296,7 +299,7 @@ kubectl apply -f backend-policy.yaml
 Comprobemos que puede usar la página web de NGINX en el pod de back-end de nuevo. Cree otro pod de prueba y asocie una sesión de terminal:
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development
+kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 network-policy --namespace development
 ```
 
 Cuando se encuentre en el símbolo del sistema del shell, use `wget` para ver si puede acceder a la página web de NGINX predeterminada. Esta vez, establezca un valor de tiempo de expiración de *2* segundos. Ahora, la directiva de red bloquea todo el tráfico entrante, por lo que no se puede cargar la página, tal como se muestra en el ejemplo siguiente:
@@ -353,7 +356,7 @@ kubectl apply -f backend-policy.yaml
 Programe un pod que se etiquete como *app=webapp,role=frontend* y asocie una sesión de terminal:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development
+kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace development
 ```
 
 Cuando se encuentre en el símbolo del sistema del shell, use `wget` para ver si puede acceder a la página web de NGINX predeterminada:
@@ -383,7 +386,7 @@ exit
 La directiva de red permite el tráfico desde los pods con la etiqueta *app: webapp,role: frontend*, pero debe denegar todo el tráfico. Vamos a realizar una prueba para ver si otro pod sin esas etiquetas puede acceder al pod de NGINX de back-end. Cree otro pod de prueba y asocie una sesión de terminal:
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development
+kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 network-policy --namespace development
 ```
 
 Cuando se encuentre en el símbolo del sistema del shell, use `wget` para ver si puede acceder a la página web de NGINX predeterminada. La directiva de red bloquea el tráfico entrante, por lo que no se puede cargar la página, tal como se muestra en el ejemplo siguiente:
@@ -416,7 +419,7 @@ kubectl label namespace/production purpose=production
 Programe un pod de prueba en el espacio de nombres *production* que está etiquetado como *app=webapp,role=frontend*. Asocie una sesión de terminal:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production
+kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace production
 ```
 
 Cuando se encuentre en el símbolo del sistema del shell, use `wget` para confirmar que puede acceder a la página web de NGINX predeterminada:
@@ -480,7 +483,7 @@ kubectl apply -f backend-policy.yaml
 Programe otro pod en el espacio de nombres *production* y asocie una sesión de terminal:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production
+kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace production
 ```
 
 Una vez en el símbolo del sistema del shell, use `wget` para ver que ahora la directiva de red deniega el tráfico:
@@ -502,7 +505,7 @@ exit
 Con el tráfico denegado desde el espacio de nombres *production*, programe de nuevo un pod de prueba en el espacio de nombres *development* y asocie una sesión de terminal:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development
+kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace development
 ```
 
 Una vez en el símbolo del sistema del shell, use `wget` para ver que la directiva de red permite el tráfico:

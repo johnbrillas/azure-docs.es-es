@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e4a47112d2f66edc8af9b7f100d48bc205f2e85e
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: f670af1fca4b4638988e53075f092ca1bbac55b2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584304"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578267"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>Aplicación web que inicia sesión de usuarios: Paso a producción
 
@@ -48,6 +48,12 @@ Este tutorial progresivo incluye código listo para producción para una aplicac
 - cuentas profesionales o educativas o cuentas personales de Microsoft,
 - [Azure AD B2C](../../active-directory-b2c/overview.md)
 - Nubes nacionales
+
+## <a name="tutorial-nodejs-web-app"></a>Tutorial: Aplicación web de Node.js
+
+Obtenga más información sobre la aplicación web de Node.js en este tutorial:
+
+[Tutorial: Inicio de sesión de los usuarios en una aplicación web de Node.js y Express](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-nodejs-webapp-msal)
 
 ## <a name="sample-code-java-web-app"></a>Ejemplo de código: Aplicaciones web de Java
 

@@ -10,12 +10,12 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: 578f0d1ca742fe4445b8aeed6876d1a73fd3f79e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0c72eda59f375c70274b17796ca53614ef95505b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92374163"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669515"
 ---
 # <a name="upload-usage-data-to-azure-monitor"></a>Carga de datos de uso en Azure Monitor
 
@@ -64,7 +64,7 @@ La información de uso, como el inventario y el uso de recursos, se puede cargar
 
 Si quiere cargar métricas y registros de forma programada, puede crear un script y ejecutarlo en un temporizador cada pocos minutos. A continuación se muestra un ejemplo de cómo automatizar las cargas mediante un script de shell de Linux.
 
-En el editor de código o texto que prefiera, agregue el siguiente script al archivo y guárdelo como un archivo ejecutable de script como .sh (Linux o Mac), o bien .cmd, .bat, .ps1.
+En el editor de código o texto que prefiera, agregue el siguiente script al archivo y guárdelo como un archivo ejecutable de script como `.sh` (Linux o Mac) o bien `.cmd`, `.bat` o `.ps1`.
 
 ```console
 azdata arc dc export --type metrics --path metrics.json --force

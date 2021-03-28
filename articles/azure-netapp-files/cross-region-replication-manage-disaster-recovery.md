@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 03/10/2021
 ms.author: b-juche
-ms.openlocfilehash: eab55f881c250c2e07717604d4ba00587a8b6031
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 5b1c1a5216b7a1ad5b23167e776f2b0bbb0a578f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "95243212"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104591000"
 ---
 # <a name="manage-disaster-recovery-using-cross-region-replication"></a>Administración de la recuperación ante desastres mediante la replicación entre regiones 
 
@@ -38,10 +38,10 @@ Cuando necesite activar el volumen de destino (por ejemplo, si desea conmutar po
 1. Para romper el emparejamiento de la replicación, seleccione el volumen de destino. Haga clic en **Replicación** en el servicio de almacenamiento.  
 
 2.  Antes de continuar, compruebe los campos siguientes:  
-    * Asegúrese de que en Estado del reflejo aparezca ***Reflejado** _.   
-        No intente romper el emparejamiento de la replicación si el Estado del reflejo es _No inicializado*.
-    * Asegúrese de que el Estado de la relación es ***Inactivo** _.   
-        No intente romper el emparejamiento de la replicación si el Estado de la relación es _Transfiriendo*.   
+    * Asegúrese de que en Estado del reflejo aparece ***Reflejado***.   
+        No intente romper el emparejamiento de la replicación si el Estado del reflejo es *No inicializado*.
+    * Asegúrese de que el Estado de la relación es ***Inactivo***.   
+        No intente romper el emparejamiento de la replicación si el Estado de la relación es *Transfiriendo*.   
 
     Consulte [Visualización del estado de mantenimiento de la relación de la replicación](cross-region-replication-display-health-status.md). 
 
@@ -80,10 +80,10 @@ Una vez completada la operación de resincronización del destino al origen, deb
 1. Rompa el emparejamiento de la replicación:  
     a. Seleccione el volumen de *destino*. Haga clic en **Replicación** en el servicio de almacenamiento.  
     b. Antes de continuar, compruebe los campos siguientes:   
-    * Asegúrese de que en Estado del reflejo aparezca ***Reflejado** _.   
-    No intente romper el emparejamiento de la replicación si el Estado del reflejo es _No inicializado*.  
-    * Asegúrese de que el Estado de la relación es ***Inactivo** _.   
-    No intente romper el emparejamiento de la replicación si el Estado de la relación es _Transfiriendo*.    
+    * Asegúrese de que en Estado del reflejo aparece ***Reflejado***.   
+    No intente romper el emparejamiento de la replicación si el Estado del reflejo es *No inicializado*.  
+    * Asegúrese de que el Estado de la relación es ***Inactivo***.   
+    No intente romper el emparejamiento de la replicación si el Estado de la relación es *Transfiriendo*.    
 
         Consulte [Visualización del estado de mantenimiento de la relación de la replicación](cross-region-replication-display-health-status.md). 
 
@@ -102,6 +102,7 @@ Una vez completada la operación de resincronización del destino al origen, deb
 * [Replicación entre regiones](cross-region-replication-introduction.md)
 * [Requisitos y consideraciones del uso de la replicación entre regiones](cross-region-replication-requirements-considerations.md)
 * [Visualización del estado de mantenimiento de la relación de la replicación](cross-region-replication-display-health-status.md)
+* [Cambiar el tamaño de un volumen de destino de replicación entre regiones](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
 * [Métricas de replicación de volúmenes](azure-netapp-files-metrics.md#replication)
 * [Eliminación de volúmenes o replicaciones de volúmenes](cross-region-replication-delete.md)
 * [Solución de problemas de la replicación entre regiones](troubleshoot-cross-region-replication.md)

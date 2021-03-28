@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 12/26/2020
-ms.openlocfilehash: 91375f4460b55617ace0b18b60d59d961a762f4c
-ms.sourcegitcommit: 00aa5afaa9fac91f1059cfed3d8dbc954caaabe2
+ms.openlocfilehash: e0b9eea7be97b9b67e75c314c4a1d9e69322e5b5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2020
-ms.locfileid: "97792507"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594264"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -176,7 +176,7 @@ Al realizar operaciones OLTP, use `<fog-name>.database.windows.net` como direcci
 
 ### <a name="using-read-only-listener-for-read-only-workload"></a>Uso del agente de escucha de solo lectura para la carga de trabajo de solo lectura
 
-Si tiene una carga de trabajo de solo lectura que es tolerante a una cierta obsolescencia de los datos, puede usar la base de datos secundaria en la aplicación. Para las sesiones de solo lectura, use `<fog-name>.secondary.database.windows.net` como dirección URL del servidor y la conexión se redirigirá automáticamente a la base de datos secundaria. También se recomienda indicar en la cadena de conexión la intención de lectura mediante `ApplicationIntent=ReadOnly`.
+Si tiene una carga de trabajo de solo lectura que es tolerante a una cierta obsolescencia de los datos, puede usar la base de datos secundaria en la aplicación. Para las sesiones de solo lectura, use `<fog-name>.secondary.database.windows.net` como dirección URL del servidor y la conexión se redirigirá automáticamente a la base de datos secundaria. También se recomienda indicar la intención de lectura en la cadena de conexión mediante `ApplicationIntent=ReadOnly`.
 
 ### <a name="preparing-for-performance-degradation"></a>Preparación para la degradación del rendimiento
 

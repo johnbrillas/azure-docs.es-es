@@ -1,14 +1,14 @@
 ---
 title: Información sobre Azure Policy para Kubernetes
 description: Obtenga información sobre cómo Azure Policy usa Rego y Open Policy Agent para administrar clústeres que ejecutan Kubernetes en Azure o en el entorno local.
-ms.date: 12/01/2020
+ms.date: 03/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0aaf610cd5712ee195ed2a4108cf9e5ca9c65183
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 60ffcfac688eb40f47efefb74f79d27a2cb82446
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577107"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868161"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Descripción de Azure Policy para clústeres de Kubernetes (versión preliminar)
 
@@ -68,7 +68,7 @@ Las siguientes limitaciones generales solo se aplican al complemento de Azure Po
 
 A continuación se muestran recomendaciones generales para usar el complemento de Azure Policy:
 
-- El complemento de Azure Policy requiere 3 componentes de Gatekeeper para ejecutarse: 1 pod de auditoría y 2 réplicas de pods de webhook. Estos componentes consumen más recursos, ya que el recuento de los recursos de Kubernetes y las asignaciones de directivas aumentan en el clúster, lo que requiere operaciones de auditoría y cumplimiento.
+- El complemento de Azure Policy requiere tres componentes de Gatekeeper para ejecutarse: 1 pod de auditoría y 2 réplicas de pods de webhook. Estos componentes consumen más recursos, ya que el recuento de los recursos de Kubernetes y las asignaciones de directivas aumentan en el clúster, lo que requiere operaciones de auditoría y cumplimiento.
 
   - Para menos de 500 pods en un solo clúster con un máximo de 20 restricciones: 2 vCPU y 350 MB de memoria por componente.
   - Para más de 500 pods en un solo clúster con un máximo de 40 restricciones: 3 vCPU y 600 MB de memoria por componente.
@@ -85,7 +85,7 @@ La siguiente recomendación solo se aplica a AKS y al complemento de Azure Polic
 
 ## <a name="install-azure-policy-add-on-for-aks"></a>Instalación del complemento de Azure Policy para AKS
 
-Antes de instalar el complemento de Azure Policy o habilitar cualquiera de las características del servicio, la suscripción debe habilitar los proveedores de recursos **Microsoft.ContainerService** y **Microsoft.PolicyInsights**.
+Antes de instalar el complemento de Azure Policy o habilitar cualquiera de las características del servicio, la suscripción debe habilitar los proveedores de recursos **Microsoft.PolicyInsights**.
 
 1. Es preciso que esté instalada y configurada la versión 2.12.0 de la CLI de Azure, o cualquier otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
@@ -93,15 +93,12 @@ Antes de instalar el complemento de Azure Policy o habilitar cualquiera de las c
 
    - Azure Portal:
 
-     Registre los proveedores de recursos **Microsoft.ContainerService** y **Microsoft.PolicyInsights**. Para conocer los pasos, consulte [Proveedores de recursos y sus tipos](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
+     Registre el proveedor de recursos **Microsoft.PolicyInsights**. Para conocer los pasos, consulte [Proveedores de recursos y sus tipos](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
    - CLI de Azure:
 
      ```azurecli-interactive
      # Log in first with az login if you're not using Cloud Shell
-
-     # Provider register: Register the Azure Kubernetes Service provider
-     az provider register --namespace Microsoft.ContainerService
 
      # Provider register: Register the Azure Policy provider
      az provider register --namespace Microsoft.PolicyInsights
@@ -446,8 +443,7 @@ Otras consideraciones:
 
 ## <a name="logging"></a>Registro
 
-Como controlador o contenedor de Kubernetes, los pods _azure-policy_ y _gatekeeper_ mantienen registros en el clúster de Kubernetes. Los registros se pueden exponer en la página **Insights** (Detalles) del clúster de Kubernetes.
-Para obtener más información, vea [Supervisión del rendimiento del clúster de Kubernetes con Azure Monitor para contenedores](../../../azure-monitor/containers/container-insights-analyze.md).
+Como controlador o contenedor de Kubernetes, los pods _azure-policy_ y _gatekeeper_ mantienen registros en el clúster de Kubernetes. Los registros se pueden exponer en la página **Insights** (Detalles) del clúster de Kubernetes. Para obtener más información, vea [Supervisión del rendimiento del clúster de Kubernetes con Azure Monitor para contenedores](../../../azure-monitor/containers/container-insights-analyze.md).
 
 Para ver los registros del complemento, use `kubectl`:
 

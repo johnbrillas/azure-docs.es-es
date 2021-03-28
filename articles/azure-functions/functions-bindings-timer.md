@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: dbcd6d55ee921c7fabd8e746e0fdcd6f1427733c
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: f99f9d240a0a9220d3b7f57cddd0a4f8ba6b6101
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102210713"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595998"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Desencadenador de temporizador para Azure Functions
 
@@ -365,6 +365,16 @@ El desencadenador de temporizador utiliza un bloqueo de almacenamiento para aseg
 ## <a name="retry-behavior"></a>Comportamiento de reintento
 
 A diferencia del desencadenador de cola, el desencadenador de temporizador no vuelve a realizar el intento después de que se produce un error en una función. Cuando se produce un error en una función, no se la llamará nuevamente hasta la próxima vez en la programación.
+
+## <a name="manually-invoke-a-timer-trigger"></a>Invocación manual de un desencadenador de temporizador
+
+El desencadenador de temporizador de Azure Functions proporciona un webhook HTTP que se puede invocar para desencadenar manualmente la función. Esto puede resultar extremadamente útil en los siguientes escenarios.
+
+* Pruebas de integración
+* Intercambios de ranura como parte de una prueba de humo o una actividad de calentamiento
+* Implementación inicial de una función para rellenar inmediatamente una caché o una tabla de búsqueda en una base de datos
+
+Consulte [Ejecución manual de una función no desencadenada por HTTP](./functions-manually-run-non-http.md) para obtener más información sobre cómo invocar manualmente una función desencadenada por un temporizador.
 
 ## <a name="troubleshooting"></a>Solución de problemas
 

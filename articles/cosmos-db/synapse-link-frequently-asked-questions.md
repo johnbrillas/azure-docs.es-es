@@ -6,12 +6,13 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: 9fb6e94062639d32707f52f66e0b99531884a636
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.custom: synapse-cosmos-db
+ms.openlocfilehash: d871a33b6d8adbae179e592122878eee5db1c0b5
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692273"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869011"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Preguntas frecuentes sobre Azure Synapse Link para Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -33,6 +34,10 @@ Al planear la configuración de una cuenta de Azure Cosmos DB para varias region
 ### <a name="can-i-choose-to-enable-azure-synapse-link-for-only-certain-region-and-not-all-regions-in-a-multi-region-account-set-up"></a>¿Puedo habilitar Azure Synapse Link solo para regiones determinadas y no para todas las regiones de una configuración de cuenta de varias regiones?
 
 Cuando Azure Synapse Link está habilitado para una cuenta de varias regiones, el almacén analítico se crea en todas las regiones. Los datos subyacentes se optimizan para el rendimiento y la coherencia transaccional en el almacén transaccional.
+
+### <a name="is-analytical-store-supported-in-all-azure-cosmos-db-regions"></a>¿Se admite el almacén analítico en todas las regiones Azure Cosmos DB?
+
+Sí.
 
 ### <a name="is-backup-and-restore-supported-for-azure-synapse-link-enabled-accounts"></a>¿Se admite la copia de seguridad y restauración para las cuentas habilitadas para Azure Synapse Link?
 
@@ -165,6 +170,10 @@ En este momento, esta característica no está disponible.
 ### <a name="can-i-do-spark-structured-streaming-from-analytical-store"></a>¿Puedo realizar un flujo estructurado de Spark desde el almacén analítico?
 
 En este momento, la compatibilidad con el flujo estructurado de Spark para Azure Cosmos DB está implementada mediante la funcionalidad de fuente de cambios del almacén transaccional y aún no se admite desde el almacén analítico.
+
+### <a name="is-streaming-supported"></a>¿Se admite el streaming?
+
+No se admite el streaming de datos del almacén analítico.
 
 ## <a name="azure-synapse-studio"></a>Azure Synapse Studio
 

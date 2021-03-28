@@ -1,14 +1,14 @@
 ---
 title: Obtención de datos de cumplimiento de directiva
 description: Las evaluaciones y los efectos de Azure Policy determinan el cumplimiento. Obtenga información sobre cómo obtener los detalles de cumplimiento de los recursos de Azure.
-ms.date: 10/05/2020
+ms.date: 03/16/2021
 ms.topic: how-to
-ms.openlocfilehash: 3c1c128b414444c6004f32f3f3173548f81a82e1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: cdd23d685750fb8a5d3803f4b6030e7e67bbddce
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577120"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598548"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtención de datos de cumplimiento de los recursos de Azure
 
@@ -26,7 +26,7 @@ Antes de pasar a los métodos que informan sobre el cumplimiento, veamos cuándo
 
 ## <a name="evaluation-triggers"></a>Desencadenadores de evaluación
 
-Los resultados de un ciclo de evaluación completo están disponibles en el proveedor de recursos `Microsoft.PolicyInsights` por medio de las operaciones `PolicyStates` y `PolicyEvents`. Para más información sobre las operaciones de la API REST Azure Policy Insights, consulte [Azure Policy Insights](/rest/api/policy-insights/).
+Los resultados de un ciclo de evaluación completo están disponibles en el proveedor de recursos `Microsoft.PolicyInsights` por medio de las operaciones `PolicyStates` y `PolicyEvents`. Para más información sobre las operaciones de la API REST Azure Policy Insights, consulte [Azure Policy Insights](/rest/api/policy/).
 
 Las evaluaciones de directivas asignadas e iniciativas se producen como resultado de varios eventos:
 
@@ -237,13 +237,13 @@ Cuando se determina que un recurso **no es compatible**, hay muchas razones posi
 
 ## <a name="command-line"></a>Línea de comandos
 
-La misma información que está disponible en el portal se puede recuperar mediante la API REST (incluso con [ARMClient](https://github.com/projectkudu/ARMClient)), Azure PowerShell y la CLI de Azure. Para detalles completos sobre la API REST, consulte la referencia de [Azure Policy Insights](/rest/api/policy-insights/). Las páginas de referencia de la API de REST tienen un botón verde en cada operación para realizar una prueba en el explorador.
+La misma información que está disponible en el portal se puede recuperar mediante la API REST (incluso con [ARMClient](https://github.com/projectkudu/ARMClient)), Azure PowerShell y la CLI de Azure. Para detalles completos sobre la API REST, consulte la referencia de [Azure Policy](/rest/api/policy/). Las páginas de referencia de la API de REST tienen un botón verde en cada operación para realizar una prueba en el explorador.
 
 Use ARMClient o una herramienta similar para tratar la autenticación en Azure para los ejemplos de la API REST.
 
 ### <a name="summarize-results"></a>Resumen de resultados
 
-Con la API REST, el resumen se puede realizar por contenedor, definición o asignación. Este es un ejemplo de resumen en el nivel de suscripción mediante [Summarize For Subscription](/rest/api/policy-insights/policystates/summarizeforsubscription) (Resumen de la suscripción) de Azure Policy Insights:
+Con la API REST, el resumen se puede realizar por contenedor, definición o asignación. Este es un ejemplo de resumen en el nivel de suscripción mediante [Summarize For Subscription](/rest/api/policy/policystates/summarizeforsubscription) (Resumen de la suscripción) de Azure Policy Insights:
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2019-10-01
@@ -353,7 +353,7 @@ Los resultados deben tener una apariencia similar al ejemplo siguiente:
 }
 ```
 
-Para más información sobre cómo consultar eventos de directiva, consulte el artículo de referencia sobre los [estados de Azure Policy](/rest/api/policy-insights/policyevents).
+Para más información sobre cómo consultar eventos de directiva, consulte el artículo de referencia sobre los [estados de Azure Policy](/rest/api/policy/policyevents).
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -648,7 +648,7 @@ $policyEvents = Get-AzPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/v
 $policyEvents | ConvertTo-Csv | Out-File 'C:\temp\policyEvents.csv'
 ```
 
-La salida del objeto `$policyEvents` se parece a la imagen siguiente:
+La salida del objeto `$policyEvents` se parece a la salida siguiente:
 
 ```output
 Timestamp                  : 9/19/2020 5:18:53 AM

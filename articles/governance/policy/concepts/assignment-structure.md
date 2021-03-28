@@ -1,14 +1,14 @@
 ---
 title: Detalles de la estructura de asignaciones de directivas
 description: Describe la definición de asignación de directiva utilizada por Azure Policy para relacionar las definiciones de directiva y los parámetros con los recursos para su evaluación.
-ms.date: 01/29/2021
+ms.date: 03/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 625314a8b83a4d0cc76eae51eae8d357e39d2a6a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 909c1c361e092c512a73854a40e22a67efe5f2f8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581953"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604872"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estructura de asignaciones de Azure Policy
 
@@ -89,6 +89,9 @@ Este campo debe ser el nombre de la ruta de acceso completa de una definición d
 ## <a name="non-compliance-messages"></a>Mensajes de no cumplimiento
 
 Para establecer un mensaje personalizado que describa por qué un recurso no es compatible con la definición de la directiva o de la iniciativa, establezca `nonComplianceMessages` en la definición de la asignación. Este nodo es una matriz de `message` entradas. Este mensaje personalizado es adicional al mensaje de error predeterminado para el no cumplimiento y es opcional.
+
+> [!IMPORTANT]
+> Los mensajes personalizados de no cumplimiento solo se admiten en definiciones o iniciativas con definiciones de [modos de Resource Manager](./definition-structure.md#resource-manager-modes).
 
 ```json
 "nonComplianceMessages": [

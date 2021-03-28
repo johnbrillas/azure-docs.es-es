@@ -4,13 +4,13 @@ description: Aprenda cómo crear un área de trabajo de Log Analytics para habil
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/26/2020
-ms.openlocfilehash: 3c5df095cccec7509084f122c9a42f3b113d1c95
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/18/2021
+ms.openlocfilehash: 27eac9cefe645087cae43c34cb6503b562fb7c07
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102047322"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656317"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Creación de un área de trabajo de Log Analytics en Azure Portal
 Use el menú **Áreas de trabajo de Log Analytics** para crear un área de trabajo de Log Analytics con Azure Portal. Un área de trabajo de Log Analytics es un entorno único de datos de registro de Azure Monitor. Cada área de trabajo tiene su propio repositorio de datos y configuración, y las soluciones y orígenes de datos están configurados para almacenar sus datos en una determinada área de trabajo. Necesitará un área de trabajo de Log Analytics si tiene intención de recopilar datos de los orígenes siguientes:
@@ -32,23 +32,24 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-workspace"></a>Crear un área de trabajo
-1. En Azure Portal, haga clic en **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Áreas de trabajo de Log Analytics**.
+En Azure Portal, haga clic en **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Áreas de trabajo de Log Analytics**.
 
-    ![Azure Portal](media/quick-create-workspace/azure-portal-01.png)
+![Azure Portal](media/quick-create-workspace/azure-portal-01.png)
   
-2. Haga clic en **Agregar** y, después, seleccione las opciones de los siguientes elementos:
+Haga clic en **Agregar** e indique valores para las opciones siguientes:
 
-   * Proporcione el nombre de la nueva **área de trabajo de Log Analytics** como, por ejemplo, *DefaultLAWorkspace*. Este nombre debe ser único globalmente en todas las suscripciones de Azure Monitor.
    * Seleccione una **suscripción** a la que vincularlo en la lista desplegable si la opción predeterminada seleccionada no es adecuada.
    * Como **Grupo de recursos** puede usar un grupo de recursos existente que ya esté configurado, o crear uno nuevo.  
-   * Seleccione una **ubicación** disponible.  Para obtener información, consulte [las regiones en las que Log Analytics está disponible](https://azure.microsoft.com/regions/services/) y busque Azure Monitor desde el campo **Buscar un producto**.  
-   * Si va a crear un área de trabajo en una nueva suscripción creada después del 2 de abril de 2018, esta utilizará automáticamente el plan de precios *Por GB* y la opción para seleccionar un plan de tarifas no estará disponible.  Si va a crear un área de trabajo para una suscripción existente creada antes del 2 de abril o para una suscripción asociada a una inscripción de Contrato Enterprise (EA) existente, seleccione el plan de tarifa que prefiera.  Para más información sobre planes concretos, consulte los [detalles de precios de Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+   * Proporcione el nombre de la nueva **área de trabajo de Log Analytics** como, por ejemplo, *DefaultLAWorkspace*. Este nombre debe ser único globalmente en todas las suscripciones de Azure Monitor.
+   * Seleccione una **Región** disponible.  Para obtener información, consulte [las regiones en las que Log Analytics está disponible](https://azure.microsoft.com/regions/services/) y busque Azure Monitor desde el campo **Buscar un producto**.  
 
-        ![Creación de una hoja de recursos de Log Analytics](media/quick-create-workspace/create-loganalytics-workspace-02.png)  
 
-3. Después de proporcionar la información necesaria en el panel **Área de trabajo de Log Analytics**, haga clic en **Aceptar**.  
+        ![Creación de una hoja de recursos de Log Analytics](media/quick-create-workspace/create-workspace.png)  
 
-Mientras se comprueba la información y se crea el espacio de trabajo, puede realizar un seguimiento de su progreso en **Notificaciones** en el menú. 
+
+Haga clic en **Revisar y crear** para revisar la configuración y, a continuación, en **Crear** para crear el área de trabajo. Se seleccionará el plan de tarifa predeterminado Pago por uso, que no incurrirá en ningún cargo hasta que comience a recopilar una cantidad de datos suficiente. Para más información sobre otros planes de tarifa, consulte los [detalles de precios de Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+
+
 
 ## <a name="troubleshooting"></a>Solución de problemas
 Al crear un área de trabajo que se eliminó en los últimos 14 días y en [estado de eliminación temporal](../logs/delete-workspace.md#soft-delete-behavior), la operación podría tener un resultado diferente en función de la configuración del área de trabajo:

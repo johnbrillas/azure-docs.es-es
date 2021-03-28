@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: df9efef1000ab6a824c869e6684ab1424e8462f4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f01a1204aefbcaabe0ddac254b24bc014c3d5a64
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101708108"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654533"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Recopilación de información sobre la infraestructura de DNS con la solución DNS Analytics
 
@@ -54,7 +54,7 @@ La solución empezará a recopilar datos sin necesidad de ninguna configuración
 
 ### <a name="configure-the-solution"></a>Configuración de la solución
 
-En el panel de soluciones, haga clic en **Configuración** para abrir la página de configuración de DNS Analytics. Hay dos tipos de cambios de configuración que puede realizar:
+En el área de trabajo de Log Analytics de Azure Portal, seleccione **Resumen del área de trabajo** y haga clic en el icono de **DNS Analytics**. En el panel de soluciones, haga clic en **Configuración** para abrir la página de configuración de DNS Analytics. Hay dos tipos de cambios de configuración que puede realizar:
 
 - **Nombres de dominio de la lista de permitidos**. La solución no procesa todas las consultas de búsqueda. Mantiene una lista de permitidos de los sufijos de nombres de dominio. Las consultas de búsqueda que se resuelven en los nombres de dominio que coinciden con los sufijos de nombres de dominio de esta lista de permitidos no las procesa la solución. No procesar los nombres de dominio de la lista de permitidos ayuda a optimizar los datos enviados a Azure Monitor. La lista de permitidos predeterminada incluye nombres de dominio público populares, como www.google.com y www.facebook.com. Puede ver la lista predeterminada completa si se desplaza.
 

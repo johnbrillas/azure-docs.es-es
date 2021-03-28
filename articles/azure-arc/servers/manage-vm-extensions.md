@@ -1,14 +1,14 @@
 ---
 title: Administración de extensiones de máquina virtual con servidores habilitados para Azure Arc
 description: Los servidores habilitados para Azure Arc pueden administrar la implementación de extensiones de máquina virtual que proporcionan tareas de automatización y configuración posteriores a la implementación con máquinas virtuales que no son de Azure.
-ms.date: 03/01/2021
+ms.date: 03/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 039c52ccbee03636da0f5acc0fc5844be9b646f5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9af2700f036352188e646188485285482ee70c69
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101687913"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799588"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Administración de extensiones de máquina virtual con servidores habilitados para Azure Arc
 
@@ -42,6 +42,9 @@ La funcionalidad de la extensión de máquina virtual solo está disponible en l
 En esta versión se admiten las siguientes extensiones de máquina virtual en máquinas Windows y Linux.
 
 Para obtener información sobre el paquete del agente de Azure Connected Machine y los detalles del componente del agente de extensión, consulte [Información general del agente](agent-overview.md#agent-component-details).
+
+> [!NOTE]
+> Recientemente se quitó la compatibilidad con la extensión de máquina virtual de DSC de los servidores habilitados para ARC. Como alternativa, se recomienda usar la extensión de script personalizado para administrar la configuración posterior a la implementación del servidor o la máquina.
 
 ### <a name="windows-extensions"></a>Extensiones de Windows
 

@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/09/2020
-ms.openlocfilehash: a480c8f2dfdda0ce7a1eb879554fb79c96adbe1e
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.date: 03/22/2021
+ms.openlocfilehash: 0a203531e026d00b274ac98784076d33b22666d8
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347819"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800149"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Niveles de coherencia en Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -51,15 +51,19 @@ Puede configurar el nivel de coherencia predeterminado de su cuenta de Azure Cos
 
 Azure Cosmos DB garantiza que el 100 por ciento de las solicitudes de lectura cumplan con la garantía de coherencia del nivel de coherencia que elija. Las definiciones precisas de los cinco niveles de coherencia de Azure Cosmos DB que usan el lenguaje de especificación TLA+ se proporcionan en el repositorio [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla) de GitHub.
 
-Aquí se describe la semántica de los cinco niveles de coherencia:
+En las secciones siguientes se describe la semántica de los cinco niveles de coherencia.
 
-- **Alta**: La coherencia fuerte ofrece una garantía de linearización. La linearización hace referencia a la capacidad de servir solicitudes simultáneamente. Se garantiza que las lecturas devuelven la versión más reciente de un elemento. Un cliente nunca ve una escritura no confirmada ni parcial. Se garantiza que los usuarios siempre leerán la escritura confirmada más reciente.
+### <a name="strong-consistency"></a>Coherencia fuerte
+
+La coherencia fuerte ofrece una garantía de linearización. La linearización hace referencia a la capacidad de servir solicitudes simultáneamente. Se garantiza que las lecturas devuelven la versión más reciente de un elemento. Un cliente nunca ve una escritura no confirmada ni parcial. Se garantiza que los usuarios siempre leerán la escritura confirmada más reciente.
 
   En el gráfico siguiente se ilustra la coherencia fuerte con notas musicales. Una vez que los datos se han escrito en la región "Oeste de EE. UU. 2", al leer los datos de otras regiones, obtiene el valor más reciente:
 
   :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="Ilustración del nivel de coherencia fuerte":::
 
-- **De obsolescencia entrelazada**: Se garantiza que las lecturas respetan la garantía de prefijo coherente. Las lecturas pueden ir con retraso respecto a las escrituras en un máximo de versiones *"K"* (es decir, "actualizaciones") de un elemento o en el intervalo de tiempo *"T"* , lo que se lea primero. En otras palabras, cuando elige la obsolescencia limitada, la "obsolescencia" se puede configurar de dos maneras:
+### <a name="bounded-staleness-consistency"></a>Coherencia de obsolescencia limitada
+
+En la obsolescencia limitada se garantiza que las lecturas respetan la garantía de prefijo coherente. Las lecturas pueden ir con retraso respecto a las escrituras en un máximo de versiones *"K"* (es decir, "actualizaciones") de un elemento o en el intervalo de tiempo *"T"* , lo que se lea primero. En otras palabras, cuando elige la obsolescencia limitada, la "obsolescencia" se puede configurar de dos maneras:
 
 - El número de versiones (*K*) del elemento
 - El intervalo de tiempo (*T*) que las lecturas pueden retrasarse con respecto a las escrituras
@@ -79,7 +83,9 @@ Dentro de la ventana de obsolescencia, Obsolescencia limitada proporciona las si
 
   :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="Ilustración del nivel de coherencia de obsolescencia limitada":::
 
-- **Sesión**:  en una sesión de cliente individual, se garantiza que las lecturas respetan las garantías de prefijo coherente, lecturas monotónicas, escrituras monotónicas, lectura de la escritura y escritura tras las lecturas. Esto da por hecho una sesión de "escritor" individual o el uso compartido del token de sesión para varios escritores.
+### <a name="session-consistency"></a>Coherencia de sesión
+
+En la coherencia de sesión, en una sesión de cliente individual, se garantiza que las lecturas respetan las garantías de prefijo coherente, lecturas monotónicas, escrituras monotónicas, lectura de la escritura y escritura tras las lecturas. Esto da por hecho una sesión de "escritor" individual o el uso compartido del token de sesión para varios escritores.
 
 Los clientes que están fuera de la sesión que realiza escrituras verán las garantías siguientes:
 
@@ -92,7 +98,9 @@ Los clientes que están fuera de la sesión que realiza escrituras verán las ga
 
   :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="Ilustración del nivel de coherencia de sesión":::
 
-- **De prefijo coherente**: Las actualizaciones que se devuelven contienen prefijos para todas las actualizaciones, sin espacios. El nivel de coherencia del prefijo coherente garantiza que las lecturas nunca vean escrituras desordenadas.
+### <a name="consistent-prefix-consistency"></a>Coherencia de prefijo coherente
+
+En la opción de prefijo coherente, las actualizaciones que se devuelven contienen prefijos para todas las actualizaciones, sin espacios. El nivel de coherencia del prefijo coherente garantiza que las lecturas nunca vean escrituras desordenadas.
 
 Si se realizan escrituras en el orden `A, B, C`, un cliente ve `A`, `A,B` o `A,B,C`, pero nunca permutaciones fuera de servicio como `A,C` o `B,A,C`. El prefijo coherente proporciona latencias de escritura, disponibilidad y rendimiento de lectura equiparables a los de la coherencia final, pero también proporciona las garantías de orden que se ajustan a las necesidades de escenarios en los que el orden es importante.
 
@@ -107,7 +115,9 @@ En el gráfico siguiente se ilustra la coherencia del prefijo de coherencia con 
 
   :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="Ilustración de prefijo coherente":::
 
-- **Ocasional**: No hay ninguna garantía de ordenación para las lecturas. En ausencia de escrituras adicionales, las réplicas terminarán por converger.  
+### <a name="eventual-consistency"></a>Coherencia final
+
+En la coherencia final, no hay ninguna garantía de ordenación para las lecturas. En ausencia de escrituras adicionales, las réplicas terminarán por converger.  
 La coherencia final es la forma más débil de coherencia, ya que un cliente puede leer los valores que son más antiguos que los que había leído antes. La coherencia final es adecuada cuando la aplicación no requiere ninguna garantía de ordenación. Entre los ejemplos se incluye el recuento de retweets, Me gusta o comentarios no encadenados. En el gráfico siguiente se ilustra la coherencia final con notas musicales.
 
   :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="Ilustración de coherencia final":::

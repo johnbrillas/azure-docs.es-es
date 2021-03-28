@@ -3,14 +3,14 @@ title: Creación de implementaciones de actualizaciones para Update Management e
 description: En este artículo se describe cómo programar implementaciones de actualizaciones y revisar su estado.
 services: automation
 ms.subservice: update-management
-ms.date: 12/09/2020
+ms.date: 03/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: fb81d38b066e1abb54664225daa6840d895e9ace
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6d35d6b49ab72d8aa7b25506011147ab624273fd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100575899"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669685"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Implementación de actualizaciones y revisión de los resultados
 
@@ -21,6 +21,9 @@ En cada escenario, la implementación que se crea tiene como destino esa máquin
 * El sistema operativo se preselecciona de manera automática en función del SO de la máquina.
 * La máquina de destino que se va a actualizar se establece automáticamente.
 * Al configurar la programación, puede especificar **Actualizar ahora**, si sucede una vez o si usa una programación recurrente.
+
+> [!IMPORTANT]
+> Al crear una implementación de actualizaciones, acepta los términos de los términos de licencia de software (CLUF) proporcionados por la empresa que ofrece actualizaciones para su sistema operativo.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 

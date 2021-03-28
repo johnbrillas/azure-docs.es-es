@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: KumudD
 ms.author: kumud
 ms.date: 11/25/2020
-ms.openlocfilehash: 20f61ad92307a16515156151b816494e9aa289f7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: db94a376112b3d715da9095acb05c0b4fd4ea02f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717475"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104605807"
 ---
 # <a name="azure-monitor-for-networks"></a>Azure Monitor para Redes
 
@@ -108,10 +108,12 @@ El kit de herramientas de diagnóstico proporciona acceso a todas las caracterí
 
 ![Captura de pantalla que muestra la pestaña Kit de herramientas de diagnóstico.](media/network-insights-overview/azure-monitor-for-networks-diagnostic-toolkit.png)
 
+## <a name="onboarded-resources"></a>Recursos incorporados 
+
+Los recursos incorporados tienen libros integrados y vistas de dependencia. Actualmente, los recursos incorporados son Virtual WAN, Application Gateway, Load Balancer y ExpressRoute.
+
 ## <a name="troubleshooting"></a>Solución de problemas 
-
 Para instrucciones generales sobre la solución de problemas, consulte el [artículo dedicado de solución de problemas](troubleshoot-workbooks.md) de conclusiones basadas en libros.
-
 Esta sección lo ayudará a diagnosticar y solucionar algunos problemas comunes que puede encontrar al usar Azure Monitor para redes. 
 
 ### <a name="how-do-i-resolve-performance-problems-or-failures"></a>¿Cómo resuelvo problemas o errores de rendimiento?

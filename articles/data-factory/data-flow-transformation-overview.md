@@ -6,12 +6,12 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: ba2ff2b5f108d7910958b374cc4b602a84a3f53d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f595766d49d6c00c313990717d8fd241ddfc8f81
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367918"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593873"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Introducción a las transformaciones en el flujo de datos de asignación
 
@@ -31,6 +31,7 @@ A continuación se muestra una lista de las transformaciones admitidas actualmen
 | [Join](data-flow-join.md) | Varias entradas y salidas |  Combina datos de dos orígenes o flujos. |
 | [Lookup](data-flow-lookup.md) | Varias entradas y salidas | Hace referencia a datos de otro origen. |
 | [Nueva rama](data-flow-new-branch.md) | Varias entradas y salidas | Aplica varios conjuntos de operaciones y transformaciones en el mismo flujo de datos. |
+| [Parse](data-flow-new-branch.md) | Formateador | Analiza las columnas de texto del flujo de datos que son cadenas de JSON, texto delimitado o texto con formato XML. |
 | [Dinamización](data-flow-pivot.md) | Modificador de esquema | Agregación en la que los valores de fila distintivos de una o más columnas de agrupación se transforman en columnas individuales. |
 | [Rango](data-flow-rank.md) | Modificador de esquema | Genera una clasificación ordenada en función de las condiciones de ordenación. |
 | [Select](data-flow-select.md) | Modificador de esquema | Establece alias de nombres de columnas y flujos, y quita o reordena columnas. |

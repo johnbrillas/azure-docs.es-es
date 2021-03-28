@@ -6,13 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 02/24/2021
-ms.openlocfilehash: 9c788109b014be244560fb652de830ba14a44d68
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.reviewer: stmummer
+ms.date: 03/17/2021
+ms.openlocfilehash: d45b46f69480f24f5b2724116984a903093ffc62
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225020"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593363"
 ---
 # <a name="verify-co-sell-status-of-a-commercial-marketplace-offer"></a>Comprobación del estado de la venta conjunta de una oferta del marketplace comercial
 
@@ -33,7 +34,7 @@ En la tabla siguiente se muestran todos los posibles estados de la venta conjunt
 | No listo para la venta conjunta | No se cumplen los [requisitos mínimos para el estado Listo para la venta conjunta](co-sell-requirements.md#requirements-for-co-sell-ready-status). |
 | Listo para la venta conjunta | Se cumplen todos los [requisitos para el estado Listo para la venta conjunta](co-sell-requirements.md#requirements-for-co-sell-ready-status). |
 | Venta conjunta con incentivos de IP de Azure | Se cumplen los requisitos de venta conjunta, además de [estos requisitos adicionales](co-sell-requirements.md#requirements-for-azure-ip-co-sell-incentivized-status). |
-| Estímulo Premium de la conexión ISV de BIZ apps  | Este estado se aplica a las ofertas de Dynamics 365 y Power Apps e indica que se cumplen todos los [requisitos de este estado](co-sell-requirements.md#requirements-for-biz-apps-isv-connect-premium-incentive-status). |
+| Venta conjunta con incentivos de Business Applications | Este estado se aplica a las ofertas de Dynamics 365 y Power Apps del [Programa Connect para ISV](business-applications-isv-program.md) e indica que se cumplen todos los [requisitos de este estado](co-sell-requirements.md#requirements-for-business-applications-co-sell-incentivized-status). |
 |||
 
 ## <a name="next-steps"></a>Pasos siguientes

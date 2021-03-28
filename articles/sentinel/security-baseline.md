@@ -3,33 +3,36 @@ title: Línea de base de seguridad de Azure para Azure Sentinel
 description: La línea de base de seguridad de Azure Sentinel proporciona instrucciones de procedimientos y recursos para implementar las recomendaciones de seguridad especificadas en Azure Security Benchmark.
 author: msmbaldwin
 ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 03/16/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d95a2318d94f52352c9546aedc24d0111c5ba0a4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a827268444fdbc2cdbbe5ac1220ad7d49a2a254f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571658"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604243"
 ---
 # <a name="azure-security-baseline-for-azure-sentinel"></a>Línea de base de seguridad de Azure para Azure Sentinel
 
-Esta línea de base de seguridad aplica las instrucciones de [Azure Security Benchmark, versión 1.0](../security/benchmarks/overview.md) a Azure Sentinel. Azure Security Benchmark proporciona recomendaciones sobre cómo puede proteger sus soluciones de nube en Azure. El contenido se agrupa por medio de los **controles de seguridad** definidos por Azure Security Benchmark y las directrices aplicables a Azure Sentinel. Se han excluido los **controles** no aplicables a Azure Sentinel. Para ver cómo Azure Sentinel se asigna por completo a Azure Security Benchmark, consulte el [archivo completo de asignación de línea de base de seguridad de Azure Sentinel](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+Esta línea de base de seguridad aplica las instrucciones de [Azure Security Benchmark, versión 1.0](../security/benchmarks/overview-v1.md) a Azure Sentinel. Azure Security Benchmark proporciona recomendaciones sobre cómo puede proteger sus soluciones de nube en Azure.
+El contenido se agrupa por medio de los **controles de seguridad** definidos por Azure Security Benchmark y las directrices aplicables a Azure Sentinel. Se han excluido los **controles** no aplicables a Azure Sentinel.
 
-## <a name="network-security"></a>Seguridad de las redes
+ 
+Para ver cómo Azure Sentinel se asigna por completo a Azure Security Benchmark, consulte el [archivo completo de asignación de línea de base de seguridad de Azure Sentinel](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
-*Para obtener más información, consulte [Azure Security Benchmark: Seguridad de redes](../security/benchmarks/security-control-network-security.md).*
+## <a name="network-security"></a>Seguridad de redes
+
+*Para más información, consulte [Azure Security Benchmark: seguridad de red](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1: Protección de los recursos de Azure dentro de las redes virtuales
 
 **Guía**: No se pueden asociar redes virtuales, subredes ni grupos de seguridad de red directamente a Azure Sentinel. Sin embargo, puede habilitar un punto de conexión privado de Azure para el área de trabajo de Log Analytics asociada a Azure Sentinel para limitar la comunicación hacia las redes privadas y desde allí.
 
-**Supervisión de Azure Security Center**: no disponible actualmente
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11: Use herramientas automatizadas para supervisar las configuraciones de recursos de red y detectar cambios
 
@@ -37,17 +40,18 @@ Esta línea de base de seguridad aplica las instrucciones de [Azure Security Ben
 
 - [Habilitación de la auditoría en Azure Sentinel](resources.md)
 
-- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
+- [Visualización y recuperación de eventos del registro de actividad de Azure](https://docs.microsoft.com/azure/azure-monitor/essentials/activity-log#view-the-activity-log)
+ 
 
 - [Creación de alertas en Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
-**Supervisión de Azure Security Center**: no disponible actualmente
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ## <a name="logging-and-monitoring"></a>Registro y supervisión
 
-*Para obtener más información, consulte [Azure Security Benchmark: registro y supervisión](../security/benchmarks/security-control-logging-monitoring.md).*
+*Para más información, consulte [Azure Security Benchmark: registro y supervisión](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: Configuración de la administración central de registros de seguridad
 
@@ -55,9 +59,9 @@ Esta línea de base de seguridad aplica las instrucciones de [Azure Security Ben
 
 - [Habilitación de la auditoría en Azure Sentinel](resources.md)
 
-**Supervisión de Azure Security Center**: Sí
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3: Habilitación del registro de auditoría para recursos de Azure
 
@@ -65,19 +69,19 @@ Esta línea de base de seguridad aplica las instrucciones de [Azure Security Ben
 
 - [Habilitación de la auditoría en Azure Sentinel](resources.md)
 
-**Supervisión de Azure Security Center**: Sí
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5: Configuración de la retención del almacenamiento de registros de seguridad
 
 **Guía**: En Azure Monitor, establezca el período de retención de registros en las áreas de trabajo de Log Analytics asociadas a las áreas de trabajo de Azure Sentinel atendiendo a las normativas de cumplimiento de su organización.
 
-- [Establecimiento de parámetros de retención de registros](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
-
-**Supervisión de Azure Security Center**: No aplicable
+- [Establecimiento de parámetros de retención de registros](https://docs.microsoft.com/azure/azure-monitor/logs/manage-cost-storage#change-the-data-retention-period)
 
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="26-monitor-and-review-logs"></a>2.6: Supervisión y revisión de registros
 
@@ -85,9 +89,9 @@ Esta línea de base de seguridad aplica las instrucciones de [Azure Security Ben
 
 - [Habilitación de la auditoría en Azure Sentinel](resources.md)
 
-**Supervisión de Azure Security Center**: No aplicable
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="27-enable-alerts-for-anomalous-activities"></a>2.7: Habilitación de alertas para actividades anómalas
 
@@ -95,19 +99,19 @@ Esta línea de base de seguridad aplica las instrucciones de [Azure Security Ben
 
 - [Habilitación de la auditoría en Azure Sentinel](resources.md)
 
-**Supervisión de Azure Security Center**: Sí
-
 **Responsabilidad**: Customer
 
-## <a name="identity-and-access-control"></a>Control de identidades y acceso
+**Supervisión de Azure Security Center**: ninguna
 
-*Para obtener más información, consulte [Azure Security Benchmark: Identidad y control de acceso](../security/benchmarks/security-control-identity-access-control.md).*
+## <a name="identity-and-access-control"></a>Identidad y Access Control
+
+*Para más información, consulte [Azure Security Benchmark: identidad y control de acceso](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Mantenga un inventario de cuentas administrativas
 
-**Guía**: Mantenga un inventario de las cuentas de usuario que tienen acceso administrativo al plano de control (por ejemplo, Azure Portal) del área de trabajo de Azure Sentinel. 
+**Guía**: Mantenga un inventario de las cuentas de usuario que tienen acceso administrativo al plano de control (como Azure Portal) del área de trabajo de Azure Sentinel. 
 
-Puede usar el panel Administración de identidad y acceso (IAM) de Azure Portal para la suscripción a fin de configurar el control de acceso basado en rol de Azure (Azure RBAC). Los roles se aplican a usuarios, grupos, entidades de servicio e identidades administradas en Active Directory.  Azure Sentinel también usa Azure RBAC para proporcionar roles administrativos integrados (por ejemplo, colaborador de Azure Sentinel), que se pueden asignar a usuarios, grupos y servicios de Azure. 
+Puede usar el panel de control de identidad y acceso de Azure Portal para la suscripción a fin de configurar el control de acceso basado en rol de Azure (Azure RBAC). Los roles se aplican a usuarios, grupos, entidades de servicio e identidades administradas en Azure Active Directory (Azure AD). Azure Sentinel también usa Azure RBAC para proporcionar roles administrativos integrados (por ejemplo, colaborador de Azure Sentinel), que se pueden asignar a usuarios, grupos y servicios de Azure. 
 
 - [Descripción de los roles personalizados](../role-based-access-control/custom-roles.md)
 
@@ -115,67 +119,73 @@ Puede usar el panel Administración de identidad y acceso (IAM) de Azure Portal 
 
 - [Procedimiento para configurar Azure RBAC en libros](quickstart-get-visibility.md)
 
-**Supervisión de Azure Security Center**: Sí
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3: Use cuentas administrativas dedicadas
 
 **Guía**: Cree procedimientos operativos estándar en torno al uso de cuentas administrativas dedicadas. Use la administración de identidad y acceso de Azure Security Center para supervisar el número de cuentas administrativas.
 
-Además, para ayudarle a realizar un seguimiento de las cuentas administrativas dedicadas, puede seguir las recomendaciones de Azure Security Center o las directivas integradas de Azure Policy, por ejemplo:
+Además, para ayudarle a realizar un seguimiento de las cuentas administrativas dedicadas, puede seguir las recomendaciones de Azure Security Center o las directivas integradas de Azure, por ejemplo:
 
 - Debe haber más de un propietario asignado a su suscripción
 - Las cuentas en desuso con permisos de propietario deben quitarse de la suscripción
 - Las cuentas externas con permisos de propietario deben quitarse de la suscripción
 
+Información adicional disponible en los vínculos indicados.
+
 - [Uso de Azure Security Center para supervisar la identidad y el acceso (versión preliminar)](../security-center/security-center-identity-access.md)
 
 - [Uso de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Supervisión de Azure Security Center**: Sí
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3.4: Uso del inicio de sesión único (SSO) de Azure Active Directory
 
-**Guía**: El acceso al plano de control en el área de trabajo de Azure Sentinel (por ejemplo, Azure Portal) está disponible a través de la API REST y admite inicio de sesión único. Para autenticarse, establezca el encabezado de autorización de las solicitudes en JSON Web Token, que se obtiene de Azure Active Directory (AAD).
+**Guía**: El acceso al plano de control en el área de trabajo de Azure Sentinel (por ejemplo, Azure Portal) está disponible a través de la API REST y admite inicio de sesión único. Para autenticarse, establezca el encabezado de autorización de las solicitudes en JSON Web Token, que se obtiene de Azure Active Directory (Azure AD).
 
 - [Uso de la API REST de Azure Log Analytics](/rest/api/loganalytics/)
 
 - [Descripción del SSO con Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
-**Supervisión de Azure Security Center**: No aplicable
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: Uso de la autenticación multifactor para todo el acceso basado en Azure Active Directory
 
-**Guía**: Habilite Multi-Factor Authentication (MFA) de Azure Active Directory y siga las recomendaciones de administración de identidad y acceso de Azure Security Center.
+**Guía**: habilite la autenticación multifactor de Azure Active Directory (Azure AD) y siga las recomendaciones de administración de identidades y acceso de Azure Security Center.
 
-- [Procedimiento para habilitar la MFA en Azure](../active-directory/authentication/howto-mfa-getstarted.md)
+- [Habilitación de la autenticación multifactor en Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 - [Supervisión de la identidad y el acceso en Azure Security Center](../security-center/security-center-identity-access.md)
 
-**Supervisión de Azure Security Center**: Sí
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="36-use-secure-azure-managed-workstations-for-administrative-tasks"></a>3.6: Uso de estaciones de trabajo seguras y administradas por Azure para realizar tareas administrativas
 
-**Guía**: use una estación de trabajo de acceso con privilegios (PAW) con Azure AD Multi-Factor Authentication (MFA) habilitado para iniciar sesión en los recursos relacionados con Azure Sentinel y configurarlos. 
+**Guía**: use una estación de trabajo de acceso con privilegios (PAW) con autenticación multifactor de Azure AD habilitada para iniciar sesión en los recursos relacionados con Azure Sentinel y configurarlos. 
+ 
 
+ 
 - [Uso de estaciones de trabajo con privilegios de acceso](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
+ 
 
-- [Planeamiento de una implementación de Azure AD Multi-Factor Authentication basada en la nube](../active-directory/authentication/howto-mfa-getstarted.md)
-
-**Supervisión de Azure Security Center**: No aplicable
+ 
+- [Planeamiento de una implementación de autenticación multifactor de Azure AD](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Responsabilidad**: Customer
 
+**Supervisión de Azure Security Center**: ninguna
+
 ### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3.7: Registro y alerta de actividades sospechosas desde cuentas administrativas
 
-**Guía**: Use Privileged Identity Management (PIM) de Azure Active Directory (AD) para la generación de registros y alertas cuando se produzca una actividad sospechosa o insegura en el entorno.
+**Guía**: use Privileged Identity Management (PIM) de Azure Active Directory (Azure AD) para la generación de registros y alertas cuando se produzca una actividad sospechosa o insegura en el entorno.
 
 Además, use las detecciones de riesgo de Azure AD para ver alertas e informes sobre el comportamiento de los usuarios de riesgo.
 
@@ -183,9 +193,9 @@ Además, use las detecciones de riesgo de Azure AD para ver alertas e informes 
 
 - [Información sobre las detecciones de riesgo de Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
-**Supervisión de Azure Security Center**: Sí
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8: Administre los recursos de Azure solo desde ubicaciones aprobadas
 
@@ -193,51 +203,51 @@ Además, use las detecciones de riesgo de Azure AD para ver alertas e informes 
 
 - [Configuración de ubicaciones con nombre en Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-**Supervisión de Azure Security Center**: No aplicable
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Uso de Azure Active Directory
 
-**Guía**: use Azure Active Directory (AD) como sistema central de autenticación y autorización para las instancias de Azure Sentinel. Azure AD protege los datos mediante un cifrado seguro para los datos en reposo y en tránsito. Azure AD también cifra con sal, convierte en hash y almacena de forma segura las credenciales de los usuarios.
+**Guía**: use Azure Active Directory (Azure AD) como sistema central de autenticación y autorización para las instancias de Azure Sentinel. Azure AD protege los datos mediante un cifrado seguro para los datos en reposo y en tránsito. Azure AD también cifra con sal, convierte en hash y almacena de forma segura las credenciales de los usuarios.
 
 - [Creación y configuración de un inquilino de Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-**Supervisión de Azure Security Center**: No aplicable
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: Revise y concilie regularmente el acceso de los usuarios
 
-**Guía**: Azure Active Directory (AD) proporciona registros para ayudar a descubrir cuentas obsoletas. Además, use las revisiones de acceso de identidad de Azure para administrar de forma eficiente las pertenencias a grupos, el acceso a las aplicaciones empresariales y las asignaciones de roles. El acceso de los usuarios se puede revisar de forma periódica para asegurarse de que solo las personas adecuadas tengan acceso continuado. 
+**Guía**: Azure Active Directory (Azure AD) proporciona registros para ayudarle a descubrir cuentas obsoletas. Además, use las revisiones de acceso de identidad de Azure para administrar de forma eficiente las pertenencias a grupos, el acceso a las aplicaciones empresariales y las asignaciones de roles. El acceso de los usuarios se puede revisar de forma periódica para asegurarse de que solo las personas adecuadas tengan acceso continuado.
 
-- [Descripción de los informes de Azure AD](../active-directory/reports-monitoring/index.yml)
+- [Descripción de los informes de Azure AD](/azure/active-directory/reports-monitoring)
 
 - [Procedimiento para usar las revisiones de acceso de identidad de Azure](../active-directory/governance/access-reviews-overview.md)
 
-**Supervisión de Azure Security Center**: No aplicable
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3.11: Supervisión de los intentos de acceso a credenciales desactivadas
 
-**Guía**: Use Azure Active Directory (AD) como sistema central de autenticación y autorización para las áreas de trabajo de Azure Sentinel. Azure AD protege los datos mediante un cifrado seguro para los datos en reposo y en tránsito. Azure AD también cifra con sal, convierte en hash y almacena de forma segura las credenciales de los usuarios.
+**Guía**: use Azure Active Directory (Azure AD) como sistema central de autenticación y autorización para las áreas de trabajo de Azure Sentinel. Azure AD protege los datos mediante un cifrado seguro para los datos en reposo y en tránsito. Azure AD también cifra con sal, convierte en hash y almacena de forma segura las credenciales de los usuarios.
 
-Tiene acceso a los orígenes de registro de eventos de actividad de inicio de sesión, auditoría y riesgo de Azure AD, que permiten la integración en Azure Sentinel o SIEM de terceros.
+Tiene acceso a los orígenes del registro de eventos de riesgo, auditoría y actividad de inicio de sesión de Azure AD, lo que permite la integración con Azure Sentinel o con una solución de administración de eventos e información de sistema de terceros.
 
 Para simplificar este proceso, cree una configuración de diagnóstico para las cuentas de usuario de Azure AD y envíe los registros de auditoría y los registros de inicio de sesión a un área de trabajo de Log Analytics. Puede configurar las alertas de registro deseadas en Log Analytics.
 
-- [Integración de los registros de actividad de Azure en Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
+- [Integración de los registros de actividad de Azure en Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
 - [Incorporación de Azure Sentinel](quickstart-onboard.md)
 
-**Supervisión de Azure Security Center**: No aplicable
-
 **Responsabilidad**: Customer
 
-### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3.12: Alerta sobre las desviaciones de comportamiento en los inicios de sesión de las cuentas
+**Supervisión de Azure Security Center**: ninguna
 
-**Guía**: para la desviación del comportamiento de inicio de sesión de cuenta en el plan de control (por ejemplo, Azure Portal), use las características de detección de riesgos y de Azure AD Identity Protection para configurar respuestas automatizadas a las acciones sospechosas detectadas relacionadas con las identidades de los usuarios. También puede hacer que Azure Sentinel ingiera los datos para investigarlos más.
+### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3.12: Alerta de las desviaciones de comportamiento en los inicios de sesión de las cuentas
+
+**Guía**: En caso de que se produzcan desviaciones en el comportamiento de inicio de sesión de la cuenta del plano de control (p. ej., Azure Portal), use Azure Active Directory (AD) Identity Protection y las características de detección de riesgo para configurar respuestas automatizadas a las acciones sospechosas que se detecten en relación con las identidades de los usuarios. También puede hacer que Azure Sentinel ingiera los datos para investigarlos más.
 
 - [Visualización del inicio de sesión de riesgo de Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
@@ -245,23 +255,23 @@ Para simplificar este proceso, cree una configuración de diagnóstico para las 
 
 - [Incorporación de Azure Sentinel](quickstart-onboard.md)
 
-**Supervisión de Azure Security Center**: no disponible actualmente
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13: Proporcione a Microsoft acceso a los datos pertinentes del cliente durante los escenarios de soporte técnico
 
 **Guía**: Actualmente no está disponible; Caja de seguridad del cliente aún no es compatible con el área de trabajo de Azure Sentinel o Log Analytics.
 
-- [Lista de servicios admitidos por la Caja de seguridad del cliente](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
+- [Lista de servicios admitidos por la Caja de seguridad del cliente](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
 
-**Supervisión de Azure Security Center**: no disponible actualmente
+**Responsabilidad**: Customer
 
-**Responsabilidad**: no disponible actualmente
+**Supervisión de Azure Security Center**: ninguna
 
-## <a name="data-protection"></a>Protección de los datos
+## <a name="data-protection"></a>Protección de datos
 
-*Para obtener más información, consulte [Azure Security Benchmark: Protección de datos](../security/benchmarks/security-control-data-protection.md).*
+*Para más información, consulte [Azure Security Benchmark: protección de datos](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Mantenimiento de un inventario de información confidencial
 
@@ -269,21 +279,21 @@ Para simplificar este proceso, cree una configuración de diagnóstico para las 
 
 - [Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md)
 
-**Supervisión de Azure Security Center**: No aplicable
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: Aislamiento de los sistemas que almacenan o procesan información confidencial
 
-**Guía**: Implemente suscripciones o grupos de administración independientes para las áreas de trabajo de desarrollo, pruebas y producción de Sentinel.
+**Guía**: implemente suscripciones independientes para incluir, si lo desea, grupos de administración para las áreas de trabajo de desarrollo, pruebas y producción de Sentinel.
 
 - [Creación de suscripciones adicionales de Azure](../cost-management-billing/manage/create-subscription.md)
 
 - [Creación de grupos de administración](../governance/management-groups/create-management-group-portal.md)
 
-**Supervisión de Azure Security Center**: No aplicable
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: Cifrado de toda la información confidencial en tránsito
 
@@ -291,9 +301,9 @@ Para simplificar este proceso, cree una configuración de diagnóstico para las 
 
 - [Conexión de su solución externa con Common Event Format](connect-common-event-format.md)
 
-**Supervisión de Azure Security Center**: no disponible actualmente
-
 **Responsabilidad**: Compartido
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5: Uso de una herramienta de detección activa para identificar datos confidenciales
 
@@ -303,9 +313,9 @@ En el caso de la plataforma subyacente administrada por Microsoft, Microsoft tra
 
 - [Descripción de la protección de datos de los clientes en Azure](../security/fundamentals/protection-customer-data.md)
 
-**Supervisión de Azure Security Center**: No aplicable
-
 **Responsabilidad**: Compartido
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Uso del control de acceso basado en rol para controlar el acceso a los recursos
 
@@ -333,21 +343,23 @@ Además, cada libro de Sentinel es un recurso de Azure, y se pueden asignar role
 
 - [Procedimiento para configurar Azure RBAC en libros](quickstart-get-visibility.md)
 
-**Supervisión de Azure Security Center**: No aplicable
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8: Cifrado de información confidencial en reposo
 
-**Guía**: Actualmente, las áreas de trabajo de Azure Sentinel y Log Analytics de Azure Monitor usan claves administradas por Microsoft para cifrar los datos en reposo incluidos. La posibilidad de aportar su propia clave todavía no se admite por completo en Sentinel, pero se hará en breve.
+**Guía**: Actualmente, las áreas de trabajo de Azure Sentinel y Log Analytics de Azure Monitor usan claves administradas por Microsoft para cifrar los datos en reposo incluidos. La posibilidad de aportar su propia clave todavía no se admite por completo en Sentinel, pero se hará en breve. 
 
-- [Introducción a las claves administradas por el cliente de Azure Monitor](../azure-monitor/logs/customer-managed-keys.md#customer-managed-key-overview)
+ 
+- [Introducción a las claves administradas por el cliente de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/logs/customer-managed-keys#customer-managed-key-overview) 
 
+ 
 - [Uso de las claves administradas por el cliente en Azure Sentinel (versión preliminar)](customer-managed-keys.md)
 
-**Supervisión de Azure Security Center**: no disponible actualmente
-
 **Responsabilidad**: Compartido
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9: Registro y alerta de cambios en los recursos críticos de Azure
 
@@ -355,29 +367,29 @@ Además, cada libro de Sentinel es un recurso de Azure, y se pueden asignar role
 
 - [Habilitación de la auditoría en Azure Sentinel](resources.md)
 
-**Supervisión de Azure Security Center**: Sí
-
 **Responsabilidad**: Customer
 
-## <a name="inventory-and-asset-management"></a>Inventario y administración de recursos
+**Supervisión de Azure Security Center**: ninguna
 
-*Para obtener más información, consulte [Azure Security Benchmark: Administración de recursos y del inventario](../security/benchmarks/security-control-inventory-asset-management.md).*
+## <a name="inventory-and-asset-management"></a>Administración de recursos y del inventario
+
+*Para más información, consulte [Azure Security Benchmark: inventario y administración de recursos](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6.1: Uso de la solución de detección de recursos automatizada
 
-**Guía**: Use Azure Resource Graph para consultar o detectar todos los recursos (por ejemplo, proceso, almacenamiento, red, puertos y protocolos, etc.) dentro de las suscripciones.  Asegúrese de que tiene los permisos adecuados (lectura) en el inquilino y enumere todas las suscripciones de Azure, así como los recursos de las suscripciones.
+**Guía**: Use Azure Resource Graph para consultar o detectar todos los recursos (por ejemplo, proceso, almacenamiento, red, puertos y protocolos, etc.) dentro de las suscripciones. Asegúrese de que tiene los permisos adecuados (lectura) en el inquilino y enumere todas las suscripciones de Azure, así como los recursos de las suscripciones.
 
 Aunque los recursos clásicos de Azure se pueden detectar a través de Resource Graph, a partir de ahora es muy recomendable crear y usar los recursos con Azure Resource Manager.
 
 - [Creación de consultas con Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Visualización de las suscripciones de Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Visualización de las suscripciones de Azure](/powershell/module/az.accounts/get-azsubscription)
 
 - [Descripción de Azure RBAC](../role-based-access-control/overview.md)
 
-**Supervisión de Azure Security Center**: No aplicable
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="62-maintain-asset-metadata"></a>6.2: Mantenimiento de metadatos de recursos
 
@@ -385,9 +397,9 @@ Aunque los recursos clásicos de Azure se pueden detectar a través de Resource 
 
 - [Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md)
 
-**Supervisión de Azure Security Center**: No aplicable
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3: Eliminación de recursos de Azure no autorizados
 
@@ -398,19 +410,21 @@ Además, use Azure Policy para establecer restricciones sobre el tipo de recurso
 - Tipos de recursos no permitidos
 - Tipos de recursos permitidos
 
+Información adicional disponible en los vínculos indicados.
+
 - [Creación de suscripciones adicionales de Azure](../cost-management-billing/manage/create-subscription.md)
 
 - [Creación de grupos de administración](../governance/management-groups/create-management-group-portal.md)
 
 - [Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md)
 
-**Supervisión de Azure Security Center**: No aplicable
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: Supervisión de recursos de Azure no aprobados
 
-**Guía**: Use Azure Policy para establecer restricciones en el tipo de recursos que se pueden crear en sus suscripciones. 
+**Guía**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones.
 
 Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscripciones.  Asegúrese de que todos los recursos de Azure presentes en el entorno estén aprobados.
 
@@ -418,9 +432,9 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 - [Creación de consultas con Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-**Supervisión de Azure Security Center**: No aplicable
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: Uso exclusivo de servicios de Azure aprobados
 
@@ -431,11 +445,11 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 - [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Denegación de un tipo de recurso específico con Azure Policy](../governance/policy/samples/index.md)
-
-**Supervisión de Azure Security Center**: No aplicable
+- [Denegación de un tipo de recurso específico con Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
 
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6.11: Limitación de la capacidad de los usuarios para interactuar con Azure Resource Manager
 
@@ -443,49 +457,52 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 - [Configuración del acceso condicional para bloquear el acceso a Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
-**Supervisión de Azure Security Center**: No aplicable
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ## <a name="secure-configuration"></a>Configuración segura
 
-*Para obtener más información, consulte [Azure Security Benchmark: Configuración segura](../security/benchmarks/security-control-secure-configuration.md).*
+*Para más información, consulte [Azure Security Benchmark: configuración segura](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Establezca configuraciones seguras para todos los recursos de Azure
 
 **Instrucciones**: Defina e implemente configuraciones de seguridad estándar para el área de trabajo de Log Analytics asociada al área de trabajo de Sentinel con Azure Policy. Use alias de Azure Policy en el espacio de nombres "Microsoft.DataLakeAnalytics" para crear directivas personalizadas a fin de auditar o aplicar la configuración de las áreas de trabajo de Log Analytics.
+ 
 
-- [Visualización de los alias de Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Visualización de los alias de Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias)
 
 - [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Supervisión de Azure Security Center**: No aplicable
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: Mantenga configuraciones de recursos de Azure seguras
 
-**Instrucciones**: Use la directiva de Azure [denegar] e [implementar si no existe] para aplicar la configuración segura en los recursos de Azure.
+**Guía**: Use las directivas [deny] y [deploy if not exist] de Azure Policy para aplicar una configuración segura en los recursos de Azure.
 
 - [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 - [Descripción de los efectos de Azure Policy](../governance/policy/concepts/effects.md)
 
-**Supervisión de Azure Security Center**: No aplicable
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Almacene de forma segura la configuración de los recursos de Azure
 
 **Instrucciones**: Si usa definiciones de directivas personalizadas de Azure, use Azure DevOps o Azure Repos para almacenar y administrar el código de forma segura.
+ 
 
-- [Almacenamiento de código en Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Almacenamiento de código en Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Documentación de Azure Repos](/azure/devops/repos/index?view=azure-devops)
-
-**Supervisión de Azure Security Center**: No aplicable
+ 
+- [Documentación de Azure Repos](/azure/devops/repos/)
 
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7.7: Implementación de herramientas de administración de configuración para recursos de Azure
 
@@ -493,19 +510,19 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 - [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Supervisión de Azure Security Center**: No aplicable
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7.9: Implementación de la supervisión de la configuración automatizada para los recursos de Azure
 
-**Guía**: Use las definiciones de Azure Policy integradas junto con los alias de Azure Policy en el espacio de nombres "Microsoft.OperationalInsights" para crear directivas personalizadas con el fin de auditar y aplicar las configuraciones del sistema y enviar alertas sobre ellas. Use la directiva de Azure [audit], [deny] y [deploy if not exist] para aplicar automáticamente las configuraciones en los recursos de Azure.
+**Guía**: Use las definiciones de Azure Policy integradas junto con los alias de Azure Policy en el espacio de nombres "Microsoft.OperationalInsights" para crear directivas personalizadas con el fin de auditar y aplicar las configuraciones del sistema y enviar alertas sobre ellas. Utilice los efectos [audit], [deny] y [deploy if not exist] de la directiva de Azure Policy para aplicar automáticamente las configuraciones en los recursos de Azure.
 
 - [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-**Supervisión de Azure Security Center**: No aplicable
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="711-manage-azure-secrets-securely"></a>7.11: Administre los secretos de Azure de forma segura
 
@@ -513,13 +530,13 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 - [Conexión de Sentinel a orígenes de datos](connect-data-sources.md)
 
-- [Creación de un almacén de claves](../key-vault/secrets/quick-create-portal.md) 
+- [Creación de un almacén de claves](../key-vault/secrets/quick-create-portal.md)
 
 - [Cómo proporcionar la autenticación de Key Vault con una identidad administrada](../key-vault/general/assign-access-policy-portal.md)
 
-**Supervisión de Azure Security Center**: Sí
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: Elimine la exposición de credenciales no intencionada
 
@@ -527,13 +544,13 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 - [Configuración del escáner de credenciales](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
-**Supervisión de Azure Security Center**: No aplicable
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ## <a name="malware-defense"></a>Defensa contra malware
 
-*Para obtener más información, consulte [Azure Security Benchmark: defensa contra malware](../security/benchmarks/security-control-malware-defense.md).*
+*Para más información, consulte [Azure Security Benchmark: defensa contra malware](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2: Examine previamente los archivos que se van a cargar en recursos de Azure que no son de proceso
 
@@ -541,13 +558,13 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 Es su responsabilidad realizar un examen previo del contenido que se carga en los recursos de Azure que no son de proceso, como el área de trabajo de Log Analytics. Microsoft no puede acceder a los datos del cliente y, por lo tanto, no puede realizar exámenes antimalware del contenido del cliente en su nombre.
 
-**Supervisión de Azure Security Center**: No aplicable
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ## <a name="data-recovery"></a>Recuperación de datos
 
-*Para obtener más información, consulte [Azure Security Benchmark: recuperación de datos](../security/benchmarks/security-control-data-recovery.md).*
+*Para más información, consulte [Azure Security Benchmark: recuperación de datos](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantía de la protección de las copias de seguridad y las claves administradas por el cliente
 
@@ -557,17 +574,17 @@ La única operación posible una vez revocada o eliminada la clave de cifrado es
 
 Si se restaura el acceso después de la revocación, Azure Sentinel restaura el acceso a los datos en una hora.
 
-- [Habilitación de la eliminación temporal en Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
+- [Habilitación de la eliminación temporal en Key Vault](../storage/blobs/soft-delete-blob-overview.md)
 
 - [Uso de las claves administradas por el cliente en Azure Sentinel](customer-managed-keys.md)
 
-**Supervisión de Azure Security Center**: Sí
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ## <a name="incident-response"></a>Respuesta a los incidentes
 
-*Para obtener más información, consulte [Azure Security Benchmark: Respuesta a los incidentes](../security/benchmarks/security-control-incident-response.md).*
+*Para más información, consulte [Azure Security Benchmark: respuesta ante incidentes](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: Creación de una guía de respuesta ante incidentes
 
@@ -581,19 +598,21 @@ Si se restaura el acceso después de la revocación, Azure Sentinel restaura el 
 
 - [El cliente también puede usar la guía de control de incidentes de seguridad de equipos de NIST como referencia para la creación de su propio plan de respuesta a incidentes](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)
 
-**Supervisión de Azure Security Center**: No aplicable
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2: Creación de un procedimiento de priorización y puntuación de incidentes
 
 **Instrucciones**: Security Center asigna una gravedad a cada alerta para ayudarle a priorizar aquellas que se deben investigar en primer lugar. La gravedad se basa en la confianza que tiene Security Center en la búsqueda o en el análisis utilizados para emitir la alerta, así como en el nivel de confianza de que ha habido un intento malintencionado detrás de la actividad que ha provocado la alerta.
 
+ 
+
 Además, marque claramente las suscripciones (por ejemplo, producción, no producción) y cree un sistema de nomenclatura para identificar y clasificar claramente los recursos de Azure.
 
-**Supervisión de Azure Security Center**: Sí
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="103-test-security-response-procedures"></a>10.3: Prueba de los procedimientos de respuesta de seguridad
 
@@ -601,9 +620,9 @@ Además, marque claramente las suscripciones (por ejemplo, producción, no produ
 
 - [Consulte la publicación de NIST: Guía para probar, entrenar y ejecutar programas para planes y funcionalidades de TI](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
-**Supervisión de Azure Security Center**: No aplicable
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4: Provisión de detalles de contacto de incidentes de seguridad y configuración de notificaciones de alerta para incidentes de seguridad
 
@@ -611,21 +630,23 @@ Además, marque claramente las suscripciones (por ejemplo, producción, no produ
 
 - [Establecimiento del contacto de seguridad de Azure Security Center](../security-center/security-center-provide-security-contact-details.md)
 
-**Supervisión de Azure Security Center**: Sí
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: Incorporación de alertas de seguridad en el sistema de respuesta a incidentes
 
 **Instrucciones**: Exporte sus alertas y recomendaciones de Azure Security Center mediante la característica de exportación continua. La exportación continua le permite exportar alertas y recomendaciones de forma manual o continua. Puede usar el conector de datos de Azure Security Center para transmitir las alertas a Azure Sentinel.
 
+ 
+
 - [Configuración de la exportación continua](../security-center/continuous-export.md)
 
 - [Transmisión de alertas a Azure Sentinel](connect-azure-security-center.md)
 
-**Supervisión de Azure Security Center**: No aplicable
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6: Automatización de la respuesta a las alertas de seguridad
 
@@ -633,13 +654,13 @@ Además, marque claramente las suscripciones (por ejemplo, producción, no produ
 
 - [Configuración de la automatización de flujo de trabajo y Logic Apps](../security-center/workflow-automation.md)
 
-**Supervisión de Azure Security Center**: No aplicable
-
 **Responsabilidad**: Customer
+
+**Supervisión de Azure Security Center**: ninguna
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Pruebas de penetración y ejercicios del equipo rojo
 
-*Para obtener más información, consulte [Azure Security Benchmark: Pruebas de penetración y ejercicios del equipo rojo](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
+*Para más información, consulte [Azure Security Benchmark: Pruebas de penetración y ejercicios del equipo rojo](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Realice pruebas de penetración periódicas de los recursos de Azure y asegúrese de corregir todos los resultados de seguridad críticos
 
@@ -649,11 +670,11 @@ Además, marque claramente las suscripciones (por ejemplo, producción, no produ
 
 - [Equipo rojo de Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Supervisión de Azure Security Center**: No aplicable
-
 **Responsabilidad**: Compartido
+
+**Supervisión de Azure Security Center**: ninguna
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte la [prueba comparativa de seguridad de Azure](../security/benchmarks/overview.md).
-- Obtenga más información sobre las [líneas de base de seguridad de Azure](../security/benchmarks/security-baselines-overview.md).
+- Consulte la [Información general sobre Azure Security Benchmark V2](/azure/security/benchmarks/overview).
+- Obtenga más información sobre las [líneas de base de seguridad de Azure](/azure/security/benchmarks/security-baselines-overview).
