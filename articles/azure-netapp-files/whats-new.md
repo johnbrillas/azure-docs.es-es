@@ -12,18 +12,28 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 12/04/2020
+ms.date: 03/19/2021
 ms.author: b-juche
-ms.openlocfilehash: b40bbd6c470302b78b78744307805021a3649376
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f2167159b03cd0387acfccf4bbd0a2e840f739df
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571024"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955248"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Novedades de Azure NetApp Files
 
 Azure NetApp Files se actualiza periódicamente. En este artículo se proporciona un resumen de las nuevas características y mejoras más recientes. 
+
+## <a name="march-2021"></a>Marzo de 2021
+
+* [Recursos compartidos con disponibilidad continua para SMB](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume) (versión preliminar)  
+
+    La conmutación por error transparente de SMB facilita las operaciones de mantenimiento en el servicio Azure NetApp Files sin interrumpir la conectividad con las aplicaciones de servidor que almacenan los datos en volúmenes SMB y acceden a ellos. Para facilitar la conmutación por error transparente de SMB, Azure NetApp Files admite el uso de recursos compartidos con disponibilidad continua de SMB para aplicaciones de SQL Server a través de SMB en máquinas virtuales de Azure. Esta característica se admite actualmente en Windows SQL Server. Linux SQL Server no se admite actualmente. La activación de esta característica mejora considerablemente el rendimiento de SQL Server y ofrece ventajas de escalabilidad y costo para [implementaciones de una instancia única, una instancia de clúster de conmutación por error de Always-On y un grupo de disponibilidad Always-On](azure-netapp-files-solution-architectures.md#sql-server). Consulte las [ventajas de usar Azure NetApp Files para una implementación de SQL Server](solutions-benefits-azure-netapp-files-sql-server.md).
+
+* [Cambio automático del tamaño de un volumen de destino de replicación entre regiones](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
+
+    En una relación de replicación entre regiones, el tamaño de un volumen de destino se cambia automáticamente en función del tamaño del volumen de origen. De este modo, no es necesario cambiar el tamaño del volumen de destino por separado. Este cambio de tamaño automático es aplicable cuando los volúmenes establecen una relación de replicación activa, o cuando el emparejamiento de replicación se interrumpe con la operación de resincronización. Para que esta característica funcione, debe asegurarse de tener suficiente espacio en los grupos de capacidad para los volúmenes de origen y de destino.
 
 ## <a name="december-2020"></a>Diciembre de 2020
 
@@ -47,7 +57,7 @@ Azure NetApp Files se actualiza periódicamente. En este artículo se proporcion
 
 ## <a name="september-2020"></a>Septiembre de 2020
 
-* [Replicación de Azure NetApp Files entre regiones](cross-region-replication-introduction.md) (versión preliminar pública)
+* [Replicación de Azure NetApp Files entre regiones](cross-region-replication-introduction.md) (versión preliminar)
 
   Azure NetApp Files ahora admite la replicación entre regiones. Con esta nueva funcionalidad de recuperación ante desastres, puede replicar los volúmenes de Azure NetApp Files de una región de Azure a otra de manera rápida y rentable, y así proteger los datos frente a errores regionales imprevistos. La replicación entre regiones de Azure NetApp Files aprovecha la tecnología SnapMirror® de NetApp; solo los bloques modificados se envían a través de la red en un formato comprimido y eficiente. Esta tecnología propietaria reduce la cantidad de datos necesarios para replicar entre regiones, lo que ahorra costos de transferencia de datos. También acorta el tiempo de replicación, por lo que puede lograr un objetivo de punto de restauración (RPO) más pequeño.
 

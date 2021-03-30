@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f346b997b5e0c785d066ce3a1edaab8cbea10212
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 28cc8a858d1779e17c893d64eda5f907bb4c808e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101644126"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577995"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configuración manual de dispositivos unidos a Azure Active Directory híbrido
 
@@ -74,6 +74,9 @@ Si su organización usa una configuración administrada (no federada) con Active
 En el caso de la versión 1703 o anterior de los dispositivos Windows 10, si su organización requiere acceso a Internet a través de un proxy de salida, debe implementar la Detección automática de proxy web (WPAD) para permitir que los equipos Windows 10 se registren en Azure AD.
 
 A partir de la versión 1803 de Windows 10, aunque se produzca un error en el intento de unión por parte de un dispositivo a Azure AD híbrido en un dominio federado mediante AD FS y aunque Azure AD Connect esté configurado para sincronizar los objetos de equipo o dispositivo con Azure AD, el dispositivo intentará completar la unión a Azure AD híbrido mediante el equipo o dispositivo sincronizado.
+
+> [!NOTE]
+> Para que la combinación de sincronización de registro de dispositivos se realice correctamente, como parte de la configuración de registro del dispositivo, no excluya los atributos de dispositivo predeterminados de la configuración de sincronización de Azure AD Connect. Para más información sobre los atributos de dispositivo predeterminados sincronizados con Azure AD, consulte [Sincronización de Azure AD Connect: Atributos sincronizados con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized#windows-10).
 
 Para comprobar si el dispositivo puede acceder a los recursos de Microsoft anteriores en la cuenta del sistema, puede usar el script para [probar la conectividad del Registro de dispositivos](/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/).
 

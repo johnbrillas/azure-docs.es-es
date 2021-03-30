@@ -10,13 +10,13 @@ ms.topic: overview
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, vanto
-ms.date: 08/14/2020
-ms.openlocfilehash: 81d4527817d637e7b764cc83160153d974ced5c0
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.date: 01/14/2021
+ms.openlocfilehash: dca4d699ac1253753c82949cb480d95a1dde26e2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103600969"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594111"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>¿Qué es Instancia administrada de Azure SQL?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -36,7 +36,7 @@ En el diagrama siguiente se describen las características principales de SQL Ma
 Azure SQL Managed Instance está diseñada para aquellos clientes que quieran migrar un gran número de aplicaciones desde un entorno local o de IaaS, compilado automáticamente o que hayan proporcionado los fabricantes de software independientes, a un entorno en la nube de PaaS totalmente administrado, con el menor esfuerzo de migración posible. Mediante el uso del [Azure Data Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance), los clientes pueden migrar mediante lift-and-shift su instancia de SQL Server existente a SQL Managed Instance, que ofrece compatibilidad con SQL Server y aislamiento completo de las instancias de cliente con compatibilidad nativa con redes virtuales. Para más información sobre las opciones y las herramientas de migración, consulte [Información general sobre la migración: SQL Server a Instancia administrada de SQL](../migration-guides/managed-instance/sql-server-to-managed-instance-overview.md).</br> Con Software Assurance, puede intercambiar sus licencias existentes para obtener descuentos en SQL Managed Instance mediante la [Ventaja híbrida de Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). SQL Managed Instance es el mejor destino de migración en la nube para instancias de SQL Server que requieren alta seguridad y una completa superficie de programación.
 
 > [!TIP]
-> ¿Cómo podemos mejorar Azure SQL? [Realice la encuesta](https://aka.ms/AzureSQLSurvey).
+> ¿Cómo podemos mejorar Azure SQL? [Realice la encuesta](https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456).
 
 ## <a name="key-features-and-capabilities"></a>Funcionalidades y características clave
 
@@ -79,8 +79,8 @@ El [modelo de compra basado en núcleo virtual](../database/service-tiers-vcore.
 
 En el modelo de núcleos virtuales, puede elegir entre distintas generaciones de hardware.
 
-- Las CPU lógicas **Gen4** se basan en procesadores Intel E5-2673 v3 (Haswell) de 2,4 GHz, SSD conectado, núcleos físicos, 7 GB de RAM por núcleo y tamaños de proceso de entre 8 y 24 núcleos virtuales.
-- Las CPU lógicas **Gen5** se basan en los procesadores Intel® E5-2673 v4 (Broadwell) de 2,3 GHz, y en los procesadores Intel® SP-8160 (Skylake) e Intel® 8272CL (Cascade Lake) de 2,5 GHz, SSD NVMe rápida, núcleo lógico con Hyper-Threading y tamaños de proceso de entre 4 y 80 núcleos.
+- Las CPU lógicas **Gen4** se basan en procesadores Intel&reg; E5-2673 v3 (Haswell) de 2,4 GHz, SSD conectado, núcleos físicos, 7 GB de RAM por núcleo y tamaños de proceso de entre 8 y 24 núcleos virtuales.
+- Las CPU lógicas **Gen5** se basan en los procesadores Intel&reg; E5-2673 v4 (Broadwell) de 2,3 GHz, y en los procesadores Intel&reg; SP-8160 (Skylake) e Intel&reg; 8272CL (Cascade Lake) de 2,5 GHz, SSD NVMe rápida, núcleo lógico con Hyper-Threading y tamaños de proceso de entre 4 y 80 núcleos.
 
 Encontrará más información sobre la diferencia entre las generaciones de hardware en el artículo sobre [límites de recursos de Instancia administrada de SQL](resource-limits.md#hardware-generation-characteristics).
 

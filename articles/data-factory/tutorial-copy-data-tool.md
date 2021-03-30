@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 02/18/2021
-ms.openlocfilehash: 13aa907a8c5b394fbda8d8998928016c09b5524f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 1540e088565f69ca6d923202ad9b32b8d4ccf0ee
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101740008"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584448"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copia de datos de Azure Blob Storage a SQL Database con la herramienta Copy Data
 
@@ -82,7 +82,7 @@ Prepare su instancia de Blob Storage y su instancia de SQL Storage para el tutor
 
     El nombre de la factoría de datos debe ser _globalmente único_. Puede aparecer el siguiente mensaje de error:
 
-    ![Mensaje de error de nueva factoría de datos](./media/doc-common-process/name-not-available-error.png)
+   :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="Nuevo mensaje de error de factoría de datos por nombre duplicado.":::
 
     Si recibe un mensaje de error sobre el valor de nombre, escriba un nombre diferente para la factoría de datos. Por ejemplo, utilice _**suNombre**_**ADFTutorialDataFactory**. Para conocer las reglas de nomenclatura de los artefactos de Data Factory, consulte [Data Factory: reglas de nomenclatura](naming-rules.md).
 1. Seleccione la **suscripción** de Azure en la que quiere crear la nueva factoría de datos.
@@ -100,7 +100,7 @@ Prepare su instancia de Blob Storage y su instancia de SQL Storage para el tutor
 
 1. Una vez finalizada la creación, se muestra la página principal de **Data Factory**.
 
-    ![Página principal Factoría de datos](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Página principal de Azure Data Factory, con el icono de creación y supervisión":::.
 1. Para abrir la interfaz de usuario de Azure Data Factory en otra pestaña, seleccione el icono **Author & Monitor** (Creación y supervisión).
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>Uso de la herramienta Copy Data para crear una canalización

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/19/2019
 ms.custom: mvc
-ms.openlocfilehash: 7604a327c43ed1942d336399b6d8b9dbb1e64d75
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 8abd485bff885868d7865cf273cb161974106013
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98935720"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104862840"
 ---
 # <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>Inicio rápido: Ejecución de un script de R en un clúster de Machine Learning Services en Azure HDInsight con RStudio Server
 
@@ -34,7 +34,7 @@ La primera vez que inicie sesión deberá autenticarse dos veces. En el primer m
 
 Una vez conectado, la pantalla debe ser similar a la siguiente captura de pantalla:
 
-![Información general de la consola web de RStudio](./media/ml-services-quickstart-job-rstudio/connect-to-r-studio1.png)
+:::image type="content" source="./media/ml-services-quickstart-job-rstudio/connect-to-r-studio1.png" alt-text="Información general de la consola web de RStudio" border="true":::
 
 ## <a name="use-a-compute-context"></a>Usar un contexto de proceso
 
@@ -141,7 +141,7 @@ Una vez conectado, la pantalla debe ser similar a la siguiente captura de pantal
     
       ---
     
-      Signif. codes:  0 ‘**_’ 0.001 ‘_*’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+      Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
     
       Condition number of final variance-covariance matrix: 11904202
       Number of iterations: 7
@@ -178,7 +178,7 @@ Para eliminar un clúster, consulte [Eliminación de un clúster de HDInsight co
 En este inicio rápido, ha aprendido a ejecutar un script de R con RStudio Server que mostró el uso de Spark para cálculos de R distribuidos.  Siga con el artículo siguiente para aprender las opciones que están disponibles para especificar si la ejecución se realiza o no en paralelo y, en caso afirmativo, cómo se lleva a cabo a través del nodo perimetral o del clúster de HDInsight.
 
 > [!div class="nextstepaction"]
->[Opciones de contexto de proceso para de ML Services en HDInsight](./r-server-compute-contexts.md)
+>[Opciones de contexto de proceso para ML Services en HDInsight](./r-server-compute-contexts.md)
 
 > [!NOTE]
 > En esta página se describen las características del software RStudio. Microsoft Azure HDInsight no está afiliado a RStudio, Inc.

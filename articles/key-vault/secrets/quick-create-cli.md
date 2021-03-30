@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: e84a9fe15f648311c22fb0f7e8f8374454f5668a
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 1443ab37beb28706227159c53d336384216d8387
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99989156"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582466"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Inicio rápido: Establecimiento y recuperación de un secreto desde Azure Key Vault mediante la CLI de Azure
 
@@ -39,7 +39,7 @@ En este inicio rápido, creará un almacén de claves en Azure Key Vault con la 
 
 Para agregar un secreto al almacén, simplemente debe realizar un par de pasos adicionales. Esta contraseña la podría usar una aplicación. La contraseña se denominará **ExamplePassword** y almacenará el valor **hVFkk965BuUv**.
 
-Escriba los siguientes comandos para crear un secreto en Key Vault denominado **ExamplePassword** que almacenará el valor **hVFkk965BuUv**:
+Use el comando [az keyvault secret set](/cli/azure/keyvault/secret#az_keyvault_secret_set) de la CLI de Azure que se muestra a continuación para crear un secreto en Key Vault denominado **ExamplePassword** que almacenará el valor **hVFkk965BuUv**:
 
 ```azurecli
 az keyvault secret set --vault-name "<your-unique-keyvault-name>" --name "ExamplePassword" --value "hVFkk965BuUv"
@@ -64,5 +64,6 @@ Ya ha creado una instancia de Key Vault, ha almacenado un secreto y, posteriorme
 En este inicio rápido, ha creado una instancia de Key Vault y ha almacenado un secreto en ella. Para más información sobre Key Vault y cómo integrarlo con las aplicaciones, continúe con los artículos siguientes.
 
 - Lea una [introducción a Azure Key Vault](../general/overview.md).
+- Aprenda a [almacenar secretos multilínea en Key Vault](multiline-secrets.md)
 - Consulte la referencia de los [comandos az keyvault de la CLI de Azure](/cli/azure/keyvault).
 - Consulte [Introducción a la seguridad de Azure Key Vault](../general/security-overview.md)

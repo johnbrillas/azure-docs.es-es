@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: hdinsightactive
 ms.date: 12/03/2019
-ms.openlocfilehash: 1199fee82532eacf1f0ef41b877b970d7d9f2cf5
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 75f758054f867c58dd4180fe5e728e66785e3b11
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98941058"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869776"
 ---
 # <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>Inicio rápido: Uso de Apache Zeppelin para ejecutar consultas de Apache Hive en Azure HDInsight
 
@@ -18,7 +18,7 @@ Con este inicio rápido aprenderá a usar Apache Zeppelin para ejecutar consult
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Un clúster de HDInsight Interactive Query. Consulte [Creación de un clúster](../hadoop/apache-hadoop-linux-tutorial-get-started.md) para crear un clúster de HDInsight.  Asegúrese de elegir el tipo de clúster **Interactive Query**.
 
@@ -28,14 +28,14 @@ Un clúster de HDInsight Interactive Query. Consulte [Creación de un clúster](
 
 2. Escriba el nombre de usuario y la contraseña de inicio de sesión del clúster. En la página de Zeppelin, puede crear una nota o abrir notas existentes. **HiveSample** contiene algunos ejemplos de consultas de Hive.  
 
-    ![Zeppelin de HDInsight Interactive Query](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin.png)
+    :::image type="content" source="./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin.png" alt-text="Zeppelin de HDInsight Interactive Query" border="true":::
 
 3. Seleccione **Create new note** (Crear una nota).
 
 4. En el cuadro de diálogo **Create new note** (Crear una nota), escriba o seleccione los valores siguientes:
 
-    - Nombre de la nota: Escriba un nombre para la nota.
-    - Intérprete predeterminado: Seleccione **jdbc** en la lista desplegable.
+    - Nombre de la nota: escriba un nombre para la nota.
+    - Intérprete predeterminado: seleccione **JDBC** en la lista desplegable.
 
 5. Seleccione **Create Note** (Crear nota).
 
@@ -46,7 +46,7 @@ Un clúster de HDInsight Interactive Query. Consulte [Creación de un clúster](
     show tables
     ```
 
-    ![Zeppelin de HDInsight Interactive Query ejecuta una consulta](./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin-query.png)
+    :::image type="content" source="./media/hdinsight-connect-hive-zeppelin/hdinsight-hive-zeppelin-query.png" alt-text="Zeppelin de HDInsight Interactive Query ejecuta una consulta" border="true":::
 
     La instrucción **%jdbc(hive)** en la primera línea indica al bloc de notas que debe usar el intérprete JDBC de Hive.
 

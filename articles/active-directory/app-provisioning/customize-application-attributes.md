@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/08/2021
+ms.date: 03/17/2021
 ms.author: kenwith
-ms.openlocfilehash: 100f66d6217533ff6eba7881f938e877b98c735e
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 738b89ee9347a25e2d24369a48e966f0bec6daf0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100091115"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579474"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutorial: Personalización de las asignaciones de atributos de aprovisionamiento de usuarios para aplicaciones SaaS en Azure Active Directory
 
@@ -113,13 +113,13 @@ Las aplicaciones y sistemas que admiten la personalización de la lista de atrib
 - ServiceNow
 - Workday para Active Directory / Workday para Azure Active Directory
 - SuccessFactors para Active Directory / SuccessFactors para Azure Active Directory
-- Azure Active Directory (se admiten los [atributos predeterminados de Azure AD Graph API](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) y las extensiones de directorios personalizadas)
+- Azure Active Directory (se admiten los [atributos predeterminados de Azure AD Graph API](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) y las extensiones de directorios personalizadas). Obtenga información sobre la [creación de extensiones](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning-sync-attributes-for-mapping#create-an-extension-attribute-on-a-cloud-only-user) y las [limitaciones conocidas](https://docs.microsoft.com/azure/active-directory/app-provisioning/known-issues). 
 - Aplicaciones que admiten [SCIM 2.0](https://tools.ietf.org/html/rfc7643)
 - En el caso de la escritura diferida de Azure Active Directory en Workday o SuccessFactors, se pueden actualizar los metadatos correspondientes a los atributos admitidos (XPATH y JSONPath), pero no se pueden agregar nuevos atributos de Workday o SuccessFactors más allá de los incluidos en el esquema predeterminado.
 
 
 > [!NOTE]
-> La edición de la lista de atributos admitidos solo se recomienda para administradores que hayan personalizado el esquema de sus aplicaciones y sistemas, y tengan conocimiento de primera mano de cómo se han definido sus atributos personalizados. A veces, es necesario estar familiarizado con las API y las herramientas de los desarrolladores que se proporcionan en una aplicación o un sistema. La capacidad de editar la lista de atributos admitidos está bloqueada de forma predeterminada, pero los clientes pueden habilitar la funcionalidad; para ello, deben ir a la siguiente dirección URL: https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true. A continuación, puede ir a la aplicación para ver la lista de atributos como se describe [anteriormente](#editing-the-list-of-supported-attributes). 
+> La edición de la lista de atributos admitidos solo se recomienda para administradores que hayan personalizado el esquema de sus aplicaciones y sistemas, y tengan conocimiento de primera mano de cómo se han definido sus atributos personalizados o si un atributo de origen no se muestra automáticamente en la interfaz de usuario de Azure Portal. A veces, es necesario estar familiarizado con las API y las herramientas de los desarrolladores que se proporcionan en una aplicación o un sistema. La capacidad de editar la lista de atributos admitidos está bloqueada de forma predeterminada, pero los clientes pueden habilitar la funcionalidad; para ello, deben ir a la siguiente dirección URL: https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true. A continuación, puede ir a la aplicación para ver la lista de atributos como se describe [anteriormente](#editing-the-list-of-supported-attributes). 
 
 Al editar la lista de atributos admitidos, se proporcionan las siguientes propiedades:
 

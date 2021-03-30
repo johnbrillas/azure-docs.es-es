@@ -3,12 +3,12 @@ title: 'Tutorial: Copia de seguridad de bases de datos de SAP HANA en máquinas 
 description: En este tutorial, aprenderá a hacer una copia de seguridad de una base de datos de SAP HANA que se ejecuta en una máquina virtual de Azure en un almacén de Azure Backup Recovery Services.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 5548717b25ea3ec027ba5f588e5e28faafbb5d6f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 00109de349c1fdfdbaff9de30d18f64d8b986a59
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703688"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587651"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Copia de seguridad de bases de datos de SAP HANA en una máquina virtual de Azure
 
@@ -167,6 +167,18 @@ La salida de comandos debe mostrar la tecla {SID}{DBNAME}, con el usuario como A
 
 >[!NOTE]
 > Asegúrese de que tiene un conjunto único de archivos SSFS en `/usr/sap/{SID}/home/.hdb/`. Solo debería haber una carpeta en esta ruta de acceso.
+
+A continuación se muestra un resumen de los pasos necesarios para completar la ejecución del script previo al registro.
+
+|Quién  |De  |Qué ejecutar  |Comentarios  |
+|---------|---------|---------|---------|
+|```<sid>```adm (SO)     |  SO DE HANA       |   Lea el tutorial y descargue el script previo al registro      |   Lea los [requisitos previos anteriores](#prerequisites)    Descargue el script previo al registro desde [aquí](https://aka.ms/scriptforpermsonhana).  |
+|```<sid>```adm (SO) y usuario del SISTEMA (HANA)    |      SO DE HANA   |   Ejecute el comando hdbuserstore Set      |   Por ejemplo, hdbuserstore Set SYSTEM hostname>:3```<Instance#>```13 SYSTEM ```<password>``` **Nota:**  Asegúrese de usar el nombre de host en lugar de la dirección IP o el nombre de dominio completo.      |
+|```<sid>```adm (SO)    |   SO DE HANA      |  Ejecute el comando hdbuserstore List.       |   Compruebe si el resultado incluye el almacén predeterminado como a continuación: ```KEY SYSTEM  ENV : <hostname>:3<Instance#>13  USER: SYSTEM```      |
+|Raíz (SO)     |   SO DE HANA        |    Ejecute el script previo al registro previo de HANA de Azure Backup      |    ```./msawb-plugin-config-com-sap-hana.sh -a --sid <SID> -n <Instance#> --system-key SYSTEM```     |
+|```<sid>```adm (SO)    |  SO DE HANA       |   Ejecute el comando hdbuserstore List.      |    Compruebe si el resultado incluye nuevas líneas como se indica a continuación: ```KEY AZUREWLBACKUPHANAUSER  ENV : localhost: 3<Instance#>13   USER: AZUREWLBACKUPHANAUSER```.     |
+
+Después de ejecutar correctamente el script previo al registro y comprobarlo, puede continuar para comprobar [los requisitos de conectividad](#set-up-network-connectivity) y, a continuación, [configurar la copia de seguridad](#discover-the-databases) desde el almacén de Recovery Services.
 
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 

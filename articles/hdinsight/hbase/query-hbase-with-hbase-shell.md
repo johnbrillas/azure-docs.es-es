@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 358e058667cb1750a6fc97dffebcbfb2c6e06f84
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 98844a7dab673fb98dcdb639fbc48c0f6035fbba
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942920"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865118"
 ---
 # <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-hbase-shell"></a>Inicio rápido: Consulta de Apache HBase en Azure HDInsight con el shell de HBase
 
@@ -19,7 +19,7 @@ En este inicio rápido, aprenderá a usar el shell de Apache HBase para crear un
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Un clúster de Apache HBase Consulte [Creación de un clúster](../hadoop/apache-hadoop-linux-tutorial-get-started.md) para crear un clúster de HDInsight.  Asegúrese de elegir el tipo de clúster **HBase**.
 
@@ -29,11 +29,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 Para la mayoría de las personas, los datos aparecen en formato tabular:
 
-![Datos tabulares de Apache HBase de HDInsight](./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-tabular.png)
+:::image type="content" source="./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-tabular.png" alt-text="Datos tabulares de Apache HBase de HDInsight" border="true":::
 
 En HBase (una implementación de [Cloud BigTable](https://cloud.google.com/bigtable/)), los mismos datos tienen un aspecto similar al siguiente:
 
-![Datos de BigTable de Apache HBase de HDInsight](./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-bigtable.png)
+:::image type="content" source="./media/query-hbase-with-hbase-shell/hdinsight-hbase-contacts-bigtable.png" alt-text="Datos de BigTable de Apache HBase de HDInsight" border="true":::
 
 Puede usar SSH para conectarse a clústeres de HBase y, después, usar el shell de Apache HBase para crear tablas de HBase e insertar y consultar datos.
 

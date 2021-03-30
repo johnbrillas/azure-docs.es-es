@@ -12,12 +12,12 @@ ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: content moderator, azure content moderator, online moderator, content filtering software, content moderation service, content moderation
-ms.openlocfilehash: 57a390a1da1e3a10b9fda4b531a83ee48e91125b
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: a53611fdad84f06661f3b8928296b6a45851cea4
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560380"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104867277"
 ---
 # <a name="what-is-azure-content-moderator"></a>¿Qué es Azure Content Moderator?
 
@@ -26,6 +26,13 @@ ms.locfileid: "97560380"
 Azure Content Moderator es un servicio de inteligencia artificial que le permite controlar el contenido que puede ser ofensivo, arriesgado o no deseable. Incluye el servicio de moderación de contenido basado en IA que examina el texto, la imagen y los vídeos, y aplica marcas de contenido automáticamente, así como la herramienta de revisión, un entorno de moderador en línea para un equipo de revisores humanos.
 
 Compile software de filtrado de contenido en la aplicación para cumplir con las regulaciones o para mantener el entorno previsto para los usuarios.
+
+Esta documentación contiene los siguientes tipos de artículos:  
+
+* Los [**inicios rápidos**](client-libraries.md) son instrucciones de inicio que le guiarán a la hora de hacer solicitudes al servicio.  
+* Las [**guías de procedimientos**](try-text-api.md) contienen instrucciones para usar el servicio de una manera más específica o personalizada.  
+* Los [**conceptos**](text-moderation-api.md) proporcionan explicaciones detalladas sobre la funcionalidad y las características del servicio.  
+* Los [**tutoriales**](ecommerce-retail-catalog-moderation.md) son guías más largas que muestran cómo usar el servicio como componente de soluciones empresariales más amplias.  
 
 ## <a name="where-its-used"></a>Dónde se usa
 

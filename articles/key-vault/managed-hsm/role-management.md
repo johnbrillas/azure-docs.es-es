@@ -8,12 +8,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: a4cc898744109475bc119f37350d1b689c550f58
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 4d36b2c2178c7205246cd7c59aefedef3358e473
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102209600"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951749"
 ---
 # <a name="managed-hsm-role-management"></a>Administración de roles de Managed HSM
 
@@ -33,7 +33,7 @@ Para obtener una lista de todos los roles integrados de HSM administrado y las o
 Para usar los comandos de la CLI de Azure, debe tener los siguientes elementos:
 
 * Una suscripción a Microsoft Azure. Si no tiene una, puede registrarse para una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial).
-* La CLI de Azure, versión 2.12.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
+* La CLI de Azure, versión 2.21.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 * Un HSM administrado en la suscripción. Consulte [Quickstart: Aprovisionamiento y activación de un HSM administrado mediante la CLI de Azure](quick-create-cli.md) para aprovisionar y activar un HSM administrado.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -113,6 +113,70 @@ Use el comando `az keyvault role definition list` para enumerar todas las defini
 ```azurecli-interactive
 az keyvault role definition list --hsm-name ContosoMHSM
 ```
+
+## <a name="create-a-new-role-definition"></a>Creación de una nueva definición de roles
+
+HSM administrado tiene varios roles integrados (predefinidos) que son útiles para los escenarios de uso más comunes. Puede definir su propio rol con una lista de acciones específicas que el rol puede realizar. A continuación, puede asignar este rol a las entidades de seguridad a fin de concederles el permiso para las acciones especificadas. 
+
+Use el comando `az keyvault role definition create` para un rol denominado **My Custom Role** (Mi rol personalizado) mediante una cadena JSON.
+```azurecli-interactive
+az keyvault role definition create --hsm-name ContosoMHSM --role-definition '{
+    "roleName": "My Custom Role",
+    "description": "The description of the custom rule.",
+    "actions": [],
+    "notActions": [],
+    "dataActions": [
+        "Microsoft.KeyVault/managedHsm/keys/read/action"
+    ],
+    "notDataActions": []
+}'
+```
+
+Use el comando `az keyvault role definition create` para un rol de un archivo denominado **my-custom-role-definition.jsen** que contenga la cadena JSON para una definición de rol. Vea el ejemplo anterior.
+```azurecli-interactive
+az keyvault role definition create --hsm-name ContosoMHSM --role-definition @my-custom-role-definition.json
+```
+
+## <a name="show-details-of-a-role-definition"></a>Mostrar detalles de una definición de rol
+
+Use el comando `az keyvault role definition show` para ver los detalles de una definición de rol específica mediante el nombre (un GUID).
+
+```azurecli-interactive
+az keyvault role definition show --hsm-name ContosoMHSM --name xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+```
+
+## <a name="update-a-custom-role-definition"></a>Actualización de una definición de rol personalizado
+
+Use el comando `az keyvault role definition update` para actualizar un rol denominado **My Custom Role** (Mi rol personalizado) mediante una cadena JSON.
+```azurecli-interactive
+az keyvault role definition create --hsm-name ContosoMHSM --role-definition '{
+            "roleName": "My Custom Role",
+            "name": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+            "id": "Microsoft.KeyVault/providers/Microsoft.Authorization/roleDefinitions/xxxxxxxx-
+        xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+            "description": "The description of the custom rule.",
+            "actions": [],
+            "notActions": [],
+            "dataActions": [
+                "Microsoft.KeyVault/managedHsm/keys/read/action",
+                "Microsoft.KeyVault/managedHsm/keys/write/action",
+                "Microsoft.KeyVault/managedHsm/keys/backup/action",
+                "Microsoft.KeyVault/managedHsm/keys/create"
+            ],
+            "notDataActions": []
+        }'
+```
+
+## <a name="delete-custom-role-definition"></a>Eliminación de definiciones de roles personalizadas
+
+Use el comando `az keyvault role definition delete` para ver los detalles de una definición de rol específica mediante el nombre (un GUID). 
+```azurecli-interactive
+az keyvault role definition delete --hsm-name ContosoMHSM --name xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+```
+
+> [!NOTE]
+> Los roles integrados no se pueden eliminar. Cuando se eliminan los roles personalizados, todas las asignaciones de roles que utilizan ese rol personalizado quedan inactivas.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

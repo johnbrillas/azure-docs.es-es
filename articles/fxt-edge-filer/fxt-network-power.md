@@ -7,13 +7,13 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.openlocfilehash: 80458d99ed6ad19c8a837f0989798d4dcc156b61
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92219537"
 ---
-# <a name="tutorial-make-network-connections-and-supply-power-to-the-azure-fxt-edge-filer-node"></a>Tutorial: Establecimiento de las conexiones de red y fuente de alimentación para Azure FXT Edge Filer
+# <a name="tutorial-make-network-connections-and-supply-power-to-the-azure-fxt-edge-filer-node"></a>Tutorial: Establecimiento de las conexiones de red y fuente de alimentación para el nodo de Azure FXT Edge Filer
 
 En este tutorial le enseñamos a cablear las conexiones de red para un nodo de hardware de sistema de Azure FXT Edge Filer.
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a:
 > * Orientar los cables mediante el soporte de orientación de cables (CMA)
 > * Conectar la alimentación al dispositivo en bastidor y encenderlo
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de iniciar este tutorial, se debe instalar Azure FXT Edge Filer en un bastidor de equipamiento estándar. El CMA se debe instalar en el nodo del archivador.
 
@@ -166,4 +166,4 @@ El botón de encendido puede usarse para apagar el sistema durante las pruebas y
 
 Después de finalizar el cableado del hardware, encienda cada uno de los nodos e inicialícelos mediante el establecimiento de sus contraseñas raíz.
 > [!div class="nextstepaction"]
-> [Establecimiento de las contraseñas iniciales](fxt-node-password.md)
+> [Establecimiento inicial de las contraseñas](fxt-node-password.md)

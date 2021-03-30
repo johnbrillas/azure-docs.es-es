@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 05/07/2020
+ms.date: 03/17/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0f88b310bc00881e66ee8e8b5f2d40616d60315
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01deae46c442fc95c6aead0f11de929f47163c3c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87907037"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586564"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Tutorial: Invitación en masa a usuarios de colaboración de Azure AD B2B
 
@@ -41,7 +41,7 @@ Las filas de una plantilla CSV descargada son las siguientes:
 
 - **Número de versión**: la primera fila, que contiene el número de versión, debe estar incluida en el archivo CSV de carga.
 - **Encabezados de columna**: el formato de los encabezados de columna es &lt;*Nombre del elemento*&gt; [nombreDePropiedad] &lt;*Required (Obligatorio) o en blanco*&gt;. Por ejemplo, `Email address to invite [inviteeEmail] Required`. Algunas versiones anteriores de la plantilla podrían tener ligeras variaciones.
-- **Fila de ejemplos**: en la plantilla se incluye una fila de ejemplos de valores válidos para cada columna. Debe quitar la fila de ejemplos y reemplazarla por sus propias entradas.
+- **Fila de ejemplos**: en la plantilla se incluye una fila de ejemplos de valores para cada columna. Debe quitar la fila de ejemplos y reemplazarla por sus propias entradas.
 
 ### <a name="additional-guidance"></a>Instrucciones adicionales
 
@@ -56,18 +56,22 @@ Necesita dos o más cuentas de correo electrónico de prueba a las que poder env
 
 ## <a name="invite-guest-users-in-bulk"></a>Invitación en bloque a usuarios
 
-1. Inicie sesión en Azure Portal con una cuenta que sea la del administrador de usuarios de la organización.
+1. Inicie sesión en Azure Portal con una cuenta que sea la del administrador global de la organización.
 2. En el panel de navegación, seleccione **Azure Active Directory**.
-3. En **Administrar**, seleccione **Usuarios** > **Invitar en bloque**.
+3. En **Administrar**, seleccione **Todos los usuarios**.
+4. Seleccione **Operaciones masivas** > **Invitar en bloque**.
+
+    ![Botón Invitar en bloque](media/tutorial-bulk-invite/bulk-invite-button.png)
+
 4. En la página **Invitar usuarios en bloque**, seleccione **Descargar** para obtener una plantilla .csv válida con las propiedades de la invitación.
 
-    ![Botón de descarga de invitación en bloque](media/tutorial-bulk-invite/bulk-invite-button.png)
+     ![Descarga del archivo CSV](media/tutorial-bulk-invite/download-button.png)
 
-5. Abra la plantilla .csv y agregue una línea por cada usuario invitado. Los valores obligatorios son:
+1. Abra la plantilla .csv y agregue una línea por cada usuario invitado. Los valores obligatorios son:
 
    * **Dirección de correo electrónico para enviar la invitación**: el usuario que recibirá una invitación.
 
-   * **URL de redireccionamiento**: la dirección URL a la que se reenviará al usuario invitado después de que acepte la invitación.
+   * **URL de redireccionamiento**: la dirección URL a la que se reenviará al usuario invitado después de que acepte la invitación. Si desea reenviar al usuario a la página Aplicaciones, debe cambiar este valor a https://myapps.microsoft.com o https://myapplications.microsoft.com.
 
     ![Ejemplo de un archivo csv con usuarios invitados especificados](media/tutorial-bulk-invite/bulk-invite-csv.png)
 

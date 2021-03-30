@@ -10,24 +10,32 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: c9f8760bd1a7b5d3700f3fdf03331fe7013e116f
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 5f0a7477df2e281748c053ea8c7e7d3e79626296
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209414"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588025"
 ---
-# <a name="analyze-data-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Análisis de datos con un grupo de SQL sin servidor en Azure Synapse Analytics
+# <a name="analyze-data-with-a-serverless-sql-pool"></a>Análisis de datos con un grupo de SQL sin servidor
 
 En este tutorial, aprenderá a analizar datos con un grupo de SQL sin servidor mediante los datos ubicados en bases de datos de Spark. 
 
+## <a name="the-built-in-serverless-sql-pool"></a>El grupo de SQL sin servidor integrado
+
+Los grupos de SQL sin servidor permiten usar SQL sin necesidad de reservar capacidad. La facturación de un grupo de SQL sin servidor se basa en la cantidad de datos procesados para ejecutar la consulta y no en el número de recursos usados para ello.
+
+Todas las áreas de trabajo incluyen un grupo de SQL sin servidor preconfigurado llamado **Built-in**. 
+
 ## <a name="analyze-nyc-taxi-data-in-blob-storage-using-serverless-sql-pool"></a>Análisis de los datos de taxis de Nueva York en Blob Storage mediante un grupo de SQL sin servidor
 
-1. En el centro de conectividad **Data** (Datos) de **Linked** (Vinculados), haga clic con el botón derecho en **Azure Blob Storage > Sample Datasets > nyc_tlc_yellow** (Azure Blob Storage > Conjuntos de datos de ejemplo > nyc_tlc_yellow), **New SQL Script** (Nuevo script SQL) y seleccione **SELECT TOP 100 rows** (SELECCIONAR 100 PRIMERAS filas).
-1. Así se creará un script de SQL con el código siguiente:
+En esta sección, usará un grupo de SQL sin servidor para analizar los datos de taxis de Nueva York en una cuenta de Azure Blob Storage.
+
+1. En Synapse Studio, vaya al menú central **Develop** (Desarrollo).
+1. Se creará un nuevo script de SQL.
+1. Pegue el código siguiente en el script.
 
     ```
-    -- This is auto-generated code
     SELECT
         TOP 100 *
     FROM
@@ -38,25 +46,7 @@ En este tutorial, aprenderá a analizar datos con un grupo de SQL sin servidor m
     ```
 1. Haga clic en **Ejecutar**
 
-## <a name="analyze-nyc-taxi-data-in-spark-databases-using-serverless-sql-pool"></a>Análisis de los datos de taxis de Nueva York en las bases de datos de Spark mediante un grupo de SQL sin servidor
-
-Las tablas de las bases de datos de Spark se ven automáticamente y se pueden consultar mediante un grupo de SQL sin servidor.
-
-1. En Synapse Studio, vaya al centro **Develop** (Desarrollo) y cree un script de SQL.
-1. Establezca **Conectarse a** en el grupo de SQL sin servidor **integrado**.
-1. Pegue el siguiente texto en el script y ejecute el script.
-
-    ```sql
-    SELECT *
-    FROM nyctaxi.dbo.passengercountstats
-    ```
-
-    > [!NOTE]
-    > La primera vez que se ejecuta una consulta que usa un grupo de SQL sin servidor dicho grupo tarda alrededor de 10 segundos en recopilar los recursos de SQL necesarios para ejecutar las consultas. Las consultas posteriores serán mucho más rápidas.
-  
-
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Análisis de datos en Storage](get-started-analyze-storage.md)
+> [Análisis de datos con un grupo de Spark sin servidor](get-started-analyze-spark.md)

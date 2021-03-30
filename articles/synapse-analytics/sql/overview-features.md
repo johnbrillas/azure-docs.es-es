@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 769149d49d4d233c5c202f570ceb871365728c59
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b22f2ed2704f752ff2ca7a5bc21e856b076f0f70
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101671225"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584098"
 ---
 # <a name="transact-sql-features-supported-in-azure-synapse-sql"></a>Características de Transact-SQL compatibles en Azure Synapse SQL
 
@@ -51,7 +51,7 @@ Los lenguajes de consulta que se usan en Synapse SQL pueden tener diferentes car
 
 |   | Dedicado | Sin servidor |
 | --- | --- | --- |
-| **Instrucción SELECT** | Sí. No se admiten las cláusulas de consulta de Transact-SQL [FOR XML/FOR JSON](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true) y [MATCH](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true). | Sí. No se admiten las cláusulas de consulta de Transact-SQL [FOR XML](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true), [MATCH](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true) y [PREDICT](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true), ni las sugerencias de consulta. |
+| **Instrucción SELECT** | Sí. No se admiten las cláusulas de consulta de Transact-SQL [FOR XML/FOR JSON](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true), [MATCH](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true) ni OFFSET/FETCH. | Sí. No se admiten las cláusulas de consulta de Transact-SQL [FOR XML](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true), [MATCH](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true), [PREDICT](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true), GROUPNG SETS ni las sugerencias de consulta. |
 | **Instrucción INSERT** | Sí | No |
 | **Instrucción UPDATE** | Sí | No |
 | **Instrucción DELETE** | Sí | No |
@@ -158,5 +158,5 @@ Los datos que se analizan se pueden guardar en varios formatos de almacenamiento
 ## <a name="next-steps"></a>Pasos siguientes
 En los siguientes artículos encontrará más información sobre los procedimientos recomendados para el grupo de SQL dedicado y el grupo de SQL sin servidor:
 
-- [Procedimientos recomendados para el grupo de SQL dedicado](best-practices-sql-pool.md)
-- [Procedimientos recomendados para el grupo de SQL sin servidor](best-practices-sql-on-demand.md)
+- [Procedimientos recomendados para el grupo de SQL dedicado](best-practices-dedicated-sql-pool.md)
+- [Procedimientos recomendados para el grupo de SQL sin servidor](best-practices-serverless-sql-pool.md)

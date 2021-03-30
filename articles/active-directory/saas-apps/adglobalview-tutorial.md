@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ADP Globalview | Microsoft Docs'
-description: Obtenga información sobre cómo configurar el inicio de sesión único entre Azure Active Directory y ADP GlobalView.
+title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ADP Globalview (en desuso) | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y ADP GlobalView (en desuso).
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,91 +9,89 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/10/2019
+ms.date: 03/17/2021
 ms.author: jeedes
-ms.openlocfilehash: c11dd5ae3bc312cfea1a047c2db4396ba2cb50da
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 08b1294436ead372234104008a48ca23e56de389
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309030"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589317"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adp-globalview"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ADP Globalview
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adp-globalview-deprecated"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ADP Globalview (en desuso)
 
-En este tutorial, obtendrá información sobre cómo integrar ADP Globalview con Azure Active Directory (Azure AD). Al integrar ADP Globalview en Azure AD, puede hacer lo siguiente:
+En este tutorial, aprenderá a integrar ADP Globalview (en desuso) con Azure Active Directory (Azure AD). Al integrar ADP Globalview en Azure AD (en desuso), puede hacer lo siguiente:
 
-* Controlar en Azure AD quién tiene acceso a ADP Globalview.
-* Permitir que los usuarios puedan iniciar sesión automáticamente en ADP Globalview con sus cuentas de Azure AD.
+* Controlar en Azure AD quién tiene acceso a ADP Globalview (en desuso).
+* Permitir que los usuarios puedan iniciar sesión automáticamente en ADP Globalview (en desuso) con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
-
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 Para empezar, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
-* Una suscripción habilitada para el inicio de sesión único en ADP Globalview.
+* Una suscripción habilitada para el inicio de sesión único en ADP Globalview (en desuso).
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* ADP GlobalView admite el inicio de sesión único iniciado por **IDP**.
+* ADP GlobalView (en desuso) admite SSO iniciado por **IDP**.
 
-## <a name="adding-adp-globalview-from-the-gallery"></a>Incorporación de ADP GlobalView desde la galería
+## <a name="adding-adp-globalview-deprecated-from-the-gallery"></a>Incorporación de ADP GlobalView (en desuso) desde la galería
 
-Para configurar la integración de ADP GlobalView en Azure AD, es preciso agregar ADP GlobalView desde la galería a la lista de aplicaciones SaaS administradas.
+Para configurar la integración de ADP GlobalView (en desuso) en Azure AD, es preciso agregar ADP GlobalView (en desuso) desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
+1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
-1. En la sección **Agregar desde la galería**, escriba **ADP Globalview** en el cuadro de búsqueda.
-1. Seleccione **ADP Globalview** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
+1. En la sección **Agregar desde la galería**, escriba **ADP Globalview (en desuso)** en el cuadro de búsqueda.
+1. Seleccione **ADP Globalview (en desuso)** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-adp-globalview"></a>Configuración y prueba del inicio de sesión único de Azure AD para ADP Globalview
+## <a name="configure-and-test-azure-ad-sso-for-adp-globalview-deprecated"></a>Configuración y prueba del inicio de sesión único de Azure AD para ADP Globalview (en desuso)
 
-Configure y pruebe el inicio de sesión único de Azure AD con ADP Globalview mediante una usuaria de prueba llamada **B.Simon**. Para que el SSO funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de ADP Globalview.
+Configure y pruebe el inicio de sesión único de Azure AD con ADP Globalview (en desuso) mediante una usuaria de prueba llamada **B. Simon**. Para que el SSO funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de ADP Globalview (en desuso).
 
-Para configurar y probar el inicio de sesión único de Azure AD con ADP Globalview, complete los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con ADP Globalview (en desuso), siga estos pasos:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
-1. **[Configuración del inicio de sesión único en ADP Globalview](#configure-adp-globalview-sso)** , para configurar los valores de Inicio de sesión único en la aplicación.
-    1. **[Creación de un usuario de prueba de ADP Globalview](#create-adp-globalview-test-user)** , para tener un homólogo de B.Simon en ADP Globalview que esté vinculado a la representación de ella en Azure AD.
+1. **[Configuración del inicio de sesión único en ADP Globalview (en desuso)](#configure-adp-globalview-deprecated-sso)** , para configurar los valores de Inicio de sesión único en la aplicación.
+    1. **[Creación de un usuario de prueba de ADP Globalview (en desuso)](#create-adp-globalview-deprecated-test-user)** , para tener un homólogo de B. Simon en ADP Globalview (en desuso) que esté vinculado a la representación de ella en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **ADP Globalview**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de la aplicación de **ADP Globalview (en desuso)** , busque la sección **Administrar** y seleccione **Inicio de sesión único**.
 1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configuración del inicio de sesión único con SAML**, haga clic en el icono de lápiz de **Configuración básica de SAML** para editar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
 1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
 
     
-    En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente:
+    En el cuadro de texto **Identificador**, escriba una dirección URL con uno de los siguientes patrones:
 
-    ```https
-    https://<subdomain>.globalview.adp.com/federate
-    https://<subdomain>.globalview.adp.com/federate2
-    ```
-
+    | Identificador |
+    | ----------- |
+    | `https://<subdomain>.globalview.adp.com/federate` |
+    | `https://<subdomain>.globalview.adp.com/federate2` |
+    |
 
     > [!NOTE]
-    > Este valor no es real. Actualícelo con el identificador real. Póngase en contacto con el [equipo de soporte técnico de ADP GlobalView](https://www.adp.com/contact-us/overview.aspx) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Este valor no es real. Actualícelo con el identificador real. Póngase en contacto con el [equipo de soporte técnico de ADP GlobalView](https://www.adp.com/contact-us/overview.aspx) (en desuso) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-1. En la sección **Set up ADP Globalview** (Configurar ADP Globalview), copie las direcciones URL adecuadas según sea necesario.
+1. En la sección **Set up ADP Globalview** (Configurar ADP Globalview) (en desuso), copie las direcciones URL adecuadas según sea necesario.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -111,42 +109,33 @@ En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Porta
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, va a permitir que B.Simon acceda a ADP Globalview mediante el inicio de sesión único de Azure.
+En esta sección, va a permitir que B. Simon acceda a ADP Globalview (en desuso) mediante el inicio de sesión único de Azure.
 
 1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
-1. En la lista de aplicaciones, seleccione **ADP GlobalView**.
+1. En la lista de aplicaciones, seleccione **ADP GlobalView (en desuso)** .
 1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-
-   ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
-
 1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
-
-    ![Vínculo de Agregar usuario](common/add-assign-user.png)
-
 1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
 1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-## <a name="configure-adp-globalview-sso"></a>Configuración del inicio de sesión único de ADP Globalview
+## <a name="configure-adp-globalview-deprecated-sso"></a>Configure del inicio de sesión único de ADP Globalview (en desuso)
 
-Para configurar el inicio de sesión único en **ADP GlobalView**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de ADP GlobalView](https://www.adp.com/contact-us/overview.aspx). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **ADP GlobalView (en desuso)** , es preciso enviar el **certificado (Base64)** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de ADP GlobalView (en desuso)](https://www.adp.com/contact-us/overview.aspx). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
-### <a name="create-adp-globalview-test-user"></a>Creación de un usuario de prueba de ADP GlobalView
+### <a name="create-adp-globalview-deprecated-test-user"></a>Creación de un usuario de prueba de ADP Globalview (en desuso)
 
-En esta sección, creará un usuario llamado B.Simon en ADP Globalview. Trabaje con el equipo de soporte técnico de  [ADP GlobalView](https://www.adp.com/contact-us/overview.aspx) para agregar los usuarios a la cuenta de ADP GlobalView. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado B. Simon en ADP Globalview (en desuso). Trabaje con el [equipo de soporte técnico de ADP GlobalView (en desuso)](https://www.adp.com/contact-us/overview.aspx) para agregar los usuarios a la plataforma de ADP GlobalView (en desuso). Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
-## <a name="test-sso"></a>Prueba de SSO 
+## <a name="test-sso"></a>Prueba de SSO
 
-En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
+En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
 
-Al hacer clic en el icono de ADP GlobalView en el Panel de acceso, debería iniciar sesión automáticamente en la versión de ADP GlobalView para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
+* Haga clic en Probar esta aplicación en Azure Portal y debería iniciar sesión automáticamente en la instancia de ADP Globalview (en desuso) para la que configuró el inicio de sesión único.
 
-## <a name="additional-resources"></a>Recursos adicionales
+* Puede usar Mis aplicaciones de Microsoft. Al hacer clic en el icono de ADP GlobalView (en desuso) en Aplicaciones, debería iniciar sesión automáticamente en la versión de ADP GlobalView (en desuso) para la que configuró el inicio de sesión único. Para más información acerca de Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Pasos siguientes
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
-
-- [Pruebe ADP Globalview con Azure AD](https://aad.portal.azure.com/)
+Una vez configurado ADP Globalview (en desuso), puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

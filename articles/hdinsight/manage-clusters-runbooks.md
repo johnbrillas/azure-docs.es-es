@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/27/2019
-ms.openlocfilehash: 255542d820d135d1a88e193a8ef13ae590ce4016
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5eb0f353579233041bb5ccba46de2549ada7e9b7
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944038"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864795"
 ---
 # <a name="tutorial-create-azure-hdinsight-clusters-with-azure-automation"></a>Tutorial: Creación de clústeres de Azure HDInsight con Azure Automation
 
@@ -38,16 +38,16 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 1. Escriba **AzureRM.Profile** en el cuadro y presione Entrar para buscarlo. Seleccione el resultado de búsqueda disponible.
 1. En la pantalla **AzureRM.profile**, seleccione **Importar**. Active la casilla para actualizar los módulos de Azure y, después, seleccione **Aceptar**.
 
-    ![Importación del módulo AzureRM.profile](./media/manage-clusters-runbooks/import-azurermprofile-module.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/import-azurermprofile-module.png" alt-text="Importación del módulo AzureRM.profile" border="false":::
 
 1. Vuelva a la galería de módulos; para ello, seleccione **Galería de módulos** en **Recursos compartidos**.
 1. Escriba **HDInsight**. Seleccione **AzureRM.HDInsight**.
 
-    ![examinar los módulos de HDInsight](./media/manage-clusters-runbooks/browse-modules-hdinsight.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/browse-modules-hdinsight.png" alt-text="examinar los módulos de HDInsight" border="true":::
 
 1. En el panel **AzureRM.HDInsight**, seleccione **Importar** y **Aceptar**.
 
-    ![importar el módulo AzureRM.HDInsight](./media/manage-clusters-runbooks/import-azurermhdinsight-module.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/import-azurermhdinsight-module.png" alt-text="importar el módulo AzureRM.HDInsight" border="true":::
 
 ## <a name="create-credentials"></a>Crear credenciales
 
@@ -65,7 +65,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 1. Seleccione **Crear**.
 1. Repita el mismo proceso con una nueva credencial `ssh-password` con el nombre de usuario `sshuser` y una contraseña de su elección. Seleccione **Crear**. Esta credencial es para almacenar la contraseña SSH del clúster.
 
-    ![crear credencial](./media/manage-clusters-runbooks/create-credentials.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/create-credentials.png" alt-text="Crear una credencial" border="true":::
 
 ## <a name="create-a-runbook-to-create-a-cluster"></a>Creación de un runbook para crear un clúster
 
@@ -74,11 +74,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 1. En el panel **Crear un Runbook**, escriba un nombre para el runbook, como `hdinsight-cluster-create`. Seleccione **PowerShell** en la lista desplegable **Tipo de Runbook**.
 1. Seleccione **Crear**.
 
-    ![crear runbook](./media/manage-clusters-runbooks/create-runbook.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/create-runbook.png" alt-text="crear un runbook" border="true":::
 
 1. Escriba el código siguiente en la pantalla **Editar Runbook de PowerShell** y seleccione **Publicar**:
 
-    ![publicar runbook](./media/manage-clusters-runbooks/publish-runbook.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/publish-runbook.png" alt-text="publicar runbook" border="true":::
 
     ```powershell
     Param
@@ -154,7 +154,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 1. Seleccione **Iniciar** para ejecutar el runbook inmediatamente. También puede programar los runbooks para que se ejecuten periódicamente. Consulte [Programación de un runbook en Azure Automation](../automation/shared-resources/schedules.md).
 1. Escriba los parámetros necesarios para el script y seleccione **Aceptar**. Se crea un clúster de HDInsight con el nombre especificado en el parámetro **CLUSTERNAME**.
 
-    ![ejecutar runbook de creación de clúster](./media/manage-clusters-runbooks/execute-create-runbook.png)
+    :::image type="content" source="./media/manage-clusters-runbooks/execute-create-runbook.png" alt-text="ejecutar runbook de creación de clúster" border="true":::
 
 ### <a name="delete-a-cluster"></a>Eliminación de un clúster
 
@@ -167,4 +167,4 @@ Cuando ya no la necesite, elimine la cuenta de Azure Automation que se creó par
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Administración de clústeres de Apache Hadoop en HDInsight mediante Azure PowerShell](hdinsight-administer-use-powershell.md)
+> [Administración de clústeres de Apache Hadoop en HDInsight con Azure PowerShell](hdinsight-administer-use-powershell.md)

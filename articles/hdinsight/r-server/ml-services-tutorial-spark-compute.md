@@ -1,18 +1,18 @@
 ---
-title: 'Tutorial: Uso de R en el contexto de proceso de Spark en Azure HDInsight'
+title: 'Tutorial: Uso de R en el contexto de un proceso de Spark en Azure HDInsight'
 description: 'Tutorial: Introducción a R y Spark en un clúster de Machine Learning Services en Azure HDInsight.'
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/21/2019
-ms.openlocfilehash: bd6015529fb521e3b157e46ee808aea43e993dee
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 07c004fa5f03c53ed0778613a0c16a0ba2aff11f
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98935662"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869504"
 ---
-# <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>Tutorial: Uso de R en el contexto de proceso de Spark en Azure HDInsight
+# <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>Tutorial: Uso de R en el contexto de un proceso de Spark en Azure HDInsight
 
 En este tutorial se proporciona una introducción paso a paso al uso de las funciones de R en Apache Spark que se ejecutan en un clúster de Machine Learning Service en Azure HDInsight.
 
@@ -56,7 +56,7 @@ El *conjunto de datos Airline 2012 On-Time* consta de 12 archivos separados po
 
 1. En el panel derecho, seleccione la pestaña **Entorno**. Las variables se muestran en **Valores**.
 
-    ![Consola web de RStudio de HDInsight](./media/ml-services-tutorial-spark-compute/hdinsight-rstudio-image.png)
+    :::image type="content" source="./media/ml-services-tutorial-spark-compute/hdinsight-rstudio-image.png" alt-text="Consola web de RStudio de HDInsight" border="true":::
 
 1. Cree el directorio local y descargue los datos de ejemplo. En RStudio, escriba el siguiente código:
 
@@ -222,14 +222,14 @@ rxSetComputeContext(mySparkCluster)
     Coefficients:
                    Estimate Std. Error t value Pr(>|t|)     | Counts
     DayOfWeek=Mon   3.54210    0.03736   94.80 2.22e-16 *** | 901592
-    DayOfWeek=Tues  1.80696    0.03835   47.12 2.22e-16 **_ | 855805
-    DayOfWeek=Wed   2.19424    0.03807   57.64 2.22e-16 _*_ | 868505
-    DayOfWeek=Thur  4.65502    0.03757  123.90 2.22e-16 _*_ | 891674
-    DayOfWeek=Fri   5.64402    0.03747  150.62 2.22e-16 _*_ | 896495
-    DayOfWeek=Sat   0.91008    0.04144   21.96 2.22e-16 _*_ | 732944
-    DayOfWeek=Sun   2.82780    0.03829   73.84 2.22e-16 _*_ | 858366
+    DayOfWeek=Tues  1.80696    0.03835   47.12 2.22e-16 *** | 855805
+    DayOfWeek=Wed   2.19424    0.03807   57.64 2.22e-16 *** | 868505
+    DayOfWeek=Thur  4.65502    0.03757  123.90 2.22e-16 *** | 891674
+    DayOfWeek=Fri   5.64402    0.03747  150.62 2.22e-16 *** | 896495
+    DayOfWeek=Sat   0.91008    0.04144   21.96 2.22e-16 *** | 732944
+    DayOfWeek=Sun   2.82780    0.03829   73.84 2.22e-16 *** | 858366
     ---
-    Signif. codes:  0 ‘_*_’ 0.001 ‘_*’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+    Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
     
     Residual standard error: 35.48 on 6005374 degrees of freedom
     Multiple R-squared: 0.001827 (as if intercept included)

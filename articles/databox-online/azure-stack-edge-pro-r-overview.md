@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 2ff07995cab2da6e53600be9bf60b30d1896cc9d
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 40fa1bc776c5cd457e57cf170f629b6cf92800fe
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102637324"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586002"
 ---
 # <a name="what-is-the-azure-stack-edge-pro-r"></a>¿Qué es Azure Stack Edge Pro R?
 
@@ -78,6 +78,8 @@ El dispositivo físico Azure Stack Edge Pro R, el recurso de Azure y la cuenta d
 - **Disponibilidad del dispositivo**: para ver una lista de todos los países en los que el dispositivo Azure Stack Edge Pro R está disponible, vaya a la sección **Availability** (Disponibilidad) de la pestaña **Azure Stack Edge Pro R** para conocer los [precios de Azure Stack Edge Pro R](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgeProR).
 
 - **Cuentas de almacenamiento de destino**: las cuentas de almacenamiento que almacenan los datos están disponibles en todas las regiones de Azure. Las regiones en las que las cuentas de almacenamiento almacenan los datos de Azure Stack Edge Pro R deben estar ubicadas cerca de la ubicación del dispositivo a fin de obtener un rendimiento óptimo. Una cuenta de almacenamiento que se encuentra lejos del dispositivo causa latencias largas y un rendimiento más lento.
+
+El servicio Azure Stack Edge es un servicio no regional. Para obtener más información, consulte [Regiones y zonas de disponibilidad en Azure](https://docs.microsoft.com/azure/availability-zones/az-overview). El servicio Azure Stack Edge no depende de una región específica de Azure, lo que lo hace más resistentes a las interrupciones en toda la zona, así como a interrupciones en toda la región.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

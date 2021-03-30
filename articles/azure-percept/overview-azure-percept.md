@@ -5,14 +5,14 @@ author: elqu20
 ms.author: v-elqu
 ms.service: azure-percept
 ms.topic: overview
-ms.date: 02/18/2021
+ms.date: 03/23/2021
 ms.custom: template-overview
-ms.openlocfilehash: eca0c28b016b2e57f6fe47495c90bf113f0179a6
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 12ca7dff7d106941cc8947d9d3040bcefefde00a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103490116"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953607"
 ---
 # <a name="introduction-to-azure-percept"></a>Introducción a Azure Percept
 
@@ -28,24 +28,24 @@ Los problemas de integración a los que alguien se enfrenta al intentar implemen
 
 Los componentes principales de Azure Percept son:
 
-1. Programas de certificación y diseño de referencia de hardware de inteligencia artificial.
+1. [Azure Percept DK](./overview-azure-percept-dk.md).
 
-    - Proporciona al ecosistema de desarrolladores de hardware patrones y procedimientos recomendados para el desarrollo de hardware de inteligencia artificial perimetral que se pueden integrar fácilmente con los servicios de Azure AI e IoT.
-
-2. Azure Percept DK (kit de desarrollo)
-
-    - Un kit de desarrollo que es lo suficientemente flexible como para admitir una amplia variedad de escenarios de creación de prototipos para creadores de dispositivos, creadores de soluciones y clientes.
+    - Un kit de desarrollo que sea lo suficientemente flexible como para admitir una amplia variedad de escenarios de creación de prototipos para creadores de dispositivos, creadores de soluciones y clientes.
 
         > [!div class="nextstepaction"]
         > [Comprar ahora](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
-3. Servicios y flujos de trabajo para acelerar el desarrollo de soluciones y modelos de inteligencia artificial perimetral.
+1. Servicios y flujos de trabajo que aceleran el desarrollo de soluciones y modelos de inteligencia artificial perimetral.
 
     - Flujos de trabajo de desarrollo y modelos pregenerados accesibles desde [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819).
     - Servicios de desarrollo de modelos.
     - Servicios de administración de dispositivos para el escalado.
     - Seguridad global.
 
+1. Programas de certificación y diseño de referencia de hardware de inteligencia artificial.
+
+    - Proporciona al ecosistema de desarrolladores de hardware patrones y procedimientos recomendados para el desarrollo de hardware de inteligencia artificial perimetral que se pueden integrar fácilmente con los servicios de Azure AI e IoT.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Primeros pasos con [Azure Percept DK](./overview-azure-percept-dk.md). 
+Obtenga más información sobre [Azure Percept DK](./overview-azure-percept-dk.md) y [Azure Percept Studio](./overview-azure-percept-studio.md).
