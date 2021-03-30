@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
 ms.openlocfilehash: d91320d8f78942ca916084cbf29a88818d95f531
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92314632"
 ---
 # <a name="tutorial-send-localized-push-notifications-to-windows-apps-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones push localizadas a aplicaciones Windows mediante Azure Notification Hubs
@@ -32,7 +32,7 @@ ms.locfileid: "92314632"
 
 ## <a name="overview"></a>Información general
 
-En este tutorial se muestra cómo insertar notificaciones localizadas a dispositivos móviles registrados en el servicio Notification Hubs. En el tutorial, va a actualizar aplicaciones creadas en el [Tutorial: Envío de notificaciones a dispositivos concretos (Plataforma universal de Windows)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) para admitir los siguientes escenarios:
+En este tutorial se muestra cómo insertar notificaciones localizadas a dispositivos móviles registrados en el servicio Notification Hubs. En el tutorial, se actualizan las aplicaciones creadas en el tutorial[Envío de notificaciones a dispositivos específicos (Plataforma universal de Windows)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) para dar soporte a los escenarios siguientes:
 
 - La aplicación de la Tienda Windows permite que los dispositivos cliente especifiquen un idioma y se suscriban a distintas categorías de noticias de última hora.
 - La aplicación de back-end difunde las notificaciones mediante las características **etiqueta** y **plantilla** de Azure Notification Hubs.
@@ -46,11 +46,11 @@ En este tutorial, aprenderá a:
 > * Actualizar una aplicación de back-end para enviar notificaciones localizadas
 > * Prueba de la aplicación
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-Complete el [Tutorial: Envío de notificaciones a dispositivos concretos (Plataforma universal de Windows)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
+Complete el tutorial [Envío de notificaciones a dispositivos concretos (Plataforma universal de Windows)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
 
-En el [Tutorial: Envío de notificaciones a dispositivos concretos (Plataforma universal de Windows)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md), ha creado una aplicación que utilizaba **etiquetas** para suscribirse a notificaciones para diferentes **categorías** de noticias. En este tema se usa la característica de **plantilla** de Notification Hubs para entregar fácilmente notificaciones de noticias de última hora **localizadas**.
+En el tutorial [: Envío de notificaciones a dispositivos concretos (Plataforma universal de Windows)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md), ha creado una aplicación que utilizaba **etiquetas** para suscribirse a notificaciones de noticias diferentes **categorías**. En este tema se usa la característica de **plantilla** de Notification Hubs para entregar fácilmente notificaciones de noticias de última hora **localizadas**.
 
 A un alto nivel, las plantillas son una forma de especificar el formato en que un dispositivo específico debe recibir una notificación. La plantilla especifica el formato de carga exacto haciendo referencia a las propiedades que forman parte del mensaje enviado por el back-end de la aplicación. En este tutorial, la aplicación de back-end envía un mensaje independiente de la configuración regional que contiene todos los idiomas admitidos:
 
@@ -78,7 +78,7 @@ Para más información acerca de las plantillas, consulte el artículo sobre [Pl
 
 ## <a name="update-windows-app-to-support-locale-information"></a>Actualización de una aplicación de Windows para que admita la información de configuración regional
 
-1. Abra la solución de Visual Studio que creó en el [Tutorial: Envío de notificaciones a dispositivos concretos (Plataforma universal de Windows)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
+1. Abra la solución de Visual Studio que creó para el tutorial [Envío de notificaciones a dispositivos concretos (Plataforma universal de Windows)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
 2. Actualice el archivo `MainPage.xaml` para incluir un cuadro combinado de configuración regional:
 
     ```xml

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 07/13/2020
+ms.date: 03/23/2021
 ms.author: justinha
 author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cd1a68b06814d13c386b873ed715f3b03a7b827
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 253aa080b9c160141a274c57e0895291c78d2048
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102198496"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104887774"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Habilitación del autoservicio de restablecimiento de contraseña de Azure Active Directory para que los usuarios puedan desbloquear su cuenta o restablecer contraseñas
 
@@ -138,6 +138,22 @@ Si ya no desea usar la funcionalidad de SSPR que ha configurado como parte de es
 1. Busque y seleccione **Azure Active Directory** y, a continuación, elija **Restablecer la contraseña** en el menú del lado izquierdo.
 1. En la página **Propiedades**, bajo la opción *Se habilitó el restablecimiento de contraseña del autoservicio*, elija **Ninguno**.
 1. Para aplicar el cambio de SSPR, seleccione **Guardar**.
+
+## <a name="faqs"></a>Preguntas más frecuentes
+
+En esta sección se explican las preguntas comunes de los administradores y los usuarios finales que prueba el autoservicio de restablecimiento de contraseña (SSPR):
+
+- ¿Por qué los usuarios federados esperan hasta 2 minutos después de ver el mensaje **Se ha restablecido su contraseña** y antes de usar contraseñas que se sincronizan desde el entorno local?
+
+  En el caso de los usuarios federados cuyas contraseñas están sincronizadas, el origen de autoridad de las contraseñas es el en el entorno local. Como consecuencia, SSPR solo actualiza las contraseñas locales. La sincronización de hash de contraseñas en Azure AD está programada para producirse cada 2 minutos.
+
+- Cuando un usuario recién creado cuyos datos de SSPR se rellenan previamente (por ejemplo, el teléfono y el correo electrónico) visita la página de registro de SSPR, el mensaje **No perder el acceso a su cuenta** aparece como el título de la página. ¿Por qué otros usuarios cuyos datos de SSPR se rellenan previamente no ven el mensaje?
+
+  Si un usuario ve el mensaje **No perder el acceso a su cuenta**, pertenece a los grupos de registro combinado/SSPR configurados para el inquilino. Los usuarios que no ven el mensaje **No perder el acceso a su cuenta** no pertenecían a los grupos de registro combinado/SSPR.
+
+- Cuando algunos usuarios pasan por el proceso de SSPR y restablecen la contraseña, ¿por qué no ven el indicador del nivel de seguridad de la contraseña?
+
+  Los usuarios que no ven si el nivel de contraseña es débil o fuerte tienen habilitada la escritura diferida de contraseñas. Dado que SSPR no puede establecer la directiva de contraseñas utilizada en el entorno local del cliente, no podrá confirmar si la contraseña es fuerte o débil. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Airstack | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con Airstack | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Airstack.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: jeedes
 ms.openlocfilehash: 7e0b17c30985617791c1ce55a02f6a60253b43db
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92318952"
 ---
-# <a name="tutorial-integrate-airstack-with-azure-active-directory"></a>Tutorial: Integración de Airstack con Azure Active Directory
+# <a name="tutorial-integrate-airstack-with-azure-active-directory"></a>Tutorial: Integración de Airstack con Azure Active Directory
 
 En este tutorial, aprenderá a integrar Airstack con Azure Active Directory (Azure AD). Al integrar Airstack con Azure AD, puede hacer lo siguiente:
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a integrar Airstack con Azure Active Directory (A
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -59,10 +59,10 @@ Configure y pruebe el inicio de sesión único de Azure AD con Airstack mediant
 Para configurar y probar el inicio de sesión único de Azure AD con Airstack, complete los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-2. **[Configuración del inicio de sesión único de Airstack](#configure-airstack-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
+2. **[Configuración del inicio de sesión único de Airstack](#configure-airstack-sso)**, para configurar los valores de inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Airstack](#create-airstack-test-user)** , para tener un homólogo de B.Simon en Airstack que esté vinculado a la representación del usuario en Azure AD.
+5. **[Creación de un usuario de prueba de Airstack](#create-airstack-test-user)**, para tener un homólogo de B.Simon en Airstack que esté vinculado a la representación del usuario en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
@@ -128,7 +128,7 @@ En esta sección, va a permitir que B.Simon acceda a Airstack mediante el inicio
 
 ### <a name="create-airstack-test-user"></a>Creación de un usuario de prueba de Airstack
 
-En esta sección, creará un usuario llamado B.Simon en Airstack. Trabaje con el  [equipo de soporte técnico de Airstack](mailto:jsinger@lenovo.com) para agregar los usuarios a la plataforma de Airstack. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado B.Simon en Airstack. Trabaje con el [equipo de soporte técnico de Airstack](mailto:jsinger@lenovo.com) para agregar los usuarios a la plataforma de Airstack. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-sso"></a>Prueba de SSO
 

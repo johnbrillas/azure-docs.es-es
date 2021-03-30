@@ -11,18 +11,18 @@ ms.date: 03/15/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: procesamiento de documentos
-ms.openlocfilehash: 89de0752b3015fb8132bfa50c7dbdce174061bcc
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.openlocfilehash: f83e13155fa851a06c8b7d36b87c3038257c0b3a
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103467300"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864387"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
-# <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entrenamiento de un modelo de Form Recognizer con etiquetas mediante la herramienta de etiquetado de ejemplo
+# <a name="train-a-custom-model-using-the-sample-labeling-tool"></a>Entrenamiento de un modelo personalizado mediante la herramienta de etiquetado de ejemplo
 
 En este inicio rápido, usará la API de REST de Form Recognizer con la herramienta de etiquetado de ejemplo para entrenar un modelo personalizado de procesamiento de documentos con datos etiquetados manualmente. Consulte la sección [Entrenamiento con etiquetas](../overview.md#train-with-labels) de la introducción para más información sobre el entrenamiento con Form Recognizer.
 

@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 04/30/2018
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 9222ac31e067cba6a0ffa71143c90f906ba6ff7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "74454694"
 ---
 # <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>Tutorial: Inserción de una imagen de contenedor actualizada en un registro de contenedor con replicación geográfica para implementaciones de aplicaciones web regionales
@@ -103,7 +103,7 @@ Para ver los webhooks regionales que se crearon al implementar el contenedor en 
 
 ![Webhooks de registro de contenedor en Azure Portal][tutorial-portal-01]
 
-Seleccione cada Webhook para ver el historial de sus llamadas y respuestas. Debería ver una fila para la acción de **inserción** en los registros de ambos webhooks. En este caso, el registro para el webhook que se encuentra en la región *Oeste de EE. UU.*  se muestra en la acción de **inserción** desencadenada por `docker push` en el paso anterior:
+Seleccione cada Webhook para ver el historial de sus llamadas y respuestas. Debería ver una fila para la acción de **inserción** en los registros de ambos webhooks. En este caso, el registro para el webhook que se encuentra en la región *Oeste de EE. UU.* se muestra en la acción de **inserción** desencadenada por `docker push` en el paso anterior:
 
 ![Webhooks de registro de contenedor en Azure portal (Oeste de EE. UU.)][tutorial-portal-02]
 
@@ -115,11 +115,11 @@ Compruebe que la aplicación se ha actualizado en ambas implementaciones. Para e
 
 ![Información general de App Service en Azure Portal][tutorial-portal-03]
 
-Para ver la aplicación actualizada, seleccione el vínculo en la descripción general de App Service. Esta es una vista de ejemplo de la aplicación en ejecución en el *Oeste de EE. UU.* :
+Para ver la aplicación actualizada, seleccione el vínculo en la descripción general de App Service. Esta es una vista de ejemplo de la aplicación en ejecución en el *Oeste de EE. UU.*:
 
 ![Vista del explorador de la aplicación web modificada que se ejecuta en la región del Oeste de EE. UU.][deployed-app-westus-modified]
 
-Compruebe que la imagen de contenedor actualizada también se implementó en la implementación del *Este de EE. UU.*  viéndola en el explorador.
+Compruebe que la imagen de contenedor actualizada también se implementó en la implementación del *Este de EE. UU.* viéndola en el explorador.
 
 ![Vista del explorador de la aplicación web modificada que se ejecuta en la región del Este de EE. UU.][deployed-app-eastus-modified]
 
@@ -129,11 +129,11 @@ Con una sola `docker push`, actualizará automáticamente la aplicación web que
 
 En este tutorial, se actualiza y se inserta una nueva versión del contenedor de aplicación web en el registro con replicación geográfica. Los webhooks en Azure Container Registry notifican a Web App for Containers la actualización, lo que activó una extracción local de las replicas del registro más cercanas.
 
-### <a name="acr-build-automated-image-build-and-patch"></a>Compilación de ACR: compilación automatizada de imágenes y parches
+### <a name="acr-build-automated-image-build-and-patch"></a>ACR Build: compilación automatizada de imágenes y parches
 
 Además de la replicación geográfica, ACR Build es otra característica de Azure Container Registry que puede ayudarle a optimizar la canalización de la implementación de contenedores. Comience con la información general de ACR Build para hacerse una idea de sus capacidades:
 
-[Automatizar la aplicación de revisiones de sistema operativo y marco con ACR Build](container-registry-tasks-overview.md)
+[Automatización de aplicación de revisiones de sistema operativo y marco con ACR Build](container-registry-tasks-overview.md)
 
 <!-- IMAGES -->
 [deployed-app-eastus-modified]: ./media/container-registry-tutorial-deploy-update/deployed-app-eastus-modified.png

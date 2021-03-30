@@ -6,14 +6,14 @@ ms.author: amverma
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: overview
-ms.date: 07/29/2020
+ms.date: 03/18/2021
 ms.reviewer: cynthn
-ms.openlocfilehash: 15d05632e5ebf6e45a61adebbbbf647efca2a1a1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 65b37a8c07e083f5e9809812e2d4446cc48717d1
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101666897"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720600"
 ---
 # <a name="high-performance-computing-on-infiniband-enabled-h-series-and-n-series-vms"></a>Informática de alto rendimiento en máquinas virtuales de las series H y N habilitadas con InfiniBand
 
@@ -32,19 +32,19 @@ Consulte [Habilitación de InfiniBand](enable-infiniband.md) para más informaci
 
 ### <a name="message-passing-interface"></a>Interfaz de paso de mensajes
 
-Tanto la serie H como la serie N, habilitadas con SR-IOV, admiten casi todas las bibliotecas y versiones de MPI. Estas son algunas de las bibliotecas de MPI más comunes que se admiten: Intel MPI, OpenMPI, MPICH, MVAPICH2, Platform MPI y todos los verbos de acceso directo a memoria remota (RDMA).
+Tanto la serie H como la serie N, habilitadas con SR-IOV, admiten casi todas las bibliotecas y versiones de MPI. Algunas de las bibliotecas MPI más utilizadas son: Intel MPI, OpenMPI, HPC-X, MVAPICH2, MPICH y Platform MPI. Se admiten todos los verbos de acceso directo remoto a memoria (RDMA).
 Para más información sobre la instalación de varias bibliotecas de MPI compatibles, así como sobre su configuración óptima, consulte el artículo [Configuración de la interfaz de paso de mensajes para HPC](setup-mpi.md).
 
 ## <a name="get-started"></a>Primeros pasos
 
 El primer paso consiste en seleccionar el tipo de máquina virtual de la [serie H](../../sizes-hpc.md) y de la [serie N](../../sizes-gpu.md) óptima para la carga de trabajo en función de las especificaciones de la máquina virtual y de la [funcionalidad de RDMA](../../sizes-hpc.md#rdma-capable-instances).
 El segundo consiste en configurar la máquina virtual mediante la habilitación de InfiniBand. Hay varios métodos para hacerlo, entre los que se incluye el uso de imágenes de máquina virtual optimizadas con controladores preparados; para más información, consulte [Optimización para Linux](configure.md) y [Habilitación de InfiniBand](enable-infiniband.md).
-El tercer paso, para cargas de trabajo de nodos distribuidos, es crítico y consiste en elegir y configurar la interfaz de paso de mensajes. Para más información, consulte [Configuración de la interfaz de paso de mensajes para HPC](setup-mpi.md).
-El cuarto, con el fin de mejorar el rendimiento y la escalabilidad, consiste en configurar las cargas de trabajo de manera óptima siguiendo las instrucciones específicas de la familia de máquinas virtuales, como por ejemplo [Introducción a las máquinas virtuales de la serie HB](hb-series-overview.md) e [Introducción a las máquinas virtuales de la serie HC](hc-series-overview.md).
+El tercer paso, para cargas de trabajo de nodos distribuidos, es crítico y consiste en elegir y configurar correctamente la interfaz de paso de mensajes. Para más información, consulte [Configuración de la interfaz de paso de mensajes para HPC](setup-mpi.md).
+El cuarto, con el fin de mejorar el rendimiento y la escalabilidad, consiste en configurar las cargas de trabajo de manera óptima siguiendo las instrucciones específicas de la familia de máquinas virtuales, como por ejemplo [Introducción a las máquinas virtuales de la serie HBv3](hbv3-series-overview.md) e [Introducción a las máquinas virtuales de la serie HC](hc-series-overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Aprenda a [configurar y optimizar](configure.md) las máquinas virtuales tanto de la [serie H](../../sizes-hpc.md) como de la [serie N](../../sizes-gpu.md) habilitadas con InfiniBand.
-- En los artículos [Introducción a las máquinas virtuales de la serie HB](hb-series-overview.md) e [Introducción a las máquinas virtuales de la serie HC](hc-series-overview.md), aprenderá a configurar de forma óptima las cargas de trabajo para mejorar el rendimiento y la escalabilidad.
-- En los [blogs de la comunidad de Azure Compute Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute), encontrará los anuncios más recientes y algunos ejemplos y resultados de HPC.
+- En los artículos [Introducción a las máquinas virtuales de la serie HBv3](hb-series-overview.md) e [Introducción a las máquinas virtuales de la serie HC](hc-series-overview.md), aprenderá a configurar de forma óptima las cargas de trabajo para mejorar el rendimiento y la escalabilidad.
+- En los [blogs de Azure Compute Community Tech](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute), encontrará los anuncios más recientes, ejemplos de la carga de trabajo HPC y resultados de HPC.
 - Si desea una visión general de la arquitectura de la ejecución de cargas de trabajo de HPC, consulte [Informática de alto rendimiento (HPC) en Azure](/azure/architecture/topics/high-performance-computing/).

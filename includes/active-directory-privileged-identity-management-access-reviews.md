@@ -2,18 +2,18 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: active-directory
-author: barclayn
+author: ajburnle
 ms.service: active-directory
 ms.topic: include
 ms.date: 12/07/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 0b1606e4506e7a1781426632d1f22221f7028b88
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 9c91eb6cfa18c5302a83347f671e4552befcf3e2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102193612"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102623501"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>Creación de una o varias revisiones de acceso
 
@@ -38,6 +38,7 @@ ms.locfileid: "102193612"
     > [!NOTE]
     > - Los roles seleccionados aquí incluyen [roles permanentes y elegibles](../articles/active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md).
     > - Si selecciona más de un rol, se crearán varias revisiones de acceso. Por ejemplo, al seleccionar cinco roles, se crearán cinco revisiones de acceso independientes.
+    > - En el caso de los roles con grupos asignados, el acceso de cada grupo vinculado con el rol en revisión se revisará como parte de la revisión de acceso.
 
     Si va a crear una revisión de acceso de los **roles de Azure AD**, a continuación se muestra un ejemplo de la lista de revisión de pertenencia.
 
@@ -52,8 +53,8 @@ ms.locfileid: "102193612"
     ![Lista de los revisores de los usuarios o miembros (por sí mismos) seleccionados](./media/active-directory-privileged-identity-management-access-reviews/reviewers.png)
 
     - **Usuarios seleccionados**: use esta opción cuando no sepa quién necesita acceso. Con esta opción, puede asignar la revisión a un propietario de recursos o al administrador de grupos.
-    - **Miembros (por sí mismos)** : use esta opción para hacer que los usuarios revisen sus propias asignaciones de roles.
-    - **Administrador**: use esta opción para que el administrador del usuario revise su asignación de roles. Tras seleccionar Administrador, también tendrá la opción de especificar un revisor de reserva. Se pide a los revisores de reserva que revisen a un usuario cuando este no tiene ningún administrador especificado en el directorio.
+    - **Miembros (por sí mismos)** : use esta opción para hacer que los usuarios revisen sus propias asignaciones de roles. Cuando se selecciona esta opción, los grupos asignados al rol no formarán parte de la revisión.
+    - **Administrador**: use esta opción para que el administrador del usuario revise su asignación de roles. Tras seleccionar Administrador, también tendrá la opción de especificar un revisor de reserva. Se pide a los revisores de reserva que revisen a un usuario cuando este no tiene ningún administrador especificado en el directorio. Los grupos asignados al rol serán revisados por el revisor de reserva si se selecciona uno. 
 
 ### <a name="upon-completion-settings"></a>Configuración de finalización
 

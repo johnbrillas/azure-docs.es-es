@@ -3,12 +3,12 @@ title: Puntos de conexión privados
 description: Comprenda el proceso de creación de puntos de conexión privados para Azure Backup y los escenarios en los que el uso de puntos de conexión privados ayuda a preservar la seguridad de los recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 9363aaf45a7c092d8a773a07803c8c1bce1eedd7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7423157abbc0833394af055f5e31f724caa10b46
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101728219"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103224714"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Puntos de conexión privados para Azure Backup
 
@@ -24,7 +24,7 @@ Este artículo le ayudará a comprender el proceso de creación de puntos de con
 - Una conexión de punto de conexión privado para la copia de seguridad usa un total de 11 direcciones IP privadas de la subred, incluidas las que usa Azure Backup para el almacenamiento. Este número puede ser superior (hasta veinticinco) para ciertas regiones de Azure. Por lo tanto, se recomienda disponer de suficientes direcciones IP privadas cuando intente crear puntos de conexión privados para la copia de seguridad.
 - Aunque tanto Azure Backup como Azure Site Recovery usan un almacén de Recovery Services, en este artículo solo se describe el uso de puntos de conexión privados para Azure Backup.
 - Actualmente, Azure Active Directory no admite puntos de conexión privados. Por tanto, las direcciones IP y los FQDN necesarios para que Azure Active Directory funcione en una región necesitarán que se les permita el acceso de salida desde la red protegida al realizar copias de seguridad de bases de datos en máquinas virtuales de Azure y copias de seguridad mediante el agente de MARS. También puede usar etiquetas NSG y etiquetas de Azure Firewall para permitir el acceso a Azure AD, según corresponda.
-- No se admiten redes virtuales con directivas de red para los puntos de conexión privados. Deberá deshabilitar las directivas de red antes de continuar.
+- No se admiten redes virtuales con directivas de red para los puntos de conexión privados. Deberá [deshabilitar las directivas de red](https://docs.microsoft.com/azure/private-link/disable-private-endpoint-network-policy) antes de continuar.
 - Debe volver a registrar el proveedor de recursos de Recovery Services con la suscripción si lo registró antes del 1 de mayo de 2020. Para volver a registrar el proveedor, vaya a la suscripción en Azure Portal, haga clic en el **Proveedor de recursos** en la barra de navegación izquierda, seleccione **Microsoft.RecoveryServices** y **Volver a registrar**.
 - Si el almacén tiene habilitados los puntos de conexión privados, no se puede realizar la [restauración entre regiones](backup-create-rs-vault.md#set-cross-region-restore) de las copias de seguridad de bases de datos SQL y SAP HANA.
 - Al trasladar un almacén de Recovery Services que ya usa puntos de conexión privados a un nuevo inquilino, deberá actualizar el almacén de Recovery Services para volver a crear y configurar la identidad administrada del almacén y crear nuevos puntos de conexión privados según sea necesario (que deben estar en el nuevo inquilino). Si no lo hace, las operaciones de copia de seguridad y restauración comenzarán a generar errores. Además, los permisos de control de acceso basado en rol (RBAC) configurados en la suscripción deberán volver a configurarse.
@@ -297,6 +297,10 @@ Al usar el agente de MARS para realizar una copia de seguridad de los recursos l
 
 Pero si quita los puntos de conexión privados del almacén después de haber registrado un agente de MARS, deberá volver a registrar el contenedor con el almacén. No es necesario detener la protección de los mismos.
 
+## <a name="deleting-private-endpoints"></a>Eliminación de puntos de conexión privados
+
+Consulte [esta sección](https://docs.microsoft.com/rest/api/virtualnetwork/privateendpoints/delete) para obtener información sobre cómo eliminar puntos de conexión privados.
+
 ## <a name="additional-topics"></a>Otros temas
 
 ### <a name="create-a-recovery-services-vault-using-the-azure-resource-manager-client"></a>Creación de un almacén de Recovery Services mediante el cliente de Azure Resource Manager
@@ -554,4 +558,4 @@ A. Después de seguir el proceso detallado en este artículo, no es necesario re
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Lea todas las [características de seguridad de Azure Backup](security-overview.md).
+- Obtenga información sobre todas las [características de seguridad de Azure Backup](security-overview.md).

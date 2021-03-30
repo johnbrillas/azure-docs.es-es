@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: quickstart
-ms.date: 09/14/2020
+ms.date: 3/22/2021
 ms.author: aahi
 ms.custom: subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 856fd86b08dfe74925e682661df0d20692839bd5
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 161c5779926acad8814ec057f24e36f371738483
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928659"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864370"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Inicio rápido: Creación de un recurso de Cognitive Services mediante una plantilla de Resource Manager
 
@@ -137,9 +137,10 @@ az group delete --name $resourceGroupName
 
 ---
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="see-also"></a>Consulte también
 
-* [Autenticación de solicitudes en Azure Cognitive Services](authentication.md)
-* [¿Qué es Azure Cognitive Services?](./what-are-cognitive-services.md)
-* [Compatibilidad con idiomas naturales](language-support.md)
-* [Compatibilidad con contenedores de Docker](cognitive-services-container-support.md)
+* Consulte **[Autenticación de solicitudes en Azure Cognitive Services](authentication.md)** para aprender a trabajar de forma segura con Cognitive Services.
+* Consulte **[¿Qué es Azure Cognitive Services?](./what-are-cognitive-services.md)** para obtener una lista de las distintas categorías de Cognitive Services.
+* Consulte **[Compatibilidad con idiomas naturales para Azure Cognitive Services](language-support.md)** para ver la lista de los idiomas naturales admitidos por Cognitive Services.
+* Consulte **[Contenedores de Azure Cognitive Services](cognitive-services-container-support.md)** para aprender a usar Cognitive Services en un entorno local.
+* Consulte **[Planeamiento y administración de los costos de Azure Cognitive Services](plan-manage-costs.md)** para estimar el costo de usar Cognitive Services.

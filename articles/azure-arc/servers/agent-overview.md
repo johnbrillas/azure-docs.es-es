@@ -1,14 +1,14 @@
 ---
-title: Información general del agente Connected Machine de Windows
+title: Información general del agente Connected Machine
 description: En este artículo se proporciona una descripción detallada del agente de servidores habilitados para Azure Arc disponible, que admite la supervisión de máquinas virtuales hospedadas en entornos híbridos.
-ms.date: 02/18/2021
+ms.date: 03/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: ebd9412849b4a0b3081e892d7472e598ca6e8365
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 1fd863ccacc7768401e35254a98c7bb494b3d358
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651100"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103470496"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Información general del agente de servidores habilitados para Azure Arc
 
@@ -90,9 +90,11 @@ Las siguientes versiones de los sistemas operativos Windows y Linux son compatib
 
 ### <a name="required-permissions"></a>Permisos necesarios
 
-* Para incorporar máquinas, debe ser miembro del rol **Incorporación de Azure Connected Machine**.
+* Para incorporar máquinas, debe ser miembro de la **Incorporación de Azure Connected Machine** o del [rol de Colaborador](../../role-based-access-control/built-in-roles.md#contributor) en el grupo de recursos.
 
-* Para leer, modificar y eliminar una máquina, debe ser miembro del rol **Administrador de recursos de Azure Connected Machine**. 
+* Para leer, modificar y eliminar una máquina, debe ser miembro del **rol Administrador de recursos de Azure Connected Machine** en el grupo de recursos.
+
+* Para seleccionar un grupo de recursos de la lista desplegable al usar el método de **Generación de scripts**, como mínimo, debe ser miembro del rol [Lector](../../role-based-access-control/built-in-roles.md#reader) para ese grupo de recursos.
 
 ### <a name="azure-subscription-and-service-limits"></a>Límites del servicio y la suscripción de Azure
 

@@ -12,21 +12,21 @@ ms.workload: identity
 ms.date: 09/22/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: da53d6bad790e6b204fa2a2b045e7bfdd83e0cc9
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 30593c51f17b99989409ddd22c9c1caa28468039
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102536"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720838"
 ---
-# <a name="quickstart-protect-an-aspnet-core-web-api-with-microsoft-identity-platform"></a>Inicio rápido: Protección de una API web de ASP.NET Core con la plataforma de identidad de Microsoft
+# <a name="quickstart-protect-an-aspnet-core-web-api-with-the-microsoft-identity-platform"></a>Inicio rápido: Protección de una API web de ASP.NET Core con la plataforma de identidad de Microsoft
 
-En este inicio rápido, descargará un código de ejemplo de una API web de ASP.NET Core y revisará el contenido que restringe el acceso a los recursos solo a las cuentas autorizadas. El ejemplo admite la autorización de cuentas personales de Microsoft y cuentas de cualquier organización de Azure Active Directory (Azure AD).
+En este inicio rápido, descargará un código de ejemplo de una API web de ASP.NET Core y revisará cómo restringe el acceso a los recursos solo a las cuentas autorizadas. El ejemplo admite la autorización de cuentas personales de Microsoft y cuentas de cualquier organización de Azure Active Directory (Azure AD).
 
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>Requisitos previos
 >
-> - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+> - Cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 > - [Inquilino de Azure Active Directory](quickstart-create-new-tenant.md)
 > - [SDK de .NET Core 3.1+](https://dotnet.microsoft.com/)
 > - [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) o [Visual Studio Code](https://code.visualstudio.com/)
@@ -39,7 +39,7 @@ En este inicio rápido, descargará un código de ejemplo de una API web de ASP.
 > 1. Si tiene acceso a varios inquilinos, use el filtro **Directorio + suscripción** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: del menú superior para seleccionar el inquilino en el que desea registrar una aplicación.
 > 1. Busque y seleccione **Azure Active Directory**.
 > 1. En **Administrar**, seleccione **Registros de aplicaciones** >  y, luego, **Nuevo registro**.
-> 1. Escriba el **Nombre** de la aplicación, por ejemplo `AspNetCoreWebApi-Quickstart`. Los usuarios de la aplicación pueden ver este nombre, el cual se puede cambiar más tarde.
+> 1. Escriba un **nombre** para la aplicación. Por ejemplo, escriba **AspNetCoreWebApi-Quickstart**. Los usuarios de la aplicación verán este nombre, que puede cambiar más tarde.
 > 1. Seleccione **Registrar**.
 > 1. En **Administrar**, seleccione **Exponer una API** > **Agregar un ámbito**. Acepte el valor predeterminado de **URI de id. de la aplicación**, para lo que debe seleccionar **Guardar y continuar**, y escriba los siguientes datos:
 >    - **Nombre de ámbito**: `access_as_user`
@@ -56,27 +56,32 @@ En este inicio rápido, descargará un código de ejemplo de una API web de ASP.
 > [!div renderon="docs"]
 > [Descargue la solución de ASP.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/archive/aspnetcore3-1.zip) de GitHub.
 
+[!INCLUDE [active-directory-develop-path-length-tip](../../../includes/active-directory-develop-path-length-tip.md)]
+
 > [!div renderon="docs"]
 > ## <a name="step-3-configure-the-aspnet-core-project"></a>Paso 3: Configuración del proyecto de ASP.NET Core
 >
 > En este paso, configure el código de ejemplo para que funcione con el registro de la aplicación que creó anteriormente.
 >
 > 1. Extraiga el archivo. zip en una carpeta cerca de la raíz de la unidad. Por ejemplo, en *C:\Azure-Samples*.
+>
+>    Se recomienda extraer el archivo en un directorio próximo a la raíz de la unidad para evitar errores provocados por las limitaciones de longitud de la ruta de acceso en Windows.
+>
 > 1. Abra la solución en la carpeta *webapi* en el editor de código.
-> 1. Abra el archivo *appsettings.json* y modifique lo siguiente:
+> 1. Abra el archivo *appsettings.json* y modifique el código siguiente:
 >
 >    ```json
 >    "ClientId": "Enter_the_Application_Id_here",
 >    "TenantId": "Enter_the_Tenant_Info_Here"
 >    ```
 >
->    - Reemplace `Enter_the_Application_Id_here` por el **Id. de aplicación (cliente)** de la aplicación que ha registrado en Azure Portal. Puede encontrar el **Identificador de aplicación (cliente)** en la página **Información general** de la aplicación.
+>    - Reemplace `Enter_the_Application_Id_here` por el identificador de aplicación (cliente) que ha registrado en Azure Portal. Puede encontrar el valor del identificador de aplicación (cliente) en la página **Información general** de la aplicación.
 >    - Reemplace `Enter_the_Tenant_Info_Here` por una de las opciones siguientes:
->       - Si la aplicación admite **Solo las cuentas de este directorio organizativo**, reemplace este valor por el **Id. de directorio (inquilino)** (un GUID) o por el **Nombre del inquilino** (por ejemplo, `contoso.onmicrosoft.com`). Puede encontrar el **Id. de directorio (inquilino)** en la página **Introducción** de la aplicación.
->       - Si la aplicación admite **Cuentas en cualquier directorio organizativo**, reemplace este valor por `organizations`
->       - Si la aplicación admite **Todos los usuarios de cuentas Microsoft**, deje este valor establecido en `common`.
+>       - Si la aplicación admite **Solo las cuentas de este directorio organizativo**, reemplace este valor por el identificador de directorio (inquilino) (un GUID) o por el nombre del inquilino (por ejemplo, `contoso.onmicrosoft.com`). Puede encontrar el identificador de directorio (inquilino) en la página **Información general** de la aplicación.
+>       - Si la aplicación admite **Cuentas en cualquier directorio organizativo**, reemplace este valor por `organizations`.
+>       - Si la aplicación admite **Todos los usuarios de cuentas Microsoft**, establezca el valor en `common`.
 >
-> Para este inicio rápido, no cambie ningún otro valor del archivo *appsettings.json*.
+> Para esta guía de inicio rápido, no cambie ningún otro valor del archivo *appsettings.json*.
 
 ## <a name="how-the-sample-works"></a>Funcionamiento del ejemplo
 
@@ -100,14 +105,14 @@ La línea que contiene `.AddMicrosoftIdentityWebApi` agrega la autorización de 
 
 | Clave *appsettings.json* | Descripción                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `ClientId`             | El **Id. de aplicación (cliente)** de la aplicación registrada en Azure Portal.                                                                                       |
+| `ClientId`             | El Id. de aplicación (cliente) de la aplicación registrada en Azure Portal.                                                                                       |
 | `Instance`             | El punto de conexión del servicio de token de seguridad (STS) para que el usuario se autentique. Normalmente, este valor es `https://login.microsoftonline.com/`, que indica la nube pública de Azure. |
-| `TenantId`             | Nombre o id. del inquilino (un GUID), o bien *common*, para el inicio de sesión de usuarios con cuentas profesionales o educativas o cuentas personales de Microsoft.                             |
+| `TenantId`             | Nombre o id. del inquilino (un GUID), o bien `common`, para el inicio de sesión de usuarios con cuentas profesionales o educativas o cuentas personales de Microsoft.                             |
 
 El método `Configure()` contiene dos métodos importantes, `app.UseAuthentication()` y `app.UseAuthorization()`, que habilitan su funcionalidad con nombre:
 
 ```csharp
-// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+// The runtime calls this method. Use this method to configure the HTTP request pipeline.
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 {
     // more code
@@ -117,9 +122,9 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-### <a name="protect-a-controller-a-controllers-method-or-a-razor-page"></a>Protección de un controlador, del método de un controlador o de una página de Razor
+### <a name="protecting-a-controller-a-controllers-method-or-a-razor-page"></a>Protección de un controlador, del método de un controlador o de una página de Razor
 
-Puede proteger un controlador o los métodos de un controlador mediante el atributo `[Authorize]`. Este atributo restringe el acceso al controlador o a los métodos, ya que solo permite usuarios autenticados, lo que significa que se puede iniciar el desafío de autenticación para acceder al controlador si el usuario no está autenticado.
+Puede proteger un controlador o los métodos de controlador mediante el atributo `[Authorize]`. Este atributo restringe el acceso al controlador o los métodos al permitir únicamente usuarios autenticados. Si el usuario aún no se ha autenticado, se puede iniciar un desafío de autenticación para acceder al controlador.
 
 ```csharp
 namespace webapi.Controllers
@@ -130,9 +135,9 @@ namespace webapi.Controllers
     public class WeatherForecastController : ControllerBase
 ```
 
-### <a name="validate-the-scope-in-the-controller"></a>Validación del ámbito en el controlador
+### <a name="validation-of-scope-in-the-controller"></a>Validación del ámbito en el controlador
 
-A continuación, el código de la API comprueba que los ámbitos necesarios están en el token mediante `HttpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi);`.
+El código de la API comprueba que los ámbitos necesarios están en el token mediante `HttpContext.VerifyUserHasAnyAcceptedScope(scopeRequiredByApi);`:
 
 ```csharp
 namespace webapi.Controllers
@@ -142,7 +147,7 @@ namespace webapi.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        // The Web API will only accept tokens 1) for users, and 2) having the "access_as_user" scope for this API
+        // The web API will only accept tokens 1) for users, and 2) having the "access_as_user" scope for this API
         static readonly string[] scopeRequiredByApi = new string[] { "access_as_user" };
 
         [HttpGet]
