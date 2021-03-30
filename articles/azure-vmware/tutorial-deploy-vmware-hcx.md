@@ -2,13 +2,13 @@
 title: 'Tutorial: implementación y configuración de VMware HCX'
 description: Aprenda a implementar y configurar una solución VMware HCX para la nube privada de Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 11/25/2020
-ms.openlocfilehash: a8b089ce834d5b49e4ad32081a58e371835e8602
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.date: 03/13/2021
+ms.openlocfilehash: ab59b4a29f8ba372c1892613d5e0461bf3fdc512
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488312"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869096"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Implementación y configuración de VMware HCX
 
@@ -183,7 +183,7 @@ Puede conectar o emparejar VMware HCX Cloud Manager en Azure VMware Solution con
 
 1. En **Infrastructure** (Infraestructura), seleccione **Site Pairing** (Emparejamiento de sitios) y, a continuación, seleccione la opción **Connect To Remote Site** (Conectar con el sitio remoto) que se encuentra en medio de la pantalla. 
 
-1. Escriba la dirección IP o la dirección URL del Administrador de la nube de HCX de Azure VMware Solution anotada anteriormente `https://x.x.x.9`, el nombre de usuario cloudadmin@vsphere.local y la contraseña de Azure VMware Solution. A continuación, seleccione **Conectar**.
+1. Escriba la dirección IP o la dirección URL del Administrador de la nube de HCX de Azure VMware Solution anotada anteriormente `https://x.x.x.9`, el nombre de usuario cloudadmin\@vsphere.local de Azure VMware Solution y la contraseña. A continuación, seleccione **Conectar**.
 
    > [!NOTE]
    > Para establecer correctamente un emparejamiento de sitios:
@@ -265,7 +265,7 @@ Puede encontrar información de un extremo a otro de este procedimiento en el v�
 1. En **Select Distributed Switches for Network Extensions** (Seleccionar los conmutadores distribuidos para las extensiones de red), seleccione los conmutadores que contienen las máquinas virtuales que se van a migrar a Azure VMware Solution en una red extendida de nivel 2. Después, seleccione **Continuar**.
 
    > [!NOTE]
-   > Si no va a migrar máquinas virtuales en redes extendidas de nivel 2, puede omitir este paso.
+   > Si no va a migrar máquinas virtuales en redes extendidas de nivel 2 (L2), puede omitir este paso.
    
    :::image type=" content" source="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png" alt-text="Captura de pantalla que muestra la selección de los conmutadores virtuales distribuidos y el botón Continue (Continuar)." lightbox="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png":::
 
@@ -376,3 +376,4 @@ Para más información sobre el uso de HCX, consulte la documentación técnica 
 * [Documentación de VMware HCX](https://docs.vmware.com/en/VMware-HCX/index.html)
 * [Migración de máquinas virtuales con VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g)
 * [Puertos necesarios de HCX](https://ports.vmware.com/home/VMware-HCX)
+* [Configuración de un servidor proxy HCX antes de aprobar la clave de licencia](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-920242B3-71A3-4B24-9ACF-B20345244AB2.html?hWord=N4IghgNiBcIA4CcD2APAngAgBIGEAaIAvkA)

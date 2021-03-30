@@ -9,13 +9,13 @@ ms.date: 05/20/2019
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: ad3dfc8c86d22e58377ebfbdb94b2beb004ded56
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93092473"
 ---
-# <a name="tutorial-load-sample-data-into-a-cassandra-api-table-in-azure-cosmos-db"></a>Tutorial: Carga de datos de ejemplo en una tabla de Cassandra API en Azure Cosmos DB
+# <a name="tutorial-load-sample-data-into-a-cassandra-api-table-in-azure-cosmos-db"></a>Tutorial: Carga de datos de ejemplo en una tabla de Cassandra API en Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Como desarrollador, puede que tenga aplicaciones que usan pares clave/valor. Puede usar una cuenta de Cassandra API en Azure Cosmos DB para almacenar y administrar los datos de los pares clave/valor. En este tutorial se explica cómo cargar datos de usuario de ejemplo en una tabla de una cuenta de Cassandra API en Azure Cosmos DB mediante una aplicación Java. La aplicación Java emplea el [controlador de Java](https://github.com/datastax/java-driver) para cargar datos del usuario, como el identificador, el nombre o la ciudad del usuario. 
@@ -28,7 +28,7 @@ En este tutorial se describen las tareas siguientes:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Este artículo pertenece a un tutorial de varias partes. Antes de empezar con este documento, no olvide [crear la cuenta, el espacio de claves y la tabla de Cassandra API](create-cassandra-api-account-java.md).   
 

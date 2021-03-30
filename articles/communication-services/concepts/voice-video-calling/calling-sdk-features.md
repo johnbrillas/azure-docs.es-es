@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 110607e9da68cf131a43651b97c599873ce33cb8
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: e154e43f9e9378d6cccd23e2e5892f2a8ccf9a1e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103495273"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598888"
 ---
 # <a name="calling-client-library-overview"></a>Información general de la biblioteca cliente de llamadas
 
@@ -120,8 +120,8 @@ La biblioteca cliente de llamada de Communication Services admite las siguientes
 
 |           |Web | Android/iOS|
 |-----------|----|------------|
-|**Número de secuencias salientes que se pueden enviar simultáneamente** |1 vídeo + 1 uso compartido de pantalla | 1 vídeo + 1 uso compartido de pantalla|
-|**número de secuencias entrantes que se pueden representar simultáneamente** |1 vídeo + 1 uso compartido de pantalla| 6 vídeo + 1 uso compartido de pantalla |
+|**Número de secuencias salientes que se pueden enviar simultáneamente** |1 vídeo o 1 uso compartido de pantalla | 1 vídeo + 1 uso compartido de pantalla|
+|**número de secuencias entrantes que se pueden representar simultáneamente** |1 vídeo o 1 uso compartido de pantalla| 6 vídeo + 1 uso compartido de pantalla |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

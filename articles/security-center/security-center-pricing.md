@@ -6,13 +6,13 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 03/08/2021
-ms.openlocfilehash: d45dae8b0b3725555bd83a05032339671a9595be
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.date: 03/23/2021
+ms.openlocfilehash: 1825f5be8a4f8a8ddfba931dfbc7e77186b4331f
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102454371"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889457"
 ---
 # <a name="azure-security-center-free-vs-azure-defender-enabled"></a>Azure Security Center gratuito frente a Azure Defender habilitado
 Azure Defender es gratis durante los primeros 30 días. Después de 30 días, si decide continuar usando el servicio, empezaremos a cobrar automáticamente el uso.
@@ -48,6 +48,8 @@ Security Center se ofrece en dos modos:
 - [Si un agente de Log Analytics envía notificaciones a diversas áreas de trabajo, ¿se me cobrará varias veces?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice)
 - [Si un agente de Log Analytics envía notificaciones a varias áreas de trabajo, ¿la ingesta de datos gratuita de 500 MB estará disponible en todas ellas?](#if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them)
 - [¿Se calcula la ingesta de 500 MB de datos gratis para todo el área de trabajo o estrictamente por máquina?](#is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine)
+- [¿Qué tipos de datos se incluyen en la asignación diaria de datos de 500 MB?](#what-data-types-are-included-in-the-500-mb-data-daily-allowance)
+
 
 ### <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center"></a>¿Cómo se puede realizar un seguimiento de las personas de mi organización que habilitaron cambios de Azure Defender en Security Center?
 Las suscripciones de Azure pueden tener varios administradores con permisos para cambiar la configuración de precios. Para averiguar qué usuario realizó un cambio, use el registro de actividad de Azure.
@@ -68,7 +70,7 @@ Security Center tiene dos ofertas:
 ### <a name="how-do-i-enable-azure-defender-for-my-subscription"></a>¿Cómo habilito Azure Defender para mi suscripción? 
 Puede usar cualquiera de los siguientes métodos para habilitar Azure Defender para su suscripción: 
 
-| Método                                          | Instructions                                                                                                                                       |
+| Método                                          | Instrucciones                                                                                                                                       |
 |-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 | Páginas de Azure Security Center en Azure Portal | [Habilitación de Azure Defender](enable-azure-defender.md)                                                                                                  |
 | API DE REST                                        | [API de precios](/rest/api/securitycenter/pricings)                                                                                                  |
@@ -114,6 +116,24 @@ Sí. Si ha configurado el agente de Log Analytics para enviar datos a dos o más
 Obtendrá una ingesta de 500 MB de datos gratis al día para cada una de las máquinas conectadas al área de trabajo. Específicamente para tipos de datos de seguridad recopilados directamente por Azure Security Center.
 
 Estos datos son una tasa diaria promediada en todos los nodos. Por tanto, aunque algunas máquinas envíen 100 MB y otras 800 MB, si el total no supera el límite gratuito de **[número de máquinas] x 500 MB**, no se le cobrará ningún cargo adicional.
+
+### <a name="what-data-types-are-included-in-the-500-mb-data-daily-allowance"></a>¿Qué tipos de datos se incluyen en la asignación diaria de datos de 500 MB?
+
+La facturación de Security Center está estrechamente vinculada a la facturación de Log Analytics. Security Center proporciona una asignación de 500 MB/nodo/día frente al siguiente subconjunto de [tipos de datos de seguridad](/azure/azure-monitor/reference/tables/tables-category.md#security):
+- WindowsEvent
+- SecurityAlert
+- SecurityBaseline
+- SecurityBaselineSummary
+- SecurityDetection
+- SecurityEvent
+- WindowsFirewall
+- MaliciousIPCommunication
+- LinuxAuditLog
+- SysmonEvent
+- ProtectionStatus
+- Los tipos de datos Update y UpdateSummary cuando la solución Update Management no se está ejecutando en el área de trabajo o el destino de la solución está habilitado.
+
+Si el área de trabajo está en el plan de tarifa heredado por nodo, las asignaciones de Security Center y Log Analytics se combinan y se aplican conjuntamente a todos los datos ingeridos facturables.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo se explican las opciones de precios de Security Center. Para obtener material relacionado, consulte:

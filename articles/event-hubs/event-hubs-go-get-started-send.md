@@ -1,13 +1,13 @@
 ---
 title: 'Inicio rápido: Envío y recepción de eventos mediante Go en Azure Event Hubs'
-description: 'Inicio rápido: En este artículo se ofrece un tutorial para crear una aplicación de Go que envía eventos de Azure Event Hubs.'
+description: 'Inicio rápido: En este artículo se incluye un tutorial para crear una aplicación de Go que envía eventos de Azure Event Hubs.'
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: 59cd0d757108e7579ce389d216b0ee4d569e12fd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87002461"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>Inicio rápido: Envío o recepción de eventos en Event Hubs mediante Go
@@ -162,7 +162,7 @@ import (
 
 ### <a name="create-service-principal"></a>Creación de una entidad de servicio
 
-Cree una nueva entidad de servicio siguiendo las instrucciones que se indican en [Creación de una entidad de servicio de Azure con la CLI de Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli). Guarde las credenciales proporcionadas en su entorno con los siguientes nombres: Los paquetes de Azure SDK para Go y de Event Hubs se han configurado previamente para buscar estos nombres de variables.
+Cree una nueva entidad de servicio siguiendo las instrucciones que se indican en [Creación de una entidad de servicio de Azure con la CLI de Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli). Guarde las credenciales proporcionadas en su entorno con los siguientes nombres: tanto Azure SDK para Go como el paquete de Event Hubs están preconfigurados para buscar estos nombres de variable.
 
 ```bash
 export AZURE_CLIENT_ID=

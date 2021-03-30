@@ -1,20 +1,20 @@
 ---
-title: 'Inicio rápido: recepción de eventos mediante Apache Storm: Azure Event Hubs'
+title: 'Inicio rápido: Recepción de eventos mediante Apache Storm: Azure Event Hubs'
 description: 'Inicio rápido: En este artículo se proporciona información sobre cómo usar Apache Storm para recibir eventos de Azure Event Hubs.'
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: 099a3ff1ad57616de0d7929d787b82e9d55c9e00
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87087584"
 ---
 # <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>Inicio rápido: Recepción de eventos desde Event Hubs mediante Apache Storm
 
 [Apache Storm](https://storm.incubator.apache.org) es un sistema distribuido de cálculo en tiempo real que simplifica el procesamiento confiable de flujos de datos sin enlazar. Esta sección muestra cómo utilizar un spout de Storm para Azure Event Hubs a fin de recibir eventos de Event Hubs. Con Apache Storm, se pueden dividir los eventos en varios procesos hospedados en distintos nodos. La integración de Event Hubs con Storm simplifica el consumo de eventos al comprobar de forma transparente el progreso mediante la instalación de Zookeeper de Storm, la administración de puntos de comprobación persistentes y las recepciones en paralelo de Event Hubs.
 
-Para más información sobre los patrones de recepción de Event Hubs, vea la [Información general de Event Hubs][Event Hubs overview].
+Para más información sobre los patrones de recepción de Event Hubs, vea la [información general de Event Hubs][Event Hubs overview].
 
 ## <a name="prerequisites"></a>Prerrequisitos
 Antes de empezar con el inicio rápido, **cree un espacio de nombres de Event Hubs y un centro de eventos**. Use [Azure Portal](https://portal.azure.com) para crear un espacio de nombres de tipo Event Hubs y obtener las credenciales de administración que la aplicación necesita para comunicarse con el centro de eventos. Para crear un espacio de nombres y un centro de eventos, siga el procedimiento que se indica en [este artículo](event-hubs-create.md). 
