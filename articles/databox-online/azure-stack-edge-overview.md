@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 03/15/2021
 ms.author: alkohli
-ms.openlocfilehash: 3973235991a16d118b47d7289f3a1825621a9023
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: e6cd1f8a1f7d1777e786ab91637b4065a2c5e850
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103574686"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585951"
 ---
 # <a name="what-is-azure-stack-edge-pro-with-fpga"></a>¿Qué es Azure Stack Edge Pro con FPGA?
 
@@ -85,6 +85,8 @@ El dispositivo físico de Azure Stack Edge Pro, el recurso de Azure y la cuenta 
 - **Disponibilidad de recursos**: para ver una lista de todas las regiones en las que está disponible el recurso de Azure Stack Edge, consulte [Productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Azure Stack Edge Pro también se puede implementar en la nube de Azure Government. Para más información, consulte [¿Qué es Azure Government?](../azure-government/documentation-government-welcome.md).
     
 - **Cuentas de almacenamiento de destino**: las cuentas de almacenamiento que almacenan los datos están disponibles en todas las regiones de Azure. Las regiones en las que las cuentas de almacenamiento almacenan los datos de Azure Stack Edge Pro deben estar ubicadas cerca de la ubicación del dispositivo para un rendimiento óptimo. Una cuenta de almacenamiento que se encuentra lejos del dispositivo causa latencias largas y un rendimiento más lento.
+
+El servicio Azure Stack Edge es un servicio no regional. Para obtener más información, consulte [Regiones y zonas de disponibilidad en Azure](https://docs.microsoft.com/azure/availability-zones/az-overview). El servicio Azure Stack Edge no depende de una región específica de Azure, lo que lo hace más resistentes a las interrupciones en toda la zona, así como a interrupciones en toda la región.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

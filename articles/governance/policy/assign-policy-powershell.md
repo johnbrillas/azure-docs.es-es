@@ -1,13 +1,13 @@
 ---
-title: 'Inicio rápido: Asignación de directivas nuevas con PowerShell'
+title: 'Inicio rápido: Nueva asignación de directivas con PowerShell'
 description: En este inicio rápido, se usa Azure PowerShell para crear una asignación de Azure Policy para identificar recursos no compatibles.
 ms.date: 08/17/2020
 ms.topic: quickstart
 ms.openlocfilehash: e941b74101308af703f243197fb4043f8f32d233
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88548419"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles mediante Azure PowerShell
@@ -60,7 +60,7 @@ Los comandos anteriores usan la siguiente información:
 
 Ahora ya está listo para identificar los recursos no compatibles a fin de conocer el estado de cumplimiento de su entorno.
 
-## <a name="identify-non-compliant-resources"></a>Identificación de recursos no compatibles
+## <a name="identify-non-compliant-resources"></a>Identificación de recursos sin compatibilidad
 
 Utilice la siguiente información para identificar los recursos que no son compatibles con la asignación de directiva que ha creado. Ejecute los comandos siguientes:
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: aahi
-ms.openlocfilehash: 8444ae08aa2c25c20723b2f8c571422af3b24bc8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 47feddb88fd7ddae1f8be54709019b4c339d177d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736685"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599177"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutorial: Integración de Power BI con Text Analytics de Cognitive Services
 
@@ -190,7 +190,7 @@ Usará esta columna para generar una nube de palabras. Para comenzar, haga clic 
 > [!NOTE]
 > ¿Por qué se usan las frases clave extraídas para generar una nube de palabras en lugar del texto completo de cada comentario? Las frases clave nos proporcionan las palabras *importantes* de los comentarios de nuestros clientes, no solo las palabras *más comunes*. Además, el ajuste de tamaño de las palabras en la nube resultante no queda sesgado por el uso frecuente de una palabra en un número relativamente pequeño de comentarios.
 
-Si aún no tiene instalado el objeto visual personalizado Word Cloud, instálelo. En el panel Visualizaciones a la derecha del área de trabajo, haga clic en los tres puntos ( **...** ) y elija **Importar del almacén**. A continuación, busque "nube" y haga clic en el botón **Agregar** junto al objeto visual Word Cloud. Power BI instala el objeto visual Word Cloud y le informa de que se ha instalado correctamente.
+Si aún no tiene instalado el objeto visual personalizado Word Cloud, instálelo. En el panel Visualizaciones a la derecha del área de trabajo, haga clic en los tres puntos ( **...** ) y elija **Import From Market** (Importar de Market). Si la palabra "cloud" no está entre las herramientas de visualización mostradas en la lista, puede buscar "cloud" y hacer clic en el botón **Agregar** junto a la imagen Word Cloud. Power BI instala el objeto visual Word Cloud y le informa de que se ha instalado correctamente.
 
 ![[incorporación de un objeto visual personalizado]](../media/tutorials/power-bi/add-custom-visuals.png)<br><br>
 
@@ -200,7 +200,7 @@ Primero, haga clic en el icono Word Cloud en el panel Visualizaciones.
 
 Un nuevo informe aparece en el área de trabajo. Arrastre el campo `keyphrases` desde el panel Campos hasta el campo Categoría del panel Visualizaciones. La nube de palabras aparece dentro del informe.
 
-Ahora, cambie a la página Formato del panel Visualizaciones. En la categoría de palabras irrelevantes, active **Palabras no significativas predeterminadas** para eliminar palabras comunes cortas, como "of" de la nube. 
+Ahora, cambie a la página Formato del panel Visualizaciones. En la categoría de palabras irrelevantes, active **Palabras no significativas predeterminadas** para eliminar palabras comunes cortas, como "of" de la nube. Sin embargo, como estamos visualizando frases clave, es posible que no contengan palabras irrelevantes.
 
 ![[activación de palabras no significativas predeterminadas]](../media/tutorials/power-bi/default-stop-words.png)
 
@@ -232,8 +232,7 @@ La función Análisis de sentimiento siguiente devuelve una puntuación que indi
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
-    sentiment   = jsonresp[documents]{0}[confidenceScores]
-in  sentiment
+    sentiment   = jsonresp[documents]{0}[detectedLanguage][confidenceScore] in  sentiment
 ```
 
 Estas son dos versiones de una función Detección de idioma. La primera devuelve el código de idioma ISO (por ejemplo, `en` para inglés), mientras que la segunda devuelve el nombre "descriptivo" (por ejemplo, `English`). Puede advertir que solo la última línea del cuerpo difiere entre las dos versiones.
@@ -249,8 +248,7 @@ Estas son dos versiones de una función Detección de idioma. La primera devuelv
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
-    language    = jsonresp[documents]{0}[detectedLanguages]{0}[iso6391Name]
-in  language
+    language    = jsonresp [documents]{0}[detectedLanguage] [iso6391Name] in language 
 ```
 ```fsharp
 // Returns the name (for example, 'English') of the language in which the text is written
@@ -263,8 +261,7 @@ in  language
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
-    language    = jsonresp[documents]{0}[detectedLanguages]{0}[name]
-in  language
+    language    jsonresp [documents]{0}[detectedLanguage] [iso6391Name] in language 
 ```
 
 Finalmente, esta es una variante de la función Frases clave ya presentada que devuelve las frases como un objeto de lista, en lugar de como una sola cadena de frases separadas por comas. 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Creación de un registro de alias para admitir nombres Apex de dominio: Traffic Manager'
+title: 'Tutorial: Creación de un registro de alias para admitir nombres de dominio apex con Traffic Manager'
 titleSuffix: Azure DNS
 description: Este tutorial muestra cómo configurar un registro de alias de Azure DNS para admitir el uso de su nombre de dominio apex con Traffic Manager.
 services: dns
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: rohink
 ms.openlocfilehash: 4bdfc950cc1277809811dc2c548a57cc2138a8e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "77149956"
 ---
-# <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Tutorial: Configuración de un registro de alias para admitir nombres de dominio de Apex con Traffic Manager 
+# <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Tutorial: configurar un registro de alias de para admitir nombres de dominio de vértice con Traffic Manager 
 
 Puede crear un registro de alias para el vértice de nombre de dominio para hacer referencia a un perfil de Azure Traffic Manager. Un ejemplo es contoso.com. En lugar de un servicio de redirección, puede configurar Azure DNS para hacer referencia a un perfil de Traffic Manager directamente desde la zona. 
 
@@ -31,10 +31,10 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 Debe tener un nombre de dominio disponible que pueda hospedar en Azure DNS para realizar las pruebas. Debe tener control total de este dominio. El control total incluye la capacidad de establecer los registros de nombre de servidor (NS) para el dominio.
 
-Para obtener instrucciones sobre cómo hospedar el dominio en Azure DNS, vea [Tutorial: Hospedaje del dominio en Azure DNS](dns-delegate-domain-azure-dns.md).
+Para instrucciones sobre cómo hospedar el dominio en Azure DNS, consulte [Tutorial: Hospedaje del dominio en Azure DNS](dns-delegate-domain-azure-dns.md).
 
 El dominio en el ejemplo que se usa en este tutorial es contoso.com, pero debe usar su propio nombre de dominio.
 
@@ -59,7 +59,7 @@ Repita este procedimiento para crear otra máquina virtual denominada **Web-02**
 ### <a name="add-a-dns-label"></a>Agregar una etiqueta DNS
 Las direcciones IP públicas necesitan una etiqueta DNS para funcionar con Traffic Manager.
 1. En el grupo de recursos **RG-DNS-Alias-TM**, seleccione la dirección IP pública **Web-01-ip**.
-2. En **Settings** (Configuración), seleccione **Configuration** (Configuración).
+2. En **Configuración**, seleccione **Configuración**.
 3. En el cuadro de texto de la etiqueta de nombre DNS, escriba **web01pip**.
 4. Seleccione **Guardar**.
 
@@ -104,7 +104,7 @@ Cree un registro de alias que señale al perfil de Traffic Manager.
 3. Deje el cuadro de texto **Nombre** vacío para representar el vértice de nombre de dominio. Un ejemplo es contoso.com.
 4. Deje el **Tipo** como un registro **D**.
 5. Seleccione la casilla **Conjunto de registros de alias**.
-6. Seleccione **Elegir servicio de Azure** y seleccione el perfil de Traffic Manager**TM-alias-test**.
+6. Seleccione **Elegir servicio de Azure** y seleccione el perfil de Traffic Manager **TM-alias-test**.
 
 ## <a name="test-the-alias-record"></a>Probar el registro de alias
 

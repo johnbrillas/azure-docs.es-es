@@ -2,13 +2,13 @@
 title: Visualización y filtrado de información de los recursos de Azure
 description: Filtre la información y use vistas diferentes para conocer mejor los recursos de Azure.
 ms.topic: how-to
-ms.date: 09/11/2020
-ms.openlocfilehash: d3ad0c225a260fd0ae6b131b951b53c28042f4d9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/16/2021
+ms.openlocfilehash: bb48d0b0a7bf6017fbf407a95c33ef17729e34e3
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738640"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771641"
 ---
 # <a name="view-and-filter-azure-resource-information"></a>Visualización y filtrado de información de los recursos de Azure
 
@@ -48,7 +48,7 @@ Para eliminar una vista:
 
 1. Seleccione **Administrar vista** y, después, **Examinar todas las visualizaciones**.
 
-1. En el panel **Vistas guardadas para "Todos los recursos"** , seleccione la vista y, a continuación, seleccione el icono **Eliminar** ![icono de la vista Eliminar](media/manage-filter-resource-views/icon-delete.png).
+1. En el panel **Vistas guardadas**, seleccione la vista y, a continuación, seleccione el icono **Eliminar** ![icono de la vista Eliminar](media/manage-filter-resource-views/icon-delete.png).
 
 ## <a name="export-information-from-a-view"></a>Exportar información de una vista
 

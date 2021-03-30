@@ -19,13 +19,13 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: e91d250b8cc9b80f2c97910c7fa972af32fa9104
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88998346"
 ---
-# <a name="tutorial-send-push-notifications-to-windows-phone-apps-using-notification-hubs"></a>Tutorial: Envío de notificaciones push a aplicaciones de Windows Phone Notification Hubs
+# <a name="tutorial-send-push-notifications-to-windows-phone-apps-using-notification-hubs"></a>Envío de notificaciones push a aplicaciones de Windows Phone mediante Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -43,7 +43,7 @@ En este tutorial, aprenderá a:
 > * Crear una aplicación Windows Phone
 > * Realizar un envío de prueba de una notificación
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * **Suscripción de Azure**. Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 * [Visual Studio 2015 Express con componentes de desarrollo para dispositivos móviles](https://www.visualstudio.com/vs/older-downloads/)
@@ -79,7 +79,7 @@ En esta sección se creará una aplicación de Windows Phone que se registra aut
 
     ![Visual Studio, nuevo proyecto, aplicación vacía, Windows Phone Silverlight][11]
 2. En Visual Studio, haga clic con el botón derecho en la solución y, a continuación, haga clic en **Administrar paquetes NuGet**.
-3. Busque `WindowsAzure.Messaging.Managed` , haga clic en **Instalar**y acepte los términos de uso.
+3. Busque `WindowsAzure.Messaging.Managed` , haga clic en **Instalar** y acepte los términos de uso.
 
     ![Visual Studio, Administrador de paquetes NuGet][20]
 4. Abra el archivo App.xaml.cs y agregue las siguientes instrucciones `using` :

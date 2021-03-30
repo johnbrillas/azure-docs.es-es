@@ -6,17 +6,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: krsh
-ms.date: 01/06/2021
-ms.openlocfilehash: 9164c1e2542024a02bf4868658d0f29728f32c7b
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.date: 03/10/2021
+ms.openlocfilehash: 94d21cb82290e59ebb003969a566c1bfc877713e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97976867"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103200441"
 ---
 # <a name="how-to-create-a-virtual-machine-using-an-approved-base"></a>Procedimiento para crear una máquina virtual con una base aprobada
 
-En este artículo se describe cómo usar Azure en la creación de una máquina virtual (VM) que contenga un sistema operativo preconfigurado y aprobado. Si esto no es compatible con la solución, es posible [crear y configurar una máquina virtual local](azure-vm-create-using-own-image.md) mediante un sistema operativo aprobado y, después, configurarla y prepararla para la carga como se describe en [Preparación de un VHD o un VHDX de Windows antes de cargarlo en Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
+En este artículo se describe cómo usar Azure en la creación de una máquina virtual (VM) que contenga un sistema operativo preconfigurado y aprobado. Si esto no es compatible con la solución, es posible [crear y configurar una máquina virtual de manera local](azure-vm-create-using-own-image.md) mediante un sistema operativo aprobado.
 
 > [!NOTE]
 > Antes de comenzar este procedimiento, examine los [requisitos técnicos](marketplace-virtual-machines.md#technical-requirements) de las ofertas de máquina virtual de Azure, incluidos los requisitos de disco duro virtual (VHD).
@@ -78,5 +78,5 @@ Consulte la documentación siguiente para conectarse a la máquina virtual [Wind
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Siguiente paso recomendado: [Pruebe la imagen de la máquina virtual](azure-vm-image-test.md) para asegurarse de que cumple los requisitos de publicación de Azure Marketplace. Esta información es opcional.
-- Si no prueba la imagen de la máquina virtual, vaya al artículo sobre la [generación del identificador URI de SAS](azure-vm-get-sas-uri.md).
+- Si no quiere probar la imagen de la máquina virtual, inicie sesión en el [Centro de partners](https://partner.microsoft.com/) para publicarla.
 - Si tiene dificultades para crear un disco duro virtual basado en Azure, consulte las [preguntas frecuentes que pueden surgir al crear una máquina virtual en Azure Marketplace](azure-vm-create-faq.md).

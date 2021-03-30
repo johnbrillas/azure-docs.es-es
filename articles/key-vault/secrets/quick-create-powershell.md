@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, devx-track-azurepowershell
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: f3b770a5790d5e9554c7bf5d7d24f1eeccff7662
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 5e3b78dfb8f08f1a596ad12884ec088cd36c4a98
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99072226"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582462"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante PowerShell
 
@@ -57,7 +57,7 @@ Primero, para convertir el valor de **hVFkk965BuUv** en una cadena segura, escri
 $secretvalue = ConvertTo-SecureString "hVFkk965BuUv" -AsPlainText -Force
 ```
 
-A continuación, escriba los siguientes comandos de PowerShell para crear un secreto en Key Vault denominado **ExamplePassword** con el valor **hVFkk965BuUv**:
+Luego, use el cmdlet [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret) Azure PowerShell para crear un secreto en Key Vault denominado **ExamplePassword** con el valor **hVFkk965BuUv**:
 
 
 ```azurepowershell-interactive
@@ -96,5 +96,6 @@ Remove-AzResourceGroup -Name ContosoResourceGroup
 En este inicio rápido, ha creado una instancia de Key Vault y ha almacenado un secreto en ella. Para más información sobre Key Vault y cómo integrarlo con las aplicaciones, continúe con los artículos siguientes.
 
 - Lea una [introducción a Azure Key Vault](../general/overview.md).
+- Aprenda a [almacenar secretos multilínea en Key Vault](multiline-secrets.md)
 - Consulte la referencia para los [cmdlets de Key Vault de Azure PowerShell](/powershell/module/az.keyvault/#key_vault).
 - Consulte [Introducción a la seguridad de Azure Key Vault](../general/security-overview.md)

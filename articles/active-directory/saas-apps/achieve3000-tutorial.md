@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 9af00fef9c15ada44a5475bb419387b32b06d139
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92313373"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-achieve3000"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Achieve3000
@@ -28,7 +28,7 @@ En este tutorial aprenderá a integrar Achieve3000 con Azure Active Directory 
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -64,8 +64,8 @@ Para configurar y probar el inicio de sesión único de Azure AD con Achieve300
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
-1. **[Configuración del inicio de sesión único en Achieve3000](#configure-achieve3000-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
-    1. **[Creación de un usuario de prueba en Achieve3000](#create-achieve3000-test-user)** : para tener un homólogo de B.Simon en Achieve3000 vinculado a la representación del usuario en Azure AD.
+1. **[Configuración del inicio de sesión único en Achieve3000](#configure-achieve3000-sso)**: para configurar los valores de inicio de sesión único en la aplicación.
+    1. **[Creación de un usuario de prueba en Achieve3000](#create-achieve3000-test-user)**: para tener un homólogo de B.Simon en Achieve3000 vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
@@ -141,7 +141,7 @@ Para configurar el inicio de sesión único en **Achieve3000**, es preciso envia
 
 ### <a name="create-achieve3000-test-user"></a>Creación de un usuario de prueba de Achieve3000
 
-En esta sección creará un usuario llamado B.Simon en Achieve3000. Trabaje con el  [equipo de soporte técnico de Achieve3000](https://www.achieve3000.com/contact-us/) para agregar los usuarios a la plataforma de Achieve3000. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección creará un usuario llamado B.Simon en Achieve3000. Colabore con el [equipo de soporte técnico de Achieve3000](https://www.achieve3000.com/contact-us/) para agregar a los usuarios a la plataforma Achieve3000. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ## <a name="test-sso"></a>Prueba de SSO 
 

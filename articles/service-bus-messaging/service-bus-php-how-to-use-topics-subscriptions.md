@@ -5,10 +5,10 @@ ms.devlang: PHP
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.openlocfilehash: 706f523fdfb3c710bb16b048cfc68ce98875adb1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88066209"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Inicio rápido: Uso de temas y suscripciones de Service Bus con PHP
@@ -261,7 +261,7 @@ for($i = 0; $i < 5; $i++){
 El tamaño máximo de mensaje que admiten los temas de Service Bus es de 256 KB en el [nivel Estándar](service-bus-premium-messaging.md) y de 1 MB en el [nivel Premium](service-bus-premium-messaging.md). El encabezado, que incluye propiedades de la aplicación estándar y personalizadas, puede tener un tamaño máximo de 64 KB. No hay límite para el número de mensajes que contiene un tema, pero hay un tope para el tamaño total de los mensajes contenidos en un tema. El límite superior para el tamaño del tema es de 5 GB. Para obtener más información sobre las cuotas, consulte [Cuotas de Service Bus][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-subscription"></a>Recepción de mensajes de una suscripción
-La mejor manera de recibir mensajes de una suscripción es usar un método `ServiceBusRestProxy->receiveSubscriptionMessage`. Los mensajes se pueden recibir de dos modos distintos: [*ReceiveAndDelete* y *PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode). **PeekLock** es el valor predeterminado.
+La mejor manera de recibir mensajes de una suscripción es usar un método `ServiceBusRestProxy->receiveSubscriptionMessage`. Los mensajes se pueden recibir de dos modos diferentes: [*ReceiveAndDelete* y *PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode). **PeekLock** es el valor predeterminado.
 
 Al usar el modo [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode), la operación de recepción consta de una sola fase; es decir, cuando Service Bus recibe una solicitud de lectura de un mensaje de una suscripción, marca el mensaje como consumido y lo devuelve a la aplicación. El modo [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode)* es el modelo más sencillo y funciona mejor para los escenarios en los que una aplicación puede tolerar no procesar un mensaje en caso de error. Para entenderlo mejor, pongamos una situación en la que un consumidor emite la solicitud de recepción que se bloquea antes de procesarla. Como Service Bus ha marcado el mensaje como consumido, cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo, habrá perdido el mensaje que se consumió antes del bloqueo.
 

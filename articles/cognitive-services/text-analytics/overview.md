@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 02/09/2021
+ms.date: 03/09/2021
 ms.author: aahi
 keywords: text mining, sentiment analysis, text analytics
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: cb7bdeb379ee753424d9c975a8c030b0f7890552
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7fcc030e3c63c24fa255e578c2d8aaf1b466e99c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101722286"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598973"
 ---
 # <a name="what-is-the-text-analytics-api"></a>¿Qué es Text Analytics API?
 
@@ -33,7 +33,7 @@ Use el [análisis de sentimiento](how-tos/text-analytics-how-to-sentiment-analys
 
 La característica proporciona etiquetas de opinión (como "negative", "neutral" y "positive") basadas en la mayor puntuación de confianza que ha encontrado el servicio tanto en el nivel de oración como en el de documento. Esta característica también devuelve puntuaciones de confianza entre 0 y 1 para todos los documentos y que contiene, con el fin de indicar una opinión positiva, neutra y negativa. El servicio también se puede ejecutar de forma local, para lo que se debe [usar un contenedor](how-tos/text-analytics-how-to-install-containers.md).
 
-La minería de opiniones es una característica de Análisis de sentimiento, a partir de la versión preliminar v3.1. Esta característica, también conocida como Análisis de sentimiento basada en aspectos en el procesamiento de lenguaje natural (NLP), proporciona información más detallada sobre las opiniones relacionadas con los aspectos (como los atributos de los productos o servicios) en el texto.
+La minería de opiniones es una característica de Análisis de sentimiento, a partir de la versión preliminar v3.1. Esta característica, también conocida como Análisis de sentimiento basada en aspectos en el procesamiento de lenguaje natural (NLP), proporciona información más detallada sobre las opiniones relacionadas con palabras (como los atributos de los productos o servicios) en el texto.
 
 ## <a name="key-phrase-extraction"></a>Extracción de la frase clave
 

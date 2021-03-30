@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 05/31/2019
 ms.author: jeedes
 ms.openlocfilehash: cf6f146265562e287df2cb3c4574742335d62efe
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92318655"
 ---
-# <a name="tutorial-integrate-anaqua-with-azure-active-directory"></a>Tutorial: Integración de ANAQUA con Azure Active Directory
+# <a name="tutorial-integrate-anaqua-with-azure-active-directory"></a>Tutorial: Integración de Azure Active Directory con ANAQUA
 
 En este tutorial, obtendrá información sobre cómo integrar ANAQUA con Azure Active Directory (Azure AD). Al integrar ANAQUA con Azure AD, puede hacer lo siguiente:
 
@@ -57,10 +57,10 @@ Configure y pruebe el inicio de sesión único de Azure AD con ANAQUA mediante 
 Para configurar y probar el inicio de sesión único de Azure AD con ANAQUA, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
-2. **[Configuración de ANAQUA](#configure-anaqua)** , para configurar el inicio de sesión único en la aplicación.
+2. **[Configuración de ANAQUA](#configure-anaqua)**, para configurar el inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B. Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B. Simon para que use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba en ANAQUA](#create-anaqua-test-user)** , para tener un homólogo de B. Simon en ANAQUA que esté vinculado a la representación del usuario en Azure AD.
+5. **[Creación de un usuario de prueba en ANAQUA](#create-anaqua-test-user)**, para tener un homólogo de B. Simon en ANAQUA que esté vinculado a la representación del usuario en Azure AD.
 6. **[Comprobación del inicio de sesión único](#test-sso)** , para verificar que la configuración funciona correctamente.
 
 ### <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD

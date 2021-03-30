@@ -6,14 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 02/23/2021
+ms.date: 03/19/2021
 ms.author: victorh
-ms.openlocfilehash: 208bd0fe7f3869cbe15dd27e0b883c467e41c765
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: cfbd5301bc2b24c4d5614e5f88c6ae18d4affc66
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101735084"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721637"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Tutorial: Creación y configuración de una puerta de enlace de aplicaciones que hospede varios sitios web mediante Azure Portal
 
@@ -27,7 +27,7 @@ En este tutorial, aprenderá a:
 > * Crear grupos de back-end con los servidores back-end
 > * Crear un agente de escucha de back-end
 > * Crear reglas de enrutamiento
-> * Creación de un registro CNAME en el dominio
+> * Editar el archivo de hosts para la resolución de nombres
 
 :::image type="content" source="./media/create-multiple-sites-portal/scenario.png" alt-text="Instancia de Application Gateway multisitio":::
 
@@ -212,9 +212,9 @@ En este ejemplo se instala IIS en las máquinas virtuales con el fin de comproba
 
 Espere a que la implementación se complete antes de continuar con el paso siguiente.
 
-## <a name="edit-your-hosts-file"></a>Edición de un archivo de hosts
+## <a name="edit-your-hosts-file-for-name-resolution"></a>Edición de un archivo de hosts para la resolución de nombres
 
-Después de crear la puerta de enlace de aplicaciones con la dirección IP pública, puede obtener la dirección IP y usarla para editar el archivo de hosts para resolver `www.contoso.com` y `www.fabrikam.com`. 
+Después de crear la puerta de enlace de aplicación con su dirección IP pública, puede obtener la dirección IP y usarla para editar el archivo de hosts para resolver `www.contoso.com` y `www.fabrikam.com`. En un entorno de producción, puede crear un `CNAME` en DNS para la resolución de nombres.
 
 1. Haga clic en **Todos los recursos** y, a continuación, haga clic en **myAGPublicIPAddress**.
 

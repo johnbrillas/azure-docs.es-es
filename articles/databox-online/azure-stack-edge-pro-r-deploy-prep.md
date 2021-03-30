@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 01/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro R so I can use it to transfer data to Azure.
-ms.openlocfilehash: 5c668783232533098822cca982f1af9008f13640
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 5e220759a46ad9098f81a9534fa64145adade2b5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98761730"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104613131"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-r"></a>Tutorial: Preparación de la implementación de Azure Stack Edge Pro R
 
@@ -87,6 +87,8 @@ Antes de comenzar, asegúrese de que:
 
 Si ya tiene un recurso de Azure Stack Edge para administrar el dispositivo físico, omita este paso y vaya a [Obtención de la clave de activación](#get-the-activation-key).
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 Siga estos pasos en Azure Portal para crear un recurso de Azure Stack Edge.
 
 1. Use sus credenciales de Microsoft Azure para iniciar sesión en Azure Portal, en esta dirección URL: [https://portal.azure.com](https://portal.azure.com).
@@ -128,7 +130,7 @@ Siga estos pasos en Azure Portal para crear un recurso de Azure Stack Edge.
 
         ![Creación de un recurso 5](media/azure-stack-edge-pro-r-deploy-prep/create-resource-5.png)
 
-    - Si este es el pedido del nuevo dispositivo, escriba el nombre de contacto, la empresa, la dirección para enviar el dispositivo y la información de contacto.
+    - Si este es el pedido del nuevo dispositivo, escriba el nombre de contacto, la empresa, la dirección de envío y la información de contacto.
 
         ![Creación de un recurso 6](media/azure-stack-edge-pro-r-deploy-prep/create-resource-6.png)
 
@@ -148,7 +150,7 @@ Siga estos pasos en Azure Portal para crear un recurso de Azure Stack Edge.
 
     ![Ir al recurso de Azure Stack Edge Pro](media/azure-stack-edge-pro-r-deploy-prep/azure-stack-edge-resource-1.png)
 
-Tras realizar el pedido, Microsoft lo revisa y se pone en contacto con usted (por correo electrónico) para indicarle los detalles del envío.
+Una vez realizado el pedido, Microsoft lo revisa y se pone en contacto con usted (por correo electrónico) para indicarle los detalles del envío.
 
 <!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png) - If this is restored, it must go above "After the resource is successfully created." The azure-stack-edge-resource-1.png would seem superfluous in that case.--> 
 
@@ -156,6 +158,51 @@ Tras realizar el pedido, Microsoft lo revisa y se pone en contacto con usted (po
 > Si quiere crear varios pedidos al mismo tiempo o clonar un pedido existente, puede usar los [scripts de Azure Samples](https://github.com/Azure-Samples/azure-stack-edge-order). Para más información, consulte el archivo LÉAME.
 
 Si surgen problemas durante el proceso de pedido, consulte [Solución de problemas de pedidos](azure-stack-edge-troubleshoot-ordering.md).
+
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+Si es necesario, prepare el entorno de la CLI de Azure.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Para crear un recurso de Azure Stack Edge, ejecute los comandos siguientes en la CLI de Azure.
+
+1. Cree un grupo de recursos utilizando el comando [az group create](/cli/azure/group#az_group_create) o utilice un grupo de recursos existente:
+
+   ```azurecli
+   az group create --name myasepgpu1 --location eastus
+   ```
+
+1. Para crear un dispositivo, utilice el comando [az databoxedge device create](/cli/azure/databoxedge/device#az_databoxedge_device_create):
+
+   ```azurecli
+   az databoxedge device create --resource-group myasepgpu1 \
+      --device-name myasegpu1 --location eastus --sku EdgePR_Base
+   ```
+
+   Elija la ubicación más cercana a la región geográfica donde quiera implementar el dispositivo. La región almacena solo los metadatos para la administración de dispositivos. Los datos reales se pueden almacenar en cualquier cuenta de almacenamiento.
+
+   Para una lista de todas las regiones en las que está disponible el recurso de Azure Stack Edge, consulte [Productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Si usa Azure Government, todas las regiones de gobierno están disponibles como se muestra en las [regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/).
+
+1. Para crear un pedido, ejecute el comando [az databoxedge order create](/cli/azure/databoxedge/order#az_databoxedge_order_create):
+
+   ```azurecli
+   az databoxedge order create --resource-group myasepgpu1 \
+      --device-name myasegpu1 --company-name "Contoso" \
+      --address-line1 "1020 Enterprise Way" --city "Sunnyvale" \
+      --state "California" --country "United States" --postal-code 94089 \
+      --contact-person "Gus Poland" --email-list gus@contoso.com --phone 4085555555
+   ```
+
+Se tarda unos minutos en crear el recurso. Ejecute el comando [az databoxedge order show](/cli/azure/databoxedge/order#az_databoxedge_order_show) para ver el pedido:
+
+```azurecli
+az databoxedge order show --resource-group myasepgpu1 --device-name myasegpu1 
+```
+
+Una vez realizado el pedido, Microsoft lo revisará y se pondrá en contacto con usted por correo electrónico para indicarle los detalles del envío.
+
+---
 
 ## <a name="get-the-activation-key"></a>Obtención de la clave de activación
 

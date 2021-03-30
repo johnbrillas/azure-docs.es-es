@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: 67700ec643a27f8ae5c581fe9de8e3295a1925e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88998244"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-windows-phones-using-azure-notification-hubs"></a>Tutorial: Envío de notificaciones push a dispositivos con Windows Phone concretos mediante Azure Notification Hubs
@@ -43,9 +43,9 @@ En este tutorial, aprenderá a:
 > * Envío de notificaciones con etiquetas
 > * Prueba de la aplicación
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
-Complete el [Tutorial: Notificaciones push a aplicaciones de Windows Phone concretos mediante Azure Notification Hubs](notification-hubs-windows-mobile-push-notifications-mpns.md). In este tutorial se actualizar la aplicación, con el fin de que pueda registrar las categorías de noticias de última hora en las que esté interesado y recibir solo notificaciones de inserción para esas categorías.
+Complete el [tutorial: Envío de notificaciones push a aplicaciones de Windows Phone concretos mediante Azure Notification Hubs](notification-hubs-windows-mobile-push-notifications-mpns.md). In este tutorial se actualizar la aplicación, con el fin de que pueda registrar las categorías de noticias de última hora en las que esté interesado y recibir solo notificaciones de inserción para esas categorías.
 
 ## <a name="add-category-selection-to-the-mobile-app"></a>Agregar una selección de categorías a la aplicación móvil
 

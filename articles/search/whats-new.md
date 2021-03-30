@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 03/12/2021
 ms.custom: references_regions
-ms.openlocfilehash: b4dc8ab44d341b293c044843e6dff2a3b6d3102c
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: 8e78fa46125b8aca378598c673ba76829e11d70e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103233555"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600435"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novedades de Azure Cognitive Search
 
@@ -26,6 +26,7 @@ Conozca las novedades del servicio. Marque esta página para mantenerse actualiz
 | [Búsqueda semántica](semantic-search-overview.md) | Colección de características relacionadas con consultas que mejoran significativamente la pertinencia de los resultados de la búsqueda con muy poco esfuerzo. </br></br>La [clasificación semántica](semantic-ranking.md) calcula las puntuaciones de relevancia mediante el significado semántico de las palabras y el contenido. </br></br>Los [subtítulos semánticos](semantic-how-to-query-request.md) son pasajes relevantes del documento que resumen mejor el documento, con resaltados en los términos o frases más importantes. </br></br>Las [respuestas semánticas](semantic-answers.md) son los pasajes clave, extraídos de un documento de búsqueda, que se formulan como respuesta directa a una consulta que tiene el aspecto de una pregunta. | Versión preliminar pública ([bajo solicitud](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Use la API REST de [búsqueda de documentos](/rest/api/searchservice/preview-api/search-documents) api-version=2020-06-30-Preview y el [Explorador de búsqueda](search-explorer.md) en Azure Portal. </br></br>Se aplican restricciones de región y de nivel. |
 | [Corrector ortográfico de términos de consulta](speller-how-to-add.md) | Antes de que los términos de la consulta lleguen al motor de búsqueda, puede comprobar que no tengan errores ortográficos. La opción `speller` funciona con cualquier tipo de consulta (simple, completa o semántica). |  Versión preliminar pública, solo REST, api-version=2020-06-30-Preview|
 | [Indexador de SharePoint Online](search-howto-index-sharepoint-online.md) | Este indexador le conecta a un sitio de SharePoint Online para que pueda indexar el contenido de una biblioteca de documentos. | Versión preliminar pública, solo REST, api-version=2020-06-30-Preview |
+| [Normalizadores](search-normalizers.md) | Los normalizadores realizan un procesamiento previo simple del texto, como el uso de mayúsculas y minúsculas, la eliminación de toldes, el plegamiento ASCII, etc. sin tener que pasar por toda la cadena de análisis.| Versión preliminar pública, solo REST, api-version=2020-06-30-Preview |
 
 ## <a name="february-2021"></a>Febrero de 2021
 

@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: c72ae2a2e6dbd2278bdd78f26c145386be22764e
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 413f0be32b54ee6da39934cf3f8753246fbce924
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175437"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578811"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft
 
@@ -89,7 +89,7 @@ Para configurar los valores de la aplicación según la plataforma o el disposit
     | **Aplicación de página única** | Escriba un **URI de redirección** para la aplicación. Este URI es la ubicación a la que la plataforma de identidad de Microsoft redirige el cliente de un usuario y envía tokens de seguridad tras la autenticación.<br/><br/>Seleccione esta plataforma si va a desarrollar una aplicación web del lado del cliente con JavaScript, o bien, con un marco como Angular, Vue.js, React.js o Blazor WebAssembly. |
     | **iOS/macOS** | Escriba el **ID de agrupación** de la aplicación. Lo encontrará en **Configuración de la compilación** o, en Xcode, en *Info.plist*.<br/><br/>Al especificar un **ID de agrupación**, se genera un URI de redirección. |
     | **Android** | Escriba el valor en **Nombre del paquete** de la aplicación. Lo encontrará en el archivo *AndroidManifest.xml*. Además, genere y especifique el valor de **Hash de firma**.<br/><br/>Al especificar estos valores, se genera un URI de redirección. |
-    | **Aplicaciones móviles y de escritorio** | Seleccione uno de los valores de **URI de redirección sugeridos**. O bien, especifique un valor para **URI de redireccionamiento personalizado**.<br/><br/>En el caso de las aplicaciones de escritorio, se recomienda:<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>Seleccionar esta plataforma para las aplicaciones móviles que no utilicen la biblioteca de autenticación de Microsoft (MSAL) más reciente o que no usen un agente. Seleccione también esta plataforma para las aplicaciones de escritorio. |
+    | **Aplicaciones móviles y de escritorio** | Seleccione uno de los valores de **URI de redirección sugeridos**. O bien, especifique un valor para **URI de redireccionamiento personalizado**.<br/><br/>En el caso de las aplicaciones de escritorio que usan el explorador insertado, se recomienda<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>En el caso de las aplicaciones de escritorio que usan el explorador del sistema, se recomienda<br/>`http://localhost`<br/><br/>Seleccionar esta plataforma para las aplicaciones móviles que no utilicen la biblioteca de autenticación de Microsoft (MSAL) más reciente o que no usen un agente. Seleccione también esta plataforma para las aplicaciones de escritorio. |
 1. Seleccione **Configurar** para completar la configuración de la plataforma.
 
 ### <a name="redirect-uri-restrictions"></a>Restricciones aplicables a los URI de redirección

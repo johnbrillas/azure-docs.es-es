@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: ac21e1f00dc2a5580b90a1a5eb43da05288e800a
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: c49a721a4db758965c9cf8d71f5d73b5754b6088
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103489430"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654482"
 ---
 # <a name="backend-pool-management"></a>Administración de grupos de back-end
 El grupo de back-end es un componente esencial del equilibrador de carga. Define el grupo de recursos que atenderán el tráfico de una regla de equilibrio de carga determinada.
@@ -156,99 +156,6 @@ az vm create \
 --generate-ssh-keys
 ```
 
-### <a name="rest-api"></a>API DE REST
-Cree el grupo de back-end:
-
-```
-PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/loadBalancers/{load-balancer-name}/backendAddressPools/{backend-pool-name}?api-version=2020-05-01
-```
-
-Cree una interfaz de red y agréguela al grupo de back-end que ha creado mediante la propiedad de configuración de direcciones IP de la interfaz de red:
-
-```
-PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/networkInterfaces/{nic-name}?api-version=2020-05-01
-```
-
-Cuerpo de la solicitud JSON:
-```json
-{
-  "properties": {
-    "enableAcceleratedNetworking": true,
-    "ipConfigurations": [
-      {
-        "name": "ipconfig1",
-        "properties": {
-          "subnet": {
-            "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/virtualNetworks/{vnet-name}/subnets/{subnet-name}"
-          },
-          "loadBalancerBackendAddressPools": [
-            {
-              "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/loadBalancers/{load-balancer-name}/backendAddressPools/{backend-pool-name}"
-            }
-          ]
-        }
-      }
-    ]
-  },
-  "location": "eastus"
-}
-```
-
-Recupere la información del grupo de back-end para que el equilibrador de carga confirme que esta interfaz de red se agrega al grupo de back-end:
-
-```
-GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name/providers/Microsoft.Network/loadBalancers/{load-balancer-name/backendAddressPools/{backend-pool-name}?api-version=2020-05-01
-```
-
-Cree una máquina virtual y conecte la NIC que hace referencia al grupo de back-end:
-
-```
-PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}?api-version=2019-12-01
-```
-
-Cuerpo de la solicitud JSON:
-```JSON
-{
-  "location": "easttus",
-  "properties": {
-    "hardwareProfile": {
-      "vmSize": "Standard_D1_v2"
-    },
-    "storageProfile": {
-      "imageReference": {
-        "sku": "2016-Datacenter",
-        "publisher": "MicrosoftWindowsServer",
-        "version": "latest",
-        "offer": "WindowsServer"
-      },
-      "osDisk": {
-        "caching": "ReadWrite",
-        "managedDisk": {
-          "storageAccountType": "Standard_LRS"
-        },
-        "name": "myVMosdisk",
-        "createOption": "FromImage"
-      }
-    },
-    "networkProfile": {
-      "networkInterfaces": [
-        {
-          "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{nic-name}",
-          "properties": {
-            "primary": true
-          }
-        }
-      ]
-    },
-    "osProfile": {
-      "adminUsername": "{your-username}",
-      "computerName": "myVM",
-      "adminPassword": "{your-password}"
-    }
-  }
-}
-```
-
 ### <a name="resource-manager-template"></a>Plantilla de Resource Manager
 
 Siga la [plantilla de Resource Manager de este inicio rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/) para implementar un equilibrador de carga y máquinas virtuales, y para agregar las máquinas virtuales al grupo de back-end a través de la interfaz de red.
@@ -260,17 +167,6 @@ Siga la [plantilla de Resource Manager de este inicio rápido](https://github.co
 En escenarios con grupos de back-end rellenados previamente, use dirección IP y red virtual.
 
 Toda la administración del grupo de back-end se realiza directamente en el objeto de grupo de back-end, como se resalta en los ejemplos siguientes.
-
-### <a name="limitations"></a>Limitaciones
-Un grupo de back-end configurado por la dirección IP tiene las siguientes limitaciones:
-  * Solo se puede usar para equilibradores de carga estándar
-  * Límite de 100 direcciones IP en el grupo de back-end
-  * Los recursos de back-end deben estar en la misma red virtual que el equilibrador de carga.
-  * Un equilibrador de carga con un grupo de back-end basado en IP no puede funcionar como servicio de Private Link.
-  * Esta característica no se admite actualmente en Azure Portal.
-  * Los contenedores ACI no admiten esta característica actualmente
-  * Los equilibradores de carga o los servicios precedidos por equilibradores de carga no se pueden colocar en el grupo de back-end del equilibrador de carga
-  * No se pueden especificar reglas NAT de entrada mediante la dirección IP
 
 ### <a name="powershell"></a>PowerShell
 Cree un nuevo grupo de back-end:
@@ -411,128 +307,21 @@ az vm create \
   --admin-username azureuser \
   --generate-ssh-keys
 ```
+ 
+### <a name="limitations"></a>Limitaciones
+Un grupo de back-end configurado por la dirección IP tiene las siguientes limitaciones:
+  * Solo se puede usar para equilibradores de carga estándar
+  * Límite de 100 direcciones IP en el grupo de back-end
+  * Los recursos de back-end deben estar en la misma red virtual que el equilibrador de carga.
+  * Un equilibrador de carga con un grupo de back-end basado en IP no puede funcionar como servicio de Private Link.
+  * Esta característica no se admite actualmente en Azure Portal.
+  * Los contenedores ACI no admiten esta característica actualmente
+  * Los equilibradores de carga o servicios como Application Gateway no se pueden colocar en el grupo de back-end del equilibrador de carga.
+  * No se pueden especificar reglas NAT de entrada mediante la dirección IP
 
-### <a name="rest-api"></a>API DE REST
-
-Cree el grupo de back-end y defina las direcciones de back-end mediante una solicitud PUT de grupo de back-end. Configure las direcciones de back-end en el cuerpo JSON de la solicitud PUT por:
-
-* Nombre de dirección
-* Dirección IP
-* Identificador de red virtual 
-
-```
-PUT https://management.azure.com/subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/backend?api-version=2020-05-01
-```
-
-Cuerpo de la solicitud JSON:
-```JSON
-{
-  "properties": {
-    "loadBalancerBackendAddresses": [
-      {
-        "name": "address1",
-        "properties": {
-          "virtualNetwork": {
-            "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/virtualNetworks/{vnet-name}"
-          },
-          "ipAddress": "10.0.0.4"
-        }
-      },
-      {
-        "name": "address2",
-        "properties": {
-          "virtualNetwork": {
-            "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/virtualNetworks/{vnet-name}"
-          },
-          "ipAddress": "10.0.0.5"
-        }
-      }
-    ]
-  }
-}
-```
-
-Recupere la información del grupo de back-end del equilibrador de carga para confirmar que las direcciones de back-end se agregan al grupo de back-end:
-```
-GET https://management.azure.com/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/loadBalancers/{load-balancer-name}/backendAddressPools/{backend-pool-name}?api-version=2020-05-01
-```
-
-Cree una interfaz de red y agréguela al grupo de back-end. Establezca la dirección IP en una de las direcciones de back-end:
-```
-PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/networkInterfaces/{nic-name}?api-version=2020-05-01
-```
-
-Cuerpo de la solicitud JSON:
-```JSON
-{
-  "properties": {
-    "enableAcceleratedNetworking": true,
-    "ipConfigurations": [
-      {
-        "name": "ipconfig1",
-        "properties": {
-          "privateIPAddress": "10.0.0.4",
-          "subnet": {
-            "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Network/virtualNetworks/{vnet-name}/subnets/{subnet-name}"
-          }
-        }
-      }
-    ]
-  },
-  "location": "eastus"
-}
-```
-
-Cree una máquina virtual y conecte la NIC con una dirección IP en el grupo de back-end:
-
-```
-PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}?api-version=2019-12-01
-```
-
-Cuerpo de la solicitud JSON:
-```JSON
-{
-  "location": "eastus",
-  "properties": {
-    "hardwareProfile": {
-      "vmSize": "Standard_D1_v2"
-    },
-    "storageProfile": {
-      "imageReference": {
-        "sku": "2016-Datacenter",
-        "publisher": "MicrosoftWindowsServer",
-        "version": "latest",
-        "offer": "WindowsServer"
-      },
-      "osDisk": {
-        "caching": "ReadWrite",
-        "managedDisk": {
-          "storageAccountType": "Standard_LRS"
-        },
-        "name": "myVMosdisk",
-        "createOption": "FromImage"
-      }
-    },
-    "networkProfile": {
-      "networkInterfaces": [
-        {
-          "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{nic-name}",
-          "properties": {
-            "primary": true
-          }
-        }
-      ]
-    },
-    "osProfile": {
-      "adminUsername": "{your-username}",
-      "computerName": "myVM",
-      "adminPassword": "{your-password}"
-    }
-  }
-}
-```
-  
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha conocido la administración de grupos de back-end de Azure Load Balancer y ha aprendido a configurar un grupo de back-end mediante una combinación de dirección IP y red virtual.
 
 Más información sobre [Azure Load Balancer](load-balancer-overview.md).
+
+Consulte la [API REST](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerbackendaddresspools/createorupdate) para la administración de backendpool basada en IP.

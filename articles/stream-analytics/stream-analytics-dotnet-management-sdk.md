@@ -5,14 +5,14 @@ author: jseb225
 ms.author: jeanb
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 12/06/2018
+ms.date: 3/12/2021
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 633885bb1062edac8226c073768ffdeba84fcb55
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 9adc4c92e3e637b9d3e18249b5de00782a94baab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98012638"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103232892"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>SDK .NET de administración: Configuración y ejecución de trabajos de análisis con la API de Azure Stream Analytics para .NET
 Aprenda a configurar y ejecutar trabajos de análisis con la API de Stream Analytics para .NET mediante el SDK de .NET de administración. Configure un proyecto, cree orígenes de entrada y salida, transformaciones, e inicie y detenga trabajos. En los trabajos de análisis puede transmitir datos desde el almacenamiento de blobs o desde un centro de eventos.
@@ -207,6 +207,12 @@ El método **TestConnection** prueba si el trabajo de Stream Analytics puede con
    // Test the connection to the input
    ResourceTestStatus testInputResult = streamAnalyticsManagementClient.Inputs.Test(resourceGroupName, streamingJobName, inputName);
    ```
+El resultado de la llamada a TestConnection es un objeto *ResourceTestResult* que contiene dos propiedades:
+
+- *status*: puede ser una de las cadenas siguientes: ["TestNotAttempted", "TestSucceeded" o "TestFailed"].
+- *error*: es de tipo ErrorResponse que contiene las siguientes propiedades:
+   - *code*: una propiedad necesaria de tipo cadena. El valor es System.Net.HttpStatusCode estándar recibido durante las pruebas.
+   - *message*: una propiedad necesaria de tipo cadena que representa el error. 
 
 ## <a name="create-a-stream-analytics-output-target"></a>Creación de un destino de salida de Stream Analytics
 La creación de un destino de salida es similar al proceso de creación de un origen de entrada de Stream Analytics. Al igual que los orígenes de entrada, los destinos de salida están vinculados a un trabajo específico. Para usar el mismo destino de salida para distintos trabajos, debe llamar nuevamente al método y especificar un nombre de trabajo distinto.
@@ -284,14 +290,14 @@ El método **Delete** eliminará el trabajo, además de los subrecursos subyacen
    ```
 
 ## <a name="get-support"></a>Obtención de soporte técnico
-Para más ayuda, pruebe nuestra [página de preguntas y respuestas de Microsoft sobre Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
+Para más ayuda, pruebe nuestra [Página de preguntas y respuestas de Microsoft sobre Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ha aprendido los conceptos básicos del uso de un SDK de .NET para crear y ejecutar trabajos de análisis. Para más información, vea los siguientes artículos:
 
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Escalado de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [SDK de .NET de administración de Azure Stream Analytics](/previous-versions/azure/dn889315(v=azure.100))
 * [Referencia del lenguaje de consulta de Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referencia de API de REST de administración de Azure Stream Analytics](/rest/api/streamanalytics/)

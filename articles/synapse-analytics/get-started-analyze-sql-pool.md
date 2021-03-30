@@ -9,18 +9,34 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 12/31/2020
-ms.openlocfilehash: 54b650d598cf19e061465b3a4fa18d50808e7f29
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.date: 03/18/2020
+ms.openlocfilehash: f03fa84c02c4b3894efe069289b0ecbb9e90dfdb
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102426168"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654635"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Análisis de datos con grupos de SQL dedicados
 
-Azure Synapse Analytics le ofrece la funcionalidad de analizar datos con un grupo de SQL dedicado. En este tutorial usará los datos de NYC Taxi para explorar las funcionalidades de un grupo de SQL dedicado.
+En este tutorial usará los datos de NYC Taxi para explorar las funcionalidades de un grupo de SQL dedicado.
 
+## <a name="create-a-dedicated-sql-pool"></a>Creación de un grupo de SQL dedicado
+
+1. En Synapse Studio, en el panel izquierdo, seleccione **Administrar** > **Grupos de SQL**.
+1. Seleccione **Nuevo paso**.
+1. En **Nombre del grupo de SQL** seleccione **SQLPOOL1**
+1. En **Nivel de rendimiento** seleccione **DW100C**
+1. Seleccione **Revisar y crear** > **Crear**. El grupo de SQL dedicado estará listo en unos minutos. 
+
+El grupo de SQL dedicado se asocia con una base de datos SQL, que también se denomina **SQLPOOL1**.
+1. Vaya a **Datos** > **Área de trabajo**.
+1. Debería ver una base de datos denominada **SQLPOOL1**. Si no la ve, haga clic en **Refresh** (Actualizar).
+
+Los grupos de SQL dedicados consumen recursos facturables mientras están activos. Puede pausar los grupos más adelante para reducir los costos.
+
+> [!NOTE] 
+> Al crear un nuevo grupo de SQL dedicado (anteriormente SQL DW) en el área de trabajo, se abrirá la página de aprovisionamiento del grupo de SQL dedicado. El aprovisionamiento se llevará a cabo en el servidor SQL lógico.
 ## <a name="load-the-nyc-taxi-data-into-sqlpool1"></a>Carga de los datos NYC Taxi en SQLPOOL1
 
 1. En Synapse Studio, vaya al centro de **desarrollo**, haga clic en el botón **+** para agregar un nuevo recurso y cree un nuevo script SQL.
@@ -77,7 +93,6 @@ Azure Synapse Analytics le ofrece la funcionalidad de analizar datos con un grup
 ## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>Exploración de los datos de NYC Taxi en el grupo de SQL dedicado
 
 1. En Synapse Studio, vaya al centro **Data** (Datos).
-1. Debería ver una base de datos denominada **SQLPOOL1**. Si no la ve, haga clic en **Refresh** (Actualizar).
 1. Vaya a **SQLPOOL1** > **Tablas**. 
 3. Haga clic con el botón derecho en la tabla **dbo.Trip** y seleccione **New SQL Script** > **Select TOP 100 Rows** (Nuevo script SQL > Seleccionar 100 primeras filas).
 4. Espere mientras se crea un nuevo script de SQL y se ejecuta.
@@ -103,4 +118,4 @@ Azure Synapse Analytics le ofrece la funcionalidad de analizar datos con un grup
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Análisis mediante Spark](get-started-analyze-spark.md)
+> [Análisis de datos en una cuenta de Azure Storage](get-started-analyze-storage.md)

@@ -2,16 +2,16 @@
 title: 'Tutorial: Creación e implementación de archivos Bicep de Azure Resource Manager'
 description: Cree su primer archivo Bicep para implementar recursos de Azure. En este tutorial, conocerá la sintaxis de los archivos Bicep y aprenderá a implementar una cuenta de almacenamiento.
 author: mumian
-ms.date: 03/10/2021
+ms.date: 03/17/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: b04dbb7f708a4019ae70c716d4faa05ca2c28720
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 8979585d7ec0fa6eac1866375fe1e80214f2d2e2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102632584"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594281"
 ---
 # <a name="tutorial-create-and-deploy-first-azure-resource-manager-bicep-file"></a>Tutorial: Creación e implementación del primer archivo Bicep de Azure Resource Manager
 
@@ -31,11 +31,11 @@ Para empezar, vamos a asegurarnos de que tiene las herramientas necesarias para 
 
 ### <a name="editor"></a>Editor
 
-Para poder crear archivos Bicep, necesita un buen editor. Le recomendamos Visual Studio Code con la extensión Bicep. Si necesita instalar estas herramientas, consulte [Inicio rápido: Creación de plantillas de archivos de Bicep con Visual Studio Code](quickstart-create-bicep-use-visual-studio-code.md).
+Para poder crear archivos Bicep, necesita un buen editor. Le recomendamos Visual Studio Code con la extensión Bicep. Si necesita instalar estas herramientas, consulte [Configuración del entorno de desarrollo de Bicep](./bicep-install.md#development-environment).
 
 ### <a name="command-line-deployment"></a>Implementación desde la línea de comandos
 
-Para implementar el archivo Bicep, también va a necesitar la última versión de Azure PowerShell o la CLI más reciente de Azure. Para obtener instrucciones de instalación, consulte:
+Puede usar la CLI de Azure o Azure PowerShell para implementar archivos de Bicep. Para la CLI de Azure, necesita la versión 2.20.0 o posterior. En el caso de Azure PowerShell, necesita la versión 5.6.0 o posterior. Para obtener instrucciones de instalación, consulte:
 
 - [Azure PowerShell](/powershell/azure/install-az-ps)
 - [Instalación de la CLI de Azure en Windows](/cli/azure/install-azure-cli-windows)
@@ -161,7 +161,7 @@ Bicep es una abstracción transparente en plantillas de Azure Resource Manager (
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para ejecutar este cmdlet de implementación, debe tener la [última versión](/powershell/azure/install-az-ps) de Azure PowerShell.
+Para ejecutar este cmdlet de implementación, debe tener la [versión más reciente](/powershell/azure/install-az-ps) de Azure PowerShell.
 
 ```azurepowershell
 $bicepFile = "{provide-the-path-to-the-bicep-file}"
