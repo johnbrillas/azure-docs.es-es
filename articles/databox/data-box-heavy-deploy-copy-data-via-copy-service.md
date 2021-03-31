@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 601e5cf15c47b16c53ff9ca81a56cb613bcfc3f5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96006566"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-heavy-preview"></a>Tutorial: Uso del servicio de copia de datos para copiar datos en Azure Data Box Heavy (versión preliminar)
@@ -29,11 +29,11 @@ En este tutorial, aprenderá a:
 > [!div class="checklist"]
 > * Copia de datos a Data Box Heavy
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar, asegúrese de que:
 
-1. Ha completado el tutorial: [Configuración de Azure Data Box Heavy](data-box-heavy-deploy-set-up.md).
+1. Ha completado el tutorial [Configuración de Azure Data Box Heavy](data-box-heavy-deploy-set-up.md).
 2. Ha recibido su dispositivo Data Box Heavy y el estado del pedido en el portal se actualiza a **Delivered** (Entregado).
 3. Tiene las credenciales del dispositivo NAS de origen que se conecta para la copia de datos.
 4. Está conectado a una red de alta velocidad. Para obtener velocidades de copia más rápidas, se pueden utilizar dos conexiones de 40 GbE (una por nodo) en paralelo. Si no dispone de una conexión de 40 GbE, le recomendamos que tenga al menos dos conexiones de 10 GbE (una por nodo). 

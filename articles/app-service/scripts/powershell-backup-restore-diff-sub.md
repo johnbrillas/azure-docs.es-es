@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Restauración de la copia de seguridad en otra suscripción'
+title: 'PowerShell: Restauración de una copia de seguridad en otra suscripción'
 description: Aprenda a usar Azure PowerShell para automatizar la implementación y administración de App Service. En este ejemplo se muestra cómo restaurar una copia de seguridad en otra suscripción.
 author: msangapu-msft
 tags: azure-service-management
@@ -9,10 +9,10 @@ ms.date: 11/21/2018
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurepowershell
 ms.openlocfilehash: a0728d9926cc7f5d8b200a9003353b015dd3a97c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89075926"
 ---
 # <a name="restore-a-web-app-from-a-backup-in-another-subscription-using-powershell"></a>Restauración de una aplicación web a partir de una copia de seguridad en otra suscripción mediante PowerShell
@@ -41,7 +41,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 | Get-Help | Notas |
 |---|---|
-| [Add-AzAccount](/powershell/module/az.accounts/connect-azaccount) | Agrega una cuenta autenticada para utilizarla con las solicitudes de cmdlet de Azure Resource Manager.  |
+| [Add-AzAccount](/powershell/module/az.accounts/connect-azaccount) | Agrega una cuenta autenticada para utilizarla con las solicitudes de cmdlet de Azure Resource Manager.  |
 | [Get-AzWebAppBackupList](/powershell/module/az.websites/get-azwebappbackuplist) | Obtiene una lista de copias de seguridad de una aplicación web. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Crea una aplicación web. |
 | [Restore-AzWebAppBackup](/powershell/module/az.websites/restore-azwebappbackup) | Restaura una aplicación web desde una copia de seguridad completada previamente. |
