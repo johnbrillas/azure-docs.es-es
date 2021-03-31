@@ -38,3 +38,4 @@ Para obtener más ayuda para escribir consultas, vea los artículos siguientes:
 * Para las consultas de MongoDB, consulte [Consulta de los datos con la API de Azure Cosmos DB para MongoDB](tutorial-query-mongodb.md) y [Azure Cosmos DB's API for MongoDB feature support and syntax](mongodb-feature-support.md) (API de Azure Cosmos DB para la compatibilidad y sintaxis de la característica de MongoDB)
 * Para las consultas de Gremlin API, consulte [Tutorial: Consulta de la Graph API de Azure Cosmos DB mediante Gremlin](tutorial-query-graph.md) y [Compatibilidad de Azure Cosmos DB con grafos Gremlin](gremlin-support.md).
 * Para las consultas de Table API, vea [Tutorial: Consulta de Azure Cosmos DB mediante Table API](tutorial-query-table.md).
+* Hoja de trucos Ultimate SQL 2021, https://kanakinfosystems.com/blog/sql-cheat-sheet
