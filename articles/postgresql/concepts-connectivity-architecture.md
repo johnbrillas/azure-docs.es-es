@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 2/11/2021
-ms.openlocfilehash: 0c8f55b6eeba4319b0ce9e39085912b8c4829235
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 104e6503ba47d17c17cfec2b4e62ec3f69f18330
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720807"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103200014"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Arquitectura de la conectividad en Azure Database for PostgreSQL
 En este artículo se explica la arquitectura de la conectividad de Azure Database for PostgreSQL y cómo se dirige el tráfico a la instancia de base de datos de Azure Database for PostgreSQL desde los clientes de dentro y de fuera de Azure.
@@ -60,7 +60,9 @@ En la siguiente tabla se enumeran las direcciones IP de las puertas de enlace de
 | Centro de Francia | 40.79.137.0, 40.79.129.1  | | |
 | Sur de Francia | 40.79.177.0     | | |
 | Centro de Alemania | 51.4.144.100     | | |
+| Norte de Alemania | 51.116.56.0 | |
 | Nordeste de Alemania | 51.5.144.179  | | |
+| Centro-oeste de Alemania | 51.116.152.0 | |
 | India central | 104.211.96.159     | | |
 | Sur de India | 104.211.224.146  | | |
 | India occidental | 104.211.160.80    | | |
@@ -74,15 +76,48 @@ En la siguiente tabla se enumeran las direcciones IP de las puertas de enlace de
 | Oeste de Sudáfrica | 102.133.24.0   | | |
 | Centro-sur de EE. UU. |104.214.16.39, 20.45.120.0  |13.66.62.124  |23.98.162.75 |
 | Sudeste de Asia | 40.78.233.2, 23.98.80.12     | 104.43.15.0 | |
+| Norte de Suiza | 51.107.56.0 ||
+| Oeste de Suiza | 51.107.152.0| ||
 | Centro de Emiratos Árabes Unidos | 20.37.72.64  | | |
 | Norte de Emiratos Árabes Unidos | 65.52.248.0    | | |
-| Sur de Reino Unido 2 | 51.140.184.11   | | |
+| Sur de Reino Unido | 51.140.184.11   | | |
 | Oeste de Reino Unido | 51.141.8.11  | | |
 | Centro-Oeste de EE. UU. | 13.78.145.25     | | |
 | Oeste de Europa |13.69.105.208, 104.40.169.187 | 40.68.37.158 | 191.237.232.75 |
 | Oeste de EE. UU. |13.86.216.212, 13.86.217.212 |104.42.238.205  | 23.99.34.75|
 | Oeste de EE. UU. 2 | 13.66.226.202  | | |
 ||||
+
+## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+
+### <a name="what-you-need-to-know-about-this-planned-maintenance"></a>¿Qué necesita saber sobre este mantenimiento planeado?
+Se trata solo de un cambio de DNS en el que este pasa a ser transparente para los clientes. Mientras se cambie la dirección IP del FQDN en el servidor DNS, la caché de DNS local se actualizará en un plazo de 5 minutos. Dicha actualización la realizan automáticamente los sistemas operativos. Una vez que se complete la actualización de DNS local, todas las conexiones nuevas se conectarán a la nueva dirección IP y todas las conexiones existentes permanecerán conectadas a la dirección IP anterior sin interrupciones hasta que las direcciones IP antiguas se retiren por completo. La dirección IP anterior tardará aproximadamente entre tres y cuatro semanas a retirarse. Por lo tanto,esto no debería causar ningún efecto en las aplicaciones cliente.
+
+### <a name="what-are-we-decommissioning"></a>¿Qué retiramos?
+Solo se retirarán los nodos de puerta de enlace. Cuando los usuarios se conectan a sus servidores, el primer punto de conexión es el nodo de puerta de enlace, antes de que la conexión se reenvíe al servidor. Retiraremos los anillos de la puerta de enlace antiguos (no los del inquilino en los que se ejecuta el servidor). Consulte la [arquitectura de conectividad](#connectivity-architecture) para obtener más detalles.
+
+### <a name="how-can-you-validate-if-your-connections-are-going-to-old-gateway-nodes-or-new-gateway-nodes"></a>¿Cómo puede validar si las conexiones van a los nodos de puerta de enlace antiguos o a los nuevos nodos de puerta de enlace?
+Haga ping al FQDN del servidor, por ejemplo, ``ping xxx.postgres.database.azure.com``. Si la dirección IP devuelta es una de las que aparecen en la lista de direcciones IP de puerta de enlace (que se retiran) en el documento anterior, significa que la conexión pasa a través de la puerta de enlace antigua. De lo contrario, si la dirección IP devuelta es una de las que aparecen en las direcciones IP de puerta de enlace, significa que la conexión pasa a través de la nueva puerta de enlace.
+
+También puede probar de hacer [PSPing](https://docs.microsoft.com/sysinternals/downloads/psping) o TCPPing en el servidor de base de datos desde la aplicación cliente con el puerto 3306 y asegurarse de que la dirección IP devuelta no sea una de las direcciones IP de retiradas.
+
+### <a name="how-do-i-know-when-the-maintenance-is-over-and-will-i-get-another-notification-when-old-ip-addresses-are-decommissioned"></a>¿Cómo puedo saber cuándo ha finalizado el mantenimiento? ¿Recibiré otra notificación cuando se retiren las direcciones IP antiguas?
+Recibirá un correo electrónico en el que se le informará de cuándo se iniciará el trabajo de mantenimiento. El mantenimiento puede tardar hasta un mes, en función del número de servidores que se necesiten migrar en todas las regiones. Prepare el cliente para que establezca conexión con el servidor de base de datos mediante el FQDN o con la nueva dirección IP de la tabla anterior. 
+
+### <a name="what-do-i-do-if-my-client-applications-are-still-connecting-to-old-gateway-server-"></a>¿Qué hago si mis aplicaciones cliente siguen conectándose al servidor de puerta de enlace antiguo?
+Esto indica que las aplicaciones se conectan al servidor mediante una dirección IP estática en lugar de un FQDN. Revise la configuración la agrupación de conexiones y las cadenas de conexión, la configuración de AKS o incluso el código fuente.
+
+### <a name="is-there-any-impact-for-my-application-connections"></a>¿Afecta de algún modo a las conexiones de la aplicación?
+Este mantenimiento es simplemente un cambio de DNS, por lo que es transparente para el cliente. Una vez que se actualice la caché de DNS en el cliente (lo hace automáticamente el sistema operativo), todas las conexiones nuevas se conectarán a la nueva dirección IP y la conexión existente seguirá funcionando correctamente hasta que la dirección IP anterior se retire por completo, lo que suele tener lugar varias semanas más tarde. En este caso, la lógica de reintento no es necesaria, pero es bueno ver que la aplicación la tiene configurada. Use el FQDN para conectarse al servidor de bases de datos o habilite la lista de las nuevas "direcciones IP de puerta de enlace" en la cadena de conexión de la aplicación.
+Esta operación de mantenimiento no quitará las conexiones existentes. Solo hace que las nuevas solicitudes de conexión vayan al nuevo anillo de la puerta de enlace.
+
+### <a name="can-i-request-for-a-specific-time-window-for-the-maintenance"></a>¿Puedo solicitar un período de tiempo específico para el mantenimiento? 
+Dado que la migración debe ser transparente y no afecta a la conectividad del cliente, esperamos que no haya ningún problema para la mayoría de los usuarios. Revise la aplicación de forma proactiva y asegúrese de usar el FQDN para conectarse al servidor de bases de datos o habilitar la lista de las nuevas "direcciones IP de puerta de enlace" en la cadena de conexión de la aplicación.
+
+### <a name="i-am-using-private-link-will-my-connections-get-affected"></a>Utilizo vínculo privado, ¿se verán afectadas las conexiones?
+No, se trata de una retirada de hardware de la puerta de enlace y no tiene ninguna relación con las direcciones IP privadas o de vínculo privado. Solo afectará a las direcciones IP públicas que se mencionan en las direcciones IP que se retiran.
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b447873df882847f052125254ea52b5ae6ab9ec4
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d41d7d45fd11f2dc26fc50182a7649b23cd21196
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101644874"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103008763"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Adición de un flujo de trabajo de aprobaciones personalizado al registro de autoservicio
 
@@ -105,7 +105,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [ //Sent for Google, Facebook, and Email One Time Passcode identity providers 
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -156,7 +156,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your access request is already processing. You'll be notified when your request has been approved.",
-    "code": "CONTOSO-APPROVAL-PENDING"
 }
 ```
 
@@ -168,7 +167,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error",
-    "code": "CONTOSO-APPROVAL-DENIED"
 }
 ```
 
@@ -182,7 +180,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [ // Sent for Google, Facebook, and Email One Time Passcode identity providers 
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -244,7 +242,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your account is now waiting for approval. You'll be notified when your request has been approved.",
-    "code": "CONTOSO-APPROVAL-REQUESTED"
 }
 ```
 
@@ -256,7 +253,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error",
-    "code": "CONTOSO-APPROVAL-AUTO-DENIED"
 }
 ```
 
@@ -268,12 +264,12 @@ El valor `userMessage` se muestra al usuario en la respuesta; por ejemplo:
 
 Después de obtener la aprobación manual, el sistema de aprobación personalizado crea una cuenta de [usuario](/graph/azuread-users-concept-overview) mediante [Microsoft Graph](/graph/use-the-api). La forma en que el sistema de aprobación aprovisiona la cuenta de usuario depende del proveedor de identidades que el usuario utiliza.
 
-### <a name="for-a-federated-google-or-facebook-user"></a>Para un usuario federado de Google o Facebook
+### <a name="for-a-federated-google-or-facebook-user-and-email-one-time-passcode"></a>Para un usuario federado de Google o Facebook y un código de acceso de un solo uso obtenido por correo electrónico
 
 > [!IMPORTANT]
-> El sistema de aprobación debe comprobar explícitamente que `identities`, `identities[0]` y `identities[0].issuer` están presentes y que `identities[0].issuer` es igual a "facebook"' o "google" para usar este método.
+> El sistema de aprobación debe comprobar explícitamente que `identities`, `identities[0]` y `identities[0].issuer` existen y que `identities[0].issuer` es igual a "facebook", "google" o "mail" para usar este método.
 
-Si el usuario ha iniciado sesión con una cuenta de Google o Facebook, puede usar la [API de creación de usuarios](/graph/api/user-post-users?tabs=http).
+Si el usuario ha iniciado sesión con una cuenta de Google o Facebook o un código de acceso de un solo uso obtenido por correo electrónico, puede usar la [API de creación de usuarios](/graph/api/user-post-users?tabs=http).
 
 1. El sistema de aprobación recibe la solicitud HTTP del flujo de usuario.
 
@@ -331,9 +327,9 @@ Content-type: application/json
 | \<otherBuiltInAttribute>                            | No       | Otros atributos integrados, como `displayName`, `city` y otros. Los nombres de los parámetros son los mismos que los que envía el conector de API.                            |
 | \<extension\_\{extensions-app-id}\_CustomAttribute> | No       | Atributos personalizados sobre el usuario. Los nombres de los parámetros son los mismos que los que envía el conector de API.                                                            |
 
-### <a name="for-a-federated-azure-active-directory-user"></a>Para un usuario de Azure Active Directory federado
+### <a name="for-a-federated-azure-active-directory-user-or-microsoft-account-user"></a>Para un usuario federado de Azure Active Directory o de la cuenta de Microsoft
 
-Si un usuario inicia sesión con una cuenta de Azure Active Directory federada, debe usar la [API de invitación](/graph/api/invitation-post) para crear el usuario y, opcionalmente, la [API de actualización de usuario](/graph/api/user-update) para asignar más atributos al usuario.
+Si un usuario inicia sesión con una cuenta federada de Azure Active Directory o una cuenta de Microsoft, debe usar la [API de invitación](/graph/api/invitation-post) para crear el usuario y, opcionalmente, la [API de actualización de usuarios](/graph/api/user-update) para asignar más atributos al usuario.
 
 1. El sistema de aprobación recibe la solicitud HTTP del flujo de usuario.
 

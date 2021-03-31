@@ -4,16 +4,18 @@ description: 'Inicio rápido: Aprenda a crear un panel en Azure Portal mediante 
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ms.date: 12/4/2020
-ms.openlocfilehash: ede915df5cd2967c3b6b700bcb9174c89af8f233
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: ddfee1932c6887c6ca7593ca7a28c03e68e09899
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745662"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104613250"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-azure-cli"></a>Inicio rápido: Creación de un panel de Azure Portal con la CLI de Azure
 
-En Azure Portal, un panel es una vista organizada de los recursos en la nube.
+En Azure Portal, un panel es una vista organizada de los recursos en la nube. Este artículo se centra en el proceso de utilizar la CLI de Azure para crear un panel.
+El panel muestra el rendimiento de una máquina virtual y algunos vínculos e información estática.
+
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -103,19 +105,7 @@ az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Da
    --input-path portal-dashboard-template-testvm.json --location centralus
 ```
 
-Compruebe que puede ver los datos sobre la máquina virtual desde Azure Portal.
-
-1. En Azure Portal, seleccione **Panel**.
-
-   ![Navegación al panel en Azure Portal](media/quickstart-portal-dashboard-powershell/navigate-to-dashboards.png)
-
-1. En la página del panel, seleccione **Simple VM Dashboard**.
-
-   ![Navegación al panel Simple VM Dashboard](media/quickstart-portal-dashboard-powershell/select-simple-vm-dashboard.png)
-
-1. Examine el panel. Puede ver que una parte de su contenido es estático, pero que también hay gráficos que muestran el rendimiento de la máquina virtual.
-
-   ![Revisión del panel Simple VM Dashboard](media/quickstart-portal-dashboard-powershell/review-simple-vm-dashboard.png)
+[!INCLUDE [azure-portal-review-deployed-resources](../../includes/azure-portal-review-deployed-resources.md)]
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

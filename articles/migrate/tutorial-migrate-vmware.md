@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: bebc2e629193944c840948c9c573462a43e3032e
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 0dcb750871eeae504ddb3d4e3851c834bcad125c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103201699"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604554"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migración de máquinas virtuales de VMware a Azure (sin agente)
 
@@ -35,7 +35,7 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Antes de comenzar este tutorial, debe:
 
@@ -202,6 +202,8 @@ Después de comprobar que la migración de prueba funciona según lo previsto, p
 - Para aumentar la resistencia:
     - Proteja los datos mediante la copia de seguridad de máquinas virtuales de Azure mediante el servicio Azure Backup. [Más información](../backup/quick-backup-vm-portal.md).
     - Mantenga las cargas de trabajo en ejecución y disponibles continuamente mediante la replicación de máquinas virtuales de Azure en una región secundaria con Site Recovery. [Más información](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
+- Para un mayor rendimiento:
+    - De forma predeterminada, los discos de datos se crean con el almacenamiento en caché de host establecido en "None". Revise y ajuste el almacenamiento en caché del disco de datos según sus necesidades de carga de trabajo. [Más información](../virtual-machines/premium-storage-performance.md#disk-caching).  
 - Para aumentar la seguridad:
     - Bloquee y limite el acceso de tráfico de entrada con la [administración Just-In-Time de Azure Security Center](../security-center/security-center-just-in-time.md).
     - Restrinja el tráfico de red a los puntos de conexión de administración con [grupos de seguridad de red](../virtual-network/network-security-groups-overview.md).

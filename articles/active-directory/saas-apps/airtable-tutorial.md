@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Airtable | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Airtable | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Airtable.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: jeedes
 ms.openlocfilehash: f73e372318e690e1446eef1974c7a93c79d4e2d9
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92318973"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-airtable"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Airtable
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-airtable"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Airtable
 
 En este tutorial, obtendrá información sobre cómo integrar Airtable con Azure Active Directory (Azure AD). Al integrar Airtable con Azure AD, puede hacer lo siguiente:
 
@@ -28,7 +28,7 @@ En este tutorial, obtendrá información sobre cómo integrar Airtable con Azure
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -66,8 +66,8 @@ Para configurar y probar el inicio de sesión único de Azure AD con Airtable, 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
     * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
-1. **[Configuración del inicio de sesión único en Airtable](#configure-airtable-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
-    * **[Creación de un usuario de prueba de Airtable](#create-airtable-test-user)** : para tener un homólogo de B.Simon en Airtable que esté vinculado a la representación del usuario en Azure AD.
+1. **[Configuración del inicio de sesión único en Airtable](#configure-airtable-sso)**: para configurar los valores de inicio de sesión único en la aplicación.
+    * **[Creación de un usuario de prueba de Airtable](#create-airtable-test-user)**: para tener un homólogo de B.Simon en Airtable que esté vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD

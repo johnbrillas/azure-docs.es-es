@@ -12,16 +12,21 @@ ms.date: 01/4/2020
 ms.author: metang
 ms.custom: cog-serv-seo-aug-2020
 keywords: readers, language learners, display pictures, improve reading, read content, translate
-ms.openlocfilehash: 0661bd5f917a2bf071f11393ad8ac9af53ddfe97
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 1911d3ce62434f1dc24966798e9ace259ae072bc
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631246"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801577"
 ---
 # <a name="what-is-immersive-reader"></a>¿Qué es Lector inmersivo?
 
 [Lector inmersivo](https://www.onenote.com/learningtools) es una herramienta diseñada de manera inclusiva que implementa técnicas demostradas para mejorar la comprensión lectora de nuevos lectores, estudiantes de idiomas y personas con dificultades de aprendizaje, como la dislexia. Con la biblioteca cliente de Lector inmersivo, puede aprovechar la misma tecnología que se usa en Microsoft Word y Microsoft OneNote para mejorar sus aplicaciones web. 
+
+Esta documentación contiene los siguientes tipos de artículos:  
+
+* Los **[inicios rápidos](quickstarts/client-libraries.md)** son instrucciones de inicio que le guiarán a la hora de hacer solicitudes al servicio.
+* Las **[guías de procedimientos](how-to-create-immersive-reader.md)** contienen instrucciones para usar el servicio de una manera más específica o personalizada.
 
 ## <a name="use-immersive-reader-to-improve-reading-accessibility"></a>Uso de Lector inmersivo para mejorar la accesibilidad a la lectura 
 
@@ -72,10 +77,3 @@ Lector inmersivo es una aplicación web independiente. Cuando se invoca mediante
 La biblioteca cliente de Lector inmersivo está disponible en C#, JavaScript, Java (Android), Kotlin (Android) y Swift (iOS). Empiece por:
 
 * [Inicio rápido: Uso de la biblioteca cliente del Lector inmersivo](quickstarts/client-libraries.md)
-
-## <a name="next-steps"></a>Pasos siguientes
-
-Introducción a Lector inmersivo:
-
-* Lea la [referencia sobre la biblioteca cliente de Lector inmersivo](./reference.md).
-* Explore la [biblioteca cliente del Lector inmersivo en GitHub](https://github.com/microsoft/immersive-reader-sdk).

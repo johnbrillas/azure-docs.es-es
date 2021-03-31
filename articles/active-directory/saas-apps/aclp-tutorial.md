@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Tutorial: Integración de Azure Active Directory con ACLP | Microsoft Docs'
+title: 'Tutorial: Integración de Azure Active Directory con ACLP | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y ACLP.
 services: active-directory
 author: jeevansd
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
 ms.openlocfilehash: bb91322df315d60adddf184905d0c619f5be8d6a
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92313563"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-aclp"></a>Tutorial: integración de Azure Active Directory con ACLP
+# <a name="tutorial-azure-active-directory-integration-with-aclp"></a>Tutorial: Integración de Azure Active Directory con ACLP
 
 En este tutorial, aprenderá a integrar ACLP con Azure Active Directory (Azure AD).
 La integración de ACLP con Azure AD le proporciona las siguientes ventajas:
@@ -30,7 +30,7 @@ La integración de ACLP con Azure AD le proporciona las siguientes ventajas:
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con ACLP, se necesitan los siguientes elementos:
 
@@ -73,10 +73,10 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 Para configurar y probar el inicio de sesión único de Azure AD con ACLP, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de ACLP](#configure-aclp-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+2. **[Configuración del inicio de sesión único de ACLP](#configure-aclp-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de ACLP](#create-aclp-test-user)** : para tener un homólogo de Britta Simon en ACLP que esté vinculado a la representación del usuario en Azure AD.
+5. **[Creación de un usuario de prueba de ACLP](#create-aclp-test-user)**: para tener un homólogo de Britta Simon en ACLP que esté vinculado a la representación del usuario en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
@@ -166,7 +166,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ### <a name="create-aclp-test-user"></a>Creación de un usuario de prueba de ACLP
 
-En esta sección, creará un usuario llamado Britta Simon en ACLP. Trabaje con el  [equipo de soporte técnico de ACLP](mailto:mrichards@sans.org) para agregar los usuarios a la plataforma de ACLP. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, creará un usuario llamado Britta Simon en ACLP. Trabaje con el [equipo de soporte técnico de ACLP](mailto:mrichards@sans.org) para agregar los usuarios a la plataforma de ACLP. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

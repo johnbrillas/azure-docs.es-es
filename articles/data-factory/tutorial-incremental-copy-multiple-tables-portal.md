@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 02/18/2021
-ms.openlocfilehash: 3b97887e7bbd31fc1bb6ec0a074267aa081184c8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 1fad6274b1dbbc4bf255caabd79352b3c836e352
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724904"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606706"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-a-database-in-azure-sql-database-using-the-azure-portal"></a>Carga incremental de datos de varias tablas de SQL Server en Azure SQL Database mediante Azure Portal
 
@@ -253,7 +253,7 @@ END
 8. Haga clic en **Crear**.      
 9. Una vez completada la creación, verá la página **Data Factory** tal como se muestra en la imagen.
    
-   ![Página principal Factoría de datos](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Página principal de Azure Data Factory, con el icono de creación y supervisión.":::
 10. Haga clic en el icono **Author & Monitor** (Creación y supervisión) para iniciar la interfaz de usuario de Azure Data Factory en una pestaña independiente.
 
 ## <a name="create-self-hosted-integration-runtime"></a>Creación de un entorno de ejecución de integración autohospedado
@@ -291,7 +291,7 @@ En este paso, vinculará la base de datos de SQL Server a la factoría de datos
 
 1. En la ventana **Connections** ventana, cambie de la pestaña **Integration Runtimes** (Entornos de ejecución de integración) a la pestaña **Linked Services** (Servicios vinculados) y haga clic en **+ New** (Nuevo).
 
-   ![Nuevo servicio vinculado](./media/doc-common-process/new-linked-service.png)
+    :::image type="content" source="./media/doc-common-process/new-linked-service.png" alt-text="Nuevo servicio vinculado.":::
 1. En la ventana **New Linked Service** (Nuevo servicio vinculado), seleccione **SQL Server** y haga clic en **Continue** (Continuar). 
 
 1. En la ventana **New Linked Service** (Nuevo servicio vinculado), realice los pasos siguientes:
