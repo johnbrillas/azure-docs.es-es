@@ -5,16 +5,16 @@ author: bsiva
 ms.author: bsiva
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 06/08/2020
+ms.date: 03/18/2021
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 9d0fa516fefefe4c3d8e67c3e6d592ec4274943c
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 0072ce81fc619c39770eba52e24dc5a0c57280a6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878179"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604583"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migración de máquinas virtuales de Hyper-V a Azure 
 
@@ -37,7 +37,7 @@ Este tutorial es el tercero de una serie que muestra cómo evaluar máquinas y m
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 
 Antes de comenzar este tutorial, debe:
@@ -135,12 +135,7 @@ Una vez finalizada la detección, puede comenzar la replicación de máquinas vi
 ## <a name="provision-for-the-first-time"></a>Primer aprovisionamiento
 
 Si se trata de la primera máquina virtual que va a replicar en el proyecto de Azure Migrate, Azure Migrate: Server Migration aprovisiona automáticamente estos recursos en el mismo grupo de recursos que el proyecto.
-
-- **Service Bus**: Azure Migrate: Server Migration usa Service Bus para enviar mensajes de orquestación de replicación al dispositivo.
-- **Cuenta de almacenamiento de puerta de enlace**: Azure Migrate: Server Migration usa la cuenta de almacenamiento de puerta de enlace para almacenar información del estado de las máquinas virtuales que se replican.
-- **Cuenta de almacenamiento de registros**: el dispositivo con Azure Migrate carga los registros de replicación de las máquinas virtuales en una cuenta de almacenamiento de registros. Azure Migrate aplica la información de replicación a los discos administrados de réplica.
-- **Almacén de claves**: el dispositivo con Azure Migrate usa el almacén de claves para administrar las cadenas de conexión de Service Bus y las claves de acceso de las cuentas de almacenamiento utilizadas en la replicación. Debe haber configurado los permisos que necesita el almacén de claves para acceder a la cuenta de almacenamiento al [preparar Azure](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) para la evaluación y migración de la máquina virtual de Hyper-V. 
-
+- **Cuenta de almacenamiento en caché**: el software del proveedor de Azure Site Recovery instalado en hosts de Hyper-V carga los datos de replicación de las máquinas virtuales configuradas para la replicación en una cuenta de almacenamiento (conocida como cuenta de almacenamiento en caché o cuenta de almacenamiento de registro) de la suscripción. Luego, el servicio Azure Migrate copia los datos de replicación cargados de la cuenta de almacenamiento en los discos administrados por réplica correspondientes a la máquina virtual. Es necesario especificar la cuenta de almacenamiento en caché al configurar la replicación de una máquina virtual y el portal de Azure Migrate crea automáticamente una para el proyecto de Azure Migrate la primera vez que se configura la replicación en el proyecto.
 
 ## <a name="track-and-monitor"></a>Seguimiento y supervisión
 

@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 6de86cbc065b5352b3b643708dd55c6856b37dd7
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: e661dbbe31e7624cba0a3d5421b81de16d0a5363
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102097914"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608204"
 ---
 # <a name="create-a-no-code-vision-solution-in-azure-percept-studio"></a>Creación de una solución de visión sin código en Azure Percept Studio
 
@@ -161,6 +161,16 @@ Si ha creado un nuevo recurso de Azure para este tutorial y ya no desea desarrol
 1. Haga clic en **Todos los recursos**.
 1. Haga clic en la casilla situada junto al recurso creado durante este tutorial. El tipo de recurso se mostrará como **Cognitive Services**.
 1. Haga clic en el icono **Eliminar** situado cerca de la parte superior de la pantalla.
+
+## <a name="video-walkthrough"></a>Tutorial en vídeo
+
+Para ver un tutorial visual de los pasos descritos anteriormente, consulte el siguiente vídeo:
+
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/9LvafyazlJM]
+
+</br>
 
 ## <a name="next-steps"></a>Pasos siguientes
 

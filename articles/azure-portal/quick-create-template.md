@@ -3,13 +3,13 @@ title: Creación de un panel de Azure Portal mediante una plantilla de Azure Res
 description: Aprenda a crear un panel de Azure Portal mediante una plantilla de Azure Resource Manager.
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 06/15/2020
-ms.openlocfilehash: 55ac24e48c1c976eca1e6e8e51cf6e88361ec630
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.date: 03/15/2021
+ms.openlocfilehash: a3ab8767e09256ed8235dbd980ea3336a6f0fb1d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745733"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104658336"
 ---
 # <a name="quickstart-create-a-dashboard-in-the-azure-portal-by-using-an-arm-template"></a>Inicio rápido: Creación de un panel en el Azure Portal mediante una plantilla de ARM
 
@@ -30,9 +30,13 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 El panel que se crea en la siguiente parte de este inicio rápido requiere que haya una máquina virtual. Cree una máquina virtual siguiendo estos pasos.
 
-1. En Azure Portal, seleccione Cloud Shell.
+1. En Azure Portal, seleccione **Cloud Shell**.
 
     ![Seleccione Cloud Shell en la cinta de Azure Portal](media/quick-create-template/cloud-shell.png)
+
+1. En la ventana **Cloud Shell**, seleccione **PowerShell**.
+
+    ![Selección de PowerShell en la ventana de terminal](media/quick-create-template/powershell.png)
 
 1. Copie el comando siguiente y escríbalo en el símbolo del sistema para crear un grupo de recursos.
 
@@ -85,19 +89,7 @@ Se ha usado Azure Portal para implementar la plantilla. Además de Azure Portal,
 
 ## <a name="review-deployed-resources"></a>Revisión de los recursos implementados
 
-Compruebe que el panel se ha creado correctamente y que puede ver los datos de la máquina virtual.
-
-1. En Azure Portal, seleccione **Panel**.
-
-    ![Navegación al panel en Azure Portal](media/quick-create-template/navigate-to-dashboards.png)
-
-1. En la página del panel, seleccione **Simple VM Dashboard**.
-
-    ![Navegación al panel Simple VM Dashboard](media/quick-create-template/select-simple-vm-dashboard.png)
-
-1. Revise el panel en el que se creó la plantilla de ARM. Puede ver que parte del contenido es estático, pero también hay gráficos que muestran el rendimiento de la máquina virtual que creó al principio.
-
-    ![Revisión del panel Simple VM Dashboard](media/quick-create-template/review-simple-vm-dashboard.png)
+[!INCLUDE [azure-portal-review-deployed-resources](../../includes/azure-portal-review-deployed-resources.md)]
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

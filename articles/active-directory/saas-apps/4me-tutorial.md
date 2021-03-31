@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 241450b9a6e97953205aca5de2a7cfd30a08d254
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92319119"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-4me"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con 4me
@@ -28,7 +28,7 @@ En este tutorial aprenderá a integrar 4me con Azure Active Directory (Azure 
 
 Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para empezar, necesita los siguientes elementos:
 
@@ -62,8 +62,8 @@ Para configurar y probar el inicio de sesión único de Azure AD con 4me, es pr
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     * **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
     * **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
-1. **[Configuración del inicio de sesión único en 4me](#configure-4me-sso)** : para configurar los valores de inicio de sesión único en la aplicación.
-    * **[Creación de un usuario de prueba en 4me](#create-4me-test-user)** : para tener un homólogo de B.Simon en 4me vinculado a la representación del usuario en Azure AD.
+1. **[Configuración del inicio de sesión único en 4me](#configure-4me-sso)**: para configurar los valores de inicio de sesión único en la aplicación.
+    * **[Creación de un usuario de prueba en 4me](#create-4me-test-user)**: para tener un homólogo de B.Simon en 4me vinculado a la representación del usuario en Azure AD.
 1. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
@@ -162,7 +162,7 @@ En esta sección va a permitir que B.Simon acceda a 4me mediante el inicio de se
 
     ![Inicio de sesión único de 4me](./media/4me-tutorial/tutorial_4me_singlesignon.png)
 
-    a. Seleccione la opción **Enabled** (Habilitado).
+    a. Seleccione la opción **Habilitado**.
 
     b. En el cuadro de texto **Remote Logout URL** (Dirección URL de cierre de sesión remoto), pegue el valor de **Dirección URL de cierre de sesión** que copió de Azure Portal.
 

@@ -5,17 +5,17 @@ ms.topic: quickstart
 ms.date: 01/29/2019
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019, devx-track-java
 ms.openlocfilehash: 84ce5920af95113801f468e3149421f3b9bd8901
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91530007"
 ---
-# <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>Inicio rápido: Creación de una aplicación de Spring Boot de Java en Azure Service Fabric
+# <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>Inicio rápido: Implementación de una aplicación de Spring Boot de Java en Azure Service Fabric
 
 En este inicio rápido, se implementar una aplicación de Spring Boot de Java en Azure Service Fabric mediante herramientas de línea de comandos conocidas en Linux o MacOS. Azure Service Fabric es una plataforma de sistemas distribuidos para implementar y administrar microservicios y contenedores. 
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 #### <a name="linux"></a>[Linux](#tab/linux)
 
@@ -150,7 +150,7 @@ Service Fabric Explorer se ejecuta en todos los clústeres de Service Fabric y s
 Para escalar el servicio front-end web, realice estas operaciones:
 
 1. Abra Service Fabric Explorer en el clúster, por ejemplo, `http://localhost:19080`.
-1. Seleccione los puntos suspensivos ( **...** ) al lado del nodo **fabric:/SpringServiceFabric/SpringGettingStarted** en la vista de árbol y seleccione **Escalar servicio**.
+1. Seleccione los puntos suspensivos (**...**) al lado del nodo **fabric:/SpringServiceFabric/SpringGettingStarted** en la vista de árbol y seleccione **Escalar servicio**.
 
     ![Ejemplo del servicio de escalado de Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-scale-sample.png)
 
@@ -181,7 +181,7 @@ Mediante esta sencilla tarea de administración, hemos duplicado los recursos di
 Para demostrar la conmutación por error del servicio, se simula un reinicio del nodo mediante Service Fabric Explorer. Asegúrese de que solo se esté ejecutando una instancia del servicio.
 
 1. Abra Service Fabric Explorer en el clúster, por ejemplo, `http://localhost:19080`.
-1. Seleccione los puntos suspensivos ( **...** ) junto al nodo que ejecuta la instancia del servicio y reinicie el nodo.
+1. Seleccione los puntos suspensivos (**...**) junto al nodo que ejecuta la instancia del servicio y reinicie el nodo.
 
     ![Reinicio del nodo de Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/service=fabric-explorer-restart=node.png)
 1. La instancia del servicio se moverá a otro nodo y la aplicación no tendrá ningún tiempo de inactividad.
@@ -190,7 +190,7 @@ Para demostrar la conmutación por error del servicio, se simula un reinicio del
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha aprendido a hacer lo siguiente:
+En este inicio rápido ha aprendido a:
 
 * Implementación de una aplicación de Spring Boot en Service Fabric
 * Implementar la aplicación en el clúster local

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: f6030e209b06dc7ae9acd8a13e6dcdf22b58f8c5
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92318878"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-allbound-sso"></a>Tutorial: Integración de Azure Active Directory con Allbound SSO
@@ -189,7 +189,7 @@ En esta sección, permitirá que Britta Simon use el inicio de sesión único de
 En esta sección, se crea un usuario llamado a Britta Simon en Allbound SSO. Allbound SSO admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si el usuario no existe ya en Allbound SSO, se crea uno después de la autenticación.
 
 > [!Note]
-> Si necesita crear manualmente un usuario, póngase en contacto con el  [equipo de soporte técnico de Allbound SSO](mailto:engineering@allbound.com).
+> Si necesita crear manualmente un usuario, póngase en contacto con el [equipo de soporte técnico de Allbound SSO](mailto:engineering@allbound.com).
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 
