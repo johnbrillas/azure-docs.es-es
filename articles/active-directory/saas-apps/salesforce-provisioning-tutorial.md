@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 2a4d3f3f9465b8813cdf6ee26760d819d73a08c1
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: c5df0a5fc054a12e3fa2ef1e352645c57c357b01
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94353111"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798738"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: Configuración de Salesforce para el aprovisionamiento automático de usuarios
 
@@ -27,6 +27,9 @@ En la situación descrita en este tutorial se supone que ya cuenta con los eleme
 
 * Un inquilino de Azure Active Directory
 * Un inquilino de Salesforce.com
+
+> [!Note]
+> Los roles no deben editarse manualmente en Azure Active Directory al realizar importaciones de roles.
 
 > [!IMPORTANT]
 > Si utiliza una cuenta de prueba de Salesforce.com, no podrá configurar el aprovisionamiento automático de usuarios. Las cuentas de prueba no disponen del acceso necesario a la API habilitado hasta que se adquieren. Puede evitar esta limitación utilizando una [cuenta gratuita de desarrollador](https://developer.salesforce.com/signup) para completar este tutorial.
@@ -69,11 +72,11 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 
     ![Captura de pantalla que muestra la página de aprovisionamiento de Salesforce, con Modo de aprovisionamiento establecido en Automático y otros valores que se pueden establecer.](./media/salesforce-provisioning-tutorial/provisioning.png)
 
-5. En la sección **Credenciales de administrador** , proporcione los siguientes valores de configuración:
+5. En la sección **Credenciales de administrador**, proporcione los siguientes valores de configuración:
 
-    a. Como **nombre de usuario del administrador** , escriba un nombre de cuenta de espacio de Salesforce que tenga asignado el perfil **Administrador del sistema** en Salesforce.com.
+    a. Como **nombre de usuario del administrador**, escriba un nombre de cuenta de espacio de Salesforce que tenga asignado el perfil **Administrador del sistema** en Salesforce.com.
 
-    b. En el cuadro de texto **Contraseña de administrador** , escriba la contraseña de esta cuenta.
+    b. En el cuadro de texto **Contraseña de administrador**, escriba la contraseña de esta cuenta.
 
 6. Para obtener el token de seguridad de Salesforce, abra una nueva pestaña e inicie sesión en la misma cuenta de administrador de Salesforce. En la esquina superior derecha de la página, haga clic en su nombre y, a continuación, haga clic en **Configuración**.
 

@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Eliminación de una copia de seguridad de aplicación'
+title: 'PowerShell: eliminación de una copia de seguridad de una aplicación'
 description: Aprenda a usar Azure PowerShell para automatizar la implementación y administración de App Service. En este ejemplo se muestra cómo eliminar una copia de seguridad de una aplicación.
 author: msangapu-msft
 tags: azure-service-management
@@ -9,10 +9,10 @@ ms.date: 10/30/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurepowershell
 ms.openlocfilehash: 29eda8fcb24dce6c54fb56c94d242513b319caad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89073971"
 ---
 # <a name="delete-a-backup-for-a-web-using-azure-powershell"></a>Eliminación de una copia de seguridad de una Web mediante Azure PowerShell

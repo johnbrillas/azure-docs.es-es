@@ -5,12 +5,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2020
-ms.openlocfilehash: 06a73b495cefc361db88d80413f4f4be50e105d1
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a5788e5ac64c1c74a06c94c5634a05315ee098b8
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041151"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799299"
 ---
 # <a name="log-analytics-tutorial"></a>Tutorial de Log Analytics
 Log Analytics es una herramienta de Azure Portal que se usa para editar y ejecutar consultas de registros en los datos que se recopilan en los registros de Azure Monitor, y analizar los resultados de forma interactiva. Puede usar consultas de Log Analytics para recuperar registros que coincidan con determinados criterios, identificar tendencias, analizar patrones y proporcionar una gran variedad de información sobre los datos. 
@@ -72,7 +72,7 @@ Se agrega una instrucción **where** a la consulta con el valor que seleccionó.
 ## <a name="time-range"></a>Intervalo de horas
 Todas las tablas de un área de trabajo de Log Analytics tienen una columna denominada **TimeGenerated** que es la hora a la que se creó el registro. Todas las consultas tienen un intervalo de tiempo que limita los resultados a los registros con un valor **TimeGenerated** que se encuentra dentro de ese intervalo. El intervalo de tiempo se puede establecer en la consulta o con el selector en la parte superior de la pantalla.
 
-De forma predeterminada, la consulta devolverá los registros de las últimas 24 horas. Seleccione el menú desplegable **Intervalo de tiempo** y cambie el valor a **7 días**. Haga clic en **Ejecutar** de nuevo para que se devuelvan los resultados. Ahora puede ver que se devuelven resultados, pero hay un mensaje que indica que no se están viendo todos los resultados. Esto se debe a que Log Analytics puede devolver un máximo de 10 000 registros y la consulta ha devuelto un número superior a ese. 
+De forma predeterminada, la consulta devolverá los registros de las últimas 24 horas. Seleccione el menú desplegable **Intervalo de tiempo** y cambie el valor a **7 días**. Haga clic en **Ejecutar** de nuevo para que se devuelvan los resultados. Ahora puede ver que se devuelven resultados, pero hay un mensaje que indica que no se están viendo todos los resultados. Esto se debe a que Log Analytics puede devolver un máximo de 30 000 registros y la consulta ha devuelto un número superior. 
 
 [![Intervalo de horas](media/log-analytics-tutorial/query-results-max.png)](media/log-analytics-tutorial/query-results-max.png#lightbox)
 

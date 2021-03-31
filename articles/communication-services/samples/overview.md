@@ -9,12 +9,12 @@ ms.author: rifox
 ms.date: 03/12/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 5e17943d7867bfd6b93d95b6ec0b6e0049a784ef
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: a5b3a94a0b1253b946239cd26113e9dfc955dd9a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103555086"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955965"
 ---
 # <a name="samples"></a>Ejemplos
 
@@ -24,7 +24,7 @@ Azure Communication Services tiene muchos ejemplos disponibles, que puede usar p
 
 | Nombre del ejemplo                                                                                          | Descripción                                                         | Idiomas y plataformas disponibles      |
 | :--------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------ | :--------------------------------- |
-| [Ejemplo de elementos principales de una llamada grupal](./calling-hero-sample.md)                                                | Proporciona un ejemplo de creación de una aplicación de llamada grupal.          | Web, iOS                           |
+| [Ejemplo de elementos principales de una llamada grupal](./calling-hero-sample.md)                                                | Proporciona un ejemplo de creación de una aplicación de llamada grupal.          | Web, iOS, Android                           |
 | [Ejemplo de llamada web](./web-calling-sample.md)                                                        | Tutorial paso a paso de las características de llamada de ACS en la Web. | Web                                |
 | [Ejemplo de elementos principales de un chat](./chat-hero-sample.md)                                                            | Proporciona un ejemplo de creación de una aplicación de chat.                   | Web y C# .NET                      |
 | [Aplicación médica de Contoso](https://github.com/Azure-Samples/communication-services-contoso-med-app)       | Aplicación de ejemplo que muestra un flujo de paciente-doctor.                     | Web y Node.js                      |

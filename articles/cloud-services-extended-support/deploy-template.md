@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 71217e6379c02191311f5d93cb439d9da20080bc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6d54216d8992b5bb233c79919284f96b24385651
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101706969"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865594"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Implementación de una instancia de Cloud Service (soporte extendido) mediante plantillas de ARM
 
@@ -44,6 +44,9 @@ En este tutorial se explica cómo crear la implementación de una instancia de C
 
 ## <a name="deploy-a-cloud-service-extended-support"></a>Implementación de una instancia de Cloud Services (soporte extendido)
 
+> [!NOTE]
+> Una manera más fácil y rápida de generar la plantilla de ARM y el archivo de parámetros es a través de [Azure Portal](https://portal.azure.com). Puede [descargar la plantilla de ARM generada](generate-template-portal.md) del portal para crear su servicio en la nube mediante PowerShell.
+ 
 1. Cree una red virtual. El nombre de la red virtual debe coincidir con las referencias del archivo de configuración del servicio (.cscfg). Si usa una red virtual existente, omita esta sección de la plantilla de ARM.
 
     ```json
@@ -138,7 +141,7 @@ En este tutorial se explica cómo crear la implementación de una instancia de C
     ```
  
 
-4. Agregue la referencia al almacén de claves en la sección `OsProfile` de la plantilla de ARM. Key Vault se usa para almacenar certificados asociados a Cloud Services (soporte extendido). Agregue los certificados a la instancia de Key Vault y haga referencia a las huellas digitales del certificado en el archivo de configuración de servicio (.cscfg). También debe habilitar Key Vault para los permisos adecuados, de modo que el recurso de Cloud Services (soporte extendido) pueda recuperar el certificado almacenado como secretos de Key Vault. El almacén de claves debe estar ubicado en la misma región y suscripción que el servicio en la nube, y debe tener un nombre único. Para más información, consulte [Uso de certificados con Cloud Services (soporte extendido)](certificates-and-key-vault.md).
+4. Agregue la referencia al almacén de claves en la sección `OsProfile` de la plantilla de ARM. Key Vault se usa para almacenar certificados asociados a Cloud Services (soporte extendido). Agregue los certificados a la instancia de Key Vault y haga referencia a las huellas digitales del certificado en el archivo de configuración de servicio (.cscfg). También debe habilitar "Directivas de acceso" en "Azure Virtual Machines para la implementación" en Key Vault, de modo que el recurso de Cloud Services (soporte extendido) pueda recuperar el certificado almacenado como secretos de Key Vault. El almacén de claves debe estar ubicado en la misma región y suscripción que el servicio en la nube, y debe tener un nombre único. Para más información, consulte [Uso de certificados con Cloud Services (soporte extendido)](certificates-and-key-vault.md).
      
     ```json
     "osProfile": { 
@@ -188,7 +191,9 @@ En este tutorial se explica cómo crear la implementación de una instancia de C
     ```
 
 6. Si lo desea, cree un objeto de perfil de extensión que desee agregar al servicio en la nube. En este ejemplo, vamos a agregar el escritorio remoto y la extensión de diagnósticos de Windows Azure.
-    
+   > [!Note] 
+   > La contraseña del escritorio remoto debe tener una longitud de entre 8 y 123 caracteres, y debe cumplir al menos 3 de los siguientes requisitos de complejidad de contraseña: 1) Contener un carácter en mayúsculas. 2) Contener un carácter en minúsculas. 3) Contener un dígito numérico. 4) Contener un carácter especial. 5) No se permiten los caracteres de control.
+
     ```json
         "extensionProfile": {
           "extensions": [
